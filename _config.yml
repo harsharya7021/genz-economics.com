@@ -50,9 +50,9 @@ social:
   twitter: genzeconomics
 
 # Editorial
-repository: "genz-economics/genz-economics.com"
-edit_base_url: "https://github.com/genz-economics/genz-economics.com/edit/main"
-issue_base_url: "https://github.com/genz-economics/genz-economics.com/issues/new/choose"
+repository: "harsharya7021/genz-economics.com"
+edit_base_url: "https://github.com/harsharya7021/genz-economics.com/edit/main"
+issue_base_url: "https://github.com/harsharya7021/genz-economics.com/issues/new/choose"
 
 # Skip noise
 exclude:

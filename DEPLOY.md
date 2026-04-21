@@ -29,7 +29,7 @@ git init
 git add .
 git commit -m "Initial commit: site scaffold, docs, stub posts"
 git branch -M main
-git remote add origin git@github.com:genz-economics/genz-economics.com.git
+git remote add origin git@github.com:harsharya7021/genz-economics.com.git
 git push -u origin main
 ```
 

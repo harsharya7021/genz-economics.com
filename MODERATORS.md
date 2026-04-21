@@ -8,7 +8,7 @@ Gen Z Economics is maintained by a rotating group of student moderators. Moderat
 
 | Name  | GitHub  | Role             | Since |
 |-------|---------|------------------|-------|
-| Harsh | —       | Founding editor  | 2026  |
+| Harsh | [@harsharya7021](https://github.com/harsharya7021) | Founding editor | 2026 |
 |       |         |                  |       |
 
 ## How to become a moderator

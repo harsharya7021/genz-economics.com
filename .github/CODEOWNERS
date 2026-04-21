@@ -7,17 +7,17 @@
 # Syntax: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Everything — fallback to founding editors
-*           @harsh
+*           @harsharya7021
 
 # Content paths — any moderator can review
-/_posts/    @harsh
-/about.md   @harsh
-/contribute.md @harsh
+/_posts/    @harsharya7021
+/about.md   @harsharya7021
+/contribute.md @harsharya7021
 
 # Site machinery — reserve for maintainers
-/_config.yml       @harsh
-/_layouts/         @harsh
-/_includes/        @harsh
-/assets/css/       @harsh
-/Gemfile           @harsh
-/.github/          @harsh
+/_config.yml       @harsharya7021
+/_layouts/         @harsharya7021
+/_includes/        @harsharya7021
+/assets/css/       @harsharya7021
+/Gemfile           @harsharya7021
+/.github/          @harsharya7021

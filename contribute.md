@@ -15,7 +15,7 @@ You'll need a free GitHub account — that's it.
 
 ## The 30-second way: open an issue
 
-See something wrong but don't want to fix it yourself? [Open an Issue](https://github.com/genz-economics/genz-economics.com/issues/new/choose) using one of our templates:
+See something wrong but don't want to fix it yourself? [Open an Issue](https://github.com/harsharya7021/genz-economics.com/issues/new/choose) using one of our templates:
 
 - **Spotted an error** — typo, wrong number, broken link.
 - **Suggest an explainer** — something's confusing and needs a worked example.
@@ -36,7 +36,7 @@ Don't worry about getting it perfect — that's what review is for.
 
 A rotating group of **student moderators**, currently drawn from the Finance Club. We're intentionally keeping the bar *low for suggestions, high for merges* — easy to contribute, but nothing ships without a sanity check.
 
-The moderator roster and how to join lives in [`MODERATORS.md`](https://github.com/genz-economics/genz-economics.com/blob/main/MODERATORS.md) in the repo.
+The moderator roster and how to join lives in [`MODERATORS.md`](https://github.com/harsharya7021/genz-economics.com/blob/main/MODERATORS.md) in the repo.
 
 ## What makes a good contribution
 
@@ -47,4 +47,4 @@ The moderator roster and how to join lives in [`MODERATORS.md`](https://github.c
 
 ## Code of Conduct
 
-This is a student-run space. Be kind, assume good faith, ask questions. The full [Code of Conduct](https://github.com/genz-economics/genz-economics.com/blob/main/CODE_OF_CONDUCT.md) lives in the repo.
+This is a student-run space. Be kind, assume good faith, ask questions. The full [Code of Conduct](https://github.com/harsharya7021/genz-economics.com/blob/main/CODE_OF_CONDUCT.md) lives in the repo.

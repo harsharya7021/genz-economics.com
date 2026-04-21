@@ -12,7 +12,7 @@ You don't need to install anything. You don't need to run the site locally.
 
 ### 2. Open an Issue
 
-Don't want to make the fix yourself? Go to **[Issues → New issue](https://github.com/genz-economics/genz-economics.com/issues/new/choose)** and pick the right template:
+Don't want to make the fix yourself? Go to **[Issues → New issue](https://github.com/harsharya7021/genz-economics.com/issues/new/choose)** and pick the right template:
 
 - 🐛 **Spotted an error** — factual mistake, typo, wrong number, broken link.
 - 💡 **Suggest an explainer** — concept is confusing, needs a better example, a diagram, or a worked problem.
