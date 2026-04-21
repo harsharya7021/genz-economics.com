@@ -1,0 +1,34 @@
+name: "✨ Propose a new note"
+description: "A topic we haven't covered at all, or a current event worth explaining."
+title: "[new note] "
+labels: ["new-note"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: "e.g. How the RBI's liquidity framework actually works"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is this worth covering?
+      placeholder: "Tantri mentioned it in session 4 but didn't go deep, and it connects to the current rate cycle."
+
+  - type: textarea
+    id: angle
+    attributes:
+      label: Suggested angle (optional)
+      description: How would you explain it? What's the hook?
+
+  - type: dropdown
+    id: writer
+    attributes:
+      label: Would you want to write it?
+      options:
+        - "Yes — I'll draft it"
+        - "Maybe — with help"
+        - "No — just proposing"
+      default: 2

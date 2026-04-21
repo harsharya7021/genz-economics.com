@@ -1,0 +1,18 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+Gemfile.lock
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Source files kept outside the site; not for publishing
+/source-docs/
+/source-docs/**
+*.docx
+*.m4a
+*.mp4
+*.vtt

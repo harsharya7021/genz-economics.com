@@ -1,0 +1,33 @@
+name: "🐛 Spotted an error"
+description: "Typo, factual mistake, wrong number, broken link."
+title: "[error] "
+labels: ["content-error"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      description: Paste the URL or the post title.
+      placeholder: "https://genz-economics.com/2025/11/aggregate-demand-and-monetary-policy/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong?
+      description: Quote the exact sentence / number / equation if you can.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should it say?
+      description: If you know the right version, drop it here. If you're unsure, that's fine too.
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source (if any)
+      description: RBI data, a paper, a slide, a textbook. A link is great.

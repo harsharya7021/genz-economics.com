@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% seo title=false %}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+  <!-- Fonts: editorial serif + clean sans + mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+</head>
+<body class="{{ page.layout | default: 'default' }}">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="{{ '/' | relative_url }}">
+        <span class="wordmark-g">gen&nbsp;z</span><span class="wordmark-dot">·</span><span class="wordmark-e">economics</span>
+      </a>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Notes</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/contribute/' | relative_url }}">Contribute</a>
+        <a class="ext" href="{{ site.repository | prepend: 'https://github.com/' }}" target="_blank" rel="noopener">GitHub →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="wordmark small">
+          <span class="wordmark-g">gen&nbsp;z</span><span class="wordmark-dot">·</span><span class="wordmark-e">economics</span>
+        </div>
+        <p class="footer-tag">Open-source macroeconomics notes. Refined in public.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contribute</h4>
+        <ul>
+          <li><a href="{{ site.edit_base_url }}/index.html">Edit this page</a></li>
+          <li><a href="{{ site.issue_base_url }}">Suggest an edit</a></li>
+          <li><a href="{{ site.repository | prepend: 'https://github.com/' }}">Repository</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li>Moderated by students of the Finance Club</li>
+          <li>Based on Prof. Tantri's sessions</li>
+          <li>Licensed CC&nbsp;BY&nbsp;4.0</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyline">
+      © {{ 'now' | date: '%Y' }} Gen Z Economics · Built on Jekyll · <a href="{{ site.repository | prepend: 'https://github.com/' }}">fork it</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Open-source · student-moderated · still figuring it out</p>
+    <h1 class="display">
+      Macroeconomics, <em>refined in public.</em>
+    </h1>
+    <p class="lede">
+      A living archive of notes from Prof. Tantri's macro sessions. Anyone can read. Anyone can suggest. Moderators merge. The site updates itself.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#latest">Read the notes ↓</a>
+      <a class="btn btn-ghost" href="{{ '/contribute/' | relative_url }}">Contribute →</a>
+    </div>
+    <ul class="hero-meta">
+      <li><strong>{{ site.posts | size }}</strong> sessions published</li>
+      <li><strong>PR-based</strong> editorial flow</li>
+      <li><strong>CC&nbsp;BY&nbsp;4.0</strong> — remix, translate, teach</li>
+    </ul>
+  </div>
+</section>
+
+<section id="latest" class="feed">
+  <div class="container">
+    <div class="section-head">
+      <h2>Latest notes</h2>
+      <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+
+    <ol class="post-list">
+      {% for post in site.posts %}
+      <li class="post-card">
+        <a class="post-card-link" href="{{ post.url | relative_url }}">
+          <div class="post-meta">
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            {% if post.session %}<span class="post-session">Session {{ post.session }}</span>{% endif %}
+          </div>
+          <h3 class="post-title">{{ post.title }}</h3>
+          {% if post.excerpt_override %}
+            <p class="post-dek">{{ post.excerpt_override }}</p>
+          {% else %}
+            <p class="post-dek">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+          {% endif %}
+          {% if post.tags.size > 0 %}
+          <ul class="chips">
+            {% for t in post.tags %}<li>#{{ t }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Spot a mistake? Want to add an explainer?</h2>
+    <p>Open a Pull Request, or file an issue. A student moderator will review it.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="{{ site.issue_base_url }}">Suggest an edit</a>
+      <a class="btn btn-ghost" href="{{ '/contribute/' | relative_url }}">How contribution works →</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────
+# Gen Z Economics — Jekyll config
+# ─────────────────────────────────────────────────────────────
+
+title: Gen Z Economics
+tagline: Open-source macroeconomics notes, refined in public.
+description: >
+  Community-maintained macroeconomics notes from Prof. Tantri's sessions.
+  Open source. Suggest edits, propose new explainers, learn out loud.
+url: "https://genz-economics.com"
+baseurl: ""
+lang: en
+timezone: Asia/Kolkata
+
+# Build
+permalink: /:year/:month/:title/
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Plugins (all supported by GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/page:num/"
+
+# Collections / defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+
+# Site metadata
+author:
+  name: The Gen Z Economics Community
+  email: hello@genz-economics.com
+
+social:
+  github: genz-economics
+  twitter: genzeconomics
+
+# Editorial
+repository: "genz-economics/genz-economics.com"
+edit_base_url: "https://github.com/genz-economics/genz-economics.com/edit/main"
+issue_base_url: "https://github.com/genz-economics/genz-economics.com/issues/new/choose"
+
+# Skip noise
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - CONTRIBUTING.md
+  - MODERATORS.md
+  - CODE_OF_CONDUCT.md
+  - .github

@@ -1,0 +1,23 @@
+# CODEOWNERS for Gen Z Economics
+#
+# GitHub will auto-request a review from the listed owners whenever a PR
+# touches a matching path. Replace the placeholders below with actual
+# GitHub handles as you onboard moderators.
+#
+# Syntax: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Everything — fallback to founding editors
+*           @harsh
+
+# Content paths — any moderator can review
+/_posts/    @harsh
+/about.md   @harsh
+/contribute.md @harsh
+
+# Site machinery — reserve for maintainers
+/_config.yml       @harsh
+/_layouts/         @harsh
+/_includes/        @harsh
+/assets/css/       @harsh
+/Gemfile           @harsh
+/.github/          @harsh

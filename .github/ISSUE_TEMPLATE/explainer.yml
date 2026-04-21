@@ -1,0 +1,25 @@
+name: "💡 Suggest an explainer"
+description: "Something's confusing and could use a better example, diagram, or worked problem."
+title: "[explainer] "
+labels: ["explainer-request"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page (or which concept)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: confusion
+    attributes:
+      label: What's confusing?
+      description: Describe what tripped you up. Specific is better than general.
+    validations:
+      required: true
+
+  - type: textarea
+    id: wish
+    attributes:
+      label: What would help?
+      placeholder: "A worked example with actual numbers · a diagram · an intuition in one paragraph · a link to a better source."

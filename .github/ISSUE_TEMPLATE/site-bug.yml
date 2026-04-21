@@ -1,0 +1,22 @@
+name: "🎨 Site bug"
+description: "Something broken about the website itself (layout, CSS, link, etc.)"
+title: "[site] "
+labels: ["site"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: where
+    attributes:
+      label: Where?
+      placeholder: "URL · browser · device"
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?

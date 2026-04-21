@@ -1,0 +1,57 @@
+---
+layout: post
+title: "The thing you're writing about"
+dek: "One-sentence deck that shows under the title. Keep it crisp."
+date: 2026-04-21
+session: 7                       # optional — only for lecture notes
+tags: [macro, monetary-policy]   # lowercase, hyphenated
+excerpt_override: "Short summary shown on the homepage card. 1–2 sentences."
+authors:
+  - your-github-handle
+editors: []                      # filled in by moderators after review
+---
+
+## TL;DR
+
+Two to three bullets that a tired classmate would read on their phone before class:
+
+- Key takeaway one.
+- Key takeaway two.
+- What it connects to.
+
+## The setup
+
+Set the scene. Why does this matter? What real-world thing does it explain?
+
+## The model
+
+Walk through the actual macro content. Define terms the first time you use them.
+
+> You can drop key equations in block quotes like this for emphasis.
+
+## A worked example
+
+Put a number in. Show how the model moves. Use **real Indian data** where possible — RBI, MoSPI, CMIE, budget docs.
+
+## What to remember for the exam
+
+- Bullet.
+- Bullet.
+- The thing that's easy to confuse with the other thing.
+
+## Open questions
+
+Stuff Tantri mentioned but didn't have time for. Great candidates for follow-up posts.
+
+## Sources
+
+- Prof. Tantri, Session N slides.
+- RBI Bulletin, [month year], table X.
+- A textbook reference if used.
+
+---
+
+> **Note format:**
+> Delete any section you don't need.
+> Rename the filename to `YYYY-MM-DD-your-slug.md` and remove the `.txt` extension
+> (the template has `.md.txt` so Jekyll doesn't try to publish it).

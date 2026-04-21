@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<article class="post">
+  <div class="container narrow">
+    <header class="post-header">
+      <p class="eyebrow">
+        {% if page.session %}Session {{ page.session }} · {% endif %}{{ page.date | date: "%b %-d, %Y" }}
+      </p>
+      <h1 class="post-title-display">{{ page.title }}</h1>
+      {% if page.dek %}<p class="lede">{{ page.dek }}</p>{% endif %}
+      {% if page.tags.size > 0 %}
+      <ul class="chips">
+        {% for t in page.tags %}<li>#{{ t }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </header>
+
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      <hr class="rule">
+      <div class="post-actions">
+        <a class="btn btn-ghost" href="{{ site.edit_base_url }}/_posts/{{ page.path | split: '/' | last }}">✎ Suggest an edit on GitHub</a>
+        <a class="btn btn-ghost" href="{{ site.issue_base_url }}">⚑ Report an error</a>
+      </div>
+      <p class="post-note">
+        These notes are community-maintained and licensed CC&nbsp;BY&nbsp;4.0. Credit to Prof. Tantri for the underlying lectures.
+      </p>
+
+      <nav class="post-nav">
+        {% if page.previous %}
+          <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+        {% endif %}
+        {% if page.next %}
+          <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+        {% endif %}
+      </nav>
+    </footer>
+  </div>
+</article>
