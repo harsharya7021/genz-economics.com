@@ -35,7 +35,7 @@ Supplementary: Prof will provide readings for each session
 
 ## **Real-World Motivations and Examples**
 
-Professor Tantri grounds macroeconomic theory in practical economic realities through three motivating examples.
+macroeconomics grounding theory in practical economic realities.
 
 ### **Example 1: Micro-lending in Hyderabad**
 
@@ -113,7 +113,7 @@ The causal chain: Increased Work Supply → Higher Income → Increased Consumpt
 
 ### **Island Economy Setup**
 
-![](/assets/img/notes/image1.png)
+![](/assets/img/notes/image21.png)
 
 ### **Island Economy Parameters**
 
@@ -131,7 +131,7 @@ The causal chain: Increased Work Supply → Higher Income → Increased Consumpt
 
 ## **Setup and Effects**
 
-![](/assets/img/notes/image2.png)
+![](/assets/img/notes/image20.png)
 
 The government imposes a 2 kg rice tax and hires 1 worker as a police officer.
 
@@ -155,7 +155,7 @@ Loss: 0.5 kg (economic waste from the policy)
 
 Government is justified only when services increase productivity enough to offset deadweight loss.
 
-![](/assets/img/notes/image3.png)
+![](/assets/img/notes/image10.png)
 
 **Scenario 2: Investment and Capital Formation**
 
@@ -185,7 +185,7 @@ The real interest rate is the expected percentage return on investment. If the p
 
 ### **Economy in the Long Run**
 
-![](/assets/img/notes/image4.png)
+![](/assets/img/notes/image1.png)
 
 # **Key Takeaways and Conclusions**
 

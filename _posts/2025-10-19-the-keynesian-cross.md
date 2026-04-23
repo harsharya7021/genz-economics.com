@@ -37,17 +37,16 @@ These two need NOT be equal in the short term. If demand exceeds supply, invento
 
 **Z = C + I + G**
 
-### **C (Consumption):** Spending on goods and services whose utility is exhausted within one time period.
+### **C(Consumption):** Spending on goods and services whose utility is exhausted within one time period.
 
-### **I (Investment):** Spending on capital goods (primarily machinery, equipment, and infrastructure) that provide benefits over multiple periods.
+### **I(Investment):** Spending on capital goods (primarily machinery, equipment, and infrastructure) that provide benefits over multiple periods.
 
-### **G (Government Spending):** Government purchases of goods, services, and public investment.
+### **G(Government Spending):** Government purchases of goods, services, and public investment.
 
 ## **International Consumption Patterns**
 
-|               |                          |
-| ------------- | ------------------------ |
 | **Country**   | **Consumption % of GDP** |
+| ------------- | ------------------------ |
 | United States | ~70%                    |
 | India         | 56-60%                   |
 | China         | ~40%                    |
@@ -64,11 +63,11 @@ India's consumption share has actually GROWN over recent decades. What has falle
 
 Consumption that occurs regardless of current income. Driven by:
 
-1.  Borrowing against future income
+1.  > Borrowing against future income
 
-2.  Wealth effects (e.g., when gold prices rise)
+2.  > Wealth effects (e.g., when gold prices rise)
 
-3.  Expectations about future income
+3.  > Expectations about future income
 
 ### **C1: Marginal Propensity to Consume (MPC)**
 
@@ -82,15 +81,15 @@ Income after taxes. Y = national income, T = total taxes.
 
 The Keynesian framework assumes prices are rigid in the extreme short run. This is a foundational assumption that makes demand changes translate into output changes rather than pure price movements. As we move further out, prices become more flexible and the classical model's predictions dominate.
 
-# **GST Cuts & Stimulus: Real-World Application**
+# **5. GST Cuts & Stimulus: Real-World Application**
 
 Professor Tantri uses GST cuts as a concrete case study to illustrate the model's implications and limitations.
 
-## **The Naive View**
+## **5.1 The Naive View**
 
 Media reports often claim that GST cuts stimulate the economy by increasing consumption. The assumption implicit in this view: reduce T → increase (Y - T) → increase C → increase Z → increase Y.
 
-## **The Critical Flaw**
+## **5.2 The Critical Flaw**
 
 **When taxes (T) decrease, government revenue also decreases.**
 
@@ -102,7 +101,7 @@ Unless the government either:
 
 The stimulus will be incomplete or unsustainable.
 
-## **Two Scenarios**
+## **5.3 Two Scenarios**
 
 ### **Scenario A: G Stays Constant (Deficit Increases)**
 
@@ -120,7 +119,7 @@ If government cuts spending proportionally to maintain budget balance:
 > 
 > • The multiplier effect depends on the relative sizes of these changes
 
-## **Real-World Example: Sri Lanka**
+## **5.4 Real-World Example: Sri Lanka**
 
 **Sri Lanka provides a cautionary tale.** The government cut taxes without corresponding expenditure reductions. The result: larger deficits, inflation expectations rose, and the stimulus collapsed into a severe debt crisis. This demonstrates why the assumption that "any assumption breaks → inflation expectations rise → stimulus collapses" is not merely theoretical but empirically relevant.
 
@@ -128,29 +127,29 @@ If government cuts spending proportionally to maintain budget balance:
 
 Professor Tantri offers a brief but insightful digression on tariffs and pricing:
 
-## **The Key Insight**
+## **6.1 The Key Insight**
 
 In oligopolistic markets (few large suppliers), firms have pricing power and may absorb tariffs rather than pass them fully to consumers. In competitive markets, tariffs are passed through 1:1 to prices.
 
-## **Business Intelligence Application**
+## **6.2 Business Intelligence Application**
 
 When tariffs are imposed and prices DON'T rise proportionally, this reveals important information: the market is NOT competitive. High-margin oligopolists are absorbing the cost. This can be valuable intelligence for business strategy and competitive analysis.
 
-# **The Keynesian Cross Equation**
+# **7. The Keynesian Cross Equation**
 
 This section derives the fundamental equation of the Keynesian model.
 
-## **Starting Point**
+## **7.1 Starting Point**
 
 **Z = C0 + C1(Y - T) + I-bar + G-bar**
 
-## **Equilibrium Condition**
+## **7.2 Equilibrium Condition**
 
 In equilibrium, aggregate demand equals output:
 
 **Y = Z**
 
-## **Solving for Equilibrium Output**
+## **7.3 Solving for Equilibrium Output**
 
 *Substituting the consumption function into the demand equation and setting Y = Z:*
 
@@ -168,15 +167,15 @@ Factoring:
 
 **Y(1 - C1) = C0 - C1\*T + I-bar + G-bar**
 
-## **Equilibrium Output (Keynesian Cross Solution)**
+## **7.4 Equilibrium Output (Keynesian Cross Solution)**
 
 **Y\* = (C0 - C1\*T + I-bar + G-bar) / (1 - C1)**
 
-![Title: Full Consumption Equation - Description: Z = C0 + C1(Y-T) + I + G with MPC](/assets/img/notes/image5.jpg)
+![Title: Full Consumption Equation - Description: Z = C0 + C1(Y-T) + I + G with MPC](/assets/img/notes/image17.jpg)
 
 *Figure 2: Whiteboard showing the complete consumption function with MPC notation*
 
-## **The Fiscal Multiplier**
+## **7.5 The Fiscal Multiplier**
 
 The term 1/(1 - C1) is the **Keynesian multiplier**. It shows how much output expands for each unit increase in autonomous spending (whether from C0, I-bar, or G-bar).
 
@@ -266,7 +265,7 @@ The intersection of the aggregate demand curve and the 45-degree line determines
 > 
 > • The economy moves leftward along the demand curve toward equilibrium
 
-![Title: Keynesian Cross Diagram - Description: Equilibrium derivation and complete Keynesian Cross diagram](/assets/img/notes/image6.jpg)
+![Title: Keynesian Cross Diagram - Description: Equilibrium derivation and complete Keynesian Cross diagram](/assets/img/notes/image22.jpg)
 
 *complete equilibrium derivation and the Keynesian Cross diagram*
 
@@ -288,11 +287,11 @@ If the economy is near full capacity, an increase in demand will simply raise pr
 
 # **The Paradox of Thrift**
 
-## **The Paradox**
+## **10.1 The Paradox**
 
 **In the Keynesian framework, increased savings can be BAD for short-run output.**
 
-## **Mechanism**
+## **10.2 Mechanism**
 
 If households increase their savings rate, they reduce their consumption (lower C1 or increase (1 - C1)). If interest rates do not fall (e.g., the central bank holds rates constant), this reduced consumption:
 
@@ -302,23 +301,25 @@ If households increase their savings rate, they reduce their consumption (lower 
 > 
 > • Income falls, which can reduce actual savings despite the desire to save more
 
-## **The Classical Resolution**
+## **10.3 The Classical Resolution**
 
 The paradox is resolved in the long run if lower savings leads to lower interest rates, which stimulates investment. When investment rises enough to offset consumption's decline, output returns to trend. However, during the transition (which is what Keynesian analysis focuses on), higher savings can be contractionary.
 
-# **Credit & Delinquency Discussion**
+# **11. Credit & Delinquency Discussion**
+
+**Timeline:** [46:40 - 50:50]
 
 A student raises a question about unsecured lending: consumers borrowing to purchase items like iPhones or concert tickets. Professor Tantri provides important context.
 
-## **Short-Run Effect**
+## **11.1 Short-Run Effect**
 
 When unsecured lending expands, C0 (autonomous consumption) increases because more people can borrow. This directly boosts aggregate demand and output through the multiplier. The short-run stimulus is real.
 
-## **Delinquency Risk**
+## **11.2 Delinquency Risk**
 
 However, if delinquencies rise on unsecured loans (borrowers unable to repay), lenders reduce credit supply. This contracts future consumption and aggregate demand.
 
-## **Systemic Risk Assessment**
+## **11.3 Systemic Risk Assessment**
 
 Professor Tantri notes that unsecured lending in India currently (~4-5 lakh crores) represents only about 5% of the ~180 lakh crore banking system. Compared to the scale of the 2008 US subprime crisis, this is
 
@@ -336,35 +337,35 @@ Professor Tantri notes that unsecured lending in India currently (~4-5 lakh cror
 
 ## **1. Aggregate Demand Framework**
 
-> 1\. Aggregate demand (Z = C + I + G) determines short-run output when prices are rigid. GDP and demand need not be equal; the gap drives inventory and production adjustments.
+> 6\. Aggregate demand (Z = C + I + G) determines short-run output when prices are rigid. GDP and demand need not be equal; the gap drives inventory and production adjustments.
 
 ## **2. Consumption Function**
 
-> 2\. C = C0 + C1(Y - T) separates autonomous consumption from income-dependent consumption. The MPC (C1) is the critical parameter determining multiplier size.
+> 7\. C = C0 + C1(Y - T) separates autonomous consumption from income-dependent consumption. The MPC (C1) is the critical parameter determining multiplier size.
 
 ## **3. Fiscal Multiplier**
 
-> 3\. The multiplier = 1/(1 - C1) amplifies shocks. Higher MPC means larger multiplier. Changes in government spending, taxes, or investment are magnified through multiple rounds of spending and income.
+> 8\. The multiplier = 1/(1 - C1) amplifies shocks. Higher MPC means larger multiplier. Changes in government spending, taxes, or investment are magnified through multiple rounds of spending and income.
 
 ## **4. GST Cuts & Policy Design**
 
-> 4\. Tax cuts only stimulate if government spending is maintained and inflation expectations remain anchored. If either assumption breaks, stimulus fails. Sri Lanka's experience shows real costs of unsustainable fiscal policy.
+> 9\. Tax cuts only stimulate if government spending is maintained and inflation expectations remain anchored. If either assumption breaks, stimulus fails. Sri Lanka's experience shows real costs of unsustainable fiscal policy.
 
 ## **5. Keynesian Cross Dynamics**
 
-> 5\. The intersection of aggregate demand and the 45-degree line (Y = Z) determines equilibrium. Below equilibrium, rising demand boosts output. Above, falling demand contracts output. The economy naturally converges to equilibrium through inventory mechanisms.
+> 10\. The intersection of aggregate demand and the 45-degree line (Y = Z) determines equilibrium. Below equilibrium, rising demand boosts output. Above, falling demand contracts output. The economy naturally converges to equilibrium through inventory mechanisms.
 
 ## **6. Paradox of Thrift**
 
-> 6\. In the short run, increased savings can reduce consumption → reduce aggregate demand → reduce output. This is only resolved if lower savings rates lead to lower interest rates that stimulate investment.
+> 11\. In the short run, increased savings can reduce consumption → reduce aggregate demand → reduce output. This is only resolved if lower savings rates lead to lower interest rates that stimulate investment.
 
 ## **7. Animal Spirits**
 
-> 7\. Sudden shifts in confidence (unrelated to fundamentals) change autonomous consumption and trigger multiplier booms or busts. Business and consumer sentiment are real drivers of macroeconomic fluctuations.
+> 12\. Sudden shifts in confidence (unrelated to fundamentals) change autonomous consumption and trigger multiplier booms or busts. Business and consumer sentiment are real drivers of macroeconomic fluctuations.
 
 ## **8. Supply-Side Constraint**
 
-> 8\. The model assumes slack in the economy (unemployment, excess capacity). If the economy is near full capacity, demand increases drive prices, not output. Policy effectiveness depends critically on the economic slack available.
+> 13\. The model assumes slack in the economy (unemployment, excess capacity). If the economy is near full capacity, demand increases drive prices, not output. Policy effectiveness depends critically on the economic slack available.
 
 # **Session References**
 
@@ -374,7 +375,7 @@ Sri Lanka's fiscal crisis demonstrates the real costs of violating model assumpt
 
 The observation that tariff incidence (whether prices rise proportionally) reveals market structure is a valuable tool for business analysis of competitive dynamics.
 
-# **Supplementary Notes (From My Handwritten Notes)**
+# **Supplementary Notes (From Student's Handwritten Notes)**
 
 ## **Keynesian Way of Consumption**
 
@@ -410,7 +411,7 @@ The multiplier cycle: Output → Increasing income → Demand creates income →
 
 Equilibrium: Y = (C₀ − C₁T + Ī + Ḡ) / (1 − C₁)
 
-![](/assets/img/notes/image8.jpg)
+![](/assets/img/notes/image27.jpg)
 
 *Keynesian Cross — Goods Market Equilibrium (Recreated from handwritten notes)*
 
@@ -426,6 +427,6 @@ The Keynesian view is good in the short-term because assumptions (price rigidity
 
 Production/labour efficiency/human capital constraints apply in the longer run
 
-![](/assets/img/notes/image9.jpg)
+![](/assets/img/notes/image15.jpg)
 
-*Fiscal Multiplier & Income-Demand Cycle* ![](/assets/img/notes/image10.png)
+*Fiscal Multiplier & Income-Demand Cycle* ![](/assets/img/notes/image18.png)

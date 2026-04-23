@@ -15,7 +15,7 @@ editors: []
 
 This session begins by revisiting the fundamental aggregate demand equation that forms the foundation of Keynesian macroeconomic analysis. Understanding this model is essential for analysing how consumption, investment, and government spending interact to determine income equilibrium in the short run.
 
-![Title: Aggregate Demand Equation - Description: Screenshot showing Z = c0 + c1(y-t) + I + G](/assets/img/notes/image11.jpg)
+![Title: Aggregate Demand Equation - Description: Screenshot showing Z = c0 + c1(y-t) + I + G](/assets/img/notes/image25.jpg)
 
 ## **The Aggregate Demand Equation**
 
@@ -69,7 +69,7 @@ The denominator (1 - C<sup>1</sup>) in the equilibrium equation gives us the rec
 > 
 > • **If C<sup>1</sup> = 80%:** Multiplier = 1/(1-0.8) = **5** (more consumption per rupee earned = larger multiplier)
 > 
-> • **If C<sup>1</sup> = 90%:** Multiplier = 1/(1-0.9) = **10** (very high consumption rate (low savings rate) leads to very large multiplier)
+> • **If C<sup>1</sup> = 90%:** Multiplier = 1/(1-0.9) = **10** (very high savings rate leads to very large multiplier)
 
 ### **Real-World Application: GST Collection in India**
 
@@ -117,12 +117,14 @@ This is not historical or actual inflation—it is what economic agents ***expec
 The Reserve Bank of India made a calculation error that had significant economic consequences:
 
 <table>
+<thead>
+<tr class="header">
+<th><strong>What RBI Did (Incorrect):</strong></th>
+<th><strong>What They Should Have Done:</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>What RBI Did (Incorrect):</strong></td>
-<td><strong>What They Should Have Done:</strong></td>
-</tr>
-<tr class="even">
 <td><p><strong>Real Rate = Repo Rate - <em>Reported Inflation</em></strong></p>
 <p>6.5% - 4.0% = 2.5%</p></td>
 <td><p><strong>Real Rate = Repo Rate - <em>Expected Inflation</em></strong></p>
@@ -239,7 +241,7 @@ Imagine an equilibrium at income = 100, interest rate = 3%, money held = 10 rupe
 
 **Solution:** Interest rates must INCREASE. The higher rate compensates for the inconvenience of holding less cash relative to income needs. Only with higher interest will people accept a lower cash-to-income ratio.
 
-![Title: Money Demand Equation - Description: Screenshot showing M = $Y × L(I) and money demand chart](/assets/img/notes/image12.jpg)
+![Title: Money Demand Equation - Description: Screenshot showing M = $Y × L(I) and money demand chart](/assets/img/notes/image3.jpg)
 
 *Money demand equation with relationship to income and interest rates*
 
@@ -267,11 +269,11 @@ When plotted on a graph with interest rate on the vertical axis and money quanti
 
 When income increases, the entire money demand curve shifts to the right. At any given interest rate, people now want more money because they have higher income and more transactions to conduct.
 
-![Title: Income/Money Demand Relationship - Description: Screenshot showing income/money demand relationship and graph](/assets/img/notes/image13.jpg)
+![Title: Income/Money Demand Relationship - Description: Screenshot showing income/money demand relationship and graph](/assets/img/notes/image9.jpg)
 
 *Relationship between income and money demand with graphical representation*
 
-![Title: Money Demand Curves - Description: Screenshot showing handwritten money demand curves with annotations](/assets/img/notes/image14.jpg)
+![Title: Money Demand Curves - Description: Screenshot showing handwritten money demand curves with annotations](/assets/img/notes/image30.jpg)
 
 *money demand curves showing shifts with income changes*
 
@@ -328,8 +330,8 @@ This system has a critical vulnerability. When the RBI accommodates persistent g
 <p>1. RBI eases (lowers rates) to accommodate fiscal borrowing</p>
 <p>2. Public sees persistent money supply growth and expects higher inflation</p>
 <p>3. Inflation expectations rise</p>
-<p>4. Market interest rates (bond yields) RISE as investors demand compensation for expected inflation, even though the RBI holds the policy rate steady</p>
-<p>5. This tightens financial conditions despite the RBI's accommodative stance</p></td>
+<p>4. Even though RBI keeps repo rate steady, real rates INCREASE (because expected inflation is now higher)</p>
+<p>5. This tightens monetary conditions despite RBI easing</p></td>
 </tr>
 </tbody>
 </table>
@@ -390,4 +392,4 @@ A central bank targeting the interest rate must maintain credibility that it wil
 > 
 > • Understanding the monetary policy transmission mechanism and its limitations
 
-![](/assets/img/notes/image15.png)
+![](/assets/img/notes/image16.png)

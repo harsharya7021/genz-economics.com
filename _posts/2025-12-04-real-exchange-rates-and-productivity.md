@@ -43,7 +43,7 @@ This session marks the transition from short-term to medium-term framework analy
 
 Indian dentists are younger, better trained, and equipped with superior technology. Yet they earn approximately 1/10th of what US dentists earn. Why? Because their customers are significantly poorer. In non-tradable sectors, compensation is fundamentally limited by local purchasing power, not by worker quality or productivity.
 
-![Title: Tradable vs Non-Tradable Sectors - Description: Lecture diagram](/assets/img/notes/image26.jpg)
+![Title: Tradable vs Non-Tradable Sectors - Description: Lecture diagram](/assets/img/notes/image23.jpg)
 
 # **Real Exchange Rate Appreciation & India's Crisis**
 
@@ -81,9 +81,8 @@ The Real Effective Exchange Rate (REER) is constructed using a basket of 40 curr
 
 ## **India's REER Historical Trajectory**
 
-|                      |                             |
-| -------------------- | --------------------------- |
 | **Period**           | **REER Level**              |
+| -------------------- | --------------------------- |
 | 2016 (Base Year)     | 100.00                      |
 | 2016-2020            | 106-107 (Real appreciation) |
 | March 2024           | Still 106-107               |
@@ -126,17 +125,16 @@ The inflation differential between India and the US has narrowed to near zero. Y
 
 The Reserve Bank of India publishes official data on both nominal and real effective exchange rates. This data provides empirical grounding for understanding India's exchange rate trajectory.
 
-![Title: RBI Bulletin NEER/REER Data Table - Description: RBI official data](/assets/img/notes/image27.jpg)
+![Title: RBI Bulletin NEER/REER Data Table - Description: RBI official data](/assets/img/notes/image24.jpg)
 
 ## **RBI Official Metrics**
 
-|            |             |                  |
-| ---------- | ----------- | ---------------- |
 | **Metric** | **2023-24** | **October 2024** |
+| ---------- | ----------- | ---------------- |
 | **NEER**   | 90.75       | ~88-89          |
 | **REER**   | 103.71      | **~97**         |
 
-![Title: RBI Bulletin Continued Analysis - Description: Additional RBI data](/assets/img/notes/image28.jpg)
+![Title: RBI Bulletin Continued Analysis - Description: Additional RBI data](/assets/img/notes/image6.jpg)
 
 ## **Interpretation**
 

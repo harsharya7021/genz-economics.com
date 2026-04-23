@@ -2,14 +2,43 @@
 layout: default
 ---
 
+{% assign words = content | number_of_words %}
+{% assign reading_min = words | divided_by: 200 | plus: 1 %}
+
 <article class="post">
   <div class="container narrow">
+
     <header class="post-header">
       <p class="eyebrow">
-        {% if page.session %}Session {{ page.session }} · {% endif %}{{ page.date | date: "%b %-d, %Y" }}
+        {% if page.session %}Session&nbsp;{{ page.session }}<span class="sep">·</span>{% endif %}
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.tags and page.tags.size > 0 %}<span class="sep">·</span>{{ page.tags[0] | replace: '-', ' ' }}{% endif %}
       </p>
+
       <h1 class="post-title-display">{{ page.title }}</h1>
-      {% if page.dek %}<p class="lede">{{ page.dek }}</p>{% endif %}
+
+      {% if page.dek %}<p class="standfirst">{{ page.dek }}</p>{% endif %}
+
+      <div class="byline">
+        <div class="byline-authors">
+          <span class="byline-by">By</span>
+          {% if page.authors and page.authors.size > 0 %}
+            {% for a in page.authors %}<span class="byline-name">{{ a | capitalize }}</span>{% unless forloop.last %}<span class="sep">·</span>{% endunless %}{% endfor %}
+          {% else %}
+            <span class="byline-name">The Gen Z Economics Community</span>
+          {% endif %}
+        </div>
+        <div class="byline-meta">
+          <span>{{ reading_min }} min read</span>
+          {% if page.editors and page.editors.size > 0 %}
+            <span class="sep">·</span>
+            <span>Edited by
+              {% for e in page.editors %}{{ e | capitalize }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+
       {% if page.tags.size > 0 %}
       <ul class="chips">
         {% for t in page.tags %}<li>#{{ t }}</li>{% endfor %}
@@ -33,10 +62,16 @@ layout: default
 
       <nav class="post-nav">
         {% if page.previous %}
-          <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+          <a class="prev" href="{{ page.previous.url | relative_url }}">
+            <span class="post-nav-eyebrow">← Previous</span>
+            <span class="post-nav-title">{{ page.previous.title }}</span>
+          </a>
         {% endif %}
         {% if page.next %}
-          <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+          <a class="next" href="{{ page.next.url | relative_url }}">
+            <span class="post-nav-eyebrow">Next →</span>
+            <span class="post-nav-title">{{ page.next.title }}</span>
+          </a>
         {% endif %}
       </nav>
     </footer>

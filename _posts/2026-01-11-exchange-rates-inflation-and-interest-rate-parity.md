@@ -29,9 +29,8 @@ These three statements are all correct when properly understood through distingu
 
 When one country experiences higher inflation than another, its currency depreciates to maintain purchasing power parity. Let's work through a concrete example:
 
-|                    |                                       |
-| ------------------ | ------------------------------------- |
 | **Year 0 (Today)** | **Year 1 (After Inflation)**          |
+| ------------------ | ------------------------------------- |
 | Dosa in India      | 100 Rs → 110 Rs (10% inflation)       |
 | Dosa in USA        | $2 → $2.04 (2% inflation)             |
 | Exchange rate      | 50 Rs/$ → 54 Rs/$ (~8% depreciation) |
@@ -47,6 +46,10 @@ After one year with unchanged real rate: 54 × (2.04/110) = 1.0 dosa equivalent
 |                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------------------- |
 | The currency of the higher-inflation country depreciates by approximately the inflation differential (10% - 2% = 8%). |
+
+![Title: Exchange Rates - Description: Whiteboard showing exchange rate calculations](/assets/img/notes/image14.jpg)
+
+Figure 1: Initial setup showing dosa prices and exchange rate
 
 # **Step 2: Interest Rates and Exchange Rates**
 
@@ -68,9 +71,8 @@ After one year with unchanged real rate: 54 × (2.04/110) = 1.0 dosa equivalent
 
 Assuming real rates are equal in both countries:
 
-|                      |           |                   |
-| -------------------- | --------- | ----------------- |
 |                      | **India** | **United States** |
+| -------------------- | --------- | ----------------- |
 | Real rate (r)        | 2%        | 2%                |
 | Expected inflation   | 10%       | 2%                |
 | **Nominal rate (i)** | **12%**   | **4%**            |
@@ -105,7 +107,7 @@ This arbitrage condition ensures the relationship holds:
 
 *Higher yield is offset by currency depreciation*
 
-![Title: India vs US Comparison - Description: Whiteboard showing interest rate calculations and comparison](/assets/img/notes/image29.jpg)
+![Title: India vs US Comparison - Description: Whiteboard showing interest rate calculations and comparison](/assets/img/notes/image2.jpg)
 
 Figure 2: India vs US comparison with interest rate calculations
 
@@ -174,9 +176,8 @@ Understanding rupee depreciation through the framework we've developed:
 
 ## **Current Market Levels**
 
-|                              |                              |                   |
-| ---------------------------- | ---------------------------- | ----------------- |
 | **Metric**                   | **India**                    | **United States** |
+| ---------------------------- | ---------------------------- | ----------------- |
 | Nominal rate                 | ~12%                        | ~4%              |
 | Expected annual depreciation | **~8% per year**            | —                 |
 | Exchange rate progression    | 40 → 43.2 → 46.7 → ... → 90+ | (stable baseline) |

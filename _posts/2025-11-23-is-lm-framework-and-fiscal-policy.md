@@ -15,13 +15,13 @@ editors: []
 
 Professor Prasanna Tantri begins by analyzing recent GST rate cuts in India and their limited macroeconomic impact:
 
-  - GST collection growth only 4% one month after cut (far below 10% budget target)
+  - > GST collection growth only 4% one month after cut (far below 10% budget target)
 
-  - When government cuts spending to offset lower tax revenue, aggregate demand may fall
+  - > When government cuts spending to offset lower tax revenue, aggregate demand may fall
 
-  - Only stimulative if government keeps deficits high AND RBI accommodates through Variable Rate Repos
+  - > Only stimulative if government keeps deficits high AND RBI accommodates through Variable Rate Repos
 
-  - Scope limited: GST cuts apply to goods (45% of economy); services (55%) and agriculture (16-17%) untouched
+  - > Scope limited: GST cuts apply to goods (45% of economy); services (55%) and agriculture (16-17%) untouched
 
 Whoever would have benefited from government expenditure will not now spend, and their people who earn from them will also not spend.
 
@@ -29,11 +29,11 @@ Whoever would have benefited from government expenditure will not now spend, and
 
 The 'whole endgame of short-term macro' requires bringing together three essential tools:
 
-  - Keynesian Cross - demand/output equilibrium
+  - > Keynesian Cross - demand/output equilibrium
 
-  - IS curve - investment-savings relationship
+  - > IS curve - investment-savings relationship
 
-  - LM/MP curve - money market and monetary policy
+  - > LM/MP curve - money market and monetary policy
 
 ## **Core Framework Equation**
 
@@ -43,29 +43,29 @@ Investment I is now a function of both income (Y) and real interest rate (R).
 
 ## **Restated Assumptions**
 
-  - Prices are rigid (sticky) in the short run
+  - > Prices are rigid (sticky) in the short run
 
-  - Inflation expectations constant
+  - > Inflation expectations constant
 
-  - Closed economy (no international trade)
+  - > Closed economy (no international trade)
 
 # **Fiscal and Monetary Policy Interaction**
 
 intricate interaction between fiscal and monetary authorities:
 
-![Title: Fiscal Monetary Cross - Description: Fiscal/monetary cross analysis with 4 quadrants](/assets/img/notes/image22.jpg)
+![Title: Fiscal Monetary Cross - Description: Fiscal/monetary cross analysis with 4 quadrants](/assets/img/notes/image13.jpg)
 
 Fiscal and monetary policy interaction quadrants
 
 ## **When Central Bank Accommodates**
 
-  - Central bank commits to maintaining interest rates and increases money supply as needed
+  - > Central bank commits to maintaining interest rates and increases money supply as needed
 
-  - Fiscal expansion has maximum stimulative effect
+  - > Fiscal expansion has maximum stimulative effect
 
-  - No crowding out of private investment
+  - > No crowding out of private investment
 
-  - Output rises at same interest rate
+  - > Output rises at same interest rate
 
 ## **When Central Bank Doesn't Accommodate**
 
@@ -73,9 +73,9 @@ Fiscal and monetary policy interaction quadrants
 
   - ## Government borrowing raises interest rates
 
-  - Crowding out reduces private investment
+  - > Crowding out reduces private investment
 
-  - Fiscal multiplier is smaller
+  - > Fiscal multiplier is smaller
 
 # **Government Borrowing and Crowding Out**
 
@@ -83,47 +83,47 @@ Fiscal and monetary policy interaction quadrants
 
 ## **Modern Reality: RBI Accommodates**
 
-  - RBI is committed to interest rate targets
+  - > RBI is committed to interest rate targets
 
-  - Maintains constant rate by pumping money into the system
+  - > Maintains constant rate by pumping money into the system
 
-  - Result: Both higher income AND same interest rate
+  - > Result: Both higher income AND same interest rate
 
 # **Five-Step Tax Cut Transmission Mechanism**
 
-  - **Direct Consumption Effect:** Tax cut increases disposable income, leading to higher consumption and aggregate demand
+  - > **Direct Consumption Effect:** Tax cut increases disposable income, leading to higher consumption and aggregate demand
 
-  - **Multiplier Effect:** Expenditure increases income, which increases further demand, shifting demand curve rightward
+  - > **Multiplier Effect:** Expenditure increases income, which increases further demand, shifting demand curve rightward
 
-  - **Money Market Response:** Higher income increases money demand. RBI maintains rate at target and increases money supply.
+  - > **Money Market Response:** Higher income increases money demand. RBI maintains rate at target and increases money supply.
 
-  - **IS Curve Shift:** For same interest rate, new equilibrium is at higher income level
+  - > **IS Curve Shift:** For same interest rate, new equilibrium is at higher income level
 
-  - **No Crowding Out:** RBI's commitment to interest rate target prevents traditional crowding out
+  - > **No Crowding Out:** RBI's commitment to interest rate target prevents traditional crowding out
 
 This is what Keynes discovered in the short run. Fiscal policy is very powerful when the central bank accommodates and inflation expectations remain constant.
 
-![Title: Complete Diagram - Description: Demand/output with IS and LM curves](/assets/img/notes/image23.jpg)
+![Title: Complete Diagram - Description: Demand/output with IS and LM curves](/assets/img/notes/image5.jpg)
 
 Complete demand/output diagram with IS and LM curves
 
 Professor Tantri provides analysis of India's recent economic trajectory:
 
-  - India slipped to 4th position among emerging markets (from 2nd)
+  - > India slipped to 4th position among emerging markets (from 2nd)
 
-  - Reverse AI story: AI benefits flowing to other countries, not India
+  - > Reverse AI story: AI benefits flowing to other countries, not India
 
-  - IT company valuations falling while Korea's rising
+  - > IT company valuations falling while Korea's rising
 
-  - 10-20 year underperformance versus S&P 500
+  - > 10-20 year underperformance versus S&P 500
 
 ## **Root Causes**
 
-  - Education quality issues
+  - > Education quality issues
 
-  - Lack of innovation
+  - > Lack of innovation
 
-  - Structural challenges in human capital
+  - > Structural challenges in human capital
 
 Growth eventually is innovation. There is nothing else.
 
@@ -133,15 +133,15 @@ The professor expresses cautious optimism about labor law reforms as potential s
 
 India's cognitive capital advantage is eroding with AI outsourcing:
 
-  - China learned to manufacture; India copied IT without scaling to frontend
+  - > China learned to manufacture; India copied IT without scaling to frontend
 
-  - AI reduces gap between good and bad workers when asked to compute the easy tasks while it INCREASES the gap when asked to perform complex tasks
+  - > AI reduces gap between good and bad workers when asked to compute the easy tasks while it INCREASES the gap when asked to perform complex tasks
 
-  - Without high-level talent, India will struggle in AI economy
+  - > Without high-level talent, India will struggle in AI economy
 
-  - The political system remains focused on quarterly growth while ignoring structural issues.
+  - > The political system remains focused on quarterly growth while ignoring structural issues.
 
-![Title: Comprehensive Diagram - Description: Final comprehensive diagram with annotations](/assets/img/notes/image24.jpg)
+![Title: Comprehensive Diagram - Description: Final comprehensive diagram with annotations](/assets/img/notes/image19.jpg)
 
 Figure 4: Comprehensive diagram with complete annotations
 
@@ -161,7 +161,7 @@ Figure 4: Comprehensive diagram with complete annotations
 > 
 > • AI widens gap on complex tasks: India needs world-class human capital
 
-# **Supplementary Notes (From My Handwritten Notes)**
+# **Supplementary Notes (From Student's Handwritten Notes)**
 
 ## **From Keynesian Cross to IS-LM**
 
@@ -179,7 +179,7 @@ Figure 4: Comprehensive diagram with complete annotations
 > 
 > • Investment I = I<sub>s</sub> + Ī<sub>g</sub>: investment has both a sensitive component (to interest rate) and an autonomous component
 
-![Title: Keynesian Cross Diagram - Description: From Keynesian Cross to IS-LM Framework](/assets/img/notes/image25.jpg)
+![Title: Keynesian Cross Diagram - Description: From Keynesian Cross to IS-LM Framework](/assets/img/notes/image28.jpg)
 
 Figure 5: From Keynesian Cross to IS-LM Framework (Recreated from handwritten notes)
 

@@ -13,7 +13,7 @@ editors: []
 
 # **Review of Previous Material**
 
-![](/assets/img/notes/image16.png)
+![](/assets/img/notes/image29.png)
 
 ## **The Keynesian Short-Run Model**
 
@@ -23,15 +23,15 @@ The foundational identity from our previous session is:
 
 Key assumptions underlying this model:
 
-  - Prices are rigid in the short run
+  - > Prices are rigid in the short run
 
-  - Supply is effectively unlimited at the prevailing price level
+  - > Supply is effectively unlimited at the prevailing price level
 
-  - Investment (I) and government spending (G) are exogenous
+  - > Investment (I) and government spending (G) are exogenous
 
-  - Output adjusts to clear the goods market
+  - > Output adjusts to clear the goods market
 
-![Title: Keynesian Cross - Description: Previous session: Keynesian Cross model showing consumption and aggregate demand](/assets/img/notes/image17.jpg)
+![Title: Keynesian Cross - Description: Previous session: Keynesian Cross model showing consumption and aggregate demand](/assets/img/notes/image8.jpg)
 
 Keynesian Cross from October 19 Session
 
@@ -99,7 +99,7 @@ The opportunity cost of holding money is the forgone interest rate. When interes
 > 
 > • **Shifts with income:** Higher Y → money demand curve shifts RIGHT (more transactions → more cash needed)
 
-![Title: IS-MP Framework Equations and Diagrams - Description: Whiteboard showing key equations and money market supply-demand graph](/assets/img/notes/image18.jpg)
+![Title: IS-MP Framework Equations and Diagrams - Description: Whiteboard showing key equations and money market supply-demand graph](/assets/img/notes/image11.jpg)
 
 Key Equations and Liquidity Preference Theory Diagram
 
@@ -107,9 +107,8 @@ Key Equations and Liquidity Preference Theory Diagram
 
 The evolution of central banking practice reveals a fundamental shift in thinking:
 
-|                                             |                                                          |
-| ------------------------------------------- | -------------------------------------------------------- |
 | **Old Approach: Quantity Targeting**        | **New Approach: Interest Rate Targeting**                |
+| ------------------------------------------- | -------------------------------------------------------- |
 | Central banks fix money supply M            | Central banks fix interest rate target (e.g., repo rate) |
 | Interest rates fluctuate with money demand  | Money supply adjusts to maintain target rate             |
 | Creates seasonal volatility and uncertainty | Provides stable expectations for borrowers               |
@@ -132,7 +131,7 @@ The Reserve Bank of India, like most modern central banks, targets a specific re
 
 The system assumes inflation expectations remain stable. If expected inflation rises → money demand increases → RBI must increase supply to offset. But if inflation expectations become unanchored (as in Venezuela), the central bank loses control.
 
-![Title: IS-LM Diagram with Interest Rates - Description: Detailed IS-LM diagram showing multiple interest rate levels and equilibrium](/assets/img/notes/image19.jpg)
+![Title: IS-LM Diagram with Interest Rates - Description: Detailed IS-LM diagram showing multiple interest rate levels and equilibrium](/assets/img/notes/image26.jpg)
 
 IS-LM Diagram with Interest Rate Dynamics
 
@@ -152,7 +151,7 @@ IS-LM Diagram with Interest Rate Dynamics
 
 ### **The RBI's Mistake**
 
-Many analysts in India calculate the real rate using current CPI inflation rather than expected future inflation. This led to a critical miscalculation: From 2022-2024, India experienced some of the highest real interest rates globally—seemingly tight policy. Because inflation expectations had fallen significantly, the actual real rate was even higher than the headline number suggested — making policy deeply restrictive despite appearing moderate.
+Many analysts in India calculate the real rate using current CPI inflation rather than expected future inflation. This led to a critical miscalculation: From 2022-2024, India experienced some of the highest real interest rates globally—seemingly tight policy. In reality, the RBI may have been accommodative because inflation expectations had fallen.
 
 ## **RBI Credibility & Inflation Expectations**
 
@@ -328,7 +327,7 @@ To address India's structural constraints:
 > 
 > 5\. Investment: I = I<sub>s</sub> + Ī<sub>g</sub> (private investment + government/autonomous investment)
 
-![](/assets/img/notes/image20.jpg)
+![](/assets/img/notes/image12.jpg)
 
 Keynesian Cross — Transition to IS Curve
 
@@ -354,6 +353,6 @@ Keynesian Cross — Transition to IS Curve
 > 
 > 6\. The Keynesian view is good in the short-term because assumptions (price rigidity, production/labour efficiency/human capital constraints) are fairly accurate within that time-frame
 
-![](/assets/img/notes/image21.jpg)
+![](/assets/img/notes/image4.jpg)
 
 Money Market — The New Paradigm of Monetary Policy

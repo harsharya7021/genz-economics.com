@@ -16,12 +16,13 @@
 
   /* Type */
   --serif: "Instrument Serif", "Times New Roman", Georgia, serif;
+  --body:  "Source Serif 4", "Iowan Old Style", Charter, "Georgia", serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Scale */
   --max:   1180px;
-  --narrow: 720px;
+  --narrow: 680px;   /* tighter measure — ~66ch body text */
   --r-sm:  6px;
   --r-md:  10px;
   --r-lg:  18px;
@@ -208,57 +209,252 @@ blockquote {
 .cta-band .btn-ghost { color: var(--paper); border-color: var(--paper); }
 .cta-band .btn-ghost:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 
-/* Post page */
+/* ─────────────────────────────────────────────────────────────
+   Post page — editorial typography
+   Inspired by FT, Economist, NYT Magazine — serif body, tight
+   measure, clear hierarchy, generous vertical rhythm.
+   ───────────────────────────────────────────────────────────── */
 .post { padding: 3.5rem 0 4rem; }
-.post-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+
+.post-header {
+  margin-bottom: 2.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.post-header .eyebrow {
+  color: var(--accent-2);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.post-header .eyebrow .sep {
+  margin: 0 .55em;
+  color: var(--rule);
+}
 .post-title-display {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  line-height: 1.05; letter-spacing: -.02em; margin: 0 0 .9rem;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.03; letter-spacing: -.02em;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
 }
-.post-body { font-size: 1.08rem; line-height: 1.72; }
+.standfirst {
+  font-family: var(--body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.48;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+  max-width: 62ch;
+}
+
+.byline {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: .75rem 1.5rem;
+  margin: 1.5rem 0 .25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: .92rem;
+}
+.byline-authors { color: var(--ink); }
+.byline-by {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ink-soft); margin-right: .45rem;
+}
+.byline-name { font-weight: 600; }
+.byline-meta { color: var(--ink-soft); font-size: .88rem; }
+.byline-meta .sep, .byline-authors .sep {
+  margin: 0 .5em; color: var(--rule);
+}
+
+/* Body column */
+.post-body {
+  font-family: var(--body);
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  font-feature-settings: "liga", "kern";
+}
+
+/* Opening paragraph — larger, more air, drop-cap-lite */
+.post-body > p:first-child {
+  font-size: 1.26rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Section headings */
+.post-body h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  line-height: 1.1; letter-spacing: -.01em;
+  margin: 3.25rem 0 .9rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ink);
+  color: var(--ink);
+}
+.post-body h1:first-child { margin-top: 2rem; padding-top: 1.5rem; }
 .post-body h2 {
-  font-family: var(--serif); font-weight: 400; font-size: 1.9rem;
-  letter-spacing: -.01em; margin: 2.5rem 0 .75rem;
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.85rem; line-height: 1.15; letter-spacing: -.01em;
+  margin: 2.75rem 0 .75rem;
+  color: var(--ink);
 }
 .post-body h3 {
-  font-family: var(--serif); font-weight: 400; font-size: 1.45rem;
-  margin: 2rem 0 .5rem;
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.4rem; line-height: 1.2;
+  margin: 2.1rem 0 .55rem;
+  color: var(--ink);
 }
 .post-body h4 {
-  font-family: var(--sans); font-weight: 600; font-size: 1.05rem;
-  text-transform: uppercase; letter-spacing: .06em; color: var(--accent-2);
-  margin: 1.8rem 0 .4rem;
+  font-family: var(--sans); font-weight: 600;
+  font-size: .82rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent-2);
+  margin: 1.8rem 0 .5rem;
 }
-.post-body p { margin: 0 0 1.1rem; }
-.post-body ul, .post-body ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
-.post-body li { margin-bottom: .4rem; }
+
+.post-body p { margin: 0 0 1.25rem; hyphens: auto; }
+.post-body strong { color: var(--ink); font-weight: 600; }
+.post-body em { font-style: italic; }
+
+.post-body ul, .post-body ol { padding-left: 1.4rem; margin: 0 0 1.25rem; }
+.post-body li { margin-bottom: .5rem; }
+.post-body li::marker { color: var(--accent-2); }
+
+/* Pull-quote / blockquote — the FT-style big, serif, bordered */
+.post-body blockquote {
+  margin: 2rem 0;
+  padding: .4rem 0 .4rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.42;
+  color: var(--ink);
+}
+.post-body blockquote p { margin: 0 0 .6rem; }
+.post-body blockquote p:last-child { margin-bottom: 0; }
+
+/* Inline links — serif underline */
+.post-body a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.post-body a:hover { color: var(--accent); }
+
+/* Code */
+.post-body code { font-size: .9em; }
+.post-body pre { margin: 1.5rem 0; }
+
+/* Images & figures */
 .post-body img {
-  margin: 1.5rem auto; border-radius: var(--r-md);
+  margin: 2rem auto;
+  border-radius: var(--r-md);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--rule);
 }
-.post-body table {
-  width: 100%; border-collapse: collapse; margin: 1.5rem 0;
-  font-size: .95rem;
+.post-body figure {
+  margin: 2rem 0;
 }
-.post-body th, .post-body td {
-  padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--rule);
+.post-body figure img { margin: 0; }
+.post-body figure figcaption,
+.post-body p > img + em,
+.post-body p > em:only-child {
+  display: block;
+  font-family: var(--sans);
+  font-size: .85rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-top: .65rem;
+  padding-left: .5rem;
+  border-left: 2px solid var(--rule);
+  font-style: normal;
 }
-.post-body th { background: var(--paper-2); font-weight: 600; }
-.post-body a { text-decoration-color: var(--accent); }
 
+/* Tables — financial-newspaper tidy */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: var(--sans);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+.post-body thead th {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: .55rem .7rem;
+}
+.post-body tbody td, .post-body tbody th {
+  padding: .55rem .7rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.post-body tbody tr:last-child td { border-bottom: 1px solid var(--ink); }
+
+/* Horizontal rules — section breaks inside prose */
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem auto;
+  max-width: 180px;
+  position: relative;
+}
+.post-body hr::after {
+  content: "§";
+  position: absolute;
+  top: -.75rem; left: 50%; transform: translateX(-50%);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 0 .5rem;
+}
+
+/* Footer */
 .post-footer { margin-top: 3rem; }
 .rule { border-top: 1px solid var(--rule); }
 .post-actions { display: flex; gap: .7rem; flex-wrap: wrap; margin: 1.5rem 0; }
-.post-note { font-size: .88rem; color: var(--ink-soft); font-style: italic; }
+.post-note { font-size: .88rem; color: var(--ink-soft); font-style: italic; font-family: var(--body); }
+
 .post-nav {
-  display: flex; justify-content: space-between; gap: 1rem;
-  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
-  font-size: .95rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
 }
-.post-nav .prev { text-align: left; }
-.post-nav .next { text-align: right; margin-left: auto; }
+.post-nav a {
+  display: flex; flex-direction: column; gap: .35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  transition: border-color .15s ease, transform .1s ease;
+}
+.post-nav a:hover { border-color: var(--ink); transform: translateY(-1px); }
+.post-nav .next { text-align: right; }
+.post-nav .next:only-child { grid-column: 2; }
+.post-nav-eyebrow {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent-2);
+}
+.post-nav-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.15rem; line-height: 1.25; color: var(--ink);
+}
 
 /* Footer */
 .site-footer {
@@ -298,4 +494,9 @@ blockquote {
   .footer-inner { grid-template-columns: 1fr; }
   .post-card-link::after { display: none; }
   .post-actions .btn { flex: 1; justify-content: center; }
+  .post-body { font-size: 1.08rem; line-height: 1.65; }
+  .post-body > p:first-child { font-size: 1.15rem; }
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav .next { text-align: left; }
+  .byline { flex-direction: column; align-items: flex-start; gap: .4rem; }
 }
