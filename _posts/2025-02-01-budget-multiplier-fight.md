@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Budget Day 2025: a real-time argument over the multiplier"
 dek: "Verbatim Tantri from the WhatsApp group on Feb 1–2, 2025, as the Union Budget was being read — taking apart the 'this is short-run stimulus' narrative, one message at a time."
 date: 2025-02-01

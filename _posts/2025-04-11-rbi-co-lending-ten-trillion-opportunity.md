@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "The 10-trillion-rupee opportunity hidden in an RBI circular"
 dek: "On April 9, 2025 the RBI quietly opened co-lending across all loan categories. Tantri sent the draft circular into the group with a one-line instruction: 'Please read this *super boring* circular carefully.' Here's why he was excited."
 date: 2025-04-11

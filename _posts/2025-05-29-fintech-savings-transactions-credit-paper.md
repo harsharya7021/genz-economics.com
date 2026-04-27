@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Tantri's fintech series, Part 1: what your savings account knows about your credit"
 dek: "On May 29, 2025, Tantri sent his own working paper into the WhatsApp group — an algorithm trained on savings-account transactions that out-predicts traditional credit scores. Here's the abstract, the four research questions, and the policy implication, in his words."
 date: 2025-05-29

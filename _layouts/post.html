@@ -8,6 +8,12 @@ layout: default
 <article class="post">
   <div class="container narrow">
 
+    {% if page.draft %}
+    <div style="background: #FFE8A0; color: #15151A; padding: .9rem 1.1rem; border-radius: 6px; font-family: var(--mono); font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; margin: 0 0 1.5rem; border: 1px solid #d4be63;">
+      ⚠ Draft preview · not yet published · <a href="/drafts/" style="color: inherit; text-decoration: underline;">back to drafts list</a>
+    </div>
+    {% endif %}
+
     <header class="post-header">
       <p class="eyebrow">
         {% if page.session %}Session&nbsp;{{ page.session }}<span class="sep">·</span>{% endif %}

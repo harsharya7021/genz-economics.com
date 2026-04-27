@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "How not to think about monetary policy"
 dek: "After the September 2024 Fed rate cut, the WhatsApp group filled with hot takes — Sahm rule, soft landing, recession indicators. Tantri responded with what is essentially a one-thread course on what 'knowing macro' actually means."
 date: 2024-09-19

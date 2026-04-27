@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Tantri's exam: history-laced macro questions"
 dek: "Selected questions from Tantri's INFS final, March 2026 — each one a small story about money. Rothschild at Waterloo, Spanish gold, Dhurandhar's fake currency, Soros vs. the pound, the Merchant of Venice — and the macro lesson in each."
 date: 2026-03-25

@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Lizz Truss, the SDF, and 'monetary policy is more effective in an open economy'"
 dek: "A late-night WhatsApp Q&A on monetary plumbing — VRR vs VRRR vs SDF vs MSF, the UK gilt-market collapse of 2022, and what monetary policy can actually do in an open economy. Tantri's answers, in his words."
 date: 2024-09-29

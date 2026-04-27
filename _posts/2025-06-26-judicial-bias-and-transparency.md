@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Tantri's research, Part 2: can transparency reduce judicial bias?"
 dek: "Tantri sent the introduction to his other working paper into the WhatsApp group — on whether forcing courts to be transparent reduces the well-documented bias of judges toward (or against) regulators. Verbatim."
 date: 2025-06-26

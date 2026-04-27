@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Accounting vs economics: when equity goes negative"
 dek: "A small classroom moment that turned into the cleanest two-paragraph distinction between how an accountant and an economist think about the same balance sheet."
 date: 2024-09-23

@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "The rupee's depreciation is neither unusual nor indicative of great stress"
 dek: "Tantri's standalone Mint essay on the post-West-Asia rupee weakness — why the real effective exchange rate, not the nominal dollar rate, is the only sensible thing to look at."
 date: 2026-04-01

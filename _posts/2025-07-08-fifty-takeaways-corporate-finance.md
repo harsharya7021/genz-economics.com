@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Fifty takeaways from corporate finance — Part 1"
 dek: "Tantri opens a new series in his own words: risk and return, the limited liability myth, and why startups don't actually use LLPs."
 date: 2025-07-08

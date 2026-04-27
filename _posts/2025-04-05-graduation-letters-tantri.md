@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Tantri's graduation letters: 'reserve one hour a day for learning something new'"
 dek: "On the day each batch graduated, Tantri left them with a short message in the WhatsApp group. The Hyderabad and Mohali farewells from April 2025, side by side."
 date: 2025-04-05

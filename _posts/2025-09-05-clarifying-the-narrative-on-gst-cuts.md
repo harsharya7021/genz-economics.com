@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Clarifying the narrative on GST cuts"
 dek: "Tantri's standalone essay on why most of what's said about GST cuts on TV is wrong — short-run Keynesian effects vs. long-run structural ones, and why incomplete pass-through isn't a policy failure."
 date: 2025-09-05

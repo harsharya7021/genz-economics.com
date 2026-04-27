@@ -1,5 +1,7 @@
 ---
 layout: post
+draft: true
+sitemap: false
 title: "Mohali macro quiz: monetary plumbing and the GDP shell-companies trick"
 dek: "Selected questions from Tantri's INFS final at the Mohali campus, March 2025 — heavier on banking-system plumbing than the Hyderabad version. SDF, VRR, MSF, capital adequacy, demonetisation, shell companies, and what the Geeta Gopinath QJE paper actually showed."
 date: 2025-03-28

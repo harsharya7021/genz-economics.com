@@ -22,8 +22,9 @@ kramdown:
   syntax_highlighter: rouge
 
 # Plugins (all supported by GitHub Pages)
+# Note: feed.xml is now hand-written (in /feed.xml) so we exclude jekyll-feed
+# to keep drafts out of the RSS while still rendering on direct URL.
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate

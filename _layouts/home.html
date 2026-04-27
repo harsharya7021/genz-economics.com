@@ -15,8 +15,9 @@ layout: default
       <a class="btn btn-primary" href="#latest">Read the notes ↓</a>
       <a class="btn btn-ghost" href="{{ '/contribute/' | relative_url }}">Contribute →</a>
     </div>
+    {% assign published_posts = site.posts | where_exp: "p", "p.draft != true" %}
     <ul class="hero-meta">
-      <li><strong>{{ site.posts | size }}</strong> sessions published</li>
+      <li><strong>{{ published_posts | size }}</strong> sessions published</li>
       <li><strong>PR-based</strong> editorial flow</li>
       <li><strong>CC&nbsp;BY&nbsp;4.0</strong> — remix, translate, teach</li>
     </ul>
@@ -31,7 +32,7 @@ layout: default
     </div>
 
     <ol class="post-list">
-      {% for post in site.posts %}
+      {% for post in published_posts %}
       <li class="post-card">
         <a class="post-card-link" href="{{ post.url | relative_url }}">
           <div class="post-meta">
