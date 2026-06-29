@@ -4,22 +4,22 @@ layout: default
 
 <section class="hero">
   <div class="container">
-    <p class="eyebrow">Open-source · student-moderated · still figuring it out</p>
+    <p class="eyebrow">A closed room · sign in to get in · one session a week</p>
     <h1 class="display">
-      Macroeconomics, <em>refined in public.</em>
+      Macroeconomics that's <em>actually useful.</em>
     </h1>
     <p class="lede">
-      A living archive of notes from Prof. Tantri's macro sessions. Anyone can read. Anyone can suggest. Moderators merge. The site updates itself.
+      Prof. Tantri's macro sessions — the notes, the lectures, and the papers worth your time, in one room. Not storytelling, not the nonsense on TV. One new session a week, so you actually remember it.
     </p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#latest">Read the notes ↓</a>
-      <a class="btn btn-ghost" href="{{ '/contribute/' | relative_url }}">Contribute →</a>
+      <a class="btn btn-primary" href="#latest">Start with the latest session ↓</a>
+      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">Why it's behind a login →</a>
     </div>
     {% assign published_posts = site.posts | where_exp: "p", "p.draft != true" %}
     <ul class="hero-meta">
-      <li><strong>{{ published_posts | size }}</strong> sessions published</li>
-      <li><strong>PR-based</strong> editorial flow</li>
-      <li><strong>CC&nbsp;BY&nbsp;4.0</strong> — remix, translate, teach</li>
+      <li><strong>{{ published_posts | size }}</strong> sessions inside</li>
+      <li><strong>Sign-in</strong> to read</li>
+      <li><strong>One a week</strong> — so it sticks</li>
     </ul>
   </div>
 </section>
@@ -92,11 +92,11 @@ layout: default
 
 <section class="cta-band">
   <div class="container">
-    <h2>Spot a mistake? Want to add an explainer?</h2>
-    <p>Open a Pull Request, or file an issue. A student moderator will review it.</p>
+    <h2>This is the useful stuff — not storytelling.</h2>
+    <p>Sign in to watch the lectures and read the notes. One note a week: the kind that lets you say something authoritative the next time someone talks nonsense about the rupee.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="{{ site.issue_base_url }}">Suggest an edit</a>
-      <a class="btn btn-ghost" href="{{ '/contribute/' | relative_url }}">How contribution works →</a>
+      <a class="btn btn-primary" id="ctaSignIn" href="#latest">Sign in to get in</a>
+      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">What's inside →</a>
     </div>
   </div>
 </section>

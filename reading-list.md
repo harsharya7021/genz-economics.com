@@ -180,6 +180,6 @@ Things that came up once but are useful in context.
 
 ---
 
-## Want to add something?
+## Spotted something worth adding?
 
-If you've come across a paper, article, or book that belongs here, or if you want to flag that one of the public links above is dead — open an issue or PR on the [GitHub repo]({{ site.repository | prepend: 'https://github.com/' }}). Be specific about which row you're suggesting a change to.
+If you've come across a paper, article, or book that belongs here — or a dead link above — sign in and flag it in the [discussion]({{ '/discussions/' | relative_url }}). Tell us which row. Prof. Tantri vets what gets added.

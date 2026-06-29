@@ -1083,3 +1083,36 @@ textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
 
 /* Cloudflare Stream embed */
 .lecture-stage .stream-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ============================================================
+   UNIFIED CARD COMPONENT — "soft elevated" (single source of truth)
+   One base look for every card; only padding/media vary per use.
+   New cards: use class="card" (add "is-link" when the whole card links).
+   ============================================================ */
+.card,
+.post-card-link, .session-card, .brief-card, .gloss-card,
+.metric-card, .learn-card, .qb-card, .ab-card, .pod-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease;
+}
+/* consistent inner padding for the standard content cards (media cards keep their own) */
+.card,
+.post-card-link, .brief-card, .gloss-card, .metric-card, .learn-card {
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+/* one hover behaviour, only for the interactive (link) cards */
+.card.is-link:hover,
+.post-card-link:hover, .session-card:hover, .learn-card:hover,
+.brief-card.linked:hover, .ab-card:hover, .pod-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+}
+@media (prefers-reduced-motion: reduce) {
+  .card.is-link:hover,
+  .post-card-link:hover, .session-card:hover, .learn-card:hover,
+  .brief-card.linked:hover, .ab-card:hover, .pod-card:hover { transform: none !important; }
+}

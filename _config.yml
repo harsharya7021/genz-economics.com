@@ -3,10 +3,11 @@
 # ─────────────────────────────────────────────────────────────
 
 title: Gen Z Economics
-tagline: Open-source macroeconomics notes, refined in public.
+tagline: Macro that's actually useful — Prof. Tantri's sessions, by sign-in only.
 description: >
-  Community-maintained macroeconomics notes from Prof. Tantri's sessions.
-  Open source. Suggest edits, propose new explainers, learn out loud.
+  Prof. Prasanna Tantri's macroeconomics sessions — notes, lectures, and the
+  papers worth your time. Behind a login, for people who want useful knowledge,
+  not the nonsense on TV. One new session a week.
 url: "https://genz-economics.com"
 baseurl: ""
 lang: en
