@@ -1,0 +1,37 @@
+# Vocabulary / dictionary — plain-English explanations. Add {term, def, cat} freely.
+- {term: "Repo rate", cat: "Monetary policy", def: "The interest rate at which the RBI lends short-term money to banks. Raise it to cool the economy, cut it to spur borrowing. It's the headline policy lever."}
+- {term: "Reverse repo / SDF", cat: "Monetary policy", def: "What banks earn for parking spare cash with the RBI. The Standing Deposit Facility (SDF) is the modern floor of the rate corridor — no collateral needed."}
+- {term: "MSF", cat: "Monetary policy", def: "Marginal Standing Facility — the emergency window where banks borrow from the RBI above the repo rate. It forms the ceiling of the rate corridor."}
+- {term: "LAF corridor", cat: "Monetary policy", def: "The band the overnight rate moves in: SDF (floor) → repo → MSF (ceiling). Currently about 50 basis points wide. The RBI steers the call rate inside it."}
+- {term: "CRR", cat: "Banking", def: "Cash Reserve Ratio — the slice of deposits banks must keep as cash with the RBI, earning nothing. Raising it pulls money out of the system."}
+- {term: "SLR", cat: "Banking", def: "Statutory Liquidity Ratio — the share of deposits banks must hold in safe assets like government bonds, before lending the rest."}
+- {term: "OMO", cat: "Monetary policy", def: "Open Market Operations — the RBI buying or selling government bonds to add or drain durable liquidity (and nudge yields)."}
+- {term: "VRR / VRRR", cat: "Monetary policy", def: "Variable Rate Repo / Reverse Repo — flexible auctions the RBI uses to inject (VRR) or absorb (VRRR) cash and fine-tune the overnight rate."}
+- {term: "CPI", cat: "Inflation", def: "Consumer Price Index — the cost of a typical household's basket. The year-on-year change is retail inflation, the RBI's main target (4% ±2%)."}
+- {term: "WPI", cat: "Inflation", def: "Wholesale Price Index — prices at the producer/wholesale stage. It excludes services and moves before CPI; no longer the policy target."}
+- {term: "Core inflation", cat: "Inflation", def: "Inflation stripped of volatile food and fuel. It shows the underlying trend central banks watch through short-term price spikes."}
+- {term: "Base effect", cat: "Inflation", def: "When a number looks high or low only because the comparison month a year ago was unusually low or high — an arithmetic illusion, not a new trend."}
+- {term: "GDP", cat: "Growth", def: "Gross Domestic Product — the total value of goods and services an economy produces in a period. The broadest gauge of economic size."}
+- {term: "GVA", cat: "Growth", def: "Gross Value Added — output minus input costs, measured by sector. GDP equals GVA plus net taxes on products; GVA shows where growth comes from."}
+- {term: "Potential GDP", cat: "Growth", def: "What an economy could produce at full, sustainable use of labour and capital. The gap between actual and potential GDP signals slack or overheating."}
+- {term: "Fiscal deficit", cat: "Fiscal policy", def: "How much more the government spends than it earns in a year — the gap it must borrow to fill. Watched as a share of GDP."}
+- {term: "Revenue deficit", cat: "Fiscal policy", def: "When the government's day-to-day (revenue) spending exceeds its revenue receipts — borrowing to fund consumption, not assets."}
+- {term: "Primary deficit", cat: "Fiscal policy", def: "The fiscal deficit minus interest payments. It shows the fresh borrowing need, setting aside the cost of past debt."}
+- {term: "Crowding out", cat: "Fiscal policy", def: "When heavy government borrowing pushes up interest rates and squeezes private investment. The opposite — 'crowding in' — can happen when spending boosts demand."}
+- {term: "Multiplier", cat: "Keynesian", def: "How much total output rises from an initial rise in spending. If people spend a fraction c of extra income, the simple multiplier is 1/(1−c)."}
+- {term: "Marginal propensity to consume", cat: "Keynesian", def: "The share of an extra rupee of income that a household spends rather than saves. Higher MPC means a bigger multiplier."}
+- {term: "Paradox of thrift", cat: "Keynesian", def: "If everyone saves more at once, demand and incomes fall, so total saving may not rise. Prudent individually, harmful collectively in a slump."}
+- {term: "Liquidity trap", cat: "Macro theory", def: "When interest rates are so low that extra money is hoarded rather than spent, and rate cuts stop working. Fiscal policy becomes the stronger tool."}
+- {term: "IS-LM", cat: "Macro theory", def: "A model where the IS curve (goods market) and LM curve (money market) cross to set output and the interest rate in the short run."}
+- {term: "IS-MP", cat: "Macro theory", def: "A modern update of IS-LM where the central bank sets the interest rate directly (a monetary-policy rule) instead of fixing the money supply."}
+- {term: "Phillips curve", cat: "Inflation", def: "The short-run trade-off between unemployment and inflation: lower unemployment tends to push inflation up. It flattens or breaks down over the long run."}
+- {term: "NEER", cat: "Exchange rates", def: "Nominal Effective Exchange Rate — the rupee's value against a trade-weighted basket of currencies, before adjusting for inflation."}
+- {term: "REER", cat: "Exchange rates", def: "Real Effective Exchange Rate — NEER adjusted for relative inflation. It's the truer measure of export competitiveness."}
+- {term: "Depreciation", cat: "Exchange rates", def: "A fall in a currency's market value against others. It makes imports dearer and exports cheaper; sharp, disorderly falls signal stress."}
+- {term: "Current account deficit", cat: "External sector", def: "When a country imports more goods, services and income than it exports — it must attract foreign capital to cover the gap."}
+- {term: "Balance of payments", cat: "External sector", def: "The full record of a country's transactions with the world: the current account (trade, income) plus the capital and financial account."}
+- {term: "Impossible trinity", cat: "Open economy", def: "A country can't have all three at once: a fixed exchange rate, free capital flows, and independent monetary policy. Pick two."}
+- {term: "G-Sec / bond yield", cat: "Financial markets", def: "Government Securities are bonds the state issues to borrow. Their yield is the return to investors and a benchmark for interest rates across the economy."}
+- {term: "Quantitative easing", cat: "Monetary policy", def: "When a central bank creates money to buy bonds and other assets, lowering long-term rates once short-term rates are already near zero."}
+- {term: "Fiscal consolidation", cat: "Fiscal policy", def: "Bringing down the deficit and debt over time — through higher revenue or lower spending — to put public finances on a sustainable path."}
+- {term: "GST", cat: "Taxation", def: "Goods and Services Tax — a single, nationwide indirect tax that replaced a web of central and state levies, taxing value added at each stage."}

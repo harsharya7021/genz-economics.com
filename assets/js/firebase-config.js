@@ -1,0 +1,14 @@
+/* Firebase web config for Gen Z Economics.
+   These values are NOT secret — the web apiKey only identifies the project;
+   real security comes from Firestore rules + Authentication "Authorized domains".
+   Safe to commit. (Optional hardening: add HTTP-referrer restrictions to this key
+   in Google Cloud Console → APIs & Services → Credentials.) */
+window.GZE_FIREBASE = {
+  apiKey: "AIzaSyDiFmGRjx5HGCqSPA4w4G-_Zn37qaSl724",
+  authDomain: "genz-economics.firebaseapp.com",
+  projectId: "genz-economics",
+  storageBucket: "genz-economics.firebasestorage.app",
+  messagingSenderId: "157907058977",
+  appId: "1:157907058977:web:025ff35b68caf035137e60",
+  measurementId: "G-FQKR6VWLE8"
+};

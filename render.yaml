@@ -1,0 +1,16 @@
+# Render Blueprint — static Jekyll site (free tier, global CDN, managed TLS).
+# Deploy: Render Dashboard → New + → Blueprint → pick this repo → Apply.
+services:
+  - type: web
+    name: genz-economics
+    runtime: static
+    repo: https://github.com/harsharya7021/genz-economics.com
+    branch: main
+    buildCommand: bundle exec jekyll build
+    staticPublishPath: ./_site
+    autoDeploy: true
+    envVars:
+      - key: JEKYLL_ENV
+        value: production
+      - key: RUBY_VERSION
+        value: 3.3.4

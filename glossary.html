@@ -1,0 +1,25 @@
+---
+layout: default
+title: Glossary
+permalink: /glossary/
+---
+<section class="hero" style="padding-bottom:.4rem"><div class="container">
+  <p class="eyebrow">Vocabulary · plain-English economics</p>
+  <h1 class="display">Every term, <em>demystified.</em></h1>
+  <p class="macro-intro">The jargon from the notes, sessions and macro-watch — explained simply, in a line or two. Search it, or filter by area.</p>
+</div></section>
+<section class="gloss-wrap"><div class="container">
+  <div class="gloss-controls">
+    <div class="search-box"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg><input id="glossarySearch" type="search" placeholder="Search terms — repo rate, REER, multiplier…" autocomplete="off"></div>
+    {% assign cats = site.data.glossary | map: 'cat' | uniq | sort %}
+    <div class="filter-chips" id="glossaryCats"><button type="button" data-cat="all" aria-pressed="true">All</button>{% for c in cats %}<button type="button" data-cat="{{ c }}" aria-pressed="false">{{ c }}</button>{% endfor %}</div>
+  </div>
+  <div class="gloss-grid" id="glossaryList">
+    {% for g in site.data.glossary %}
+    <article class="gloss-card" data-term data-cat="{{ g.cat }}" data-search="{{ g.term | append: ' ' | append: g.def | append: ' ' | append: g.cat | downcase | strip_html | escape }}">
+      <span class="cat">{{ g.cat }}</span><h3>{{ g.term }}</h3><p>{{ g.def }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="gloss-empty" id="glossaryEmpty">No terms match that search.</p>
+</div></section>

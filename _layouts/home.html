@@ -24,6 +24,33 @@ layout: default
   </div>
 </section>
 
+<section class="container" style="padding-top:.5rem">
+  <div class="market-strip">
+    {% for t in site.data.markets.tickers %}
+    <div class="tkr {{ t.dir }}">
+      <div class="tkr-top">
+        <span class="sym">{{ t.symbol }}<span class="code">{{ t.code }}</span></span>
+        <span class="chg">{% if t.dir == 'down' %}&#9662;{% else %}&#9652;{% endif %} {{ t.change }}<span class="pct">{{ t.pct }}</span></span>
+      </div>
+      <svg class="spark" data-dir="{{ t.dir }}" data-spark='{{ t.spark | jsonify }}' aria-hidden="true"></svg>
+      <span class="val">{{ t.value }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="ponder-card" style="margin-top:1.1rem">
+    <p class="eyebrow">Today's question · discuss it</p>
+    <p class="upsc-meta" id="upscTodayMeta"></p>
+    <p class="q" id="upscToday">Loading today's question…</p>
+    <p class="sub">New question daily · <a href="{{ '/discussions/' | relative_url }}" style="color:var(--gold)">archive &amp; comments →</a></p>
+  </div>
+  <details class="daily-reveal">
+    <summary>Reveal yesterday's answer</summary>
+    <p class="rv-q" id="dailyPrevQ"></p>
+    <p class="rv-a" id="dailyPrevA"></p>
+  </details>
+</section>
+<script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
+
 <section id="latest" class="feed">
   <div class="container">
     <div class="section-head">
@@ -31,9 +58,26 @@ layout: default
       <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
 
-    <ol class="post-list">
+    <div class="feed-controls">
+      <div class="search-box">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+        <input id="feedSearch" type="search" placeholder="Search notes — topic, title, keyword…" aria-label="Search notes" autocomplete="off">
+      </div>
+      {% assign filters = "monetary-policy,fiscal-policy,growth,exchange-rates,inflation,banking,india" | split: "," %}
+      <div class="filter-chips" id="filterChips">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        {% for f in filters %}<button type="button" data-filter="{{ f }}" aria-pressed="false">{{ f | replace: '-', ' ' }}</button>{% endfor %}
+      </div>
+    </div>
+
+    <ol class="post-list" id="postList">
       {% for post in published_posts %}
-      <li class="post-card">
+      {% capture tagstr %}{% for t in post.tags %}{{ t }} {% endfor %}{% endcapture %}
+      <li class="post-card"
+          data-title="{{ post.title | downcase | escape }}"
+          data-tags="{{ tagstr | strip }}"
+          data-search="{{ post.title | append: ' ' | append: post.excerpt_override | append: ' ' | append: tagstr | strip_html | downcase | strip_newlines | escape }}"
+          {% if post.session %}data-session="{{ post.session }}"{% endif %}>
         <a class="post-card-link" href="{{ post.url | relative_url }}">
           <div class="post-meta">
             <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -54,6 +98,7 @@ layout: default
       </li>
       {% endfor %}
     </ol>
+    <p class="feed-empty" id="feedEmpty">No notes match that search yet — try a different keyword or clear the filter.</p>
   </div>
 </section>
 

@@ -1,0 +1,55 @@
+---
+layout: default
+title: Study
+permalink: /study/
+study: true
+---
+
+<section class="hero" style="padding-bottom:.5rem"><div class="container">
+  <p class="eyebrow">Study · flashcards · daily question</p>
+  <h1 class="display">Make it <em>stick.</em></h1>
+  <p class="macro-intro">A question to sit with each day, and spaced-repetition flashcards that resurface concepts right before you'd forget them. Quizzes and cohort scoreboards come next, once the backend is in place.</p>
+</div></section>
+
+<section class="study-wrap"><div class="container">
+
+  <div class="ponder-card">
+    <p class="eyebrow">Today's question · discuss it</p>
+    <p class="upsc-meta" id="upscTodayMeta"></p>
+    <p class="q" id="upscToday">Loading today's question…</p>
+    <p class="sub">Comment in the <a href="{{ '/discussions/' | relative_url }}" style="color:var(--gold)">daily archive</a> · quiz in the <a href="{{ '/question-bank/' | relative_url }}" style="color:var(--gold)">question bank</a></p>
+  </div>
+  <details class="daily-reveal">
+    <summary>Reveal yesterday's answer</summary>
+    <p class="rv-q" id="dailyPrevQ"></p>
+    <p class="rv-a" id="dailyPrevA"></p>
+  </details>
+  <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
+
+  <div class="shelf-head" style="margin-top:2.5rem"><h2>Flashcards</h2><span class="hint" id="fcCount"></span></div>
+  <div class="fc-decks" id="fcDecks"></div>
+  <div class="fc-top"><span class="fc-deck-label" id="fcDeckLabel">—</span></div>
+
+  <div id="fcStage" class="fc-card">
+    <p class="fc-q" id="fcQ"></p>
+    <p class="fc-a" id="fcA"></p>
+    <div class="fc-actions">
+      <button type="button" class="fc-show" id="fcShow">Show answer <span class="k">space</span></button>
+      <div class="fc-grades" id="fcGrades">
+        <button type="button" data-grade="again">Again<span class="k">1</span></button>
+        <button type="button" data-grade="hard">Hard<span class="k">2</span></button>
+        <button type="button" data-grade="good">Good<span class="k">3</span></button>
+        <button type="button" data-grade="easy">Easy<span class="k">4</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fc-empty" id="fcEmpty">
+    <h3>All caught up.</h3>
+    <p>You reviewed <span data-fc-count>0</span> cards. Spaced repetition will resurface them when they're due.</p>
+    <button type="button" class="fc-show" id="fcRestart">Study all again</button>
+  </div>
+  <p class="fc-hint">Keyboard — space to flip · 1–4 to grade · progress saved on this device</p>
+
+  <script type="application/json" id="flashcard-data">{{ site.data.flashcards | jsonify }}</script>
+</div></section>

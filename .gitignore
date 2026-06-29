@@ -16,3 +16,6 @@ node_modules/
 *.m4a
 *.mp4
 *.vtt
+
+# local pre-reskin backup (do not publish)
+_backup_pre-reskin*/

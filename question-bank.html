@@ -1,0 +1,52 @@
+---
+layout: default
+title: Question Bank
+permalink: /question-bank/
+quiz: true
+---
+
+<section class="hero" style="padding-bottom:.4rem"><div class="container">
+  <p class="eyebrow">UPSC question bank · economy &amp; finance</p>
+  <h1 class="display">Drill the <em>real</em> papers.</h1>
+  <p class="macro-intro">Actual UPSC Civil Services questions on the economy — Prelims MCQs to quiz yourself, and Mains GS&nbsp;Paper&nbsp;III prompts for daily discussion. Filter by topic or year. Sourced from public previous-year papers.</p>
+</div></section>
+
+<section class="qb-wrap"><div class="container" id="qbApp">
+
+  <div class="qb-modes">
+    <button type="button" data-qb-mode="quiz" aria-pressed="true">Quiz (MCQ)</button>
+    <button type="button" data-qb-mode="discuss" aria-pressed="false">Discussion (Mains)</button>
+  </div>
+
+  <div class="qb-filters">
+    <label>Topic <select id="qbTopic"></select></label>
+    <label>Year <select id="qbYear"></select></label>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="qbQuiz">
+    <div class="qb-card">
+      <span class="qb-num" id="qbNum"></span>
+      <p class="qb-meta" id="qbMeta"></p>
+      <p class="qb-q" id="qbQ"></p>
+      <div class="qb-options" id="qbOptions"></div>
+      <p class="qb-feedback" id="qbFeedback"></p>
+      <div class="qb-bar">
+        <span class="qb-score" id="qbScore"></span>
+        <span>
+          <button type="button" class="qb-restart" id="qbRestart">Restart</button>
+          <button type="button" class="qb-next" id="qbNext" style="display:none">Next →</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCUSSION -->
+  <div id="qbDisc" style="display:none">
+    <div class="qb-disc-list" id="qbDiscList"></div>
+  </div>
+
+  <script type="application/json" id="upsc-mcq-data">{{ site.data.upsc.mcq | jsonify }}</script>
+  <script type="application/json" id="upsc-desc-data">{{ site.data.upsc.descriptive | jsonify }}</script>
+  <script type="application/json" id="upsc-opt-data">{{ site.data.upsc.optional | jsonify }}</script>
+</div></section>

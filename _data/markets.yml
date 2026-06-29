@@ -1,0 +1,33 @@
+# Market snapshot for the ticker widget. Values are a maintained snapshot
+# (refresh manually or via a scheduled task). Sparkline points are indicative
+# of the session's shape, ending at the latest level.
+as_of: "29 Jun 2026"
+tickers:
+  - symbol: "NIFTY 50"
+    code: "^NSEI"
+    value: "24,056.00"
+    change: "+34.35"
+    pct: "+0.14%"
+    dir: "up"
+    spark: [24010, 24026, 24018, 24039, 24033, 24048, 24052, 24056]
+  - symbol: "SENSEX"
+    code: "BSE"
+    value: "77,100.47"
+    change: "+109.25"
+    pct: "+0.14%"
+    dir: "up"
+    spark: [76985, 77022, 77008, 77061, 77044, 77083, 77092, 77100]
+  - symbol: "USD / INR"
+    code: "FX"
+    value: "94.51"
+    change: "-0.12"
+    pct: "-0.13%"
+    dir: "down"
+    spark: [94.66, 94.60, 94.63, 94.56, 94.58, 94.53, 94.52, 94.51]
+  - symbol: "10Y G-Sec"
+    code: "IN10Y"
+    value: "6.77%"
+    change: "-0.03"
+    pct: "-0.44%"
+    dir: "down"
+    spark: [6.81, 6.80, 6.795, 6.79, 6.785, 6.78, 6.775, 6.77]

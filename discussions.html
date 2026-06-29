@@ -1,0 +1,34 @@
+---
+layout: default
+title: Daily Discussion
+permalink: /discussions/
+---
+<section class="hero" style="padding-bottom:.4rem"><div class="container">
+  <p class="eyebrow">Daily discussion · one question a day</p>
+  <h1 class="display">Think it through, <em>out loud.</em></h1>
+  <p class="macro-intro">A fresh economics question every day to chew on and debate in the comments. The next day, the model answer is revealed. Everything lives on here for the archive.</p>
+</div></section>
+<section class="study-wrap"><div class="container">
+  <div class="ponder-card">
+    <p class="eyebrow">Today's question · discuss it</p>
+    <p class="upsc-meta" id="upscTodayMeta"></p>
+    <p class="q" id="upscToday">Loading today's question…</p>
+    <p class="sub">Add your take below. Yesterday's answer is just under it.</p>
+  </div>
+  <details class="daily-reveal">
+    <summary>Reveal yesterday's answer</summary>
+    <p class="rv-q" id="dailyPrevQ"></p>
+    <p class="rv-a" id="dailyPrevA"></p>
+  </details>
+  {% include comments.html daily=true thread="daily" %}
+
+  <div class="section-head" style="margin-top:2.6rem"><h2>The bank</h2><span class="feed-link" style="color:var(--ink-soft)">{{ site.data.daily | size }} questions</span></div>
+  <div class="gloss-grid">
+    {% for d in site.data.daily %}
+    <article class="gloss-card"><span class="cat">{{ d.topic }}</span><h3 style="font-size:1.12rem">{{ d.q }}</h3>
+      <details class="daily-reveal" style="margin-top:.6rem;border-left-width:3px"><summary>Model answer</summary><p class="rv-a">{{ d.model }}</p></details>
+    </article>
+    {% endfor %}
+  </div>
+  <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
+</div></section>

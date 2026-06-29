@@ -1,0 +1,73 @@
+---
+layout: default
+title: Sessions
+permalink: /sessions/
+---
+
+{% assign sessions = site.posts | where_exp: "p", "p.session" | sort: "session" %}
+{% assign featured = sessions | last %}
+
+<section class="hero" style="padding-bottom:1.5rem">
+  <div class="container">
+    <p class="eyebrow">Lecture hub · {{ sessions | size }} sessions</p>
+    <h1 class="display">The <em>sessions</em>, in one place.</h1>
+    <p class="lede">
+      Every macro session from Prof.&nbsp;Tantri's course — notes, transcript, and (once approved) the recording — gathered into one hub. Read the write-up or press play.
+    </p>
+  </div>
+</section>
+
+<section class="sessions-wrap">
+  <div class="container">
+    <div class="section-head">
+      <h2>Featured</h2>
+      {% unless site.lectures_enabled %}<span class="feed-link" style="color:var(--ink-soft)">recordings pending</span>{% endunless %}
+    </div>
+    {% include lecture-player.html title=featured.title session=featured.session duration="1:04:00" recorded=featured.date %}
+
+    <div class="section-head" style="margin-top:2.5rem">
+      <h2>All sessions</h2>
+      <a class="feed-link" href="{{ '/' | relative_url }}">All notes →</a>
+    </div>
+
+    <div class="session-grid">
+      {% for post in sessions %}
+      <article class="session-card">
+        <a class="session-thumb" href="{{ post.url | relative_url }}" aria-label="Open Session {{ post.session }}: {{ post.title }}">
+          <span class="badge">
+            {% if site.lectures_enabled %}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Lecture
+            {% else %}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Locked
+            {% endif %}
+          </span>
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="num">{{ post.session }}</span>
+        </a>
+        <div class="session-body">
+          <div class="session-meta">
+            <span>Session {{ post.session }}</span>
+            <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+          </div>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="s-dek">{{ post.dek | default: post.excerpt_override | strip_html | truncatewords: 22 }}</p>
+          <div class="session-actions">
+            <a class="s-tag notes" href="{{ post.url | relative_url }}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/></svg> Notes
+            </a>
+            {% if site.lectures_enabled %}
+            <a class="s-tag rec" href="{{ post.url | relative_url }}#lecture">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg> Watch
+            </a>
+            {% else %}
+            <span class="s-tag locked">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Recording soon
+            </span>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

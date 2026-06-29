@@ -7,6 +7,7 @@ layout: default
 
 <article class="post">
   <div class="container narrow">
+    <nav class="toc" id="toc" aria-label="On this page" hidden></nav>
 
     {% if page.draft %}
     <div style="background: #FFE8A0; color: #15151A; padding: .9rem 1.1rem; border-radius: 6px; font-family: var(--mono); font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; margin: 0 0 1.5rem; border: 1px solid #d4be63;">
@@ -52,7 +53,15 @@ layout: default
       {% endif %}
     </header>
 
-    <div class="post-body">
+    {% if page.session %}{% include lecture-player.html title=page.title session=page.session %}{% endif %}
+
+    <div class="read-aloud-bar" data-tts>
+      <button type="button" class="ra-btn" data-tts-play data-tts-src="#postBodyText" data-tts-idle="Listen to this note" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-tts-label>Listen to this note</span></button>
+      <label class="ra-meta">Speed <input type="range" data-tts-rate min="0.7" max="1.5" step="0.1" value="1"></label>
+      <span class="ra-meta">browser read-aloud · no download</span>
+    </div>
+
+    <div class="post-body" id="postBodyText">
       {{ content }}
     </div>
 

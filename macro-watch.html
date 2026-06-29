@@ -1,0 +1,137 @@
+---
+layout: default
+title: Macro Watch
+permalink: /macro-watch/
+---
+
+<section class="hero" style="padding-bottom:.5rem">
+  <div class="container">
+    <p class="eyebrow">Macro watch · the data this course moves to</p>
+    <h1 class="display">Know the <em>print</em> before it drops.</h1>
+    <p class="macro-intro">
+      The Indian macro releases the sessions keep referring to — CPI, the RBI rate decision, the liquidity operations and the policy corridor — with the next dates and a plain-English “why it matters,” linked back to the note that explains it.
+    </p>
+  </div>
+</section>
+
+<section class="macro-wrap">
+  <div class="container">
+
+    <div class="section-head"><h2>Markets today</h2><span class="feed-link" style="color:var(--ink-soft)">snapshot</span></div>
+  <div class="market-strip">
+    {% for t in site.data.markets.tickers %}
+    <div class="tkr {{ t.dir }}">
+      <div class="tkr-top">
+        <span class="sym">{{ t.symbol }}<span class="code">{{ t.code }}</span></span>
+        <span class="chg">{% if t.dir == 'down' %}&#9662;{% else %}&#9652;{% endif %} {{ t.change }}<span class="pct">{{ t.pct }}</span></span>
+      </div>
+      <svg class="spark" data-dir="{{ t.dir }}" data-spark='{{ t.spark | jsonify }}' aria-hidden="true"></svg>
+      <span class="val">{{ t.value }}</span>
+    </div>
+    {% endfor %}
+  </div>
+    <p class="market-as-of">Snapshot &middot; {{ site.data.markets.as_of }} &middot; indicative intraday shape &mdash; wire a live feed or scheduled refresh to update automatically.</p>
+
+        <!-- Snapshot -->
+    <div class="section-head"><h2>Policy snapshot</h2></div>
+    <div class="stat-row">
+      <div class="stat"><p class="k">Repo rate</p><div class="v">5.25<small>%</small></div><p class="sub">unchanged</p></div>
+      <div class="stat"><p class="k">SDF · floor</p><div class="v">5.00<small>%</small></div></div>
+      <div class="stat"><p class="k">MSF · ceiling</p><div class="v">5.50<small>%</small></div></div>
+      <div class="stat"><p class="k">Stance</p><div class="v" style="font-size:1.5rem">Neutral</div></div>
+      <div class="stat"><p class="k">CPI · May ’26</p><div class="v">3.93<small>%</small></div><p class="sub">y-o-y</p></div>
+    </div>
+    <p class="as-of">As of Jun 2026 · last decision: MPC, 3–5 Jun 2026 (repo held, neutral) · Governor Sanjay Malhotra. Sources linked below.</p>
+
+    <!-- Corridor -->
+    <div class="corridor">
+      <h3>The LAF corridor right now</h3>
+      <div class="corridor-bar">
+        <div class="corridor-mark floor" style="left:12%"><span class="lab">SDF — floor</span><span class="val">5.00%</span></div>
+        <div class="corridor-mark repo" style="left:50%"><span class="lab">Repo — policy rate</span><span class="val">5.25%</span></div>
+        <div class="corridor-mark ceil" style="left:88%"><span class="lab">MSF — ceiling</span><span class="val">5.50%</span></div>
+      </div>
+      <div class="corridor-legend">
+        <span><strong>50 bps wide.</strong> The RBI steers overnight rates inside this band.</span>
+        <span>Floor = SDF (parks cash, no collateral) · Ceiling = MSF (emergency borrowing).</span>
+      </div>
+    </div>
+
+    <!-- Upcoming -->
+    <div class="section-head"><h2>What’s coming up</h2></div>
+    <div class="watch-list">
+      <div class="watch-row gold">
+        <div class="watch-date"><span class="d">~13</span><span class="m">Jul</span></div>
+        <div class="watch-main"><p class="t">CPI inflation — June 2026</p><p class="why">Released around the 12th–13th (2024 base year). The print the MPC reacts to → <a href="{{ '/2026/02/medium-term-inflation-labor-markets-phillips-curve/' | relative_url }}">inflation &amp; the Phillips curve</a>.</p></div>
+        <span class="when" data-date="2026-07-13">—</span>
+      </div>
+      <div class="watch-row">
+        <div class="watch-date"><span class="d">05</span><span class="m">Aug</span></div>
+        <div class="watch-main"><p class="t">RBI MPC rate decision</p><p class="why">3–5 Aug 2026 meeting. Sets the repo rate &amp; stance — the heart of <a href="{{ '/2025/11/aggregate-demand-and-monetary-policy/' | relative_url }}">Session 3</a> &amp; <a href="{{ '/2025/11/is-mp-framework-and-modern-monetary-policy/' | relative_url }}">the IS-MP framework</a>.</p></div>
+        <span class="when" data-date="2026-08-05">—</span>
+      </div>
+      <div class="watch-row gold">
+        <div class="watch-date"><span class="d">~12</span><span class="m">Aug</span></div>
+        <div class="watch-main"><p class="t">CPI inflation — July 2026</p><p class="why">Next monthly retail-inflation print.</p></div>
+        <span class="when" data-date="2026-08-12">—</span>
+      </div>
+      <div class="watch-row">
+        <div class="watch-date"><span class="d">07</span><span class="m">Oct</span></div>
+        <div class="watch-main"><p class="t">RBI MPC rate decision</p><p class="why">5–7 Oct 2026 meeting (FY27 calendar).</p></div>
+        <span class="when" data-date="2026-10-07">—</span>
+      </div>
+      <div class="watch-row">
+        <div class="watch-date"><span class="d">04</span><span class="m">Dec</span></div>
+        <div class="watch-main"><p class="t">RBI MPC rate decision</p><p class="why">2–4 Dec 2026 meeting.</p></div>
+        <span class="when" data-date="2026-12-04">—</span>
+      </div>
+      <div class="watch-row">
+        <div class="watch-date"><span class="d">05</span><span class="m">Feb</span></div>
+        <div class="watch-main"><p class="t">RBI MPC rate decision — final FY27</p><p class="why">3–5 Feb 2027 meeting.</p></div>
+        <span class="when" data-date="2027-02-05">—</span>
+      </div>
+      <div class="watch-row muted">
+        <div class="watch-date"><span class="d">•</span><span class="m">Ongoing</span></div>
+        <div class="watch-main"><p class="t">VRR / VRRR liquidity auctions</p><p class="why">Announced as needed (main 14-day + fine-tuning), not on a fixed calendar. VRRR <em>absorbs</em> surplus cash; VRR <em>injects</em> it — how the RBI keeps the overnight rate near repo.</p></div>
+        <span class="when past">as announced</span>
+      </div>
+    </div>
+
+    <!-- Indicator explainers -->
+    <div class="section-head"><h2>The metrics, in one line each</h2></div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="ico"><span class="m-ico ico-cpi"></span></div>
+        <h3>CPI inflation</h3>
+        <p>Year-on-year change in retail prices (2024 base). The MPC’s primary target — 4% ±2%. Released ~12th monthly by MoSPI.</p>
+        <a class="link" href="{{ '/2026/02/medium-term-inflation-labor-markets-phillips-curve/' | relative_url }}">Why it matters →</a>
+      </div>
+      <div class="metric-card">
+        <div class="ico"><span class="m-ico ico-interest-rate"></span></div>
+        <h3>Repo rate &amp; the MPC</h3>
+        <p>The rate at which banks borrow from the RBI. Six MPC meetings a year set it and the stance — the policy lever in the IS-MP world.</p>
+        <a class="link" href="{{ '/2025/11/aggregate-demand-and-monetary-policy/' | relative_url }}">Why it matters →</a>
+      </div>
+      <div class="metric-card">
+        <div class="ico"><span class="m-ico ico-bank"></span></div>
+        <h3>Liquidity — VRR / VRRR</h3>
+        <p>RBI’s open-market liquidity tools. VRRR drains surplus cash, VRR adds it — the day-to-day plumbing that keeps overnight rates inside the corridor.</p>
+        <a class="link" href="{{ '/2025/11/is-mp-framework-and-modern-monetary-policy/' | relative_url }}">Why it matters →</a>
+      </div>
+      <div class="metric-card">
+        <div class="ico"><span class="m-ico ico-economy"></span></div>
+        <h3>The LAF corridor</h3>
+        <p>SDF (floor) → Repo → MSF (ceiling). The 50 bps band the RBI defends. Its width and where the call rate sits signal how tight policy really is.</p>
+        <a class="link" href="{{ '/2025/11/is-mp-framework-and-modern-monetary-policy/' | relative_url }}">Why it matters →</a>
+      </div>
+    </div>
+
+    <p class="post-note" style="margin-top:2rem">
+      Snapshot maintained by the community — verify against primary sources before quoting:
+      <a href="https://www.rbi.org.in/scripts/annualpolicy.aspx" target="_blank" rel="noopener">RBI Monetary Policy</a> ·
+      <a href="https://www.mospi.gov.in/cpi" target="_blank" rel="noopener">MoSPI CPI</a>.
+      Repo 5.25% / SDF 5.00% / MSF 5.50% as of the Jun 2026 MPC; FY27 meeting calendar released 23 Mar 2026.
+    </p>
+
+  </div>
+</section>

@@ -1,0 +1,196 @@
+# UPSC economy/finance question bank — sourced from public UPSC CSE PYQs.
+# MCQs: official Prelims GS Paper I economy questions (answer = 0-based index).
+# Descriptive: official Mains GS Paper III economy questions (for daily discussion).
+mcq:
+  - q: '"Rapid Financing Instrument" and "Rapid Credit Facility" are related to the provisions of lending by which of the following?'
+    options: ["Asian Development Bank", "International Monetary Fund", "UNEP Finance Initiative", "World Bank"]
+    answer: 1
+    year: 2022
+    topic: "External sector"
+  - q: "Consider: 1) An increase in NEER indicates rupee appreciation. 2) An increase in REER indicates improved trade competitiveness. 3) Rising domestic inflation relative to others widens the NEER–REER divergence. Which are correct?"
+    options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"]
+    answer: 2
+    year: 2022
+    topic: "External sector"
+  - q: "Consider: 1) If inflation is too high, RBI is likely to buy government securities. 2) If the rupee is rapidly depreciating, RBI is likely to sell dollars. 3) If US/EU interest rates fall, RBI is likely to buy dollars. Which are correct?"
+    options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"]
+    answer: 1
+    year: 2022
+    topic: "Monetary policy"
+  - q: 'With reference to the "G20 Common Framework": 1) It is endorsed by the G20 together with the Paris Club. 2) It supports Low Income Countries with unsustainable debt. Which is/are correct?'
+    options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"]
+    answer: 2
+    year: 2022
+    topic: "External sector"
+  - q: "In India, which one of the following is responsible for maintaining price stability by controlling inflation?"
+    options: ["Department of Consumer Affairs", "Expenditure Management Commission", "Financial Stability and Development Council", "Reserve Bank of India"]
+    answer: 3
+    year: 2022
+    topic: "Inflation"
+  - q: "The money multiplier in an economy increases with which one of the following?"
+    options: ["Increase in the Cash Reserve Ratio", "Increase in the Statutory Liquidity Ratio", "Increase in the banking habit of the people", "Increase in the population"]
+    answer: 2
+    year: 2021
+    topic: "Monetary policy"
+  - q: "Demand-pull inflation can be caused/increased by: 1) Expansionary policies 2) Fiscal stimulus 3) Inflation-indexing wages 4) Higher purchasing power 5) Rising interest rates."
+    options: ["1, 2 and 4 only", "3, 4 and 5 only", "1, 2, 3 and 5 only", "1, 2, 3, 4 and 5"]
+    answer: 0
+    year: 2021
+    topic: "Inflation"
+    q: "The Central Bank's function as \"lender of last resort\" usually refers to: 1) Lending to trade/industry bodies that fail to borrow elsewhere 2) Providing liquidity to banks in temporary crisis 3) Lending to governments to finance deficits."
+    options: ["1 and 2", "2 only", "2 and 3", "3 only"]
+    answer: 1
+    year: 2021
+    topic: "Banking"
+  - q: "Which step is most likely to be taken at the time of an economic recession?"
+    options: ["Cut tax rates with a rise in interest rate", "Increase expenditure on public projects", "Raise tax rates with a cut in interest rate", "Reduce expenditure on public projects"]
+    answer: 1
+    year: 2021
+    topic: "Fiscal policy"
+  - q: "Indian Government Bond yields are influenced by: 1) Actions of the US Federal Reserve 2) Actions of the RBI 3) Inflation and short-term interest rates."
+    options: ["1 and 2 only", "2 only", "3 only", "1, 2 and 3"]
+    answer: 3
+    year: 2021
+    topic: "Financial markets"
+  - q: "Which one of the following is likely to be the most inflationary in its effects?"
+    options: ["Repayment of public debt", "Borrowing from the public to finance a deficit", "Borrowing from banks to finance a deficit", "Creation of new money to finance a deficit"]
+    answer: 3
+    year: 2021
+    topic: "Inflation"
+  - q: "Consider: 1) Food has higher weight in CPI than in WPI. 2) WPI does not capture services prices, which CPI does. 3) RBI has adopted WPI as its key inflation measure for policy rates. Which is/are correct?"
+    options: ["1 and 2 only", "2 only", "3 only", "1, 2 and 3"]
+    answer: 0
+    year: 2020
+    topic: "Inflation"
+  - q: 'Consider: 1) Commercial Paper is a short-term unsecured promissory note. 2) Certificate of Deposit is a long-term instrument issued by RBI to a corporation. 3) "Call Money" is short-term finance for interbank transactions. 4) "Zero-Coupon Bonds" are interest-bearing short-term bonds issued by banks. Which is/are correct?'
+    options: ["1 and 2 only", "4 only", "1 and 3 only", "2, 3 and 4 only"]
+    answer: 2
+    year: 2020
+    topic: "Financial markets"
+  - q: "If you withdraw 1,00,000 in cash from your Demand Deposit Account, the immediate effect on aggregate money supply will be:"
+    options: ["reduce it by 1,00,000", "increase it by 1,00,000", "increase it by more than 1,00,000", "leave it unchanged"]
+    answer: 3
+    year: 2020
+    topic: "Monetary policy"
+  - q: "In a given year in India, official poverty lines are higher in some States than others because:"
+    options: ["poverty rates vary by State", "price levels vary by State", "Gross State Product varies by State", "quality of public distribution varies by State"]
+    answer: 1
+    year: 2019
+    topic: "Poverty"
+  - q: "Which of the following is issued by registered FPIs to overseas investors who want exposure to the Indian stock market without registering directly?"
+    options: ["Certificate of Deposit", "Commercial Paper", "Promissory Note", "Participatory Note"]
+    answer: 3
+    year: 2019
+    topic: "Financial markets"
+  - q: "Which of the following is NOT included in the assets of a commercial bank in India?"
+    options: ["Advances", "Deposits", "Investments", "Money at call and short notice"]
+    answer: 1
+    year: 2019
+    topic: "Banking"
+  - q: "The Chairman of public sector banks are selected by the:"
+    options: ["Banks Board Bureau", "Reserve Bank of India", "Union Ministry of Finance", "Management of the concerned bank"]
+    answer: 0
+    year: 2019
+    topic: "Banking"
+  - q: 'Which one best describes the term "Merchant Discount Rate"?'
+    options: ["Incentive given by a bank to a merchant for accepting that bank's debit cards", "Amount banks pay back to customers for debit-card use", "Charge to a merchant by a bank for accepting payments via debit cards", "Government incentive to merchants for promoting digital payments"]
+    answer: 2
+    year: 2018
+    topic: "Banking"
+  - q: "Which one of the following links all the ATMs in India?"
+    options: ["Indian Banks' Association", "National Securities Depository Limited", "National Payments Corporation of India", "Reserve Bank of India"]
+    answer: 2
+    year: 2018
+    topic: "Banking"
+  - q: "Which statement correctly describes the meaning of legal tender money?"
+    options: ["Money tendered in courts to pay legal fees", "Money a creditor is compelled to accept in settlement of claims", "Bank money such as cheques, drafts, bills of exchange", "Metallic money in circulation"]
+    answer: 1
+    year: 2018
+    topic: "Monetary policy"
+  - q: 'The term "Base Erosion and Profit Shifting" is seen in the news in the context of:'
+    options: ["mining by MNCs in backward areas", "curbing tax evasion by multinational companies", "exploitation of genetic resources by MNCs", "ignoring environmental costs in projects"]
+    answer: 1
+    year: 2016
+    topic: "Taxation"
+  - q: '"Global Financial Stability Report" is prepared by the:'
+    options: ["European Central Bank", "International Monetary Fund", "International Bank for Reconstruction and Development", "OECD"]
+    answer: 1
+    year: 2016
+    topic: "External sector"
+  - q: '"Basel III Accord" seeks to:'
+    options: ["develop strategies for biodiversity conservation", "improve the banking sector's ability to handle financial/economic stress and risk", "reduce greenhouse gas emissions", "transfer technology to replace CFCs"]
+    answer: 1
+    year: 2015
+    topic: "Banking"
+  - q: "The problem of international liquidity is related to the non-availability of:"
+    options: ["goods and services", "gold and silver", "dollars and other hard currencies", "exportable surplus"]
+    answer: 2
+    year: 2015
+    topic: "External sector"
+  - q: 'In the Indian economy, "Open Market Operations" refers to:'
+    options: ["borrowing by scheduled banks from the RBI", "lending by commercial banks to industry and trade", "purchase and sale of government securities by the RBI", "None of the above"]
+    answer: 2
+    year: 2013
+    topic: "Monetary policy"
+  - q: "An increase in the Bank Rate generally indicates that the:"
+    options: ["market rate of interest is likely to fall", "Central Bank is no longer lending to commercial banks", "Central Bank is following an easy money policy", "Central Bank is following a tight money policy"]
+    answer: 3
+    year: 2013
+    topic: "Monetary policy"
+descriptive:
+  - {q: "How did land reforms in some parts of the country help to improve the socio-economic conditions of marginal and small farmers?", year: 2021, paper: "GS Paper III", topic: "Agriculture"}
+  - {q: "Distinguish between Capital Budget and Revenue Budget. Explain the components of both these Budgets.", year: 2021, paper: "GS Paper III", topic: "Fiscal policy"}
+  - {q: "Do you agree that the Indian economy has recently experienced a V-shaped recovery? Give reasons in support of your answer.", year: 2021, paper: "GS Paper III", topic: "Growth"}
+  - {q: "\"Investment in infrastructure is essential for more rapid and inclusive economic growth.\" Discuss in the light of India's experience.", year: 2021, paper: "GS Paper III", topic: "Infrastructure"}
+  - {q: "Define potential GDP and explain its determinants. What factors have been inhibiting India from realizing its potential GDP?", year: 2020, paper: "GS Paper III", topic: "Growth"}
+  - {q: "Explain the rationale behind the GST (Compensation to States) Act, 2017. How has COVID-19 impacted the GST compensation fund and created new federal tensions?", year: 2020, paper: "GS Paper III", topic: "Taxation"}
+  - {q: "Enumerate the indirect taxes subsumed in the GST in India. Comment on the revenue implications of the GST introduced since July 2017.", year: 2019, paper: "GS Paper III", topic: "Taxation"}
+  - {q: "Do you agree that steady GDP growth and low inflation have left the Indian economy in good shape? Give reasons.", year: 2019, paper: "GS Paper III", topic: "Growth"}
+  - {q: "Public expenditure management is a challenge to the Government of India in budget-making during the post-liberalization period. Clarify.", year: 2019, paper: "GS Paper III", topic: "Fiscal policy"}
+  - {q: "Comment on the important changes introduced in respect of Long-term Capital Gains Tax and Dividend Distribution Tax in the Union Budget 2018-19.", year: 2018, paper: "GS Paper III", topic: "Taxation"}
+  - {q: "How are the principles followed by NITI Aayog different from those of the erstwhile Planning Commission?", year: 2018, paper: "GS Paper III", topic: "Planning"}
+  - {q: "How would the recent phenomena of protectionism and currency manipulation in world trade affect the macroeconomic stability of India?", year: 2018, paper: "GS Paper III", topic: "External sector"}
+  - {q: "Among several factors for India's potential growth, the savings rate is the most effective one. Do you agree? What other factors are available?", year: 2017, paper: "GS Paper III", topic: "Growth"}
+  - {q: "What are the salient features of \"inclusive growth\"? Has India been experiencing such growth? Analyse and suggest measures.", year: 2017, paper: "GS Paper III", topic: "Inclusive growth"}
+  - {q: "In what way could replacement of price subsidy with Direct Benefit Transfer (DBT) change the scenario of subsidies in India? Discuss.", year: 2015, paper: "GS Paper III", topic: "Fiscal policy"}
+  - {q: "The craze for gold has surged gold imports and pressured the balance of payments and the rupee. Examine the merits of the Gold Monetization Scheme.", year: 2015, paper: "GS Paper III", topic: "External sector"}
+  - {q: "What were the reasons for introducing the FRBM Act, 2003? Critically discuss its salient features and their effectiveness.", year: 2013, paper: "GS Paper III", topic: "Fiscal policy"}
+  - {q: "Discuss the rationale for introducing the GST in India. Critically bring out the reasons for the delay in its rollout.", year: 2013, paper: "GS Paper III", topic: "Taxation"}
+optional:
+  - {q: "Explain briefly Chamberlin's concept of excess capacity in monopolistic competition.", year: 2022, paper: "Optional Paper I", topic: "Microeconomics"}
+  - {q: "Discuss the concept of 'liquidity trap' in the liquidity preference model of interest.", year: 2022, paper: "Optional Paper I", topic: "Money & banking"}
+  - {q: "In demand for money, what are the major differences between the 'transaction approach' and 'cash balance approach'?", year: 2022, paper: "Optional Paper I", topic: "Money & banking"}
+  - {q: "Discuss the Factor Endowment theory of trade in terms of 'abundance in factor prices' and 'factor abundance'.", year: 2022, paper: "Optional Paper I", topic: "International trade"}
+  - {q: "According to Hirschman, unbalanced growth can be through 'Social Overhead Capital' or 'Direct Productive Activities'. Discuss.", year: 2022, paper: "Optional Paper I", topic: "Growth models"}
+  - {q: "Duopoly: P = 100 - 2Q, MC = 10, Q = q1 + q2. Firm 1 is the Stackelberg leader, Firm 2 the follower. Find equilibrium output, price and profit of both firms.", year: 2022, paper: "Optional Paper I", topic: "Microeconomics"}
+  - {q: "The IS curve is the locus of equilibrium points in the commodity market. What do points above and below the IS curve signify?", year: 2022, paper: "Optional Paper I", topic: "Macroeconomics"}
+  - {q: "Discuss the effectiveness of monetary policy in an open economy with a flexible exchange rate and perfect capital mobility. Does it remain effective under a fixed exchange rate?", year: 2022, paper: "Optional Paper I", topic: "Macroeconomics"}
+  - {q: "What is the shape of the aggregate supply curve in the Classical and Keynesian models? Explain in detail.", year: 2022, paper: "Optional Paper I", topic: "Macroeconomics"}
+  - {q: "Stating the major assumptions of the Kaldor model of distribution, establish that the share of profits in national income depends on the ratio of investment to total output.", year: 2022, paper: "Optional Paper I", topic: "Growth models"}
+  - {q: "What is the warranted rate of growth? Explain the knife-edge instability problem in Harrod's growth model.", year: 2022, paper: "Optional Paper I", topic: "Growth models"}
+  - {q: "Following Arthur Lewis, state the sources of unlimited supply of labour and explain the mechanism of development of a dual economy in a less developed country.", year: 2022, paper: "Optional Paper I", topic: "Development"}
+  - {q: "Illustrate Jagdish Bhagwati's doctrine of immiserizing growth.", year: 2022, paper: "Optional Paper I", topic: "International trade"}
+  - {q: "Compare and contrast the Marshallian and Walrasian approaches to stability of equilibrium.", year: 2021, paper: "Optional Paper I", topic: "Microeconomics"}
+  - {q: "Does government borrowing always crowd out private investment? Illustrate.", year: 2021, paper: "Optional Paper I", topic: "Public finance"}
+  - {q: "Examine how profit, wage and rent in the Ricardian system move differently with movements in the level of income.", year: 2021, paper: "Optional Paper I", topic: "Microeconomics"}
+  - {q: "Apply the theory of liquidity preference to explain why an increase in money supply lowers the interest rate. What does this assume about the price level?", year: 2021, paper: "Optional Paper I", topic: "Money & banking"}
+  - {q: "Explain Rosenstein-Rodan's view that economic underdevelopment is the outcome of a massive coordination failure.", year: 2021, paper: "Optional Paper I", topic: "Development"}
+  - {q: "Evaluate Kuznets' inverted-U hypothesis of income distribution. Does it hold for less developed countries?", year: 2021, paper: "Optional Paper I", topic: "Development"}
+  - {q: "Does human capital cause economic growth? Explain how human capital formation can be enhanced.", year: 2021, paper: "Optional Paper I", topic: "Growth models"}
+  - {q: "Discuss the theory of acquired advantage in international trade with suitable examples.", year: 2021, paper: "Optional Paper I", topic: "International trade"}
+  - {q: "What are the different categories of trade blocs? Are trade blocs beneficial to less developed economies? Justify.", year: 2021, paper: "Optional Paper I", topic: "International trade"}
+  - {q: "The land system during British rule was responsible for sustained poverty and stagnant growth in India. Comment.", year: 2023, paper: "Optional Paper II", topic: "Indian economy"}
+  - {q: "How did V. K. R. V. Rao improve upon the earlier national income estimates of India?", year: 2023, paper: "Optional Paper II", topic: "Indian economy"}
+  - {q: "Explain the role of the public sector in the Indian economy. Point out its main problems during 1970-1980.", year: 2023, paper: "Optional Paper II", topic: "Indian economy"}
+  - {q: "Explain the concept of a ceiling on agricultural landholding in India. Examine its rationality with respect to equity and efficiency.", year: 2023, paper: "Optional Paper II", topic: "Development"}
+  - {q: "Explain the main causes of inequality in income distribution in India and examine how it affects social welfare.", year: 2023, paper: "Optional Paper II", topic: "Development"}
+  - {q: "Examine the effectiveness of universal basic income as an approach to poverty alleviation in India.", year: 2023, paper: "Optional Paper II", topic: "Development"}
+  - {q: "Discuss the features of the Agreement on Agriculture (AoA) under the Uruguay Round of GATT and examine its impact on Indian agriculture.", year: 2023, paper: "Optional Paper II", topic: "International trade"}
+  - {q: "State the main provisions of the 73rd and 74th Constitutional Amendment Acts, 1992. Have they succeeded in promoting democratic decentralization? Justify.", year: 2023, paper: "Optional Paper II", topic: "Decentralization"}
+  - {q: "Point out the contribution of C. N. Vakil to Indian economic planning.", year: 2022, paper: "Optional Paper II", topic: "Indian economy"}
+  - {q: "Is the Multidimensional Poverty Index (MPI) a better measure of poverty? Give reasons. What is India's position on the MPI?", year: 2022, paper: "Optional Paper II", topic: "Development"}
+  - {q: "Is Indian development planning a transition from centralised planning to indicative planning and then to market-based development? Explain.", year: 2022, paper: "Optional Paper II", topic: "Indian economy"}
+  - {q: "What are the various methods of privatisation? Which methods has the government adopted for disinvestment in India? Comment on the proceeds.", year: 2022, paper: "Optional Paper II", topic: "Public finance"}
+  - {q: "Examine how the laissez-faire policy was responsible for famine in late 19th-century India.", year: 2020, paper: "Optional Paper II", topic: "Economic history"}
+  - {q: "Distinguish between fiscal federalism and fiscal consolidation. Discuss the fundamental changes in Indian fiscal federalism after GST.", year: 2020, paper: "Optional Paper II", topic: "Public finance"}
+  - {q: "Examine the recent trend in rural wages in India. Discuss the role of MGNREGA in determining this trend.", year: 2020, paper: "Optional Paper II", topic: "Indian economy"}
