@@ -60,7 +60,9 @@ issue_base_url: "https://github.com/harsharya7021/genz-economics.com/issues/new/
 # ─────────────────────────────────────────────────────────────
 # Recordings stay private until Prof. Tantri approves publishing them.
 # Flip this to `true` to switch every gated lecture player on site-wide.
-lectures_enabled: false
+lectures_enabled: true
+# Optional: your Cloudflare Stream customer code (Stream dashboard URL). Blank = use videodelivery.net.
+stream_customer_code: ""
 
 # Skip noise
 exclude:

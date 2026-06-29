@@ -23,7 +23,7 @@ permalink: /sessions/
       <h2>Featured</h2>
       {% unless site.lectures_enabled %}<span class="feed-link" style="color:var(--ink-soft)">recordings pending</span>{% endunless %}
     </div>
-    {% include lecture-player.html title=featured.title session=featured.session duration="1:04:00" recorded=featured.date %}
+    {% include lecture-player.html title=featured.title session=featured.session duration="1:04:00" recorded=featured.date stream_id=featured.stream_id %}
 
     <div class="section-head" style="margin-top:2.5rem">
       <h2>All sessions</h2>

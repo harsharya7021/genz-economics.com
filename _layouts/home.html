@@ -25,18 +25,6 @@ layout: default
 </section>
 
 <section class="container" style="padding-top:.5rem">
-  <div class="market-strip">
-    {% for t in site.data.markets.tickers %}
-    <div class="tkr {{ t.dir }}">
-      <div class="tkr-top">
-        <span class="sym">{{ t.symbol }}<span class="code">{{ t.code }}</span></span>
-        <span class="chg">{% if t.dir == 'down' %}&#9662;{% else %}&#9652;{% endif %} {{ t.change }}<span class="pct">{{ t.pct }}</span></span>
-      </div>
-      <svg class="spark" data-dir="{{ t.dir }}" data-spark='{{ t.spark | jsonify }}' aria-hidden="true"></svg>
-      <span class="val">{{ t.value }}</span>
-    </div>
-    {% endfor %}
-  </div>
   <div class="ponder-card" style="margin-top:1.1rem">
     <p class="eyebrow">Today's question · discuss it</p>
     <p class="upsc-meta" id="upscTodayMeta"></p>

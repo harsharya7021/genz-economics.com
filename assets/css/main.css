@@ -21,8 +21,8 @@
   --accent-press:#172361;
   --accent-soft: #ECEEF8;    /* navy tint fill */
   --gold:      #E3A310;      /* bright gold — fills, waveform, stars */
-  --gold-ink:  #8A6A12;      /* gold that passes contrast on light */
-  --accent-2:  #8A6A12;      /* labels/markers → scholarly gold */
+  --gold-ink:  #7A5E10;      /* gold that passes contrast on light */
+  --accent-2:  #7A5E10;      /* labels/markers → scholarly gold */
   --highlight: #FFE8A0;      /* marker yellow */
   --header-bg: rgba(250,247,240,.85);
   --code-bg:   #16181F;      /* code blocks stay dark in both themes */
@@ -31,9 +31,9 @@
   --band-ink:  #FAF7F0;
 
   /* Type */
-  --serif: "Instrument Serif", "Times New Roman", Georgia, serif;
-  --body:  "Source Serif 4", "Iowan Old Style", Charter, "Georgia", serif;
-  --sans:  "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --serif: "Fraunces", "Times New Roman", Georgia, serif;
+  --body:  "Fraunces", "Iowan Old Style", Charter, "Georgia", serif;
+  --sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Scale */
@@ -1033,3 +1033,53 @@ body.post .read-progress { display: block; }
 .learn-card .lc-ico { width: 42px; height: 42px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
 .learn-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; margin: 0; color: var(--ink); }
 .learn-card p { font-family: var(--sans); font-size: .88rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+/* ============================================================
+   REDESIGN PASS — accessibility + calm  (Fraunces / Hanken)
+   ============================================================ */
+/* Visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
+.post-card-link:focus-visible, .session-thumb:focus-visible, .ab-play:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 5px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important; scroll-behavior: auto !important;
+  }
+  .post-card-link:hover, .session-card:hover, .ab-card:hover, .brief-card.linked:hover,
+  .learn-card:hover, .pod-card:hover, .btn:hover { transform: none !important; }
+}
+
+/* Quieter, more legible micro-labels — raise the smallest sizes (≥ ~12.5px) */
+.tkr .sym .code, .session-thumb .badge, .gloss-card .cat, .qb-disc-meta, .session-meta,
+.market-as-of, .cmt-meta, .post-nav-eyebrow, .brief-cat, .s-tag, .chips li, .qb-num,
+.brief-src, .pod-card p, .lecture-foot .meta { font-size: .76rem; }
+
+/* Calmer cards — soften shadows, one consistent elevation */
+.post-card-link, .session-card, .ab-card, .brief-card, .gloss-card,
+.metric-card, .learn-card, .qb-card, .pod-card, .stat { box-shadow: var(--shadow-sm); }
+
+/* Bigger, easier tap targets on chips/filters */
+.filter-chips button, .fc-decks button, .qb-modes button { min-height: 38px; }
+
+/* Market ticker — theme-aware (no loud dark cards on the light page) */
+.tkr { background: var(--surface); border: 1px solid var(--rule); color: var(--ink); }
+[data-theme="dark"] .tkr { background: var(--surface-2); border-color: var(--rule); }
+.tkr .sym, .tkr .val { color: var(--ink); }
+.tkr .sym .code { color: var(--ink-soft); }
+.tkr.up .chg { color: #15803D; }
+.tkr.down .chg { color: #B42318; }
+[data-theme="dark"] .tkr.up .chg { color: var(--mkt-up); }
+[data-theme="dark"] .tkr.down .chg { color: var(--mkt-down); }
+
+/* Fraunces optical sizing for big display type */
+.display, .post-title-display, .post-title, .session-body h3, .brief-card h3,
+.gloss-card h3, .qb-q, .fc-q, .ponder-card .q { font-optical-sizing: auto; }
+
+/* Cloudflare Stream embed */
+.lecture-stage .stream-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
