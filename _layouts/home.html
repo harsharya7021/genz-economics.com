@@ -212,6 +212,7 @@ layout: default
       </div>
     </div>
     {% assign published_posts = site.posts | where_exp: "p", "p.draft != true" %}
+    <div class="feed-collapse" id="feedCollapse">
     <ol class="post-list" id="postList">
       {% for post in published_posts %}
       {% capture tagstr %}{% for t in post.tags %}{{ t }} {% endfor %}{% endcapture %}
@@ -240,8 +241,28 @@ layout: default
       </li>
       {% endfor %}
     </ol>
+    </div>
+    <div class="feed-more-wrap"><button type="button" class="feed-more" id="feedMore" hidden>Show more notes ↓</button></div>
     <p class="feed-empty" id="feedEmpty">No notes match that search yet — try a different keyword or clear the filter.</p>
   </div>
+  <script>
+  (function(){
+    var wrap = document.getElementById("feedCollapse"), more = document.getElementById("feedMore");
+    if (!wrap || !more) return;
+    var search = document.getElementById("feedSearch"), chips = document.getElementById("filterChips");
+    // Only collapse if there's meaningfully more than the peek height to show.
+    function needsCollapse(){ return wrap.scrollHeight - wrap.clientHeight > 40; }
+    function collapse(){ wrap.classList.add("collapsed"); more.hidden = false; more.textContent = "Show more notes ↓"; }
+    function expand(){ wrap.classList.remove("collapsed"); more.hidden = true; }
+    // start collapsed (progressive enhancement: no JS = all notes shown, good for SEO)
+    wrap.classList.add("collapsed");
+    requestAnimationFrame(function(){ if (needsCollapse()) more.hidden = false; else expand(); });
+    more.addEventListener("click", expand);
+    // searching or filtering must reveal all matches, never clip them
+    if (search) search.addEventListener("input", expand);
+    if (chips) chips.addEventListener("click", function(e){ if (e.target.closest("button")) expand(); });
+  })();
+  </script>
 </section>
 
 <script type="application/json" id="cal-week-data">{{ site.data['ifs-calendar'].events | jsonify }}</script>

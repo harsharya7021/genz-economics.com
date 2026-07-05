@@ -87,10 +87,12 @@
       </div>
     </div>
     <div class="container copyline">
-      © {{ 'now' | date: '%Y' }} Gen Z Economics · all rights reserved
+      <span>© {{ 'now' | date: '%Y' }} Gen Z Economics · all rights reserved</span>
+      <span class="footer-credit">Made with passion by <a href="https://harsharya.com" target="_blank" rel="noopener">harsharya.com</a> · <button type="button" class="footer-feedback" data-feedback-open>Feedback &amp; bug reports</button></span>
     </div>
   </footer>
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/feedback.js' | relative_url }}" defer></script>
   {% if page.layout == 'home' %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
