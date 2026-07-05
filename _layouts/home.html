@@ -95,6 +95,14 @@ layout: default
       <line x1="970.0" y1="160.5" x2="970.0" y2="179.3"/><rect x="963.0" y="173.9" width="14" height="4.0" rx="1.5"/>
     </g>
   </svg>
+  <!-- the progress line: same coordinate space as the candles, drawn just
+       above their wicks — it reveals left-to-right as you scroll the belt,
+       climbing over the candlestick trend, dot riding the tip. -->
+  <svg class="stage-spark" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+    <path id="stackSparkPath" class="ssp-line" pathLength="1"
+      d="M2 196 L30 188 L67.6 195 L105.2 204 L142.8 221 L180.4 219 L218 222 L255.6 210 L293.2 212 L330.8 187 L368.4 181 L406 155 L443.6 149 L481.2 142 L518.8 127 L556.4 111 L594 104 L631.6 106 L669.2 114 L706.8 117 L744.4 119 L782 117 L819.6 133 L857.2 133 L894.8 147 L932.4 157 L970 151 L998 118"/>
+    <circle id="stackSparkDot" class="ssp-dot" r="4" cx="2" cy="196"></circle>
+  </svg>
   <div class="stack-pin">
     <div class="container">
       <div class="stage-head">
@@ -166,13 +174,6 @@ layout: default
 
     </div>
 
-    <div class="stage-foot container" aria-hidden="true">
-      <svg class="stack-spark" viewBox="0 0 200 36" preserveAspectRatio="none">
-        <path id="stackSparkPath" class="ssp-line" pathLength="1"
-          d="M2 27 L22 20 L40 24 L60 12 L80 17 L100 7 L120 14 L140 5 L160 11 L180 4 L198 8"/>
-        <circle id="stackSparkDot" class="ssp-dot" r="3.4" cx="2" cy="27"></circle>
-      </svg>
-    </div>
   </div>
 </section>
 <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
