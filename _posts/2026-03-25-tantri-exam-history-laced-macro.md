@@ -1,7 +1,5 @@
 ---
 layout: post
-draft: true
-sitemap: false
 title: "Tantri's exam: history-laced macro questions"
 dek: "Selected questions from Tantri's INFS final, March 2026 — each one a small story about money. Rothschild at Waterloo, Spanish gold, Dhurandhar's fake currency, Soros vs. the pound, the Merchant of Venice — and the macro lesson in each."
 date: 2026-03-25
@@ -285,5 +283,7 @@ He sent the explanations into the WhatsApp group through the day, half because h
 ## Editor's notes
 
 These questions and explanations were posted into the Finance Enthusiasts WhatsApp group on March 25, 2026, the evening of the INFS final. They are reproduced verbatim with light formatting (sub-headings, italicised asides). A few questions Tantri sent are omitted here only because they referenced course-specific shorthand without enough context to stand alone.
+
+If the MSS and Operation Twist questions (Q6, Q7) felt like a leap, that's the RBI-operations machinery from [Session 3 — Aggregate Demand & Monetary Policy]({% post_url 2025-11-09-aggregate-demand-and-monetary-policy %}) and [Session 3A — IS-MP Framework & Modern Monetary Policy]({% post_url 2025-11-16-is-mp-framework-and-modern-monetary-policy %}), worth a re-read before the next exam does this to you.
 
 Reading them back-to-back, you start to see what Tantri thinks an economics education actually *is*: not a rule-set to apply, but a habit of recognising which historical or human story you're inside of, and *then* picking up the right tool.

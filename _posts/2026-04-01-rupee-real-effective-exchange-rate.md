@@ -1,7 +1,5 @@
 ---
 layout: post
-draft: true
-sitemap: false
 title: "The rupee's depreciation is neither unusual nor indicative of great stress"
 dek: "Tantri's standalone Mint essay on the post-West-Asia rupee weakness — why the real effective exchange rate, not the nominal dollar rate, is the only sensible thing to look at."
 date: 2026-04-01
@@ -66,4 +64,4 @@ At the same time, there is a deeper issue that cannot be ignored. Foreign invest
 
 ## Editor's notes
 
-This is the unedited Mint essay, reproduced with permission. It is a useful companion to [Session 5 — Real Exchange Rates & Productivity](/2025/12/real-exchange-rates-and-productivity/) and [Session 6 — Exchange Rates, Inflation & Interest Rate Parity](/2026/01/exchange-rates-inflation-and-interest-rate-parity/) — both of which build the same REER framework that this essay applies to a live data question.
+This is the unedited Mint essay, reproduced with permission. It is a useful companion to [Session 5 — Real Exchange Rates & Productivity]({% post_url 2025-12-04-real-exchange-rates-and-productivity %}) and [Session 6 — Exchange Rates, Inflation & Interest Rate Parity]({% post_url 2026-01-11-exchange-rates-inflation-and-interest-rate-parity %}) — both of which build the same REER framework that this essay applies to a live data question.
