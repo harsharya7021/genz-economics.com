@@ -756,8 +756,22 @@ body.post .read-progress { display: block; }
 .transcript.open { display: block; }
 .transcript .cue { display: flex; gap: .85rem; padding: .22rem 0; }
 .transcript .cue time { font-family: var(--mono); font-size: .72rem; color: var(--accent); flex: 0 0 auto; padding-top: .15rem; }
-.lecture.gated .lecture-bar { opacity: .5; pointer-events: none; filter: saturate(.6); }
-.lecture.gated .lecture-stage .play-lg { cursor: not-allowed; opacity: .8; }
+.lecture.lecture-pending .lecture-bar { opacity: .5; pointer-events: none; filter: saturate(.6); }
+.lecture.lecture-pending .lecture-stage .play-lg { cursor: not-allowed; opacity: .8; }
+
+/* ── Active sign-in lock (Phase-2 hard gate, 2026-07-06) — different
+   state from .lecture-pending above: a recording EXISTS but only plays
+   after a verified sign-in fetches a short-lived signed Cloudflare Stream
+   token. Ships LOCKED by default in the HTML (fails closed even with JS
+   disabled/broken) and lecture-gate.js flips the two classes below once a
+   token is actually in hand. See lecture-gate.js + cloudflare/stream-signed-urls/. */
+.lecture-lock { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .65rem; padding: 1.5rem; text-align: center; }
+.lecture-lock .ghost-title { position: static; margin: 0; }
+.lecture-lock .stamp { position: static; }
+.lecture-lock .lock-copy { font-family: var(--sans); font-size: .84rem; line-height: 1.45; color: rgba(255,255,255,.8); max-width: 30em; margin: 0; }
+.lecture-lock .lock-copy.is-error { color: #ffb4b0; }
+.lecture-locked .lecture-foot, .lecture-locked .lecture-bar { opacity: .5; pointer-events: none; filter: saturate(.6); }
+.lecture-unlocked .lecture-lock { display: none; }
 
 /* Small screens */
 @media (max-width: 720px) {
@@ -937,7 +951,7 @@ body.post .read-progress { display: block; }
 /* Protected video */
 .video-stage { position: relative; aspect-ratio: 16/9; background: #000; border-radius: var(--r-lg); overflow: hidden; }
 .video-stage video { width: 100%; height: 100%; display: block; }
-.video-stage .wm { position: absolute; left: 12%; top: 16%; font-family: var(--sans); font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.42); pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,.5); transition: left 1.2s ease, top 1.2s ease; user-select: none; }
+.video-stage .wm, .lecture-stage .wm { position: absolute; left: 12%; top: 16%; z-index: 3; font-family: var(--sans); font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.42); pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,.5); transition: left 1.2s ease, top 1.2s ease; user-select: none; }
 .video-poster { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 120% at 50% 0, #283373, #0b1030); color: #fff; text-align: center; padding: 1rem; }
 .protect-note { display: flex; gap: .5rem; align-items: flex-start; font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); margin-top: .8rem; }
 

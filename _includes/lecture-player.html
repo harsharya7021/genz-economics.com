@@ -1,19 +1,24 @@
 {% comment %}
   Lecture player. When site.lectures_enabled is true AND a stream_id is provided,
-  it embeds the Cloudflare Stream player for that video. Otherwise it shows the
-  polished "recording pending" gated state. See VIDEO-SETUP.md.
+  it renders a LOCKED player that only reveals the Cloudflare Stream video after
+  a verified, allowed sign-in fetches a short-lived signed playback token from
+  the gze-stream-token Worker (see cloudflare/stream-signed-urls/ + lecture-gate.js).
+  Ships locked in the server-rendered HTML — fails closed even if the gate
+  script never runs. Otherwise it shows the polished "recording pending" state.
+  See VIDEO-SETUP.md and ARCHITECTURE.md ("Phase 2 — hard-gate the honeypot").
   Usage: {% include lecture-player.html title=page.title session=page.session stream_id=page.stream_id %}
 {% endcomment %}
 {% assign sid = include.stream_id %}
 {% if site.lectures_enabled and sid and sid != "" %}
-<figure class="lecture" role="group" aria-label="Lecture recording for {{ include.title | escape }}">
+<figure class="lecture lecture-locked" data-lecture-gate data-stream-id="{{ sid }}" data-token-worker="{{ site.stream_token_worker | default: '' }}" data-customer-code="{{ site.stream_customer_code }}" role="group" aria-label="Lecture recording for {{ include.title | escape }}">
   <div class="lecture-stage" data-video-stage>
-    {% if site.stream_customer_code and site.stream_customer_code != "" %}
-    <iframe class="stream-frame" src="https://customer-{{ site.stream_customer_code }}.cloudflarestream.com/{{ sid }}/iframe?preload=metadata" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen title="{{ include.title | escape }}"></iframe>
-    {% else %}
-    <iframe class="stream-frame" src="https://iframe.videodelivery.net/{{ sid }}?preload=metadata" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen title="{{ include.title | escape }}"></iframe>
-    {% endif %}
-    <div class="wm" aria-hidden="true">{{ site.author.name | default: 'Gen Z Economics' }}</div>
+    <div class="lecture-lock" data-lecture-lock>
+      <p class="ghost-title">{% if include.session %}Session&nbsp;{{ include.session }} · {% endif %}{{ include.title }}</p>
+      <span class="stamp"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Locked</span>
+      <button type="button" class="play-lg" data-lecture-signin aria-label="Sign in to watch this recording"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></button>
+      <p class="lock-copy" data-lecture-status>Sign in with your ISB email to watch this recording.</p>
+    </div>
+    <div class="wm" aria-hidden="true" data-lecture-wm hidden></div>
   </div>
   <div class="lecture-foot">
     <span class="meta">{% if include.recorded %}Recorded {{ include.recorded | date: "%b %-d, %Y" }} · {% endif %}Macroeconomics with Prof.&nbsp;Tantri</span>
@@ -30,7 +35,7 @@
 </figure>
 {% else %}
 {% assign waves = "30,52,40,64,48,72,38,58,80,44,60,34,68,50,42,76,56,46,62,36,70,54,48,66,40,58,74,44,52,38,64,50,60,42,72,46,56,34,68,48,62,40,54,76,44,58,50,66" | split: "," %}
-<figure class="lecture gated" role="group" aria-label="Lecture recording for {{ include.title }}">
+<figure class="lecture lecture-pending" role="group" aria-label="Lecture recording for {{ include.title }}">
   <figcaption class="gate-banner">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:1px" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <span><strong>Recording coming soon.</strong> The video goes live here once it's uploaded. Notes &amp; transcript preview are open below.</span>

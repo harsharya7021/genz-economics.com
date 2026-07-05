@@ -53,7 +53,7 @@ layout: default
       {% endif %}
     </header>
 
-    {% if page.session %}{% include lecture-player.html title=page.title session=page.session stream_id=page.stream_id %}{% endif %}
+    {% if page.session %}{% include lecture-player.html title=page.title session=page.session stream_id=page.stream_id %}<script src="{{ '/assets/js/lecture-gate.js' | relative_url }}" defer></script>{% endif %}
 
     <div class="read-aloud-bar" data-tts>
       <button type="button" class="ra-btn" data-tts-play data-tts-src="#postBodyText" data-tts-idle="Listen to this note" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-tts-label>Listen to this note</span></button>

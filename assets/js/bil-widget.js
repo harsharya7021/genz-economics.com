@@ -2,23 +2,35 @@
 (function () {
   "use strict";
   var gate = document.getElementById("bilGate"), chat = document.getElementById("bilChat");
-  if (!gate || !chat || !window.GZE_FIREBASE) return;
+  if (!gate || !chat || !window.GZE_onFirebaseReady) return;
   var FN_URL = chat.getAttribute("data-fn-url");
   var log = document.getElementById("bilLog"), form = document.getElementById("bilForm"), input = document.getElementById("bilInput");
   var authMod = null, currentUser = null;
 
+  window.GZE_onFirebaseReady(function () {
   var base = "https://www.gstatic.com/firebasejs/10.12.2/";
   Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
     var app = m[0].initializeApp(window.GZE_FIREBASE, "bil");
     var auth = m[1].getAuth(app); authMod = m[1];
+    m[1].getRedirectResult(auth).catch(function (err) { console.error("[gze] redirect result:", err && err.code); });
     m[1].onAuthStateChanged(auth, function (user) {
+      if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       currentUser = user;
       gate.hidden = !!user; chat.hidden = !user;
       if (user && !log.childElementCount) add("bil", "You found the chat. Fine. Ask — but ask something the course covers; I read the notes so you clearly didn't have to.");
     });
     var btn = gate.querySelector("[data-gate-signin]");
-    if (btn) btn.addEventListener("click", function () { m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function (err) { console.error("[gze] sign-in failed:", err && err.code, err); }); });
+    if (btn) btn.addEventListener("click", function () {
+      var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+      m[1].signInWithPopup(auth, provider).catch(function (err) {
+        console.error("[gze] sign-in failed:", err && err.code, err);
+        if (err && (err.code === "auth/popup-blocked" || err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request")) {
+          m[1].signInWithRedirect(auth, provider).catch(function (e2) { console.error("[gze] redirect sign-in failed:", e2 && e2.code); });
+        }
+      });
+    });
   }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
+  }); /* end GZE_onFirebaseReady */
 
   function add(who, text, sources) {
     var d = document.createElement("div");

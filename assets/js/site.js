@@ -129,7 +129,7 @@
 
   Array.prototype.forEach.call(doc.querySelectorAll("[data-lecture-player]"), function (pl) {
     var lecture = pl.closest(".lecture");
-    if (lecture && lecture.classList.contains("gated")) return; /* playback stays locked */
+    if (lecture && lecture.classList.contains("lecture-pending")) return; /* playback stays locked */
     var bars = Array.prototype.slice.call(pl.querySelectorAll(".waveform .bar"));
     var wave = pl.querySelector(".waveform");
     var cur = pl.querySelector("[data-time-cur]");
@@ -346,7 +346,8 @@
    attached. */
 (function () {
   var els = document.querySelectorAll("[data-gate-signin]");
-  if (!els.length || !window.GZE_FIREBASE) return;
+  if (!els.length || !window.GZE_onFirebaseReady) return;
+  window.GZE_onFirebaseReady(function () {
   var base = "https://www.gstatic.com/firebasejs/10.12.2/";
   Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
     var app = m[0].initializeApp(window.GZE_FIREBASE, "site");
@@ -394,4 +395,5 @@
       });
     });
   }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
+  }); /* end GZE_onFirebaseReady */
 })();

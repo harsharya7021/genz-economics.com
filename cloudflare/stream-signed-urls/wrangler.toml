@@ -1,0 +1,8 @@
+name = "gze-stream-token"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Secrets (never in this file, never in git — set once via dashboard or CLI):
+#   STREAM_SIGNING_KEY_ID   — the "id" from the Stream signing key you create
+#   STREAM_SIGNING_KEY_PEM  — the "pem" (private key) from that same signing key
+# See README.md in this folder for exact steps either way.

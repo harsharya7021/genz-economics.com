@@ -446,14 +446,23 @@
     });
   })();
 
-  /* ── Soft gate: unlock gated chapters when signed in ── */
+  /* ── Soft gate: unlock gated chapters when signed in ──
+     Waits on GZE_onFirebaseReady (firebase-config.js) rather than checking
+     window.GZE_FIREBASE directly — this exact direct check is why every
+     essay-gated sign-in button silently did nothing before 2026-07-06:
+     this script runs (embedded in page content) before firebase-config.js
+     used to load at the bottom of <body>, so the guard always bailed and
+     no click listener was ever attached. See firebase-config.js. */
   (function () {
     var gate = document.getElementById("essayGate"), gated = document.getElementById("gatedChapters");
-    if (!gate || !gated || !window.GZE_FIREBASE) return;
+    if (!gate || !gated || !window.GZE_onFirebaseReady) return;
+    window.GZE_onFirebaseReady(function () {
     var base = "https://www.gstatic.com/firebasejs/10.12.2/";
     Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
       var app = m[0].initializeApp(window.GZE_FIREBASE, "essay");
       var auth = m[1].getAuth(app);
+      auth.useDeviceLanguage && auth.useDeviceLanguage();
+      m[1].getRedirectResult(auth).catch(function (err) { console.error("[gze] redirect result:", err && err.code); });
       m[1].onAuthStateChanged(auth, function (user) {
         if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
         document.body.classList.toggle("essay-unlocked", !!user);
@@ -470,11 +479,14 @@
           console.error("[gze] sign-in failed:", code, err);
           if (code === "auth/unauthorized-domain") alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
           else if (code === "auth/operation-not-allowed") alert("Google sign-in isn't switched on yet. In Firebase → Authentication → Sign-in method, enable Google.");
-          else if (code === "auth/popup-blocked" || code === "auth/cancelled-popup-request") alert("Your browser blocked the sign-in popup — allow popups for genz-economics.com and try again.");
+          else if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+            m[1].signInWithRedirect(auth, provider).catch(function (e2) { console.error("[gze] redirect sign-in failed:", e2 && e2.code); alert("Sign-in failed (" + (e2 && e2.code) + ")."); });
+          }
           else if (code) alert("Sign-in failed (" + code + ").");
         });
       });
     }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
+    }); /* end GZE_onFirebaseReady */
   })();
 })();
 

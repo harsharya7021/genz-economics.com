@@ -22,6 +22,16 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+
+  <!-- Loaded here, first, on purpose: this just assigns globals (no DOM
+       work), and every gate script (site.js, essay.js, bil-widget.js)
+       needs window.GZE_FIREBASE to already exist. Deferred scripts run in
+       strict document order, so this MUST stay above every other script
+       tag on the page (including ones pages embed in their own content,
+       which land inside <main> — still after <head>). Moving this back
+       below site.js is exactly the bug that made every non-homepage
+       sign-in button silently do nothing on 2026-07-06. -->
+  <script src="{{ '/assets/js/firebase-config.js' | relative_url }}" defer></script>
 </head>
 <body class="{{ page.layout | default: 'default' }}">
 
@@ -89,7 +99,6 @@
   {% if page.player %}<script src="{{ '/assets/js/player.js' | relative_url }}" defer></script>{% endif %}
   {% if page.study %}<script src="{{ '/assets/js/study.js' | relative_url }}" defer></script>{% endif %}
   {% if page.quiz %}<script src="{{ '/assets/js/quiz.js' | relative_url }}" defer></script>{% endif %}
-  <script src="{{ '/assets/js/firebase-config.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/comments.js' | relative_url }}" defer></script>
 </body>
 </html>

@@ -28,3 +28,24 @@ window.GZE_emailAllowed = function (email) {
   var at = email.lastIndexOf("@");
   return at !== -1 && allowed.indexOf(email.slice(at + 1)) !== -1;
 };
+
+/* Defensive helper: every gate script (site.js, essay.js, bil-widget.js)
+   calls this instead of checking `window.GZE_FIREBASE` directly. This file
+   is loaded first (see _layouts/default.html) so `cb()` normally runs
+   synchronously — but if a future edit ever reorders scripts again, this
+   polls briefly instead of silently no-op'ing. That silent no-op is
+   exactly what broke every sign-in button outside the homepage on
+   2026-07-06: site.js/essay.js ran BEFORE this file (deferred scripts
+   execute in strict document order, and site.js's <script> tag sat above
+   this one), so `window.GZE_FIREBASE` was still undefined when their gate
+   IIFEs ran their `if (!window.GZE_FIREBASE) return;` guard — every
+   click handler silently never attached. Never trust load order again. */
+window.GZE_onFirebaseReady = function (cb) {
+  if (window.GZE_FIREBASE) return cb();
+  var tries = 0;
+  var iv = setInterval(function () {
+    tries++;
+    if (window.GZE_FIREBASE) { clearInterval(iv); cb(); }
+    else if (tries > 100) { clearInterval(iv); console.error("[gze] GZE_FIREBASE never became available — sign-in cannot wire up."); }
+  }, 20);
+};
