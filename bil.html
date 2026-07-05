@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Ask BIL"
+permalink: /bil/
+description: "The brother-in-law from IIM-A, hired against everyone's better judgment. Ask him anything from the course — he answers from the professor's actual notes, smugly."
+---
+
+<div class="bil-page">
+  <p class="lede" style="max-width:60ch">Every family has one. Ours went to IIM-A, has opinions, and — this is the humiliating part — has actually read all of Prof. Tantri's notes. Ask him anything from the course. He will sigh, mention his alma mater, and then give you the correct answer with the source. <em>"Show it to your brother-in-law from IIM-A. You will see the difference."</em> — now you can.</p>
+
+  <div class="essay-gate" id="bilGate">
+    <h3>BIL talks to the cohort only</h3>
+    <p>Sign in once and ask away. He answers from the course material — notes, sessions, takeaways — and cites which document he's citing. He is not a stock-tip machine, and says so rudely.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+
+  <div class="bil-chat" id="bilChat" hidden data-fn-url="https://REGION-PROJECT.cloudfunctions.net/bil">
+    <div class="bil-log" id="bilLog" aria-live="polite"></div>
+    <form class="bil-form" id="bilForm">
+      <input type="text" id="bilInput" maxlength="500" placeholder="e.g. why is the lender's 22.22% not a risk premium?" autocomplete="off">
+      <button type="submit" class="btn btn-primary">Ask</button>
+    </form>
+    <p class="w-note">He only knows what the professor has written. Grades, gossip and stock tips are out of syllabus.</p>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/bil-widget.js' | relative_url }}" defer></script>

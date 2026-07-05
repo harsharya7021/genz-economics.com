@@ -1,0 +1,326 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//genz-economics//ifs-calendar//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Indian Financial System — key dates
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:20260713-77499@genz-economics.com
+DTSTART;VALUE=DATE:20260713
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260714-67537@genz-economics.com
+DTSTART;VALUE=DATE:20260714
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260728-5758@genz-economics.com
+DTSTART;VALUE=DATE:20260728
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260729-8799@genz-economics.com
+DTSTART;VALUE=DATE:20260729
+SUMMARY:US FOMC decision — July
+DESCRIPTION:23:30 IST — Fed statement 14:00 ET. He shares the statement and the projections table\, then tells you what is not knowledge.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260805-2168@genz-economics.com
+DTSTART;VALUE=DATE:20260805
+SUMMARY:RBI MPC decision (Aug meeting)
+DESCRIPTION:10:00 IST — Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split\, not just the rate.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260812-77499@genz-economics.com
+DTSTART;VALUE=DATE:20260812
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260814-67537@genz-economics.com
+DTSTART;VALUE=DATE:20260814
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260828-5758@genz-economics.com
+DTSTART;VALUE=DATE:20260828
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260831-95182@genz-economics.com
+DTSTART;VALUE=DATE:20260831
+SUMMARY:GDP Q1 FY27 (NSO)
+DESCRIPTION:16:00 IST — First quarter print on the new 2022-23 base. His rule: look at moving averages\, not one quarter.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260914-77499@genz-economics.com
+DTSTART;VALUE=DATE:20260914
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260914-67537@genz-economics.com
+DTSTART;VALUE=DATE:20260914
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260916-26882@genz-economics.com
+DTSTART;VALUE=DATE:20260916
+SUMMARY:US FOMC decision — September (projections)
+DESCRIPTION:23:30 IST — Fed statement 14:00 ET. He shares the statement and the projections table\, then tells you what is not knowledge.
+END:VEVENT
+BEGIN:VEVENT
+UID:20260928-5758@genz-economics.com
+DTSTART;VALUE=DATE:20260928
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261007-89141@genz-economics.com
+DTSTART;VALUE=DATE:20261007
+SUMMARY:RBI MPC decision (Oct meeting)
+DESCRIPTION:10:00 IST — Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split\, not just the rate.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261007-72429@genz-economics.com
+DTSTART;VALUE=DATE:20261007
+SUMMARY:RBI Monetary Policy Report (half-yearly)
+DESCRIPTION:10:00 IST — Published with the October policy — the RBI's own inflation-growth model\, laid bare.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261012-77499@genz-economics.com
+DTSTART;VALUE=DATE:20261012
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261014-67537@genz-economics.com
+DTSTART;VALUE=DATE:20261014
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261028-5758@genz-economics.com
+DTSTART;VALUE=DATE:20261028
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261028-96349@genz-economics.com
+DTSTART;VALUE=DATE:20261028
+SUMMARY:US FOMC decision — October
+DESCRIPTION:23:30 IST — Fed statement 14:00 ET. He shares the statement and the projections table\, then tells you what is not knowledge.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261112-77499@genz-economics.com
+DTSTART;VALUE=DATE:20261112
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261116-67537@genz-economics.com
+DTSTART;VALUE=DATE:20261116
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261130-5758@genz-economics.com
+DTSTART;VALUE=DATE:20261130
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261130-97311@genz-economics.com
+DTSTART;VALUE=DATE:20261130
+SUMMARY:GDP Q2 FY27 (NSO)
+DESCRIPTION:16:00 IST — Second quarter + first-half picture.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261204-77412@genz-economics.com
+DTSTART;VALUE=DATE:20261204
+SUMMARY:RBI MPC decision (Dec meeting)
+DESCRIPTION:10:00 IST — Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split\, not just the rate.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261209-53171@genz-economics.com
+DTSTART;VALUE=DATE:20261209
+SUMMARY:US FOMC decision — December (projections)
+DESCRIPTION:23:30 IST — Fed statement 14:00 ET. He shares the statement and the projections table\, then tells you what is not knowledge.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261214-77499@genz-economics.com
+DTSTART;VALUE=DATE:20261214
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261214-67537@genz-economics.com
+DTSTART;VALUE=DATE:20261214
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261228-5758@genz-economics.com
+DTSTART;VALUE=DATE:20261228
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20261230-33843@genz-economics.com
+DTSTART;VALUE=DATE:20261230
+SUMMARY:RBI Financial Stability Report (tentative)
+DESCRIPTION:Half-yearly stress-test of the banking system. End-December; date firms up close to release.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270112-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270112
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270114-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270114
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270128-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270128
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270129-22123@genz-economics.com
+DTSTART;VALUE=DATE:20270129
+SUMMARY:Economic Survey (tentative)
+DESCRIPTION:Tabled a day before the Budget\, usually. The chapters are better than the coverage of them.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270201-20638@genz-economics.com
+DTSTART;VALUE=DATE:20270201
+SUMMARY:Union Budget FY28
+DESCRIPTION:11:00 IST — Watch G\, T and the borrowing number — the fiscal impulse\, not the speech. (His 2025 verdict: no short-term stimulus; don't use 1/(1-MPC) on LinkedIn.)
+END:VEVENT
+BEGIN:VEVENT
+UID:20270205-1194@genz-economics.com
+DTSTART;VALUE=DATE:20270205
+SUMMARY:RBI MPC decision (Feb meeting)
+DESCRIPTION:10:00 IST — Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split\, not just the rate.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270212-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270212
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270215-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270215
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270226-77594@genz-economics.com
+DTSTART;VALUE=DATE:20270226
+SUMMARY:GDP Q3 FY27 + Second Advance Estimates (NSO)
+DESCRIPTION:16:00 IST — The print the Budget arithmetic leans on.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270301-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270301
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270312-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270312
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270315-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270315
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270329-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270329
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270412-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270412
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270414-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270414
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270428-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270428
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270512-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270512
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270514-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270514
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270528-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270528
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270531-22475@genz-economics.com
+DTSTART;VALUE=DATE:20270531
+SUMMARY:GDP Q4 + Provisional FY27 annual (NSO)
+DESCRIPTION:16:00 IST — Full-year provisional estimate.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270614-77499@genz-economics.com
+DTSTART;VALUE=DATE:20270614
+SUMMARY:CPI inflation (NSO)
+DESCRIPTION:16:00 IST — Retail inflation\, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270614-67537@genz-economics.com
+DTSTART;VALUE=DATE:20270614
+SUMMARY:WPI inflation (DPIIT)
+DESCRIPTION:12:00 IST — Wholesale prices — no services in the basket; moves before CPI.
+END:VEVENT
+BEGIN:VEVENT
+UID:20270628-5758@genz-economics.com
+DTSTART;VALUE=DATE:20270628
+SUMMARY:IIP — industrial production (NSO)
+DESCRIPTION:16:00 IST — Factory output\, ~6 weeks after the reference month.
+END:VEVENT
+BEGIN:VEVENT
+UID:wss-weekly@genz-economics.com
+DTSTART;VALUE=DATE:20260710
+RRULE:FREQ=WEEKLY;BYDAY=FR
+SUMMARY:RBI Weekly Statistical Supplement (17:00)
+DESCRIPTION:Money supply\, forex reserves; alternate weeks: bank credit & deposit growth.
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,507 @@
+---
+layout: default
+title: "What is Corporate Finance?"
+permalink: /corporate-finance/
+description: "Prof. Tantri's corporate finance course as one long read — his own notes, his own numbers, thirteen interactive machines. Opportunity cost, cost of capital, CAPM, NPV, IRR, Modigliani-Miller, tax shields, bankruptcy, and the skill to smell before the fire starts."
+---
+
+<article class="essay">
+  <header class="essay-hero">
+    <p class="essay-kicker">A long read · his notes, made playable · 13 machines</p>
+    <h1 class="display">What is corporate finance?</h1>
+    <p class="lede">In October 2024, Prof. Prasanna Tantri told the group what he was working on: <em>"The current obsession is a simple and intuitive book on basics of corporate finance. That's all."</em> The chapters below are that material — the lecture notes he writes himself, the numbers he works in class, the questions he sets in exams — arranged as one continuous read. His words throughout. What we added are the machines: the Excel examples attached to his notes, wired up so you can move the assumptions yourself.</p>
+    <div class="foreword">
+<p class="wa-meta" style="margin:0 0 .6rem">How to read this</p>
+<p>Straight through, ideally with a pencil. Every chapter builds on the previous one, the way his course does — he does not front-load conclusions, and neither does this page. When you hit a machine, stop and break it: every number in every machine is taken from his notes, and each one has a trap he sets in class. Dotted-underlined terms open a plain-language definition on tap. The footnote markers are his digressions — read them; they are usually the best part.</p>
+<p class="fw-sig">— Harsh, who stitched the notes and built the machines</p>
+</div>
+    <p class="essay-meta">Source: Prof. Tantri's FCRV lecture notes (Sessions 1–10, June 2025 book draft), his exams, and his messages to the Finance Enthusiasts group · genz-economics.com</p>
+  </header>
+
+  <!-- ═══════════ CHAPTER 1 ═══════════ -->
+  <h2><span class="ch-no">Chapter 1</span>What is finance?</h2>
+
+  <p>Finance performs two major roles.</p>
+  <p>First, it facilitates the movement of resources from savers to investors. By investors, we refer to those who invest in real projects — not those who passively hold financial assets. And remember: money is just a way of representing resources; it has no value on its own.</p>
+  <p>Second, it distributes risks and rewards between investors and savers. On one extreme, we have debt instruments, where most of the risks are borne by the investors. On the other extreme, there is equity, where savers bear a significant portion of risk and enjoy high expected returns. In between are insurance-like instruments, where the intermediaries bear risks for a fee — known as a premium.</p>
+
+<figure class="essay-fig" role="img" aria-label="Functions of finance tree diagram">
+<svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
+  <rect x="255" y="10" width="190" height="34" rx="8" class="fig-box-hl"/>
+  <text x="350" y="31" text-anchor="middle" class="fig-t">Functions of Finance</text>
+  <path d="M350 44 V64 M70 64 H630 M70 64 V84 M210 64 V84 M350 64 V84 M490 64 V84 M630 64 V84" class="fig-line"/>
+  <g>
+    <rect x="10" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="70" y="103" text-anchor="middle" class="fig-t">Movement of</text><text x="70" y="117" text-anchor="middle" class="fig-t">resources</text>
+    <rect x="150" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="210" y="103" text-anchor="middle" class="fig-t">Risk &amp; reward</text><text x="210" y="117" text-anchor="middle" class="fig-ts">debt ↔ equity</text>
+    <rect x="290" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="350" y="103" text-anchor="middle" class="fig-t">Information</text><text x="350" y="117" text-anchor="middle" class="fig-ts">generation &amp; monitoring</text>
+    <rect x="430" y="84" width="120" height="46" rx="8" class="fig-box-hl"/>
+    <text x="490" y="103" text-anchor="middle" class="fig-t">Liquidity creation</text><text x="490" y="117" text-anchor="middle" class="fig-ts">"expect exam questions"</text>
+    <rect x="570" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="630" y="103" text-anchor="middle" class="fig-t">Valuation</text><text x="630" y="117" text-anchor="middle" class="fig-ts">the heart of the course</text>
+  </g>
+</svg>
+<figcaption>Fig. 1 — the functions of finance, from the first page of his notes.</figcaption>
+</figure>
+
+  <p>Apart from these two major roles, finance performs other functions. <em>Information generation</em>: collecting, processing and disseminating financial data so that decisions are not made blind. It also involves monitoring — and a chief advantage of monitoring through financial intermediaries is a reduction in wasteful duplication of effort. An intermediary monitors instead of thousands of individual investors, and thereby economises on fixed costs.</p>
+  <p><em>Liquidity creation.</em> An asset is liquid if it can be converted into cash quickly at a value close to its intrinsic value. In the real world, savers have future liquidity needs that they are unaware of, and investors have illiquid projects. If savers pull out of such investments when liquidity shocks hit, it leads to a societal loss due to early liquidation. Intermediaries solve this by estimating the proportion of savers likely to need liquidity, keeping that much in liquid assets, and investing the rest in illiquid assets. Thus, intermediaries convert illiquid assets into liquid liabilities. In his own words in the notes: <em>"In my view, this is the most important function performed by finance. You may expect lots of interesting questions on this function in the exam."</em></p>
+  <p>And <em>valuation</em> — the process of determining the intrinsic value of an asset or a company. This is the heart of the course, and of this page.</p>
+  <p>Three major segments make up the economy, and the areas of finance correspond to them: households (household finance — budgeting, retirement, mortgages, insurance), governments (public finance — taxation, expenditure, public debt), and firms. How businesses manage capital investment decisions, financing decisions, and dividend distribution — that is corporate finance. We shall focus on corporate finance in this course.</p>
+
+  <h3>Forms of firms</h3>
+  <p>A <strong>sole proprietorship</strong> is a business owned by a single person — the simplest form, subject to minimal regulation. From a legal and tax point of view, the firm has no status separate from its owner. Equity capital is limited to the owner's personal wealth, so such firms do not grow beyond a point for want of capital. And the individual has unlimited liability: in the event of a default, debt holders can go after the individual's personal assets.</p>
+  <p>A <strong>partnership</strong> extends this to two or more people. Each partner is jointly and individually liable for the obligations; there is no separation between individual and firm assets. The shares of a partnership cannot be traded publicly — the value of the assets depends on the owners, so if ownership is transferred, the value may vary substantially. A special form is the <strong>limited liability partnership (LLP)</strong>, where partners' liability may be limited. An LLP avoids double taxation and heavy compliance — and yet, in the registration data, new companies outnumber new LLPs roughly three to one. Technically venture capitalists can invest in an LLP; they are reluctant to, because they must enter as a partner and become responsible for day-to-day management.</p>
+  <p>A <strong>corporation</strong> is an independent legal entity on its own. The owners have limited liability: a passive shareholder will not be personally liable for the contractually agreed obligations of the corporation. That is the textbook version. Months after the course ended, he sent the group the version the textbook leaves out:</p>
+
+<aside class="wa-aside">
+  <p class="wa-meta">To the group, July 2025 — takeaway №2 of his "fifty key takeaways from corporate finance"</p>
+  <p>"On paper, limited liability means that a borrower's personal assets cannot be used to meet business obligations. This is usually touted as a big advantage of corporations. However, in reality, limited liability is an overhyped idea. Yes, in the normal course, no lender can touch the promoter's personal assets. But such a situation does not arise if life is normal. Limited liability should ideally have bite in a <em>bad</em> state. However, lenders, in many cases, find a way of going after the promoters' assets in case of default. The easiest way is to allege fraud and declare them wilful defaulters. In many cases, banks force promoters to give a personal guarantee. In such cases, courts allow 'lifting of corporate veil'. That is why many founders buy properties in Dubai, and flee the moment they get into trouble. Think about Gensol, Byju etc."</p>
+  <p>"So, when you get rich and successful, think of legal ways of separating your personal assets. Don't be complacent based on textbook versions of limited liability."</p>
+</aside>
+
+  <p>The same scepticism applies to the LLP's promise. The books say the LLP offers the best of both worlds — taxed once like a partnership, liability limited like a company. His takeaway №3: <em>"If reality is what the book says, we should have seen LLPs everywhere. However, start-ups are rarely incorporated as LLPs."</em> Partners are considered part of the management, so it is easy for courts to lift the veil at the drop of a hat — and VCs dread this possibility. <em>"The point is, there are trade-offs. For instance, if you want someone passionate about teaching, the person will have the same passion for setting the exams as well. Whenever someone says something offers the best of both worlds, treat it with caution and analyse."</em></p>
+
+  <h3>The three decisions</h3>
+<figure class="essay-fig" role="img" aria-label="Three decisions of the financial manager">
+<svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="270" y="10" width="160" height="34" rx="8" class="fig-box-hl"/>
+  <text x="350" y="31" text-anchor="middle" class="fig-t">The financial manager</text>
+  <path d="M350 44 V62 M120 62 H580 M120 62 V82 M350 62 V82 M580 62 V82" class="fig-line"/>
+  <rect x="30" y="82" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="120" y="101" text-anchor="middle" class="fig-t">Investing decisions</text><text x="120" y="116" text-anchor="middle" class="fig-ts">which projects clear the hurdle</text>
+  <rect x="260" y="82" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="350" y="101" text-anchor="middle" class="fig-t">Financing decisions</text><text x="350" y="116" text-anchor="middle" class="fig-ts">the debt–equity mix</text>
+  <rect x="490" y="82" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="580" y="101" text-anchor="middle" class="fig-t">Dividend decisions</text><text x="580" y="116" text-anchor="middle" class="fig-ts">pay out or reinvest</text>
+</svg>
+<figcaption>Fig. 2 — the functions of the financial manager, from his notes. The whole course hangs off this tree.</figcaption>
+</figure>
+
+  <p>Within a firm, the financial manager makes exactly three kinds of decisions. <strong>Financing decisions</strong>: determining the optimal mix of debt and equity to finance the company's operations and growth — minimising the cost of capital by optimising the mix. <strong>Investing decisions</strong>, also known as capital budgeting: determining which projects the company should undertake. The hurdle used is the expected return — a high-risk project should have a high expected return, and the decision is to choose projects that cross that hurdle. <strong>Dividend decisions</strong>: what portion of earnings is distributed to shareholders and what portion is retained for reinvestment.</p>
+  <p>The dividend rule is one comparison. Reinvest if the marginal return on investment is higher than the expected return — the company generates more value for shareholders by using the capital itself. Pay dividends if it is lower — shareholders are better off receiving the cash and investing it elsewhere. Younger, high-growth companies favour reinvestment; stable companies with fewer high-return opportunities redistribute profit as dividends.</p>
+
+  <h3>From theory to practice</h3>
+  <p>Having understood the framework, let us see how corporations actually operate. In the case of financing decisions, companies do not precisely optimise the cost of capital — because they cannot project the future with certainty. As a result, they prefer <em>financial flexibility</em> over an optimised cost of capital. For instance, companies maintain a credit line with banks by paying a fee, so that they can tap into it during bad times.</p>
+  <p>In the case of investing decisions, theory predicts that companies must invest in any project that returns more than the cost of capital. In practice, companies invest in projects with returns a notch <em>above</em> it. Asked about return on invested capital on an earnings call, Tata Steel's CFO answered: <em>"It's more linked to the cost of capital. So, what works for in India, for example, our WACC hurdles are more than 12%. But in Europe, it will be around 9–10%. That's the IRR hurdle for approval of capex. But the ROIC that we are looking for is always at about 15%."</em> Notice that Tata Steel aims for a buffer of about 3%.</p>
+  <p>A recent study in the <em>American Economic Review</em> examines exactly this. As with Tata Steel, companies aim for a return higher than the cost of capital — and the discount rates firms actually use are <em>sticky</em>. Despite the decline in the cost of capital over two decades, hurdle rates barely moved. This poses a real problem for monetary policy: the central bank cuts rates so that the cost of capital falls and firms invest more; but if the hurdle rates chosen by firms do not change, the impact is muted.<span class="fn">His footnote in the notes, kept intact: this is over and above the slower transmission from banks that frequently attracts the central bank's attention. RBI is concerned that banks do not pass on lower rates to their borrowers. What we are discussing here is on top of that — even after obtaining lower rates, firms do not immediately increase investment. Full transmission from cost of capital to discount rates takes about 12 years (Gormsen and Huber, AER 2025 — the paper he shared in the group with one line: "The paper demonstrates, using data, that firms do not change their hurdle rate when cost of capital changes.").</span></p>
+
+<figure class="essay-fig" role="img" aria-label="Hurdle rates stay flat while the cost of capital falls">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 20 V180 H660" class="fig-line"/>
+  <path d="M70 60 C 200 62, 480 58, 650 60" class="fig-curve2"/>
+  <path d="M70 95 C 220 100, 450 140, 650 150" class="fig-curve"/>
+  <text x="655" y="52" text-anchor="end" class="fig-t">discount rate firms actually use</text>
+  <text x="655" y="170" text-anchor="end" class="fig-t" style="fill:var(--accent)">perceived cost of capital</text>
+  <text x="360" y="205" text-anchor="middle" class="fig-ts">2001 → 2021</text>
+  <text x="200" y="135" class="fig-ts">the gap: money got cheaper,</text>
+  <text x="200" y="149" class="fig-ts">hurdles barely moved</text>
+</svg>
+<figcaption>Fig. 3 — hurdle rate vs cost of capital in US firms, redrawn from Figure 1.2 of his notes (after Gormsen &amp; Huber, 2025).</figcaption>
+</figure>
+
+  <p>His disclaimer, verbatim, because it is the method of the whole course: <em>"An important disclaimer – we cannot totally disregard theory. My objective is to highlight that adjustments do not happen quickly in reality. Suppose you are an equipment manufacturer. You cannot increase production in the immediate aftermath of a decrease in interest rates — your customers do not lower their discount rates and increase investment immediately. However, over the long run, these adjustments happen as expected."</em></p>
+
+  <!-- ═══════════ CHAPTER 2 ═══════════ -->
+  <h2><span class="ch-no">Chapter 2</span>The cost of capital</h2>
+
+  <p>In this chapter, we will understand how firms arrive at the cost of capital. In simple words, the cost of capital is the expected return of investors. To understand it, we need to understand opportunity cost — and you will see that we cannot simply go by accounting profits. We must always consider <em>economic</em> profits while making investment decisions. Economic profits adjust for opportunity costs.</p>
+  <p>Let us understand opportunity cost using his example. A manager is presented with two projects, A and B. The firm has an ongoing project, C. Projects B and C require the same skilled labour, and there is a shortage — the firm must rely on internal resources. Going by accounting profit, B looks better than A. But choosing B means pulling skilled labour off C, and the firm misses out on C's 50 of profit. That 50 is the opportunity cost of using skilled labour on B.</p>
+
+  <div class="widget" id="w-oppcost">
+    <p class="w-head">Machine №1 — the opportunity-cost table (June-10 notes, §2.1)</p>
+    <p class="w-note" style="margin:0 0 .6rem">His three scenarios, exactly as the notes run them. The last column is the profit that actually moves the share price:</p>
+    <div class="w-toggle" style="flex-wrap:wrap">
+      <button type="button" data-scen="base" aria-pressed="true">C is running</button>
+      <button type="button" data-scen="shut" aria-pressed="false">C shut by the Pollution Control Board</button>
+      <button type="button" data-scen="stuck" aria-pressed="false">C shut, workers can't be fired</button>
+    </div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Walk through his second variation yourself, because it is the one that offends intuition. Project C was shut down last year, but the employees could not be fired — company policy, or labour law — so the firm keeps paying 50 of wages despite no production. Two new options arrive, and these workers can only work on B. Out-of-pocket expenditure for B is zero: you were paying those wages anyway. And there is no opportunity cost, since C is already shut. So B earns an economic profit of 40 against A's 5 — <em>despite</em> B's accounting loss of 10. In his words: <em>"You are better off choosing project B, despite the negative accounting profit. The share price will increase after choosing B."</em></p>
+
+  <h3>Sunk cost</h3>
+  <p>Sunk cost is another aspect where managers act with bias. His example: you acquired project A at 120 and project B at 30, a few years ago. You must now mobilise 100 by selling one of them, and either sale fetches exactly 100. Your internal valuation says A is worth 80 and B is worth 120. Which do you sell?</p>
+  <p>Ideally A — the quoted price is above its fair value. What managers tend to do in practice is sell B, because they compare the price against the <em>acquisition cost</em> and are reluctant to sell below it. They act this way even knowing A's valuation is lower than the quoted price — and it is more so when the same CEO has been in office since the acquisition.<span class="fn">The paper he shared with the class on this: Guenzel, "In Too Deep: The Effect of Sunk Costs on Corporate Investment," <em>Journal of Finance</em> 2025 — divestment decisions depend on the price paid years ago, and the effect weakens when the divesting CEO is not the one who acquired. The bias travels with the person, not the asset.</span> Retail investors make the same mistake: they hold on to loss-making investments hoping for a turnaround — a phenomenon called the disposition effect.</p>
+  <p>Having understood opportunity cost and sunk cost, let us now shift gears and understand how to obtain the cost of capital — comprising the cost of debt and the cost of equity.</p>
+
+  <h3>Cost of debt</h3>
+  <p>Suppose you are lending to a firm. The interest rate you charge is the opportunity cost of lending to this firm — it depends on what you would have done otherwise. Take the simplest case: you would have deposited the amount in State Bank of India, close to risk-free, at 10%.</p>
+  <p>But lending to a firm is not the same as depositing with SBI — the firm is risky. Suppose the probability of default is 10%: if you lend to a zillion firms that are alike, approximately 10% of them default. Then you charge 22.22% (that is, 110/90), so that you make 10% <em>in expectation</em>. Lend 100; you expect back 0.9 × 100 × 1.2222 + 0.1 × 0 = 110 — exactly what SBI would have paid. The extra 12.22 percentage points are not profit, and — he is emphatic on this — <em>not a risk premium</em>. This is what a risk-neutral lender would charge.<span class="fn">His footnote defining the term: a risk-neutral lender is indifferent between a certain 100 and a coin-flip between 200 and 0. A risk-averse lender prefers the certain 100 — and every real lender is risk-averse.</span></p>
+
+  <div class="widget" id="w-lender">
+    <p class="w-head">Machine №2 — the lender's arithmetic (June-10 notes, §2.3)</p>
+    <div class="w-row"><label>Risk-free rate (SBI deposit)</label><input type="range" data-rf min="1" max="15" step="0.5" value="10"><output data-rf-label></output></div>
+    <div class="w-row"><label>Expected default rate</label><input type="range" data-pd min="0" max="60" step="1" value="10"><output data-pd-label></output></div>
+    <p class="w-big" data-rate></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>In general, though, investors are risk-averse. It is possible that 30% of firms default this time, even if the average is 10%. The lender demands compensation for bearing that <em>uncertainty</em> — an additional spread above 22.22%, and this is the risk premium. It is a function of two components: the uncertainty around the 10%, and the lender's risk aversion. In crises, both increase, and the risk premium increases substantially.</p>
+  <p>One more of his points, and it matters later: it is the risk aversion of the <em>marginal investor</em> that sets the price. Suppose you must sell two bonds worth 100 each. Your close friend offers to buy one at a 7% interest rate; the buyer of the other asks for 10%. Since you cannot price-discriminate, you offer 10% to both. It is the preference of the last buyer that matters, because that rate is offered to everyone.</p>
+  <p>How do you obtain the risk premium in practice? Sophisticated investors rely on models like Merton's. The common approach is credit ratings — AAA carries a lower premium than BBB — and where ratings are unavailable, the interest coverage ratio: EBIT over total interest expense, a measure of whether cash flow covers the debt obligation. His caveat: do not ignore high-quality ground-level information just because an agency has not printed it.</p>
+
+  <div class="widget mcq" data-mcq data-answer="b">
+    <p class="w-head">From his mid-term — try it</p>
+    <p class="mcq-q">You have an opportunity to lend to a group of people with a <em>precise</em> value of a positive expected default rate. The interest rate you will charge is:</p>
+    <div class="mcq-opts">
+      <button type="button" data-opt="a">The risk-free rate</button>
+      <button type="button" data-opt="b">Higher than the risk-free rate</button>
+      <button type="button" data-opt="c">Lower than the risk-free rate</button>
+      <button type="button" data-opt="d">None of the above</button>
+    </div>
+    <p class="w-note" data-explain hidden>Higher — mechanically. Even with zero uncertainty (a precise default rate), survivors must cover the defaulters for the lender to earn the risk-free rate in expectation: the 22.22% arithmetic above. The <em>rate</em> is higher than risk-free even though the <em>expected return</em> equals it. That gap is not a risk premium.</p>
+  </div>
+
+  <h3>Where does the risk-free rate itself come from?</h3>
+  <p>Two components go into the risk-free rate: the real rate and expected inflation.</p>
+  <p>The <strong>real rate</strong> is the expected return, in terms of goods and services, that a society charges for giving up consumption today in return for consumption tomorrow, in a world with no inflation and no risk. Also known as the marginal rate of intertemporal substitution. It depends on the preferences of savers.</p>
+  <p>His example — no money, no risk, only rice. The average individual has 10 kg of rice. An investor offers to take away 1 kg today and return it tomorrow. The individual prefers consumption today: saving means postponing consumption that may be valuable. Returned rice of exactly 1 kg will not do; the investor must offer, say, 1.2 kg tomorrow per kg today. And for a second kilogram, the saver must postpone even more valuable consumption — so the price rises: 1.4 kg per kg, or 2.8 total.<span class="fn">His aside for the non-macro students, kept verbatim: "for those who are not going to learn macro, consumption means extracting the entire utility of a good or service immediately; savings means doing it over a period of time. Think about this."</span> The options — 10 kg today; 9 kg today and 1.2 tomorrow; 8 kg today and 2.8 tomorrow — all provide the same happiness. That schedule is an indifference curve, and from it you can derive a supply curve of savings: 20% to supply the first kg, 40% for the second.</p>
+
+<figure class="essay-fig" role="img" aria-label="Indifference curve and savings supply curve from the rice example">
+<svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M40 20 V200 H320" class="fig-line"/>
+    <path d="M60 40 C 120 120, 200 170, 300 185" class="fig-curve"/>
+    <text x="180" y="230" text-anchor="middle" class="fig-ts">consumption today (kg)</text>
+    <text x="28" y="110" text-anchor="middle" class="fig-ts" transform="rotate(-90 28 110)">tomorrow (kg)</text>
+    <circle cx="300" cy="185" r="4" class="fig-dot"/><text x="296" y="176" text-anchor="end" class="fig-ts">10, 0</text>
+    <circle cx="245" cy="167" r="4" class="fig-dot"/><text x="241" y="156" text-anchor="end" class="fig-ts">9, 1.2</text>
+    <circle cx="192" cy="140" r="4" class="fig-dot"/><text x="188" y="129" text-anchor="end" class="fig-ts">8, 2.8</text>
+    <text x="180" y="60" class="fig-ts">same happiness</text><text x="180" y="74" class="fig-ts">along the curve</text>
+  </g>
+  <g>
+    <path d="M400 20 V200 H680" class="fig-line"/>
+    <path d="M430 180 C 500 165, 590 90, 660 40" class="fig-curve2"/>
+    <text x="540" y="230" text-anchor="middle" class="fig-ts">kg of rice saved</text>
+    <text x="388" y="110" text-anchor="middle" class="fig-ts" transform="rotate(-90 388 110)">return demanded</text>
+    <circle cx="470" cy="158" r="4" class="fig-dot"/><text x="476" y="150" class="fig-ts">1st kg → 20%</text>
+    <circle cx="560" cy="112" r="4" class="fig-dot"/><text x="566" y="104" class="fig-ts">2nd kg → 40%</text>
+    <text x="430" y="50" class="fig-ts">the supply curve of savings —</text><text x="430" y="64" class="fig-ts">this <tspan style="font-style:italic">is</tspan> the real rate</text>
+  </g>
+</svg>
+<figcaption>Fig. 4 — from indifference curve to the supply of savings, redrawn from his notes. Where it crosses the demand curve of investors' projects, the market settles.</figcaption>
+</figure>
+
+  <p>Where will the market settle? That depends on the demand for funds from investors, which depends on what they think projects can deliver. If the first project delivers 40%, investors happily borrow the first kilogram at 20% — and so on, up to the point where project returns equal the saver's expected return. <em>"Please go back to your micro econ if this is not clear."</em></p>
+  <p>Does this work in the real world? His exercise, verbatim: <em>"Please examine India's real rate over time as a shorthand. Calculate the real rate as the 10-year government bond yield minus inflation. You will quickly see that we have dramatically moved from nearly 1% in the 2000s to close to 3%. Now, think about how our society's preference for consumption today vs tomorrow has changed over time. Think about how your parents thought about savings and how you are thinking about it. That will give you the answer to whether the idea described above actually works. Remember, the smell test is the best test, and in the real world, most decisions are made based on smell tests."</em></p>
+  <p><strong>Expected inflation</strong> is the second component. Real-world transactions occur in money. A kg of rice costs Rs 100. You give up Rs 100 today (1 kg) against a promise of Rs 120 tomorrow (1.2 kg at today's price). But the price of rice rises 10% to Rs 110 — and your Rs 120 buys only 120/110 = 1.09 kg. To still earn the real rate r in rice terms, you must charge x in money terms such that 100(1+x)/100(1+π<sub>e</sub>) = 1+r. And note: you adjust <em>expected</em> inflation, not historical — the future state of the world makes historical inflation obsolete. Hence:</p>
+  <p class="pull">Risk-free rate = (1 + Real rate)(1 + Expected inflation) − 1</p>
+  <p>x is called the risk-free rate — a nominal rate, in terms of money, and the minimum expected return before any risk enters. Two practical rules from Session 3 before we price the risk itself. First, match the tenure of the government bond to the tenure of your project's cash flows — for multiple cash flows, weight each time by its cash flow value: a project paying 10, 10, 110 over three years has a duration of (1×10 + 2×10 + 3×110)/130 = 2.67, so use a 3-year bond. <em>"If this is not clear, ask your finance friend. They will know this."</em> Second: a government is risk-free only when it pays in a currency it prints. Lend to a foreign government in a currency they do not print and you may have to factor in default. <em>"Please read about defaults by Argentina. It is fascinating."</em></p>
+
+  <!-- ═══════════ CHAPTER 3 ═══════════ -->
+  <h2><span class="ch-no">Chapter 3</span>Pricing risk</h2>
+
+  <p>We move to the third and final component of the cost of capital: risk. We take it separately for debt and for equity.</p>
+  <p>For a bond, go back to the lender charging 22.22%. Is the 10% default probability itself the risk? No — and this is the point he makes you sit with: if the lender knows <em>with certainty</em> that exactly 10% of borrowers will default, the contract is like a risk-free bond paying 10%. In fact it can only be priced at 22.22% when the risk-free rate is 10% — otherwise wise people make risk-free money. Think about what happens if such loans could be had at 25% while government bonds pay 10%: nobody buys the government bond, money floods these borrowers, and competition drives the rate back down until the expected return equals the risk-free rate.</p>
+  <p>Where does risk arise, then? <em>"The lender has a point estimate of 10% expected default. However, there is uncertainty around the point estimate. Actual default may turn out to be higher. The inability of the lender to precisely predict the default rate is the risk for which the lender will demand a premium."</em> Investors are obsessed with the worst-case scenarios in the case of debt — not growth prospects, because the upside is capped. That is what credit ratings grade: both the probability of default and the unpredictability around it.</p>
+
+  <h3>The cost of equity — how do you even charge it?</h3>
+  <p>It is easy to visualise the cost of debt: the contract obligates the borrower to pay. But what is the corresponding cost of equity? Neither the dividend nor the future share price can be contractually obligated. <em>"Think about it! There is a more subtle way to determine the expected return on equity."</em></p>
+  <p>His example. You are a start-up founder on Shark Tank. You have already invested Rs 100 and expect it to generate Rs 20 next year. You ask for another Rs 100, which you expect will also generate Rs 20. A shark offers you Rs 100 — for a 55% stake.</p>
+  <p>The offer implies a valuation of 100/0.55 = Rs 181. The firm's expected cash flow next year is 200 + 40 = Rs 240. So the shark's expected return solves 240/(1 + k<sub>e</sub>) = 181 — a cost of equity of <strong>32%</strong>. If Rs 240 is realised, 55% of it — Rs 132 — goes to the shark; you get Rs 108 on your Rs 100. Your return has been squeezed to 8%, because you are paying 32% as the cost of equity on a project you expected to return 20%. <em>The shark charges the expected return by controlling today's valuation.</em> That is how equity investors charge — not through a contract, but through the price at which they enter.</p>
+
+  <div class="widget" id="w-shark">
+    <p class="w-head">Machine №3 — the shark's terms (Session 3)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Rs 100 already in, expected to make Rs 20. The shark puts in Rs 100 more, also expected to make Rs 20. Drag the stake the shark demands:</p>
+    <div class="w-row"><label>Shark's stake for Rs 100</label><input type="range" data-stake min="42" max="70" step="1" value="55"><output data-stake-label></output></div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Run his three scenarios on the machine. At 55%, the shark charges 32% and your return is 8%. At 45%, the shark charges 8% — your stake is worth Rs 122 the moment the deal signs, and your return is 32%. At 60%, the shark charges 44%, the firm is valued at Rs 167, your Rs 100 stake is suddenly worth Rs 67, and your return is <em>minus</em> 4% — <em>"you would rather invest your stake in a risk-free bond than accept the offer."</em> To see why the value falls, imagine selling your remaining stake to a private-equity firm: it expects the same 32% return the shark established, so it values your 45% claim on 240 at 108/1.32 = Rs 81. The deal with the shark <em>repriced your firm</em>.</p>
+  <p>Four statements, he insists, mean exactly the same thing: a higher expected return; a higher cost of equity; a lower valuation; a bigger stake for the same money. If you internalise that equivalence, half of finance journalism becomes translatable.</p>
+
+  <h3>Which risks get priced — CAPM</h3>
+  <p>So the shark charges by pricing the stake. But how does the shark decide <em>how much</em> to charge? He warns you before presenting it: <em>"At the end, I am going to present a celebrated model. The purpose is not to tell you that the real world works as per that model. In a statistical sense, the model does not work. But it contains directional truth, which is what we are after in this course."</em></p>
+  <p>First, classify the risks a firm faces. <strong>Macroeconomic risk</strong> — non-diversifiable, systematic: regulation, inflation, interest rates, wars, growth, ageing. It hits all firms in the same direction; no portfolio protects you. <strong>Firm-specific risk</strong> — diversifiable: a CEO exits, an industry rule changes, a competitor lands. Hold metal stocks and auto stocks together and a metal-price swing that hurts one helps the other; in a well-diversified portfolio, firm-specific risk can theoretically be driven to zero.</p>
+  <p>Why does the classification matter? Two sharks. Shark A holds a well-diversified portfolio; Shark B holds only pharmaceutical firms. A pharma start-up walks in. For Shark A, the firm's specific risks do not matter — they wash out in the portfolio; A prices only the macro risk. Shark B cannot diversify them away and must charge for both. So A charges a <em>lower</em> expected return, outbids B, and wins the deal. Investors like Shark A set prices in the market — which is why <em>"the expected return only depends on the firm's exposure to macro or market risk, but not firm-specific risks."</em></p>
+  <p>From there, the model. A firm that moves one-for-one with the market should earn the market's return. A firm that moves twice as much should earn twice the market's excess return. That sensitivity is beta, and the statement is the Capital Asset Pricing Model:</p>
+  <p class="pull">E(R<sub>s</sub>) = R<sub>f</sub> + β (R<sub>m</sub> − R<sub>f</sub>)</p>
+  <p>β is covariance(R<sub>s</sub>, R<sub>m</sub>)/variance(R<sub>m</sub>) — estimated, in practice, by regressing past returns. He wants you to see the cracks immediately. First, you use past data to estimate a forward-looking quantity: Reliance was largely an oil-and-gas company a decade ago; now retail, telecom and entertainment contribute a significant share. Second, the estimate is sensitive to the window — why 5 years, why not 7, or 3? Each throws up a different beta. Then why persist with it? <em>"There have been more complicated models to explain expected returns. However, even the complicated models have not been able to provide any predictive advantage over β. Hence, it is wiser to stick with a simple model for practical applications."</em></p>
+  <p>And directionally, beta behaves. Sort firms into ten groups by <em>total</em> volatility of returns, and next year's returns show no pattern — firm-specific risk is not priced, exactly as the two-sharks logic predicts. Sort by <em>beta</em>, and returns line up with it. Cyclical businesses — real estate, metals — carry high betas; FMCG and pharma sit low. Firms with high fixed costs (operating leverage) and high debt (financial leverage) are more exposed to macro swings, and their betas show it.</p>
+  <p>When the regression is hopeless, build beta <em>bottom-up</em>: take listed comparables in each business the firm runs, average their betas, and weight by the firm's mix. Reliance in 2005 was oil-and-gas beta; Reliance in 2020 was a weighted average of oil, telecom and retail. One correction is needed before averaging, and it becomes a running theme of this course: comparables' betas are estimated from their stock prices, so they carry each firm's <em>leverage</em>. You must unlever them first — β<sub>u</sub> = β<sub>l</sub>/(1 + D/E) — average the unlevered betas, then re-lever at your own firm's D/E. Thumb rule from the notes: unlevered beta is always smaller, because financing risk has been stripped out.</p>
+
+  <div class="widget mcq" data-mcq data-answer="b">
+    <p class="w-head">From his mid-term — try it</p>
+    <p class="mcq-q">In a CAPM world, which of the following is likely to change the expected return of a <em>zero-beta</em> asset?</p>
+    <div class="mcq-opts">
+      <button type="button" data-opt="a">Any systematic (macro, non-diversifiable) risk</button>
+      <button type="button" data-opt="b">A change in preference for consumption today over tomorrow</button>
+      <button type="button" data-opt="c">Firm-specific risks such as a CEO quitting</button>
+      <button type="button" data-opt="d">None of the above</button>
+    </div>
+    <p class="w-note" data-explain hidden>A zero-beta asset earns exactly the risk-free rate — no macro exposure to price, and firm-specific risk is never priced. But the risk-free rate itself is built on the real rate, and the real rate is society's price for postponing consumption — the rice example. Change that preference and even the zero-beta asset's expected return moves.</p>
+  </div>
+
+  <div class="widget mcq" data-mcq data-answer="b">
+    <p class="w-head">One more — the merger trap</p>
+    <p class="mcq-q">A metals company buys an auto company (assume their businesses are negatively correlated). In a CAPM world, what happens to the cost of capital?</p>
+    <div class="mcq-opts">
+      <button type="button" data-opt="a">It definitely declines — each firm offsets the other's risks</button>
+      <button type="button" data-opt="b">It can stay unchanged or even rise — only the combined sensitivity to the market matters</button>
+      <button type="button" data-opt="c">It definitely increases</button>
+      <button type="button" data-opt="d">None of the above</button>
+    </div>
+    <p class="w-note" data-explain hidden>The offsetting is firm-specific diversification — and investors could already do it themselves by holding both stocks. Nobody pays a premium for diversification they can replicate for free. The combined firm's cost of capital depends on the portfolio-weighted beta, nothing else. (Note the echo of Shark A: diversification the investor already has cannot be sold back to him.)</p>
+  </div>
+
+  <!-- ───────────── GATE ───────────── -->
+  <div class="essay-gate" id="essayGate">
+    <h3>The next seven chapters are for the cohort</h3>
+    <p>WACC and free cash flow, NPV and the share price, the IRR trap, Modigliani-Miller, the tax shield, bankruptcy, and the growth-assumption machine. Sign in once — it is a gate, not a fee — and it stays open for you.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+
+  <div class="gated" id="gatedChapters">
+
+  <!-- ═══════════ CHAPTER 4 ═══════════ -->
+  <h2><span class="ch-no">Chapter 4</span>One discount rate, and what it discounts</h2>
+
+  <p>Session 5 opens with a recap that is worth keeping whole: how would the three broad types of financing price the same promise of Rs 108 next year?</p>
+
+<figure class="essay-fig" role="img" aria-label="How government debt, private debt and equity price the same Rs 108 promise">
+<svg viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg">
+  <rect x="250" y="8" width="200" height="32" rx="8" class="fig-box-hl"/>
+  <text x="350" y="28" text-anchor="middle" class="fig-t">A promise of Rs 108 next year</text>
+  <path d="M350 40 V58 M120 58 H580 M120 58 V76 M350 58 V76 M580 58 V76" class="fig-line"/>
+  <rect x="20" y="76" width="200" height="92" rx="8" class="fig-box"/>
+  <text x="120" y="96" text-anchor="middle" class="fig-t">Government debt</text>
+  <text x="120" y="114" text-anchor="middle" class="fig-ts">risk-free rate only:</text>
+  <text x="120" y="128" text-anchor="middle" class="fig-ts">real rate (≈3%) + expected</text>
+  <text x="120" y="142" text-anchor="middle" class="fig-ts">inflation (≈5%) ⇒ ≈8%</text>
+  <rect x="250" y="76" width="200" height="92" rx="8" class="fig-box"/>
+  <text x="350" y="96" text-anchor="middle" class="fig-t">Private debt</text>
+  <text x="350" y="114" text-anchor="middle" class="fig-ts">risk-free + default premium</text>
+  <text x="350" y="128" text-anchor="middle" class="fig-ts">(expected default + uncertainty),</text>
+  <text x="350" y="142" text-anchor="middle" class="fig-ts">via ratings / interest coverage</text>
+  <rect x="480" y="76" width="200" height="92" rx="8" class="fig-box"/>
+  <text x="580" y="96" text-anchor="middle" class="fig-t">Equity</text>
+  <text x="580" y="114" text-anchor="middle" class="fig-ts">CAPM, assuming the marginal</text>
+  <text x="580" y="128" text-anchor="middle" class="fig-ts">investor is fully diversified —</text>
+  <text x="580" y="142" text-anchor="middle" class="fig-ts">charged via today's price</text>
+</svg>
+<figcaption>Fig. 5 — three financings, one promise, redrawn from Session 5. For equity it is not a promise but an expected cash flow — his caveat.</figcaption>
+</figure>
+
+  <p>Expected return is not an abstraction — it is a <em>cost</em>, and his example of that is a regulation you can watch working. The central bank increases banks' capital adequacy requirement: banks must fund with more equity. Take a bank at equity-to-debt of 1:9, cost of equity 20%, cost of debt 10%, lending at 11%. Its cost of capital is (20×1 + 10×9)/10 = 11%. Interest income of Rs 11 on 100: Rs 9 pays the debt, Rs 2 is left on Rs 10 of equity — 20%, exactly the cost of equity. Everyone is paid their expected return.</p>
+  <p>Now the regulation moves the mix to 2:8. The cost of capital rises to (20×2 + 10×8)/10 = 12%. Keep charging 11% and only Rs 3 remains for Rs 20 of equity — 15%, below the 20% equity holders expect. <em>"Hence, the stock price of the bank falls."</em> To prevent it, the bank must raise lending rates to 12%. The change in the equity-debt mix changes the cost of capital, and the cost of capital changes the price of loans. The SBI Chairman said it in one line after the announcement: <em>"If my cost of funds is going up, I will certainly increase interest rates. We have to do the calculation."</em></p>
+
+  <div class="widget" id="w-bank">
+    <p class="w-head">Machine №4 — the regulator moves your WACC (Session 5)</p>
+    <p class="w-note" style="margin:0 0 .6rem">A bank funded with equity (k<sub>e</sub> 20%) and debt (k<sub>d</sub> 10%), lending Rs 100 at 11%. Drag the equity share the regulator demands:</p>
+    <div class="w-row"><label>Equity share of funding</label><input type="range" data-eq min="5" max="50" step="1" value="10"><output data-eq-label></output></div>
+    <div class="w-mixbar" aria-hidden="true"><div class="w-mix-e" data-mix-e></div><div class="w-mix-d" data-mix-d></div></div>
+    <p class="w-big" data-wacc></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>A residual question from the beta discussion, the one he says may keep you awake at night: can't you diversify away <em>market</em> risk too, by holding high-beta and low-beta assets together? No — and the reason is the arithmetic of averaging. Diversification works on firm-specific risk because one firm's bad luck is another's good luck; portfolio volatility falls below the average of the parts. But hold a beta-2 asset with a beta-1 asset and the portfolio's beta is exactly the average — 1.5. Market risk does not cancel; it only dilutes toward the market's own risk, never below it.</p>
+
+  <h3>WACC, and the cash flow it discounts</h3>
+  <p>We now have both prices: cost of debt r<sub>d</sub>, cost of equity r<sub>e</sub>. The blended price of the firm's money is the weighted average cost of capital:</p>
+  <p class="pull">WACC = D/(D+E) × r<sub>d</sub> + E/(D+E) × r<sub>e</sub></p>
+  <p>Discount the cash flows of the enterprise at the WACC and you get the enterprise value. (By enterprise, the notes mean the main business — the firm may own unrelated assets too. That distinction returns in a moment.) But which cash flow? Not profit. <strong>Free cash flow to the enterprise</strong>:</p>
+  <p class="pull">FCF<sub>Ent</sub> = Operating income (1 − tax) + Depreciation − Capex − ΔNet working capital</p>
+  <p>Start with after-tax operating income, then undo the accounting. Depreciation is a non-cash expense subtracted on the way to operating income — add it back. Capital expenditure is real cash out that never appears in operating income — subtract it. And the change in net working capital (ΔInventories + ΔReceivables − ΔPayables) corrects for the gaps between when revenue and expense are <em>booked</em> and when cash actually moves: inventories bought but not yet used, sales promised but not yet collected, purchases made but not yet paid.</p>
+  <p>From enterprise to equity: subtract what belongs to the lenders. <strong>FCF<sub>Equity</sub> = FCF<sub>Ent</sub> − Net debt payments</strong>, where net debt is interest and principal paid minus new debt raised. Discount <em>that</em> at the cost of equity and you have the value of equity from the business. Two adjustments complete the picture: some firms hold non-operating assets — cash, land — whose value belongs to equity holders too; add it. Total value of equity, divided by the number of shares, is value per share. <em>This is also known as intrinsic value</em> — the number every screaming TV debate is implicitly arguing about. And the bridge you will use your whole career:</p>
+  <p class="pull">Equity value + Debt − Non-operating assets = Enterprise value</p>
+  <p class="w-note" style="margin-top:-.6rem">Sometimes cash stands in for non-operating assets (the textbook does that), but this form is more general — his note. The full FCF and WACC mechanics are also in the <a href="/assets/downloads/fcrv-machines.xlsx">companion workbook</a>, with live formulas.</p>
+
+  <div class="widget mcq" data-mcq data-answer="b">
+    <p class="w-head">From his mid-term — the bridge, tested</p>
+    <p class="mcq-q">Income from a non-operating business is —</p>
+    <div class="mcq-opts">
+      <button type="button" data-opt="a">Part of free cash flow to equity but not free cash flow to the enterprise</button>
+      <button type="button" data-opt="b">Not part of either</button>
+      <button type="button" data-opt="c">Part of free cash flow to the enterprise and not part of free cash flow to equity</button>
+      <button type="button" data-opt="d">None of the above</button>
+    </div>
+    <p class="w-note" data-explain hidden>Pure definitions — which is the trap. "Enterprise," in his notes, means the main business only; non-operating businesses sit outside it, so their income is in neither FCF stream. Their value is estimated separately and added to the value of equity at the end — that is exactly what the bridge equation above is doing when it subtracts non-operating assets on the way back to enterprise value.</p>
+  </div>
+
+  <!-- ═══════════ CHAPTER 5 ═══════════ -->
+  <h2><span class="ch-no">Chapter 5</span>NPV — and what it does to the share price</h2>
+
+  <p>We move to the frameworks for project selection: net present value, internal rate of return, payback period, profitability index. We start with the most economically sound one.</p>
+  <p class="pull">NPV = PV of cash inflows − PV of cash outflows</p>
+  <p>His running example, which the next two chapters will keep returning to: an outflow of Rs 100 now; inflows of 12, 11 and 110 at the ends of years 1, 2 and 3; cost of capital 10%. Discount everything to today and add: the NPV is <strong>2.645</strong>. The selection rules: with no resource constraints, take every positive-NPV project; if projects are mutually exclusive, take the highest positive NPV.</p>
+  <p>Now the subtle part — <em>"we will make things a little more complicated (or interesting — depending on your perspective)"</em>. There is an inherent assumption inside that 2.645: that the cash flows the project throws off are <em>reinvested at the cost of capital</em>. Compound 12, 11 and 110 forward to year 3 at 10% and you get 136.62; discount that single pile back three years and the NPV is the same 2.645. Now suppose the interim cash actually sits in a bank paying 6%. The pile is only 135.14, and the NPV falls to 1.535. Same project, same projections. And he pushes it one step further: make the year-1 cash flow 10 instead of 12, and the project is positive-NPV under the 10% assumption but <em>negative</em> under 6% — <em>"an incorrect assumption about reinvestment can potentially lead to wrong project selections."</em></p>
+
+  <div class="widget" id="w-npv">
+    <p class="w-head">Machine №5 — NPV and its hidden assumption (Session 6)</p>
+    <p class="w-note" style="margin:0 0 .6rem">His cash flows: −100, +12, +11, +110. Move the cost of capital, then move the reinvestment rate away from it and watch the NPV drift:</p>
+    <div class="w-row"><label>Cost of capital</label><input type="range" data-rate min="4" max="16" step="0.5" value="10"><output data-rate-label></output></div>
+    <div class="w-row"><label>Actual reinvestment rate</label><input type="range" data-reinv min="4" max="16" step="0.5" value="10"><output data-reinv-label></output></div>
+    <p class="w-big" data-out></p>
+    <div data-bars></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <h3>Finance profit</h3>
+  <p>Why should the share price care about this number? Because NPV is the project's <em>finance profit</em> — his term, and the purest form of profit after factoring in the cost of capital. Each year, holding Rs 100 of investors' money costs Rs 10. Year 1 earns 12 — finance profit 2, worth 1.818 today. Year 2 earns 11 — profit 1, worth 0.826. Year 3 earns 110 against 110 owed — zero. Total: 2.645. <em>Exactly</em> the NPV. Theoretically, then, the share price should rise by the amount of NPV on the announcement of the project — in the limiting case where markets are efficient. (In practice the price moves directionally but not exactly, because investors do not fully trust firms' projections — information asymmetry. The theoretical case is the one that teaches.)</p>
+  <p>To see the price move, let investor A — who put in the Rs 100 — sell to investor B after the announcement. Knowing the PV of the expected cash flows is 102.645, A sells at nothing less. Will B, buying at 102.645, earn anything? <em>"The answer is yes!"</em> — the cost of capital, 10%, every year, regardless of dividend policy. That claim sounds too clean to be true, so the notes prove it both ways, and the machine below lets you slide between them.</p>
+
+  <div class="widget" id="w-price">
+    <p class="w-head">Machine №6 — dividend or reinvest: the investor earns 10% either way (Session 6)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Investor B buys at 102.645. Year 1 produces Rs 12. Split it between dividend and reinvestment (reinvested cash compounds at 10% to year 3):</p>
+    <div class="w-row"><label>Paid as dividend (of the 12)</label><input type="range" data-div min="0" max="12" step="1" value="0"><output data-div-label></output></div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Work the two ends of the slider against the notes. Full reinvestment: year-3 cash flow becomes 110 + 12(1.1)² = 124.52, and the year-1 price is 11/1.1 + 124.52/1.1² = <strong>112.909</strong> — precisely 10% above 102.645. Full dividend: the price is only 100.909 — the share price <em>falls</em> 1.69% — but add the Rs 12 dividend and B's return is (100.909 + 12 − 102.645)/102.645 = 10% again. A falling share price and a satisfied investor, simultaneously. File that away for every headline about a stock "punished" on its ex-dividend date. His homework asks you to verify the 6-and-6 split does the same; the machine will show you it does.</p>
+
+  <!-- ═══════════ CHAPTER 6 ═══════════ -->
+  <h2><span class="ch-no">Chapter 6</span>IRR, and the tools you will meet in meetings</h2>
+
+  <p>The second tool. The internal rate of return is the expected return at which NPV = 0. For the same cash flows — −100, 12, 11, 110 — the IRR solves a cubic, and comes out at <strong>11.07%</strong>.<span class="fn">His footnote at this exact point in the notes, verbatim: "Before you all ask: There won't be questions in the exam that will require you to solve equations like the above. The questions will be more conceptual. Unsure whether that is comforting or not. (Btw, Nishant has added the above. He is picking up)" — Nishant being his teaching assistant, who appears in these notes the way a lab partner appears in lab notes.</span> Selection rule: take projects whose IRR exceeds the cost of capital; among mutually exclusive ones, the highest such IRR. The IRR, with its appeal of being a ratio, was long more popular than NPV — the balance has been shifting.</p>
+  <p>Like NPV, the IRR hides a reinvestment assumption — <em>"draw an analogy from the NPV discussion and think about it before moving forward!"</em> — except the IRR's is worse: it assumes interim cash reinvests <em>at the IRR itself</em>. Compound 12, 11, 110 forward at 11.07% and you get 137.02, whose present value at 11.07% is exactly 100: NPV zero, assumption exposed. There is one honest case: when the project pays a single terminal cash flow and nothing in between, there is nothing to reinvest, and the IRR really is the annualised return. Otherwise, park the interim cash in a bank at 6% and the pile is 135.14 — the true annualised return is <strong>10.56%</strong>, not 11.07%.</p>
+  <p>Now his trap, spring-loaded. Your hurdle is 10.75%. The naive IRR — 11.07% — clears it. The true return — 10.56% — does not. <em>"If you had done the naive estimation, you would have incorrectly accepted the project."</em></p>
+
+  <div class="widget" id="w-irr">
+    <p class="w-head">Machine №7 — the IRR trap (Session 7)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Excel will always tell you 11.07%. Reality depends on where the interim cash actually sits:</p>
+    <div class="w-row"><label>Interim cash actually earns</label><input type="range" data-reinv min="3" max="14" step="0.5" value="6"><output data-reinv-label></output></div>
+    <div class="w-row"><label>Your hurdle rate</label><input type="range" data-hurdle min="9.5" max="12" step="0.05" value="10.75"><output data-hurdle-label></output></div>
+    <p class="w-big" data-eff></p>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Three more failure modes, from the notes, each one exam-fodder. <strong>NPV and IRR can contradict.</strong> Project A: invest 1,000, receive 10,000 — IRR 900%, NPV 8,091. Project B: invest 10,00,000, receive 20,00,000 — IRR "only" 100%, NPV 8,18,182. Mutually exclusive? IRR says A; NPV says B. <em>"Always select projects based on NPV, because it has a direct bearing on shareholder value."</em> A ratio cannot pay salaries; an absolute amount can. <strong>There can be multiple IRRs.</strong> IRR solves a polynomial; polynomials have multiple roots. His example — −5,00,000; +16,05,000; −17,16,900; +6,12,040 — has three IRRs: 4%, 7% and 10%. Which one goes in the board deck? <strong>Or none at all.</strong> Flip signs the wrong way (−105, +250, −150) and the polynomial has no real root. Excel prints #NUM! and the meeting moves on, none the wiser.</p>
+
+  <div class="widget" id="w-irrprofile">
+    <p class="w-head">Machine №8 — the NPV profile: where IRR lives, and where it multiplies (Session 7)</p>
+    <p class="w-note" style="margin:0 0 .6rem">NPV plotted against the discount rate. The IRR is where the curve crosses zero — <em>if</em> it crosses once:</p>
+    <div class="w-toggle">
+      <button type="button" data-prof="normal" aria-pressed="true">His base project</button>
+      <button type="button" data-prof="multi" aria-pressed="false">The three-IRR cash flows</button>
+    </div>
+    <div data-chart></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p><strong>Payback period</strong> — the number of years for cumulative forecast cash flow to equal the investment; used by small and credit-constrained businesses. Project A: −2000, then 500, 500, 5000 — payback 2.2 years, NPV +2,624. Project B: −2000, then 500, 1800 — payback 1.83 years, NPV −58. Payback picks B; B destroys value. Two defects, per the notes: the cutoff period is arbitrary, and everything after the payback date — like A's 5,000 — is simply ignored. <strong>Profitability index</strong> — PV of inflows over PV of outflows; a ratio again, appealing for the same reason and lacking NPV's economic interpretation for the same reason. Decision rules exist; the notes give them one paragraph each, which is roughly the respect they deserve.</p>
+  <p>Session 7 ends with a cliffhanger the next chapter resolves. Two firms, identical cash flows — 1,600 in the good state, 700 in the bad, equal odds. Firm A all equity; Firm B carries 500 of debt at 5%, cost of equity 15%. Work the arithmetic and Firm B appears to be worth 1,043 against A's 1,000. <em>"Why should just mixing debt and equity in a different ratio generate different values? Does this produce some kind of arbitrage opportunity that one can exploit? We will try to resolve the puzzle in the next class."</em></p>
+
+  <!-- ═══════════ CHAPTER 7 ═══════════ -->
+  <h2><span class="ch-no">Chapter 7</span>"What sorcery is this?" — Modigliani-Miller</h2>
+
+  <p>The financing decision, finally. The objective, from the first lecture: minimise the cost of capital. And since WACC is a weighted average of a cheap thing (debt) and an expensive thing (equity), a naive reading of the formula says: add more debt. <em>"However, we will see that the conclusion is not so straightforward. The value added by debt does not arise from the fact that it is cheap."</em></p>
+  <p>The Session 8 setup — smaller numbers than the cliffhanger, same puzzle. Two firms. Good state: both earn 150. Bad state: both earn 80. Equal probability. Cost of equity 15%, cost of debt 5%. Firm A is all equity: expected value (130.43 + 69.57)/2 = <strong>100</strong>. Firm B carries 50 of debt: it owes 52.5 next year, so equity gets 97.5 or 27.5; discount at 15% and the expected equity value is 54.35, plus 50 of debt — enterprise value <strong>104.35</strong>. The firm got more valuable by <em>rearranging the right side of its balance sheet</em>.</p>
+  <p>Through the eyes of a representative investor with 50 of capital: in firm A he owns half the equity and expects 57.5 next year — a 15% return, exactly the cost of equity. In firm B he expects 62.5 — <em>25%</em>. Positive NPV for simply holding levered equity. In the notes at this point: <em>"As a skeptical reader, each of you should have a question: what sorcery (I had to google this. Nishant's hidden talent is coming out) is this? Does just financing through debt result in an increase in the value of equity? Pause and think about it a bit."</em></p>
+  <p>The investor in firm A calls the bluff. He borrows 50 from the bank at 5% — pledging his shares if needed — and puts it into firm A's equity. Next year he repays 52.5 and keeps 97.5 in the good state, 27.5 in the bad. <em>Identical to firm B's equity.</em> Any investor can manufacture firm B at home. So nobody pays 54.35 for what can be home-made at 50 — the price competes down until the levered firm is worth exactly 100. That is the Modigliani-Miller theorem: <strong>the capital structure does not matter for the total value of the firm.</strong></p>
+  <p>But the deeper explanation is not the arbitrage — it is <em>why</em> 50 is the right value, and it changed how you should read every levered balance sheet. Firm A's equity returns: +50% good, −20% bad — a range of 70 points. Firm B's: +95% good, −45% bad — a range of 140. <em>"The range is a measure of volatility... firms with higher leverage face higher macro risk."</em> Twice the volatility, twice the risk premium: firm A's equity premium was 10 (15 minus the risk-free 5), so firm B's must be 20, making its cost of equity <strong>25%</strong>. Discount B's expected equity cash flow of 62.5 at 25% and you get... 50. <em>"(Just to signal that I am also writing something.)"</em></p>
+  <p class="pull">The advantage of cheaper debt is precisely offset by costlier equity. WACC does not move.</p>
+  <p>From WACC<sub>u</sub> = WACC<sub>l</sub>, one rearrangement gives the relationship you met in the beta chapter, now derived rather than asserted: r<sub>l</sub> = r<sub>u</sub> + (r<sub>u</sub> − r<sub>d</sub>)(D/E) — and substituting CAPM, β<sub>l</sub> = β<sub>u</sub>(1 + D/E) when debt is riskless.<span class="fn">Notes, verbatim: "I have not checked the formula as I am getting late to class; please bombard Nishant if there are errors." For the record: the formula checks out.</span></p>
+  <p>The assumptions doing the work: individuals can borrow like firms can; no taxes; no bankruptcy costs; no transaction costs. All unrealistic — <em>"however, it delivers a powerful insight that is useful to the real world. You cannot create value by just borrowing cheaper debt."</em> Where the assumptions break is where the next two chapters live.</p>
+
+<aside class="wa-aside">
+  <p class="wa-meta">The question he loved — from the notes, verbatim</p>
+  <p>"Finally, there is one important point. Shreyasee (no idea which section) asked me a great question yesterday. Does this formula imply that if you manage to borrow cheaper debt (say 4%), equity becomes costlier? I mean more than 25% in this case? I love such questions where a student is genuinely trying to understand the issue and not asking a question just because he/she messed up something in the exam. These kinds of questions make me feel like I am teaching in a 26th-ranked school. Great question. Now, why don't I let you think about the answer?"</p>
+</aside>
+
+  <!-- ═══════════ CHAPTER 8 ═══════════ -->
+  <h2><span class="ch-no">Chapter 8</span>The tax shield — and three roads to the same number</h2>
+
+  <p>Now relax the first assumption: taxes. Interest expense is tax-deductible; dividends are not. Same firm as before — 50 equity, 50 debt at 5%, states of 150 and 80, tax rate 20%. Run it both ways. If interest were <em>not</em> deductible: tax hits the full income, and equity receives 67.5 (good) or 11.5 (bad). With deductibility: tax is charged on income minus the 2.5 of interest, and equity receives 68 or 12. Half a rupee more <em>in both states</em>. <em>"The increase in cash flows is without taking any risk. This is the advantage of debt."</em> The M&M conclusion bends:</p>
+  <p class="pull">Value of levered firm = Value of unlevered firm + Value of the tax shield</p>
+  <p>How do you fold that benefit into a valuation? Session 9 does it three ways on one deliberately simple firm — cash flows of 10 for four years, tax 50%, unlevered cost of equity 8%, cost of debt 6%, target debt-to-equity 1:1 (so the levered cost of equity, from the M&M relation, is 10%). Unlevered value: discount the after-tax 5s at 8% — <strong>16.56</strong>.</p>
+  <p><strong>Road 1, the WACC method.</strong> Put the tax benefit in the <em>denominator</em>: deflate the cost of debt by (1 − tax) — because the taxman refunds that fraction of every interest rupee — giving WACC = (10% + 6%×0.5)/2 = 6.5%. Discount the same after-tax 5s: <strong>17.13</strong>. Value added by debt: 0.57.<span class="fn">At which point the notes pause mid-derivation: "This violates the M&M theorem (with due apologies to Grandhi — but I appreciate his sharp observation) — which had posited that capital structure is value irrelevant." The theorem is fine: it assumed no taxes, and we just added them.</span> The catch: you need to know the D/E ratio the firm will maintain.</p>
+  <p><strong>Road 2, adjusted present value.</strong> Put the benefit in a <em>separate line</em>: value the unlevered firm, then add the PV of the tax shield year by year (interest × tax rate, discounted at the business risk rate of 8% — <em>"please do not use levered cost of equity. You are valuing the enterprise here"</em>). To demonstrate parity under the same D/E assumption the notes must derive each year's debt from each year's value — <em>"we will cheat a little... you can see the circular logic here"</em> — and the shield sums to the same 0.57. In practice you know the debt levels directly and there is no circle.</p>
+  <p><strong>Road 3, the NOPAT method.</strong> Put the benefit in the <em>cash flow</em>: compute the actual tax paid (on income minus interest), subtract it from operating cash flow, and discount at the plain unlevered 8%. Same firm, same years — <strong>17.13</strong>.</p>
+
+  <div class="widget" id="w-trio">
+    <p class="w-head">Machine №9 — three roads, one valuation (Session 9)</p>
+    <p class="w-note" style="margin:0 0 .6rem">His firm: 10 a year for four years, r<sub>u</sub> 8%, r<sub>d</sub> 6%, D/E held at 1:1. Drag the tax rate — at zero you are back in the M&M world and debt adds nothing:</p>
+    <div class="w-row"><label>Tax rate</label><input type="range" data-tax min="0" max="50" step="5" value="50"><output data-tax-label></output></div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Three arrangements of the same algebra, and that is precisely the exam skill: knowing <em>where</em> the tax benefit sits in each method, so you neither drop it nor double-count it. Adjust the discount rate, or add a separate PV, or adjust the cash flow — pick exactly one.</p>
+
+  <!-- ═══════════ CHAPTER 9 ═══════════ -->
+  <h2><span class="ch-no">Chapter 9</span>Bankruptcy — and what debt does to behaviour</h2>
+
+  <p>Now relax the second assumption. Change the bad state from 80 to 50, and let the levered firm carry real leverage: debt-to-equity of 2. The unlevered benchmark: expected cash flow (150 + 50)/2 = 100, value <strong>86.96</strong> at 15%. The levered firm borrows two-thirds of that — 57.97 — and here is the new ingredient: in the bad state, 50 cannot cover 57.97 plus interest. The firm <em>will</em> default half the time.</p>
+  <p>Watch what the lender does about it, because this is the chapter's first big idea: the lender prices it <em>ex ante</em>. To earn 5% in expectation he needs 60.87; he knows the bad state pays only 50; so the good state must pay 71.74 — an interest rate of <strong>23.75%</strong>. And the cost of levered equity, from the M&M relation at these weights: 15% = k<sub>e</sub>(1/3) + 5%(2/3), so k<sub>e</sub> = <strong>35%</strong>. Equity gets 78.26 in the good state, nothing in the bad; value 28.99. Add the debt: 86.96. <em>Unchanged.</em> <em>"Despite the bankruptcy, the value of the firm remains the same... the lender has already priced in the bankruptcy by charging a higher interest rate. Moreover, we have not considered any costs of bankruptcy. Therefore, there is no loss of value."</em> Default, by itself, destroys nothing — it only reshuffles who gets paid. Every rupee was priced before it was lent.</p>
+  <p>Then add the thing that does destroy value. Bankruptcy has <em>costs</em>: customers postpone purchases or defect, lenders file cases, lawyers bill. In the notes this is one clean change: the bad-state cash flow drops from 50 to 40. The lender re-prices — now he must charge <strong>41%</strong> — and the cost of equity stays 35%, because bankruptcy cost is a firm-specific risk and firm-specific risk is not priced into expected returns. Equity value falls to 25.28; the firm is worth <strong>83.25</strong>. The missing 3.71 is the PV of the expected bankruptcy cost (a loss of 10, half the time, discounted at 35%: 5/1.35 = 3.70 — his "another way to arrive at it"). And notice who bears it: the equity holder, because the lender priced himself out of harm's way.</p>
+
+  <div class="widget" id="w-mm">
+    <p class="w-head">Machine №10 — leverage, priced default, and the cost that sticks (Sessions 8–10)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Good state 150, bad state 50, unlevered value 86.96. Add debt; then switch on real bankruptcy costs (bad state 50 → 40) and watch which numbers move:</p>
+    <div class="w-row"><label>Debt</label><input type="range" data-debt min="0" max="60" step="1" value="0"><output data-debt-label></output></div>
+    <div class="w-toggle"><button type="button" data-bc aria-pressed="false">Bankruptcy cost: OFF</button></div>
+    <div class="w-row"><label>Lender charges</label><output class="w-big" style="font-size:1.3rem" data-rate></output></div>
+    <div class="w-row"><label>Cost of levered equity</label><output class="w-big" style="font-size:1.3rem" data-ke></output></div>
+    <div class="w-row"><label>Enterprise value</label><output class="w-big" style="font-size:1.3rem" data-ev></output></div>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>The trade-off theory of capital structure falls out in one line:</p>
+  <p class="pull">V<sub>l</sub> = V<sub>u</sub> + PV(tax shield) − PV(bankruptcy cost)</p>
+  <p>More debt grows the shield and grows the expected bankruptcy cost; somewhere between them is the sweet spot. That is the financing decision, honestly stated.</p>
+
+  <h3>Risk shifting</h3>
+  <p><em>"Now, clear your mind from the hangover of the previous scenario (this is an attempt by Nishant to joke… I don't think this worked; he needs to work hard)."</em> Debt does one more thing the formula cannot see: it changes what the people running the firm <em>want to do</em>. Two diseases, and he was still drilling the difference months after the course ended.</p>
+  <p>Disease one. Debt repayment due: 100. Cash in hand: 90. Equity gets nothing either way. Along comes a gamble: stake 20, double-or-nothing, win probability 10% — expected value hopelessly negative. The firm's expected cash flow drops from 90 to 74. The lender's drops from 90 to 73. And the equity holder? From 0 to 1 — <em>positive</em>. Heads you win, tails the lender loses. <em>"The equity investor is incentivized to invest in projects that have negative NPV for the firm."</em> Risk shifting, asset substitution, overinvestment, gambling for resurrection — <em>"I may use any of these terms in the exam."</em></p>
+
+  <div class="widget" id="w-gamble">
+    <p class="w-head">Machine №11 — gambling for resurrection (Session 10)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Debt 100, cash 90, stake 20, double or nothing. Drag the odds and find where the gamble stops paying <em>you</em> — then notice how absurdly bad it can be and still tempt the equity holder:</p>
+    <div class="w-row"><label>Win probability</label><input type="range" data-win min="0" max="60" step="5" value="10"><output data-win-label></output></div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <h3>Debt overhang</h3>
+  <p>Disease two, the mirror image. Same 100 due, same 90 in hand — but covenants forbid touching the 90. A risk-free opportunity appears: put in 10, get 15, guaranteed — 50%, riskless, unambiguously positive NPV for the firm. The equity holder must fund the 10 from his own pocket. The firm's cash flow rises to 105; the lender collects his full 100, gaining 10; and the equity holder receives 5 — on an investment of 10. He loses 5 by doing the right thing, so he does not do it. <em>Underinvestment</em>: good projects die because their payoff services someone else's debt.</p>
+  <p>The obvious objection got asked, and the notes preserve it: <em>"Madhav and Kausik independently asked a great question. Why doesn't the bank bring in 10 in this case, as it can make money for sure? Two reasons. You don't have risk-free projects in the real world — the banker will be afraid of putting good money after bad if the new project has even a small risk. Second, lending to defaulting borrowers is considered restructuring. That will require provisioning (see your accounting notes if you still have them). Therefore, it is costly for banks."</em></p>
+
+<aside class="wa-aside">
+  <p class="wa-meta">To the group, April 2026 — eight months after the course ended</p>
+  <p>"Will turn the main gate into Strait of Hormuz today. Hope you guys remember the difference between risk shifting and debt overhang."</p>
+  <p class="wa-meta" style="margin-top:.5rem">You now have both machines. You have no excuse.</p>
+</aside>
+
+  <p>And the course's final word on debt is, deliberately, a kind one: debt <em>disciplines</em>. It leaves less free cash with managers, and managers with less idle cash build fewer empires — fewer negative-NPV vanity projects. Lenders reinforce it with covenants. <em>"We end the FCRV sessions on this positive note."</em></p>
+
+  <!-- ═══════════ CHAPTER 10 ═══════════ -->
+  <h2><span class="ch-no">Chapter 10</span>The skill to smell before the fire starts</h2>
+
+  <p>The takeaway section of his notes begins by asking what the course actually equipped you with, and answers: the habit of probing assumptions. <em>"In practical scenarios, most of the time, you will hear valuation being discussed in terms of ratios such as PE and EV/EBITDA. In the majority of cases, a naive way of arriving at the value is to use these ratios of comparable firms as the benchmark — also known as relative valuation. However, you must understand that there are underlying assumptions in the calculation of enterprise values of comparables as well. You are essentially relying on the assumptions made by someone else to value your own company — assumptions that may not be suitable for your firm's context."</em></p>
+  <p>His closing example. L&T must decide on a project: cash inflow of 10,000 crore at the end of year one, growing 20% a year for the next six years, then 10% in perpetuity, against an investment of 3,00,000 crore. In the base case the inflows are worth 2,53,779 crore — <em>negative</em> NPV, walk away. Nudge the initial growth assumption from 20% to 30% and the same project is worth 3,64,305 crore — comfortably positive. One assumption, one Excel cell, a hundred-thousand-crore swing.<span class="fn">The notes print the two output values but not the discount rate behind them; the machine backs out ≈16.15% from the base case, and at that rate the 30% scenario lands within ~7% of his printed figure — his sheet likely handles the terminal value slightly differently. The lesson survives any convention: the answer lives in the assumptions. (Editor's note, so you know exactly what is his and what is ours.)</span></p>
+
+  <div class="widget" id="w-lnt">
+    <p class="w-head">Machine №12 — the assumption machine (Session 10, his closing example)</p>
+    <p class="w-note" style="margin:0 0 .6rem">Value of the inflows against the 3,00,000 cr investment. Move any assumption; watch the verdict flip:</p>
+    <div class="w-row"><label>Growth, years 2–7</label><input type="range" data-g1 min="5" max="35" step="1" value="20"><output data-g1-label></output></div>
+    <div class="w-row"><label>Perpetual growth after</label><input type="range" data-g2 min="2" max="12" step="0.5" value="10"><output data-g2-label></output></div>
+    <div class="w-row"><label>Discount rate</label><input type="range" data-r min="13" max="20" step="0.25" value="16.15"><output data-r-label></output></div>
+    <p class="w-big" data-out></p>
+    <div class="w-gauge"><div class="w-gauge-zero" style="left:50%"></div><div class="w-gauge-fill" data-gauge></div></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p><em>"This is the skill that the course was intended to equip you with — the skill to 'smell' before the fire starts."</em></p>
+  <p>He kept teaching it after the term ended. When the group debated whether the Nifty was expensive because its P/E sat above the historical median, he replied with one message: <em>"There is a fallacy here. Valuations are based on expected outcomes in the future. Whether or not this is high depends on our expected growth. History-centric analysis assumes that we will have similar growth."</em> When Tata Capital filed its DRHP, the homework was one line: <em>"Please spend some time coming out with your own valuation."</em> Not "look up the grey-market premium." Build it, assumption by assumption, and know which cell your conclusion lives in.<span class="fn">A worked version of exactly that exercise — a full DCF, dividend-discount and EV/EBITDA comparison on a real IPO — is in the <a href="/assets/downloads/fcrv-machines.xlsx">companion workbook</a>, following the valuation assignment from his course.</span></p>
+
+<aside class="wa-aside">
+  <p class="wa-meta">To the group, July 2025 — takeaway №1, where the whole series began</p>
+  <p>"I am starting this series — fifty key takeaways from corporate finance. (There is nothing called FCRV. Please forget it.)"</p>
+  <p>"Normally, you hear this adage that risk and return go together in finance. This is not always true. You may have options having high risk and low returns as well — uninformed investors trading in stock markets is one example. Playing Russian Roulette for INR 10,000 is also one such example. (Did you say taking my course also?) The basic finance principle is that a decision maker should accept high risk only if the <em>expected</em> return is higher. You will never get to decide knowing the actual outcomes (except in cooked-up case studies). From this point of view, you should be able to see that the US government making 7% on the bailout of banks may not be a great achievement given the risks they took. Warren Buffett made 39% on the same investments. Just because some division made money, you cannot call it successful. Next time, they may blow up the entire organization."</p>
+  <p>"If you ask me, how to assess risk — there is only one way. Your understanding of the business and the relevant macros. This is why macro is super important."</p>
+</aside>
+
+  <p>Which is where this page hands over. The expected return you spent ten chapters constructing is built on a real rate, an expected inflation, and a market risk premium — and every one of those is macro. His macro course picks up exactly there, and so does <a href="/what-is-macro/">the next long read</a>. The <a href="/indian-financial-system/">Indian financial system</a> read shows the same machinery running a country's banking system.</p>
+  <p>One more thing. In February 2026, when the FT ranked ISB twelfth in the world, his reaction to the group was not a celebration: <em>"Now all of you will have to take corporate finance exam again as we are supposed to be better than Yale and Chicago! The exam I gave does not cross the bar. Let's plan a re-exam in the light of these rankings."</em> The re-exam never happened. The mock exam on this site is the next best thing — <a href="/mock-exam/">his own questions, from the group</a> — and the machines above are the open-book version. <em>"My hope is that these will be useful in your future decision-making. You should be able to use this in all interviews, including non-finance interviews."</em></p>
+
+  </div><!-- /gated -->
+</article>
+<script type="application/json" id="gloss-data">{{ site.data.glossary | jsonify }}</script>
+<script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>

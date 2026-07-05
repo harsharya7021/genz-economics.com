@@ -9,7 +9,7 @@ permalink: /reading-room/
     <p class="eyebrow">Reading room · what Prof. Tantri sends us</p>
     <h1 class="display">The <em>reading list</em>, as a newsfeed.</h1>
     <p class="reading-intro">
-      Newspaper articles, columns and explainers Prof.&nbsp;Tantri publishes or drops into the group with a “read this.” The full archive — papers, books, class notes — lives on the <a href="{{ '/reading-list/' | relative_url }}">reading list</a>. Items he shared himself are marked ★.
+      Newspaper articles, columns and explainers Prof.&nbsp;Tantri publishes or drops into the group with a “read this” — sometimes a “please read this <em>super boring</em> circular carefully.” The full archive — papers, books, class notes — is on the <a href="{{ '/reading-list/' | relative_url }}">reading list</a>. The ones he sent himself are marked ★.
     </p>
   </div>
 </section>
@@ -124,4 +124,27 @@ permalink: /reading-room/
     </div>
 
   </div>
+
+    <!-- ── From the group — his drops, his verdicts (gated) ── -->
+    <div class="section-head" style="margin-top:2.4rem"><h2>From the group</h2><span class="feed-link">his one-line verdicts, verbatim</span></div>
+    <div class="essay-gate" id="essayGate">
+      <h3>The drops are for the cohort</h3>
+      <p>Papers, RBI documents, his own columns — with the line he sent each one with. Sign in once; it stays open.</p>
+      <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+    </div>
+    <div class="gated" id="gatedChapters">
+      {% assign lib = site.data['shared-library'] | sort: "date" | reverse %}
+      {% for item in lib %}
+      <div class="lib-row">
+        <span class="lib-date">{{ item.date | date: "%b %d, %Y" }}</span>
+        <div>
+          <p class="lib-title">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }} ↗</a>{% else %}{{ item.title }} <span class="lib-type">shared as PDF</span>{% endif %}<span class="lib-type">{{ item.type }}</span></p>
+          {% if item.verdict != "" %}<p class="lib-verdict">{{ item.verdict }}</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      <p class="w-note" style="margin-top:1rem">Verbatim from the group, lightly curated (course-note drops live on the site itself). PDFs he shared are in the papers archive — signed links come with the Phase-2 build.</p>
+    </div>
 </section>
+
+<script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>

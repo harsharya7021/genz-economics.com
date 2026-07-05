@@ -318,3 +318,47 @@
     apply();
   });
 })();
+
+/* Money history — one anecdote a day, deterministic by date (same doy logic as daily Q) */
+(function () {
+  var data = document.getElementById("money-history-data");
+  var title = document.getElementById("mhTitle");
+  if (!data || !title) return;
+  var list; try { list = JSON.parse(data.textContent); } catch (e) { return; }
+  if (!list || !list.length) return;
+  var now = new Date();
+  var doy = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 86400000);
+  var item = list[((doy % list.length) + list.length) % list.length];
+  title.textContent = item.title;
+  var t = document.getElementById("mhText"); if (t) t.textContent = item.text;
+  var s = document.getElementById("mhSource"); if (s) s.textContent = (item.tag ? item.tag + " · " : "") + (item.source || "");
+})();
+
+/* (The old per-column drift for the signal grid lived here — that grid is
+   now the GSAP card belt on the homepage; see assets/js/home-stack.js.) */
+
+/* Google sign-in — generic wiring for any [data-gate-signin] element
+   (currently just the landing CTA band; essay.js wires its own gate
+   separately, under its own named Firebase app instance, so the two never
+   collide). Progressive enhancement: if this fails to load for any reason,
+   [data-gate-signin] links keep their plain href (e.g. #latest) as a
+   fallback — we only preventDefault once the click handler is actually
+   attached. */
+(function () {
+  var els = document.querySelectorAll("[data-gate-signin]");
+  if (!els.length || !window.GZE_FIREBASE) return;
+  var base = "https://www.gstatic.com/firebasejs/10.12.2/";
+  Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
+    var app = m[0].initializeApp(window.GZE_FIREBASE, "site");
+    var auth = m[1].getAuth(app);
+    m[1].onAuthStateChanged(auth, function (user) {
+      document.body.classList.toggle("site-signed-in", !!user);
+    });
+    els.forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function () {});
+      });
+    });
+  }).catch(function () {});
+})();

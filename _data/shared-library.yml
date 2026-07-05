@@ -1,0 +1,56 @@
+# What the professor shares with the group — links, papers, documents — with his
+# one-line verdicts, verbatim. Mined from the group export 2026-07-03; curated
+# (course-note drops live on the site itself and are omitted here).
+# type: his-work | paper | rbi-fed | reading | data
+- { date: "2024-09-19", type: rbi-fed, title: "Fed statement, Sep 2024 (50bp cut) + projections table", url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm",
+    verdict: "This kind of thing like — when last time this happened, that happened etc — is not knowledge. Non-finance folks, don't get fooled by it." }
+- { date: "2024-12-21", type: paper, title: "Multi-dimensional poverty (Journal of Public Economics)", url: "https://scholar.google.com/scholar?q=multi+dimensional+poverty+journal+of+public+economics",
+    verdict: "Here is the original paper." }
+- { date: "2024-12-28", type: data, title: "National Accounts Statistics 2024 (MoSPI)", url: "https://www.mospi.gov.in/publication/national-accounts-statistics-2024",
+    verdict: "Data." }
+- { date: "2025-02-22", type: rbi-fed, title: "RBI — MPC minutes, February 2025", url: "https://rbidocs.rbi.org.in/rdocs/PressRelease/PDFs/PR22192E23F0CD80CC4407A26817688C7BEC66.PDF",
+    verdict: "RBI minutes of meeting." }
+- { date: "2025-02-22", type: rbi-fed, title: "RBI — Money Market Operations (daily MMO page)", url: "https://www.rbi.org.in/Scripts/BS_ViewMMO.aspx",
+    verdict: "See this. (Five days later, same page:) same story, SDF > VRR." }
+- { date: "2025-02-23", type: rbi-fed, title: "RBI press release (liquidity operations)", url: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=59819",
+    verdict: "Graduation is coming. INFS folks who cannot understand this will be in trouble." }
+- { date: "2025-02-27", type: rbi-fed, title: "RBI press release — with a Rajan paper as anchor", url: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=59829",
+    verdict: "Using this Rajan paper as an anchor." }
+- { date: "2025-03-01", type: paper, title: "Petersen — The Effect of Credit Market Competition on Lending Relationships (1995)", doc: "Petersen-EffectCreditMarket-1995.pdf",
+    verdict: "Please go through, this will be useful." }
+- { date: "2025-04-11", type: his-work, title: "Presentation to the PMO (73 slides)", doc: "Presentation to the PMO.pdf",
+    verdict: "Presented this to the PMO yesterday. Some of these were covered in class." }
+- { date: "2025-05-23", type: rbi-fed, title: "RBI Bulletin — original data link", url: "https://rbidocs.rbi.org.in/rdocs/Bulletin/",
+    verdict: "Do not use newspaper sources. The original data link is this." }
+- { date: "2025-06-05", type: paper, title: "Gormsen & Huber — Corporate Discount Rates (AER 2025)", doc: "gormsen-huber-2025-corporate-discount-rates.pdf",
+    verdict: "The paper demonstrates (using data) that firms do not change their hurdle rate when cost of capital changes." }
+- { date: "2025-06-20", type: paper, title: "Guenzel — In Too Deep: Sunk Costs and Corporate Investment (JF 2025)", doc: "GUENZEL - In Too Deep.pdf",
+    verdict: "CEOs' decision to divest a unit depends heavily on at what price it was bought. Look for instances where organizations use sunk costs in decision making." }
+- { date: "2025-09-18", type: rbi-fed, title: "Fed statement + projections, Sep 2025 (25bp cut)", url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+    verdict: "As you know, Fed has cut by 25 bps." }
+- { date: "2025-09-26", type: his-work, title: "His conversation with Monika Halan on the economy (video)", url: "https://youtu.be/9MwSp8khWhI",
+    verdict: "My chat with Monika Halan on the economy. Made some new points. That's why sharing here." }
+- { date: "2025-09-30", type: data, title: "PIB release — Keynesian Cross in the wild", url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2173136",
+    verdict: "Keynesian Cross." }
+- { date: "2025-10-02", type: reading, title: "How to fortify your town against economic shocks (Agglomerations)", url: "https://agglomerations.substack.com/p/how-to-fortify-your-town-against-shocks",
+    verdict: "Pre-read for today's class. I will talk about economic growth today." }
+- { date: "2025-10-02", type: reading, title: "Keynesian Economics — Econlib", doc: "Keynesian Economics - Econlib.pdf",
+    verdict: "Pre-read." }
+- { date: "2025-10-16", type: his-work, title: "His Business Standard article — straight from INFS class", doc: "Why a weaker rupee is riskier than it appears for Indian borrowers.pdf",
+    verdict: "My article in Business Standard. Straight from INFS class." }
+- { date: "2025-11-20", type: reading, title: "Javier Milei loosens his grip on the peso (The Economist)", doc: "Javier Milei loosens his grip on the peso.pdf",
+    verdict: "" }
+- { date: "2025-12-04", type: reading, title: "Japan's big-spending Takaichinomics is ten years out of date (The Economist)", doc: "Takaichinomics.pdf",
+    verdict: "" }
+- { date: "2025-12-20", type: reading, title: "The Bank of Japan raised rates — why you should care (WSJ)", doc: "BoJ raised rates - WSJ.pdf",
+    verdict: "" }
+- { date: "2026-01-18", type: reading, title: "Japan's bond-market tremble reflects a fiscal-monetary clash (The Economist)", doc: "Japan bond-market tremble.pdf",
+    verdict: "" }
+- { date: "2026-03-25", type: reading, title: "VW in talks with Iron Dome maker — cars to missile defence (FT)", url: "https://giftarticle.ft.com/",
+    verdict: "Whether we like it or not, defense will increase. This is the sunrise sector now." }
+- { date: "2026-03-25", type: paper, title: "AER — the multiplier evidence", url: "https://www.aeaweb.org/articles?id=10.1257/aer.20141625",
+    verdict: "Here is the evidence — AER paper." }
+- { date: "2026-04-01", type: his-work, title: "His Mint article — the rupee's depreciation is neither unusual nor stressful", url: "https://www.livemint.com/",
+    verdict: "One more chapter from your notes will appear in tomorrow's Mint. Article writing has been easy this year: just send parts of INFS notes. Hope you will all remember real exchange rates forever." }
+- { date: "2026-06-20", type: his-work, title: "His article — collateral-free lending may widen risks before helping MSMEs", doc: "Collateral-free lending may widen risks for banks before helping MSMEs.pdf",
+    verdict: "" }

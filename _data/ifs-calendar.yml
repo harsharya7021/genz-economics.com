@@ -1,0 +1,68 @@
+# Indian financial system — events calendar.
+# Generated 2026-07-03 from official schedules (RBI MPC calendar FY27 of 23-Mar-2026,
+# MoSPI advance release calendar patterns, federalreserve.gov FOMC calendar).
+# `shifted: true` = weekend rule applied (release moves to next working day).
+# FY28 MPC dates (Apr/Jun 2027) land ~March 2027 — add when RBI publishes.
+rules:
+  - { day: "12th of every month", what: "CPI inflation", who: "NSO / MoSPI", note: "16:00 IST; next working day if holiday. The MPC's target variable." }
+  - { day: "14th of every month", what: "WPI inflation", who: "Office of the Economic Adviser, DPIIT", note: "Wholesale basket, no services." }
+  - { day: "28th of every month", what: "IIP", who: "NSO / MoSPI", note: "Industrial production, ~6-week lag." }
+  - { day: "1st of every month", what: "GST collections; PMI (mfg 1st, services 3rd business day); auto sales", who: "GSTN / S&P Global / SIAM", note: "The fast indicators." }
+  - { day: "~15th of every month", what: "Merchandise trade data", who: "Ministry of Commerce", note: "Exports, imports, the deficit." }
+  - { day: "Every Friday, 17:00", what: "Weekly Statistical Supplement (money supply, forex reserves)", who: "RBI", note: "Alternate Fridays add fortnightly bank credit & deposit growth — the series behind the 2024 deposit-growth fight." }
+  - { day: "Mid-month", what: "RBI monthly Bulletin", who: "RBI", note: "The State of the Economy chapter is a free macro briefing. Original data, not newspaper summaries." }
+  - { day: "6 times a year", what: "MPC bi-monthly policy", who: "RBI", note: "Three-day meetings; decision on day 3 at 10:00. FY27: Apr, Jun, Aug, Oct, Dec, Feb." }
+  - { day: "8 times a year", what: "US FOMC", who: "Federal Reserve", note: "14:00 ET. Projections in Mar/Jun/Sep/Dec." }
+events:
+  - { date: 2026-07-13, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-07-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-07-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-07-29, title: "US FOMC decision — July", cat: global, time: "23:30 IST", shifted: false, note: "Fed statement 14:00 ET. He shares the statement and the projections table, then tells you what is not knowledge." }
+  - { date: 2026-08-05, title: "RBI MPC decision (Aug meeting)", cat: rbi, time: "10:00 IST", shifted: false, note: "Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split, not just the rate." }
+  - { date: 2026-08-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-08-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-08-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-08-31, title: "GDP Q1 FY27 (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "First quarter print on the new 2022-23 base. His rule: look at moving averages, not one quarter." }
+  - { date: 2026-09-14, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-09-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-09-16, title: "US FOMC decision — September (projections)", cat: global, time: "23:30 IST", shifted: false, note: "Fed statement 14:00 ET. He shares the statement and the projections table, then tells you what is not knowledge." }
+  - { date: 2026-09-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-10-07, title: "RBI MPC decision (Oct meeting)", cat: rbi, time: "10:00 IST", shifted: false, note: "Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split, not just the rate." }
+  - { date: 2026-10-07, title: "RBI Monetary Policy Report (half-yearly)", cat: rbi, time: "10:00 IST", shifted: false, note: "Published with the October policy — the RBI's own inflation-growth model, laid bare." }
+  - { date: 2026-10-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-10-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-10-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-10-28, title: "US FOMC decision — October", cat: global, time: "23:30 IST", shifted: false, note: "Fed statement 14:00 ET. He shares the statement and the projections table, then tells you what is not knowledge." }
+  - { date: 2026-11-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-11-16, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: true, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-11-30, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-11-30, title: "GDP Q2 FY27 (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Second quarter + first-half picture." }
+  - { date: 2026-12-04, title: "RBI MPC decision (Dec meeting)", cat: rbi, time: "10:00 IST", shifted: false, note: "Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split, not just the rate." }
+  - { date: 2026-12-09, title: "US FOMC decision — December (projections)", cat: global, time: "23:30 IST", shifted: false, note: "Fed statement 14:00 ET. He shares the statement and the projections table, then tells you what is not knowledge." }
+  - { date: 2026-12-14, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2026-12-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2026-12-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2026-12-30, title: "RBI Financial Stability Report (tentative)", cat: rbi, time: "", shifted: false, note: "Half-yearly stress-test of the banking system. End-December; date firms up close to release." }
+  - { date: 2027-01-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-01-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-01-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2027-01-29, title: "Economic Survey (tentative)", cat: fiscal, time: "", shifted: false, note: "Tabled a day before the Budget, usually. The chapters are better than the coverage of them." }
+  - { date: 2027-02-01, title: "Union Budget FY28", cat: fiscal, time: "11:00 IST", shifted: false, note: "Watch G, T and the borrowing number — the fiscal impulse, not the speech. (His 2025 verdict: no short-term stimulus; don't use 1/(1-MPC) on LinkedIn.)" }
+  - { date: 2027-02-05, title: "RBI MPC decision (Feb meeting)", cat: rbi, time: "10:00 IST", shifted: false, note: "Bi-monthly policy. Governor announces ~10:00 after the three-day meeting. Watch the stance and the vote split, not just the rate." }
+  - { date: 2027-02-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-02-15, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: true, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-02-26, title: "GDP Q3 FY27 + Second Advance Estimates (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "The print the Budget arithmetic leans on." }
+  - { date: 2027-03-01, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2027-03-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-03-15, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: true, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-03-29, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2027-04-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-04-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-04-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2027-05-12, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-05-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-05-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }
+  - { date: 2027-05-31, title: "GDP Q4 + Provisional FY27 annual (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Full-year provisional estimate." }
+  - { date: 2027-06-14, title: "CPI inflation (NSO)", cat: data, time: "16:00 IST", shifted: true, note: "Retail inflation, the MPC's target variable (4% +/-2). New 2024 base since Feb 2026." }
+  - { date: 2027-06-14, title: "WPI inflation (DPIIT)", cat: data, time: "12:00 IST", shifted: false, note: "Wholesale prices — no services in the basket; moves before CPI." }
+  - { date: 2027-06-28, title: "IIP — industrial production (NSO)", cat: data, time: "16:00 IST", shifted: false, note: "Factory output, ~6 weeks after the reference month." }

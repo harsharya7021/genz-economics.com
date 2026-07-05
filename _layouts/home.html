@@ -2,50 +2,139 @@
 layout: default
 ---
 
-<section class="hero">
+<!-- ── Act 1: masthead ── -->
+<section class="hero masthead" style="padding-bottom:1rem">
   <div class="container">
-    <p class="eyebrow">A closed room · sign in to get in · one session a week</p>
-    <h1 class="display">
-      Macroeconomics that's <em>actually useful.</em>
-    </h1>
-    <p class="lede">
-      Prof. Tantri's macro sessions — the notes, the lectures, and the papers worth your time, in one room. Not storytelling, not the nonsense on TV. One new session a week, so you actually remember it.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#latest">Start with the latest session ↓</a>
-      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">Why it's behind a login →</a>
-    </div>
-    {% assign published_posts = site.posts | where_exp: "p", "p.draft != true" %}
-    <ul class="hero-meta">
-      <li><strong>{{ published_posts | size }}</strong> sessions inside</li>
-      <li><strong>Sign-in</strong> to read</li>
-      <li><strong>One a week</strong> — so it sticks</li>
-    </ul>
+    <h1 class="display mast-display">ISB made macro optional.<br><em>Here it is anyway.</em></h1>
+    <p class="lede mast-lede">Somebody already explained macro to you — badly. A TV panel shouting past each other, a forwarded chart with no source. Meanwhile the repo rate set your EMI, the rupee priced your trip, and a yield curve you've never seen decided your offer letter. Prof. Tantri has taught this, live, for years — the mechanism, not predictions, so you see it coming next time instead of reacting to the headline. Miss a Sunday, and you're back to asking your brother-in-law from IIM-A.</p>
+    <a class="scroll-nudge" href="#walkthrough" aria-label="Scroll — see what the room holds">
+      <span class="sn-label">scroll</span>
+      <span class="sn-track" aria-hidden="true"><i></i></span>
+    </a>
   </div>
 </section>
 
-<section class="container" style="padding-top:.5rem">
-  <div class="ponder-card" style="margin-top:1.1rem">
-    <p class="eyebrow">Today's question · discuss it</p>
-    <p class="upsc-meta" id="upscTodayMeta"></p>
-    <p class="q" id="upscToday">Loading today's question…</p>
-    <p class="sub">New question daily · <a href="{{ '/discussions/' | relative_url }}" style="color:var(--gold)">archive &amp; comments →</a></p>
+<!-- ── Act 2: the walkthrough — Axiom's Observed-Systems fold, rebuilt.
+     A dark pinned stage: each of the six features arrives from the right
+     as a white card, holds centre to explain itself, then banks left onto
+     a growing pile. After the last card the pile dims and the white CTA
+     panel below rolls up over the stage. Choreography lives in
+     assets/js/home-stack.js (GSAP ScrollTrigger, ≥981px only); on mobile,
+     no JS, or reduced motion this degrades to a sticky card pile. ── -->
+<section class="stack-stage" id="walkthrough">
+  <div class="stack-pin">
+    <div class="container">
+      <div class="stage-head">
+        <p class="stage-label">What the room holds</p>
+        <h2 class="stage-lead">A course page lists what's covered. This hands you the actual room — the sessions, the machines you can <em>break</em>, and the calendar the whole system runs on.</h2>
+      </div>
+    </div>
+
+    <div class="stack-belt">
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">01</span><span>The Sunday session</span></div>
+        <h3>One lecture a week. <em>Because you forget.</em></h3>
+        <div class="scene-visual on-navy">
+          <div class="wave" aria-hidden="true"><i class="on" style="height:40%"></i><i class="on" style="height:70%"></i><i class="on" style="height:55%"></i><i class="on" style="height:90%"></i><i class="on" style="height:62%"></i><i class="on" style="height:78%"></i><i style="height:48%"></i><i style="height:66%"></i><i style="height:38%"></i><i style="height:74%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:36%"></i></div>
+          <p style="font:600 .9rem var(--sans);margin:.9rem 0 .15rem">Session 6 — Exchange rates &amp; interest rate parity</p>
+          <p style="font:500 .72rem var(--mono);opacity:.7;margin:0">1:04:00 · 7 chapters · notes the same evening</p>
+        </div>
+        <p class="scene-copy">Every Sunday he teaches; by Sunday night the notes are up, chaptered, with screenshots from the recording. The video lands mid-week. Take them in order — the course builds.</p>
+        <a class="scene-link" href="{{ '/sessions/' | relative_url }}">Browse the sessions →</a>
+      </article>
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">02</span><span>The long reads</span></div>
+        <h3>His notes, <em>made playable.</em></h3>
+        <div class="scene-visual">
+          <p class="w-head" style="margin:0 0 .7rem">Machine №2 — the lender's arithmetic</p>
+          <div class="w-row"><label style="min-width:120px">Default rate</label><input type="range" value="10" disabled style="flex:1"><output>10%</output></div>
+          <p class="w-big" style="margin:.5rem 0 .2rem">22.22%</p>
+          <p class="w-note" style="margin:0">what a risk-neutral lender charges so survivors cover the defaulters — his 110/90. Not profit, not a risk premium. Arithmetic.</p>
+        </div>
+        <p class="scene-copy">Three courses as long reads — corporate finance, the Indian financial system, macro — from his own notes, with nineteen interactive machines built on his exact numbers. Break them with your own hands; every one has a trap he sets in class.</p>
+        <a class="scene-link" href="{{ '/corporate-finance/' | relative_url }}">Start with corporate finance →</a>
+      </article>
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">03</span><span>The timetable</span></div>
+        <h3>The system runs <em>on a schedule.</em></h3>
+        <div class="scene-visual">
+          <div id="lpWeek" class="lp-week-chips" style="flex-direction:column;align-items:stretch"></div>
+        </div>
+        <p class="scene-copy">CPI on the 12th. WPI on the 14th. IIP on the 28th. Six MPC decisions a year, on dates the RBI publishes every March. When the print drops, you should already know what to ask it. Subscribe once; your calendar knows forever.</p>
+        <a class="scene-link" href="{{ '/calendar/' | relative_url }}">See the full timetable →</a>
+      </article>
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">04</span><span>Ask BIL</span></div>
+        <h3>The brother-in-law, <em>finally useful.</em></h3>
+        <div class="scene-visual">
+          <div class="bil-msg bil-me" style="margin-left:auto;margin-bottom:.6rem;max-width:80%">why is the lender's 22.22% not a risk premium?</div>
+          <div class="bil-msg bil-bil" style="max-width:92%">Sighs. We covered this in term 1, but fine — with a known 10% default rate, survivors pay 110/90 so the lender earns the risk-free 10% in expectation. Certainty isn't risk; the premium is for the uncertainty <em>around</em> the 10%.<div class="bil-src">— source: FCRV June-10 notes, §2.3</div></div>
+        </div>
+        <p class="scene-copy">Every family has one. Ours went to IIM-A, has opinions on everything — and has actually read every page of the notes. Ask him anything from the course. He answers correctly, cites the source, and makes sure you know it cost him nothing.</p>
+        <a class="scene-link" href="{{ '/bil/' | relative_url }}">Ask him something →</a>
+      </article>
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">05</span><span>From the group</span></div>
+        <h3>What he sends, <em>with the verdicts.</em></h3>
+        <div class="scene-visual">
+          <p class="lib-title" style="margin:0 0 .3rem">RBI Bulletin — original data link <span class="lib-type">rbi-fed</span></p>
+          <p class="lib-verdict" style="margin:0 0 1rem">Do not use newspaper sources. The original data link is this.</p>
+          <p class="lib-title" style="margin:0 0 .3rem">Gormsen &amp; Huber — Corporate Discount Rates <span class="lib-type">paper</span></p>
+          <p class="lib-verdict" style="margin:0">Firms do not change their hurdle rate when cost of capital changes.</p>
+        </div>
+        <p class="scene-copy">Papers, RBI documents, his own columns — dropped into the group with one line that tells you exactly how to read them. Archived for the cohort, verdicts verbatim.</p>
+        <a class="scene-link" href="{{ '/reading-room/' | relative_url }}">Into the reading room →</a>
+      </article>
+
+      <article class="stack-card signal-card">
+        <div class="signal-num"><span class="n">06</span><span>The daily rituals</span></div>
+        <h3>A question and a story, <em>every day.</em></h3>
+        <div class="scene-visual">
+          <p class="eyebrow" style="margin:0 0 .3rem">Today's question · discuss it</p>
+          <p class="q" id="upscToday" style="margin:0 0 1rem;font:500 1rem/1.4 var(--serif);color:var(--ink)">Loading today's question…</p>
+          <p class="eyebrow" style="margin:0 0 .3rem">Today, in the history of money</p>
+          <p id="mhTitle" style="margin:0;font:600 .92rem var(--sans);color:var(--ink)">Loading…</p>
+        </div>
+        <p class="scene-copy">A UPSC-style question worth arguing over, and one true story from the history of money — both refreshed daily. Small habits; they compound.</p>
+        <a class="scene-link" href="{{ '/discussions/' | relative_url }}">Join today's discussion →</a>
+      </article>
+
+    </div>
+
+    <div class="stage-foot container" aria-hidden="true">
+      <span class="stack-count" id="stackCount">01 / 06</span>
+      <span class="stack-progress"><i id="stackBar"></i></span>
+    </div>
   </div>
-  <details class="daily-reveal">
-    <summary>Reveal yesterday's answer</summary>
-    <p class="rv-q" id="dailyPrevQ"></p>
-    <p class="rv-a" id="dailyPrevA"></p>
-  </details>
 </section>
 <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
+<script type="application/json" id="money-history-data">{{ site.data['money-history'] | jsonify }}</script>
 
+<!-- ── Act 3: the fold — the white panel that rolls up over the stage.
+     Sign in, or keep scrolling: the free notes are right below. ── -->
+<section class="cta-band cta-fold">
+  <div class="container">
+    <h2>The stuff you can't just Google.</h2>
+    <p>But you can see it with your ISB id — sign in for the lectures and the notes. The whole point is what you can't pick up online; if ten years from now you can say "I could've just Googled this," it hasn't worked. Karma keeps score of being useful to the room — pass the quiz or get your own take on a session approved, and the next one unlocks. Miss three quizzes and Maneshwar drops you; he's the bad guy.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" id="ctaSignIn" href="#latest" data-gate-signin>Sign in with Google</a>
+      <a class="btn btn-ghost" href="#latest">Check out the free notes ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Latest notes ── -->
 <section id="latest" class="feed">
   <div class="container">
     <div class="section-head">
       <h2>Latest notes</h2>
       <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
-
     <div class="feed-controls">
       <div class="search-box">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
@@ -57,7 +146,7 @@ layout: default
         {% for f in filters %}<button type="button" data-filter="{{ f }}" aria-pressed="false">{{ f | replace: '-', ' ' }}</button>{% endfor %}
       </div>
     </div>
-
+    {% assign published_posts = site.posts | where_exp: "p", "p.draft != true" %}
     <ol class="post-list" id="postList">
       {% for post in published_posts %}
       {% capture tagstr %}{% for t in post.tags %}{{ t }} {% endfor %}{% endcapture %}
@@ -90,13 +179,20 @@ layout: default
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="container">
-    <h2>This is the useful stuff — not storytelling.</h2>
-    <p>Sign in to watch the lectures and read the notes. One note a week: the kind that lets you say something authoritative the next time someone talks nonsense about the rupee.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" id="ctaSignIn" href="#latest">Sign in to get in</a>
-      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">What's inside →</a>
-    </div>
-  </div>
-</section>
+<script type="application/json" id="cal-week-data">{{ site.data['ifs-calendar'].events | jsonify }}</script>
+<script>
+(function(){
+  var evs; try { evs = JSON.parse(document.getElementById("cal-week-data").textContent); } catch(e){ return; }
+  var today = new Date(); today.setHours(0,0,0,0);
+  var up = evs.filter(function(e){ return new Date(e.date+"T00:00:00") >= today; });
+  // Scene 03 chips
+  var wrap = document.getElementById("lpWeek");
+  if (wrap) up.slice(0,5).forEach(function(e){
+    var d = new Date(e.date+"T00:00:00"), days = Math.round((d-today)/864e5);
+    var a = document.createElement("a");
+    a.className = "evt-chip evt-chip-" + e.cat; a.href = "{{ '/calendar/' | relative_url }}";
+    a.innerHTML = "<strong>" + (days===0?"today":days===1?"tomorrow":d.toLocaleDateString("en-IN",{day:"numeric",month:"short"})) + "</strong> " + e.title + (e.time ? " <span class='evt-t'>" + e.time + "</span>" : "");
+    wrap.appendChild(a);
+  });
+})();
+</script>

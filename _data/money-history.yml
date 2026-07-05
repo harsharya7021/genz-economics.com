@@ -1,0 +1,1086 @@
+# Daily money-history card. One entry surfaces each day on the home page
+# (picked by day-of-year, same logic as the daily question).
+# Schema: {title, tag: etymology|anecdote|quirk|india, source, text}. Append freely.
+- title: Bank, from a bench
+  tag: etymology
+  source: Oxford English Dictionary; Braudel, Civilization and Capitalism
+  text: 'The word bank comes from the Italian banca, meaning a bench or table. Renaissance money
+    changers sat at benches in market squares to weigh coins and change currency. When a changer
+    failed, his bench was broken. The physical counter became the name of the entire trade, then
+    the institution.
+
+    '
+- title: How the Medici got around usury law
+  tag: anecdote
+  source: The Ascent of Money — Niall Ferguson; Raymond de Roover
+  text: 'The Church banned charging interest, so the Medici barely charged any — on paper. They dealt
+    in bills of exchange: pay a merchant in florins in Florence, collect in pounds in London months
+    later. The interest hid inside the exchange rate and the delay. Lending dressed up as currency
+    conversion, blessed by distance. On that loophole the Medici built a bank, then a dynasty, then
+    popes.
+
+    '
+- title: The stone money at the bottom of the sea
+  tag: quirk
+  source: Milton Friedman, The Island of Stone Money; Yap
+  text: 'On Yap, wealth was held in rai — carved limestone discs, some taller than a man, quarried
+    hundreds of kilometres away. The stones rarely moved; ownership changed by common agreement.
+    One famous stone sank in a storm and its family remained rich, because everyone agreed the stone
+    existed and was theirs. Friedman''s point: most modern money works exactly like that submerged
+    stone.
+
+    '
+- title: The gold that flew to London, 1991
+  tag: india
+  source: RBI history; 1991 balance of payments crisis
+  text: 'In mid-1991 India was weeks from default, with reserves covering about two weeks of imports.
+    The government secretly airlifted tonnes of gold to the Bank of England and Union Bank of Switzerland
+    as collateral for emergency loans. News of the pledge leaked and became the public symbol of
+    the crisis — and the political cover for the reforms that followed. The gold was redeemed by
+    year-end. The humiliation outlasted the loan, usefully.
+
+    '
+- title: Bankrupt, a broken bench
+  tag: etymology
+  source: OED; Italian banca rotta
+  text: 'Bankrupt traces to banca rotta, Italian for "broken bench." A money changer who could not
+    pay had his bench physically smashed so he could not keep trading. The shattered counter was
+    public notice of ruin. English absorbed the phrase and stretched it to anyone unable to meet
+    debts.
+
+    '
+- title: The debt records that burned Parliament
+  tag: anecdote
+  source: Charles Dickens, 1855 speech; UK Parliament records
+  text: 'For six centuries the English exchequer recorded debts on notched wooden tally sticks, split
+    lengthwise so debtor and creditor each held half. The system was retired in 1826. In October
+    1834 clerks fed cartloads of obsolete tallies into the stoves under the House of Lords. The chimney
+    flues overheated and the Palace of Westminster burned down. The receipts outlived the building
+    they were stored in.
+
+    '
+- title: Cigarettes became a POW currency
+  tag: quirk
+  source: R. A. Radford, Economica, 1945
+  text: 'An economist held in a German POW camp documented what happened to Red Cross parcels: cigarettes
+    became money. Prices of jam, shirts and rations were quoted in cigarettes; they were divisible,
+    durable, and everyone accepted them. Non-smokers held them purely as currency. When parcels arrived,
+    prices rose; when supply ran short, deflation. A full monetary economy, grown in months.
+
+    '
+- title: Hundi, the paper that moved an empire
+  tag: india
+  source: Indigenous banking; RBI historical accounts
+  text: 'Centuries before formal banks, Indian merchants moved money on hundis —  unconditional written
+    orders to pay, honoured across cities by networks of shroffs who knew each other''s signatures
+    and credit. A trader could deposit rupees in Surat and collect in Dhaka. Remittance, credit and
+    bills of exchange, running on reputation instead of regulation. The British taxed them with stamp
+    duty rather than replace them; they could not.
+
+    '
+- title: Salary, paid in salt
+  tag: etymology
+  source: Pliny the Elder, Natural History; Latin sal
+  text: 'Salary comes from sal, the Latin for salt. Pliny wrote that Roman soldiers were sometimes
+    paid in salt, a valuable preservative. The allowance was called salarium. The link from a salt
+    ration to a regular wage is plain, though some historians doubt soldiers were literally handed
+    salt in Pliny''s own day. The word stuck either way.
+
+    '
+- title: Rothschild and Waterloo, the actual story
+  tag: anecdote
+  source: Niall Ferguson, The House of Rothschild
+  text: 'The legend: Nathan Rothschild heard of Wellington''s victory a day early and made millions
+    crashing then buying the market. The record: the early news was real, but the fortune is largely
+    fiction, popularised by an 1846 smear pamphlet. The Rothschilds had actually positioned for a
+    long war, buying gold to fund armies — Waterloo ending it early nearly hurt them. The myth outran
+    the ledger.
+
+    '
+- title: Mobile minutes turned into money
+  tag: quirk
+  source: M-Pesa, Kenya, 2007; Safaricom
+  text: 'In Kenya, people began transferring prepaid airtime as an informal way to send value home.
+    Safaricom formalised it in 2007 as M-Pesa: money stored and sent by basic SMS phones, cashed
+    in and out through corner-shop agents. It reached most Kenyan adults within a few years and moves
+    sums comparable to a large share of GDP. One of the great monetary innovations came from a telecom
+    operator.
+
+    '
+- title: Three Presidency banks, one future SBI
+  tag: india
+  source: Bank of Bengal 1806; SBI archives
+  text: 'British India''s banking began with the Bank of Bengal (1806), then Bombay (1840) and Madras
+    (1843) — the Presidency banks, part-owned by government, issuing notes until 1861. They merged
+    in 1921 into the Imperial Bank of India, which was nationalised in 1955 as the State Bank of
+    India. India''s largest bank is, by direct descent, a two-century-old colonial institution renamed
+    twice.
+
+    '
+- title: Dollar, from a Bohemian coin
+  tag: etymology
+  source: OED; Joachimsthaler, 16th century
+  text: 'Dollar descends from Joachimsthaler, a silver coin minted in Joachimsthal, a Bohemian valley
+    where silver was mined in the 1500s. The long name got shortened to thaler in everyday speech,
+    then drifted across languages into dollar. A single Bohemian coin gave the American currency
+    its name.
+
+    '
+- title: The gambler who ran France's money
+  tag: anecdote
+  source: The Ascent of Money — Niall Ferguson
+  text: 'John Law, a Scot who fled Britain after killing a man in a duel, convinced the French regent
+    to let him print paper money and merge it with a company holding Louisiana''s trade. Shares in
+    his Mississippi Company rose twentyfold, minting the word "millionaire". In 1720 the whole construction
+    collapsed. France stayed suspicious of paper money and even the word "banque" for generations.
+
+    '
+- title: When banks charged you to save
+  tag: quirk
+  source: ECB, Danish and Swiss central banks, 2012–2022
+  text: 'For nearly a decade, several European central banks held policy rates below zero. Banks
+    paid to park money; some passed the charge to large depositors. Denmark saw mortgages where the
+    bank effectively paid the borrower interest. A rule every textbook took as a floor — nominal
+    rates stop at zero — was simply walked through. The floor turned out to be soft.
+
+    '
+- title: The RBI begins, 1935
+  tag: india
+  source: Hilton Young Commission; RBI history, Vol. 1
+  text: 'The Reserve Bank of India opened in April 1935, recommended by the Hilton Young Commission
+    — and shaped in part by the currency debates in B. R. Ambedkar''s The Problem of the Rupee. It
+    began as a private shareholders'' bank; the first governor, Osborne Smith, was an Australian
+    who fell out with the government within two years. It was nationalised in 1949. Friction with
+    Delhi is older than the republic.
+
+    '
+- title: Rupee, from rupya, stamped silver
+  tag: etymology
+  source: Sher Shah Suri, 1540s; Sanskrit rupya
+  text: 'Rupee comes from the Sanskrit rupya, meaning wrought or stamped silver. Sher Shah Suri issued
+    a standard silver coin during his brief rule in 1540s India and called it the rupiya. The Mughals
+    kept the coin and the name, which carried into modern South Asian currencies.
+
+    '
+- title: Tulip mania was smaller than the story
+  tag: anecdote
+  source: Anne Goldgar, Tulipmania
+  text: 'In 1637 rare Dutch tulip bulbs briefly traded for the price of a canal house, then the market
+    broke in weeks. That much is true. Archival work shows the rest is inflated: buyers were mostly
+    well-off merchants, most contracts were never settled, and historians found almost no bankruptcies
+    caused by tulips. The great parable of crowd madness is partly a morality tale written afterwards.
+
+    '
+- title: The banknote worth nothing, on purpose
+  tag: quirk
+  source: 5th Pillar, zero-rupee note, India
+  text: 'An Indian anti-corruption group prints notes that look like fifty-rupee notes but read "zero
+    rupees" and "I promise to neither accept nor give a bribe." Citizens hand them to officials who
+    demand payment. The note has no value — that is the message: it signals the person knows the
+    demand is illegal and is not paying. Paper engineered to embarrass, in the format bribery understands.
+
+    '
+- title: Fourteen banks, one midnight, 1969
+  tag: india
+  source: Bank nationalisation, 19 July 1969
+  text: 'On 19 July 1969, by overnight ordinance, Indira Gandhi''s government took over the fourteen
+    largest private banks — most of Indian banking in one stroke. The stated aim: push credit beyond
+    cities and industrialists to farms and small business. Branches multiplied into villages on a
+    scale few countries have matched. Whether the lending stayed sound is a separate ledger. Six
+    more banks followed in 1980.
+
+    '
+- title: Bull and bear markets
+  tag: etymology
+  source: Etymologists argue about this one; 18th-century British usage
+  text: 'Etymologists argue about this one. A common reading: bulls attack by tossing horns upward,
+    bears by swiping paws downward, so the animals stand for rising and falling prices. The bear
+    side is older, tied to "bearskin jobbers" who sold skins they did not yet own, the original short
+    sellers.
+
+    '
+- title: The first IPO sailed to Asia
+  tag: anecdote
+  source: Lodewijk Petram, The World's First Stock Exchange
+  text: 'In 1602 the Dutch East India Company invited the public to subscribe capital, and — the
+    novelty — allowed the shares to be freely transferred. Over a thousand Amsterdammers signed up,
+    including servants. A secondary market grew around those shares, complete with forwards and options,
+    and the Amsterdam exchange formed around trading one company''s paper. Every listing since is
+    a descendant.
+
+    '
+- title: Money shaped like knives
+  tag: quirk
+  source: Zhou dynasty China; British Museum collection
+  text: 'Early Chinese money did not pretend to be anything abstract: it was cast bronze shaped like
+    knives and spades — miniature versions of useful tools. The shapes referenced real value while
+    being useless as tools. Later the knives shrank to round coins with square holes, strung by the
+    hundreds. The journey from tool to token happened one abstraction at a time.
+
+    '
+- title: India's first demonetisation, 1946
+  tag: india
+  source: High-denomination note ban, January 1946
+  text: 'In January 1946 the colonial government demonetised notes of ₹500 and above, aiming at wartime
+    black-market fortunes. The RBI governor of the day thought it would fail: the truly rich did
+    not hold their wealth in high notes. Most of the demonetised value came back for exchange anyway.
+    The episode is barely remembered — except by those who noticed how closely it rhymed seventy
+    years later.
+
+    '
+- title: Blue chip, from poker stakes
+  tag: etymology
+  source: Oliver Gingold, Dow Jones, c. 1923
+  text: 'Blue chip comes from poker, where blue chips traditionally held the highest value. Oliver
+    Gingold of Dow Jones applied the term to large, reliable stocks around 1923. The poker table
+    supplied the metaphor for a company seen as a safe, high-value holding.
+
+    '
+- title: Newton lost a fortune in the bubble
+  tag: anecdote
+  source: South Sea Bubble, 1720; John Carswell
+  text: 'Isaac Newton bought South Sea stock early, sold at a profit, watched the price keep climbing,
+    and bought back near the top. The 1720 crash cost him around £20,000 — a fortune. The line attributed
+    to him, that he could calculate the motions of heavenly bodies but not the madness of people,
+    may be embroidered. The loss itself is documented. Being the smartest man alive did not help.
+
+    '
+- title: Shells that ran an ocean of trade
+  tag: quirk
+  source: Cowrie money; Jan Hogendorn & Marion Johnson
+  text: 'Cowrie shells from the Maldives served as money across Africa and Asia for centuries — durable,
+    impossible to counterfeit, naturally uniform. In parts of India they were small change into the
+    1800s; the Hindi word kaudi survives in idioms for worthlessness. European traders shipped them
+    by the tonne, which eventually inflated them into ruin. Even shell money obeyed the quantity
+    theory.
+
+    '
+- title: The 1978 demonetisation nobody noticed
+  tag: india
+  source: High Denomination Bank Notes Act, 1978
+  text: 'In 1978 the Janata government scrapped ₹1,000, ₹5,000 and ₹10,000 notes to strike at black
+    money. The notes were so large — a ₹10,000 note was months of an average income — that almost
+    nobody held them; they were under two percent of currency in circulation. Life continued undisturbed.
+    A demonetisation''s disruption depends entirely on whether ordinary people use the notes withdrawn.
+
+    '
+- title: Wall Street, an actual wall
+  tag: etymology
+  source: New Amsterdam records, 1653; Dutch wal
+  text: 'Wall Street is named for a real wall. In 1653 the Dutch built a wooden palisade across lower
+    Manhattan to keep out the English and native attacks. The road running along it took the wall''s
+    name. The wall came down in 1699, but the street kept the name and the trade.
+
+    '
+- title: A bank founded to fight France
+  tag: anecdote
+  source: Bank of England records, 1694; Bagehot, Lombard Street
+  text: 'In 1694 the English crown needed £1.2 million for war against France and could not borrow
+    it on its own name. Subscribers put up the money in twelve days and were incorporated as the
+    Bank of England — shareholders in a company whose main asset was a loan to the state. Central
+    banking began as war finance with a banking licence attached.
+
+    '
+- title: Playing cards as official money
+  tag: quirk
+  source: New France, 1685; Bank of Canada Museum
+  text: 'In 1685 the French colony in Canada ran out of coin while waiting for the annual ship from
+    France. The governor cut playing cards into pieces, signed them, and declared them money redeemable
+    when the ship arrived. It worked, so it was repeated for decades — including the overprinting,
+    and the inflation. Canada''s first paper money was literally the ace of spades.
+
+    '
+- title: The night 86% of cash died
+  tag: india
+  source: Demonetisation, 8 November 2016; RBI annual report 2018
+  text: 'On 8 November 2016 the government voided ₹500 and ₹1,000 notes — about 86% of currency in
+    circulation — announced at 8 p.m., effective midnight. Queues at banks ran for weeks. The RBI
+    later reported that over 99% of the demonetised notes came back, undercutting the black-money
+    rationale. The lasting effects ran through digital payments and a long argument about costs that
+    has not ended.
+
+    '
+- title: In the red and in the black
+  tag: etymology
+  source: 19th-century ledger convention; standard accounting
+  text: 'Being in the red means running a loss, in the black a profit. The terms come from hand-kept
+    ledgers where negative balances were written in red ink and positive ones in black. A business
+    "in the black" had no red figures on the page.
+
+    '
+- title: The hotel where money was redesigned
+  tag: anecdote
+  source: Benn Steil, The Battle of Bretton Woods
+  text: 'In July 1944, delegates from 44 countries spent three weeks at the Mount Washington Hotel
+    in New Hampshire rebuilding the world''s monetary system. Keynes argued for a new global currency;
+    Harry Dexter White''s plan won: currencies pegged to the dollar, the dollar pegged to gold at
+    $35 an ounce. The IMF and World Bank came out of those three weeks. The dollar''s privilege was
+    written in a hotel.
+
+    '
+- title: The largest banknote ever printed
+  tag: quirk
+  source: Hungary, 1946; pengő hyperinflation
+  text: 'Hungary''s 1946 hyperinflation remains the worst recorded: prices doubling roughly every
+    fifteen hours at the peak. The state printed a note for one hundred quintillion pengő — a one
+    followed by twenty zeros — and prepared one ten times larger that never circulated. Weeks later
+    the forint replaced the pengő at a conversion rate with twenty-nine zeros. The notes became souvenirs.
+
+    '
+- title: The one-rupee exception
+  tag: india
+  source: Currency ordinances; Government of India notes
+  text: 'Every Indian banknote is issued by the RBI and signed by its governor — except the one-rupee
+    note. It is issued by the Government of India and carries the Finance Secretary''s signature,
+    a relic of the currency arrangements the RBI inherited in 1935. Legally it is a coin. India''s
+    smallest note is the one the central bank does not print.
+
+    '
+- title: Cheque and exchequer
+  tag: etymology
+  source: Norman exchequer; OED
+  text: 'Exchequer comes from the Latin scaccarium, a chessboard, because medieval English treasury
+    officials counted money on a checkered cloth. Cheque is the same root via French. The squared
+    cloth gave both the royal treasury and the written payment order their names.
+
+    '
+- title: The Sunday the dollar left gold
+  tag: anecdote
+  source: Nixon address, 15 August 1971; Jeffrey Garten, Three Days at Camp David
+  text: 'On 15 August 1971, after a secret weekend at Camp David, Nixon announced on television that
+    the US would "temporarily" stop converting dollars into gold. Foreign governments holding dollars
+    found the promise behind them suspended. The suspension was never lifted. Every major currency
+    has floated on trust since — the entire fiat era rests on a "temporary" measure.
+
+    '
+- title: One hundred trillion dollars, Zimbabwe
+  tag: quirk
+  source: Reserve Bank of Zimbabwe, 2008–09
+  text: 'At the height of Zimbabwe''s hyperinflation the central bank issued a hundred- trillion-dollar
+    note that did not cover a bus fare for long. Shops repriced several times a day; the US dollar
+    and rand took over unofficially, then officially. The notes now sell to collectors for more,
+    in real terms, than they were ever worth as money.
+
+    '
+- title: The Economist's founder wrote India's first budget
+  tag: india
+  source: James Wilson, 1860; budget speeches
+  text: 'James Wilson — founder of The Economist and of what became Standard Chartered — was sent
+    to India after 1857 to repair the Raj''s finances. In 1860 he presented India''s first modern
+    budget and introduced income tax, defending it against furious European merchants in Calcutta.
+    He died of dysentery within the year. The tax survived him, as taxes do.
+
+    '
+- title: Cash, an uncertain origin
+  tag: etymology
+  source: OED; Tamil kasu vs French casse debate
+  text: 'Etymologists argue about this one. One camp derives cash from the Tamil kasu, a small coin,
+    via Asian trade. Another traces it to the French casse, a money box, into which coins were dropped.
+    The Tamil route has strong support, but the box reading is not dead. Both touch coins.
+
+    '
+- title: Ponzi's real arbitrage, briefly
+  tag: anecdote
+  source: Mitchell Zuckoff, Ponzi's Scheme
+  text: 'Charles Ponzi''s 1920 pitch began with something real: international postal reply coupons
+    cost less abroad than they redeemed for in the US. The catch — the actual trade was tiny and
+    clumsy. So he paid old investors with new investors'' money, promising 50% in 45 days, and took
+    in millions. When it fell apart, his name became the label for every scheme built the same way.
+
+    '
+- title: The 19-kilogram coin
+  tag: quirk
+  source: Swedish plate money, 17th–18th century
+  text: 'Sweden had copper and little silver, so it minted "coins" as rectangular copper plates —
+    the largest weighing around nineteen kilograms. Carrying serious money meant a cart. The inconvenience
+    had a consequence: Stockholms Banco started issuing paper receipts against deposited plates in
+    1661, among Europe''s first banknotes. Europe''s paper money was partly an answer to Sweden''s
+    absurd coins.
+
+    '
+- title: Brokers under a banyan tree
+  tag: india
+  source: BSE history; Premchand Roychand
+  text: 'Bombay''s share brokers traded under a banyan tree near Town Hall from the 1850s before
+    formalising as the Native Share and Stock Brokers'' Association in 1875 — now the Bombay Stock
+    Exchange, Asia''s oldest. Entry fee: one rupee. The exchange predates the RBI by sixty years;
+    Indians were trading equity risk long before the country had a central bank.
+
+    '
+- title: Fiscal, from a Roman basket
+  tag: etymology
+  source: Latin fiscus; OED
+  text: 'Fiscal comes from the Latin fiscus, a basket or chest used to hold money in imperial Rome.
+    The fiscus was the emperor''s personal treasury, set against the public treasury. From the basket
+    came fiscal, anything to do with public revenue and tax.
+
+    '
+- title: Paper money began with heavy iron
+  tag: anecdote
+  source: Song dynasty jiaozi; Richard von Glahn, Fountain of Fortune
+  text: 'In Song-era Sichuan, coins were iron — buying anything substantial meant hauling kilograms
+    of metal. Merchants began leaving coins with trusted houses and trading the paper receipts instead.
+    Around the 1020s the state took the business over and issued jiaozi, the first government paper
+    money. Convenience invented it; the temptation to print too much arrived almost immediately.
+
+    '
+- title: The trillion-dollar coin loophole
+  tag: quirk
+  source: US debt-ceiling debates, 2011–2023
+  text: 'US law caps how much debt the Treasury may issue, but a statute meant for collector coins
+    lets it mint platinum coins in any denomination. Hence a recurring, serious-adjacent proposal:
+    mint a single trillion-dollar coin, deposit it at the Fed, and sidestep the debt ceiling. Never
+    done, never quite ruled out. Monetary plumbing has stranger valves than most people assume.
+
+    '
+- title: The cotton mania that built Bombay
+  tag: india
+  source: Share mania of 1861–65; D. E. Wacha's accounts
+  text: 'The American Civil War cut off US cotton, and Bombay''s cotton exports boomed. The windfall
+    fed a share mania: banks, reclamation companies, anything with scrip. Premchand Roychand''s Back
+    Bay Reclamation shares became legend; fortunes were made on paper and lost the same way when
+    Appomattox ended the war and the bubble in one stroke. Bombay''s first crash was imported by
+    telegraph.
+
+    '
+- title: Credit, from to believe
+  tag: etymology
+  source: Latin credere; OED
+  text: 'Credit comes from the Latin credere, to believe or to trust. To extend credit is to believe
+    the debtor will pay. The same root gives credence and creed. Lending has always rested on belief
+    in repayment, and the word says so plainly.
+
+    '
+- title: Marco Polo, amazed by paper
+  tag: anecdote
+  source: The Travels of Marco Polo
+  text: 'Marco Polo gave paper money its own chapter, because he knew no European would believe it:
+    the Great Khan''s mint stamped mulberry-bark paper, and the paper bought silk and gold as if
+    it were gold. Refusing the notes was punishable by death. Polo saw clearly what made it work
+    — not the paper, but the enforcement. Money is whatever the sovereign can make everyone accept.
+
+    '
+- title: Most money is not printed
+  tag: quirk
+  source: Bank of England, Money Creation in the Modern Economy, 2014
+  text: 'Notes and coins are a sliver of the money supply. The bulk is deposits, and deposits are
+    created when banks lend: the loan creates the deposit, not the other way around. The Bank of
+    England published a paper saying this plainly in 2014, correcting its own textbooks. Most money
+    is an entry banks create against a promise to repay.
+
+    '
+- title: Sixteen annas to the rupee
+  tag: india
+  source: Pre-decimal coinage; Indian Coinage Act 1955
+  text: 'Until 1957 the rupee divided into sixteen annas, each of four pice, each of three pies —
+    192 pies to a rupee. The system ran on fractions: an "eight-anna" share is still idiom for a
+    half. Decimalisation brought naye paise, "new paise", a label kept for years so people trusted
+    the coins. The arithmetic went; the idioms stayed.
+
+    '
+- title: Capital, from heads of cattle
+  tag: etymology
+  source: Latin caput, head; OED
+  text: 'Capital comes from caput, the Latin for head. In ancient Rome wealth was counted by the
+    head of livestock owned, so caput doubled as a unit of property. A head of cattle was movable,
+    measurable wealth, the original capital. The word grew to mean any asset that funds enterprise.
+
+    '
+- title: What hyperinflation actually looked like
+  tag: anecdote
+  source: Adam Fergusson, When Money Dies; Germany 1923
+  text: 'By November 1923 a US dollar bought 4.2 trillion marks. Workers were paid twice a day and
+    rushed out to spend before evening prices. Notes fed stoves because they were cheaper than firewood.
+    In the famous story, a stolen wheelbarrow matters more than the money left behind in it. Prices
+    were rising by the hour; the unit of account had simply stopped meaning anything.
+
+    '
+- title: Money printed by a town, art included
+  tag: quirk
+  source: German notgeld, 1918–1923
+  text: 'When small change vanished after the First World War, thousands of German towns printed
+    their own emergency money — notgeld — often gorgeously illustrated with local legends and satire.
+    Collectors began buying series as art, so towns printed prettier notes specifically for collectors,
+    money never meant to be spent. Currency, briefly, became a publishing business.
+
+    '
+- title: The Nizam's private currency
+  tag: india
+  source: Hyderabad's Osmania sikka, 1918–1959
+  text: 'Princely Hyderabad was the only Indian state permitted its own paper currency — the Osmania
+    sikka, introduced when the First World War made silver scarce. It ran alongside the Indian rupee
+    with its own exchange rate, and survived integration into India until 1959. One country, briefly,
+    with two paper currencies — settled not by economics but by accession.
+
+    '
+- title: Pecuniary, from cattle
+  tag: etymology
+  source: Latin pecus, cattle; OED
+  text: 'Pecuniary, meaning monetary, comes from pecus, the Latin for cattle or sheep. Before coinage,
+    livestock were a primary measure and store of wealth. The same root gives peculium, personal
+    property. Cattle and money were once the same word.
+
+    '
+- title: Morgan locked the door
+  tag: anecdote
+  source: Panic of 1907; Robert Bruner & Sean Carr
+  text: 'In the 1907 panic, with trust companies collapsing and no central bank to lend, J. P. Morgan
+    summoned New York''s bankers to his private library and, by the famous account, locked the door
+    until they pledged rescue money in the small hours. The rescue worked. The uncomfortable lesson
+    — the system had depended on one old man''s library — produced the Federal Reserve six years
+    later.
+
+    '
+- title: Pieces of eight, cut with shears
+  tag: quirk
+  source: Spanish dollar; colonial small change
+  text: 'The Spanish silver dollar was the de facto world currency for three centuries. Small change
+    was often literal: the coin was cut into eight wedges — pieces of eight. An eighth was a "bit";
+    two bits made a quarter, which is why Americans still call twenty-five cents two bits. US stock
+    prices were quoted in eighths until 2001, a shear-mark that lasted four hundred years.
+
+    '
+- title: When the rupee ruled the Gulf
+  tag: india
+  source: Gulf rupee, 1959–1966; RBI
+  text: 'Kuwait, Bahrain, Qatar, Oman and the Trucial States used the Indian rupee as everyday money
+    into the 1960s. Gold smugglers exploited the arrangement, paying for gold with rupees India had
+    to redeem in sterling. So in 1959 India issued a separate "Gulf rupee" to ring-fence the leak.
+    When India devalued in 1966, the Gulf states left and created their own dinars and riyals. Monetary
+    empire, quietly dismantled.
+
+    '
+- title: Mint, from Juno Moneta
+  tag: etymology
+  source: Latin moneta; Livy; OED
+  text: 'Mint and money both come from Moneta, an epithet of the goddess Juno. Roman coins were struck
+    at the temple of Juno Moneta. Moneta itself traces to monere, to warn or advise, after a legend
+    that Juno warned Rome of an earthquake. The temple''s coin press lent its name to all coins.
+
+    '
+- title: Two rules under a buttonwood tree
+  tag: anecdote
+  source: Buttonwood Agreement, 1792; NYSE history
+  text: 'In May 1792, twenty-four New York brokers signed a two-sentence pact under a buttonwood
+    tree on Wall Street: trade only with each other, at a fixed minimum commission. It was a cartel
+    agreement, plainly. It was also the founding document of what became the New York Stock Exchange.
+    Most great institutions begin as someone''s club rules.
+
+    '
+- title: Mackerel money in US prisons
+  tag: quirk
+  source: Wall Street Journal, 2008; US federal prisons
+  text: 'When US federal prisons banned smoking in 2004, cigarettes lost their role as inmate currency.
+    The replacement: foil pouches of mackerel — cheap, standard, durable, roughly a dollar at the
+    commissary, and almost nobody wanted to eat them. "Macks" became the unit of account for haircuts
+    and gambling debts. Take one currency away and another is priced within months.
+
+    '
+- title: Special rupees for the Haj
+  tag: india
+  source: Haj notes; RBI numismatic records
+  text: 'From 1959 India printed special "Haj notes" — rupee notes overprinted for pilgrims travelling
+    to Saudi Arabia, valid only outside India. The point was to stop ordinary rupees leaking into
+    Gulf circulation and to control gold purchases. Distinct serial prefixes, different colour. A
+    currency designed for one journey — collectors now pay lakhs for surviving specimens.
+
+    '
+- title: Tariff, from Arabic notice
+  tag: etymology
+  source: Arabic ta'rif; OED
+  text: 'Tariff comes from the Arabic ta''rif, meaning information or a notice. Mediterranean ports
+    posted ta''rif lists showing the duties owed on each good passing through. The word entered European
+    languages for a schedule of charges, then settled as the tax on imports.
+
+    '
+- title: The first short-selling ban
+  tag: anecdote
+  source: Lodewijk Petram; Amsterdam, 1610
+  text: 'Isaac Le Maire, pushed out of the VOC''s board, organised a syndicate in 1608-09 to sell
+    VOC shares he did not own, betting on a fall he helped spread rumours to cause. The company ran
+    to the authorities, and in 1610 the Dutch banned short selling — the first such ban. It worked
+    as well as every ban since: trading moved, and continued.
+
+    '
+- title: Somalia's currency outlived its state
+  tag: quirk
+  source: Somali shilling after 1991; academic studies of stateless money
+  text: 'Somalia''s government collapsed in 1991; its central bank stopped functioning. The Somali
+    shilling kept circulating for decades anyway — tattered notes, plus counterfeits everyone knowingly
+    accepted at a discount. The paper kept working because everyone needed some unit to trade in
+    and expected others to accept it. Money, it turns out, can survive the death of its issuer.
+
+    '
+- title: Three devaluations, three storms
+  tag: india
+  source: 'Rupee devaluations: 1949, 1966, 1991'
+  text: 'Independent India devalued the rupee sharply three times. 1949: following sterling, mostly
+    quietly. 1966: 36.5% overnight under US and IMF pressure, politically explosive, aid still fell.
+    1991: two steps in July, the opening act of liberalisation. Each time the arguments were the
+    same — exports versus imported inflation versus pride. The 1991 one worked because policy behind
+    it changed too.
+
+    '
+- title: Budget, from a little bag
+  tag: etymology
+  source: Old French bougette; OED
+  text: 'Budget comes from the Old French bougette, a little bag or pouch. The chancellor of the
+    exchequer carried his papers in such a bag, and by the 1700s his financial statement was called
+    "opening the budget." The leather pouch became the word for a spending plan.
+
+    '
+- title: Debasement as war finance, 1620s
+  tag: anecdote
+  source: Kipper- und Wipperzeit; Charles Kindleberger
+  text: 'At the start of the Thirty Years'' War, German states funded armies by clipping and reminting
+    coins with ever less silver, passing them off at old values in neighbouring territories — which
+    retaliated in kind. The era is named for the see-sawing scales used to sort good coin from bad.
+    Children ended up playing with coins in the street. Inflation by sovereign fraud is older than
+    paper.
+
+    '
+- title: The million-pound notes nobody spends
+  tag: quirk
+  source: Bank of England 'giants' and 'titans'
+  text: 'The Bank of England prints one-million-pound and one-hundred-million-pound notes — "giants"
+    and "titans". They never circulate; they sit in vaults backing the notes issued by Scottish and
+    Northern Irish banks, so every pound of private banknote is matched by Bank of England money.
+    Some of the largest banknotes on earth exist purely as accounting.
+
+    '
+- title: A symbol for the rupee, by competition
+  tag: india
+  source: ₹ symbol, 2010; D. Udaya Kumar
+  text: 'Until 2010 the rupee was written "Rs" like a dozen other rupees. The government ran a public
+    design competition; a design by D. Udaya Kumar, an IIT-trained designer, won: Devanagari "Ra"
+    fused with Roman "R", two horizontal strokes evoking the tricolour and an equals sign. India
+    joined the small club of currencies with their own glyph, by open contest.
+
+    '
+- title: Stock, the broken tally debate
+  tag: etymology
+  source: Etymologists argue about this one; tally sticks
+  text: 'Etymologists argue about this one. One reading ties stock to the tally stick, a notched
+    stick split in two as a record of debt; the "stock" was the principal portion. Others link it
+    to an old word for a trunk or stump, a fixed base from which shares branch. Both sit in the same
+    family.
+
+    '
+- title: A currency union without a treasury
+  tag: anecdote
+  source: Latin Monetary Union, 1865–1927
+  text: 'France, Belgium, Italy and Switzerland standardised their silver and gold coins in 1865
+    so each circulated in all four countries. It had no common central bank and no way to police
+    members. Italy and the Papal States quietly minted under-weight silver and spent it abroad. Falling
+    silver prices did the rest. The union dissolved with a shrug in 1927.
+
+    '
+- title: Negative prices for oil, once
+  tag: quirk
+  source: WTI May 2020 futures contract, 20 April 2020
+  text: 'In April 2020 the expiring US oil futures contract settled at minus $37 a barrel. Storage
+    was full; holders faced taking physical delivery with nowhere to put it, so they paid others
+    to take the obligation. For an afternoon, a barrel of oil was worth less than nothing. Prices
+    are about constraints, not just value — and constraints can flip the sign.
+
+    '
+- title: The vault under a hill in Nagpur
+  tag: india
+  source: RBI Nagpur; gold reserves
+  text: 'A large share of the RBI''s gold sits in Nagpur — chosen partly for being far from borders
+    and central to the country. After the 1991 crisis, bringing pledged gold home and adding to reserves
+    carried weight beyond accounting. In recent years the RBI has repatriated more of its London
+    gold to domestic vaults. Where the metal sleeps is a statement of trust.
+
+    '
+- title: Dividend, the thing divided
+  tag: etymology
+  source: Latin dividendum; OED
+  text: 'Dividend comes from the Latin dividendum, simply "the thing to be divided." It meant any
+    sum to be split among parties before it meant a company''s profit share. The name states the
+    action: take the surplus, divide it among holders.
+
+    '
+- title: The cross of gold
+  tag: anecdote
+  source: W. J. Bryan, Democratic convention speech, 1896
+  text: 'In 1896, American farmers crushed by falling prices wanted silver coinage to inflate their
+    debts away; creditors wanted gold. William Jennings Bryan, 36, won the Democratic nomination
+    with a speech ending: you shall not crucify mankind upon a cross of gold. He lost the election,
+    gold won, and the speech remains the loudest moment monetary policy ever produced in a democracy.
+
+    '
+- title: Wampum, money made of memory
+  tag: quirk
+  source: Wampum belts; colonial North America
+  text: 'Wampum — beads worked from shells — carried treaty records and diplomacy for Indigenous
+    nations of the American northeast, and colonists adopted it as legal tender when coin was scarce.
+    Harvard once accepted tuition in it. Then Dutch and English workshops mass-produced beads, supply
+    exploded, and wampum''s monetary role collapsed. Printing presses come in many forms.
+
+    '
+- title: Reading a coin's birthplace
+  tag: india
+  source: Indian mint marks; SPMCIL
+  text: 'Every Indian coin declares its mint in a small mark under the date: a diamond for Mumbai,
+    a star for Hyderabad, a dot for Noida, nothing for Kolkata. Collectors read them like signatures.
+    Four mints, one design, and a tiny typographic register of where each coin was struck — most
+    people carry the key in their pocket without knowing it.
+
+    '
+- title: Mortgage, a dead pledge
+  tag: etymology
+  source: Old French mort gage; OED
+  text: 'Mortgage comes from the Old French mort gage, "dead pledge." In a dead pledge the pledge
+    is void when the debt is paid, and the creditor''s claim dies if the property does not cover
+    the loan. It is dead in two senses: the deal ends on repayment, and the property stands fixed
+    while it lasts.
+
+    '
+- title: The day the ticker gave up
+  tag: anecdote
+  source: Black Tuesday, 29 October 1929; John Kenneth Galbraith
+  text: 'On 29 October 1929, sixteen million shares traded — a volume the ticker tape could not carry.
+    It ran hours behind, so sellers across the country could not know what their stocks were worth,
+    which fed more selling. Part of the crash''s terror was informational: the market''s own reporting
+    machinery had failed. Panic moves fastest through a blackout.
+
+    '
+- title: The bank that fits in a phone booth
+  tag: quirk
+  source: ATMs; Barclays Enfield, 1967
+  text: 'The world''s first ATM opened at a Barclays branch in London in 1967. No cards yet: customers
+    used paper vouchers impregnated with a mildly radioactive compound, matched against a four-digit
+    code. The inventor reportedly settled on four digits because his wife could remember four. Half
+    the security conventions of modern money descend from one household''s memory limit.
+
+    '
+- title: The paper mill that prints trust
+  tag: india
+  source: Security Paper Mill, Hoshangabad; BRBNMPL
+  text: 'India''s banknote paper long came from a dedicated security mill at Hoshangabad on the Narmada,
+    established 1968 — before that, much was imported. Presses at Nashik and Dewas, later Mysuru
+    and Salboni, do the printing. A country of India''s size printing its own money end-to-end is
+    industrial policy as monetary sovereignty; the import dependence took decades to shed.
+
+    '
+- title: Usury, from use
+  tag: etymology
+  source: Latin usura; OED
+  text: 'Usury comes from the Latin usura, meaning use or the use of money, the charge for borrowing.
+    Originally it covered any interest, fair or unfair. Over centuries the church narrowed it to
+    mean excessive, sinful interest. The root is plain: paying for the use of someone else''s money.
+
+    '
+- title: Hanged for imitating a banknote
+  tag: anecdote
+  source: Bank of England restriction period, 1797–1821
+  text: 'When the Bank of England suspended gold payments in 1797 and issued small paper notes, forgery
+    exploded — and forgery was a hanging offence. Hundreds were executed or transported, many for
+    merely passing a fake note. George Cruikshank drew a protest "banknote" strung with corpses.
+    The state was killing people to defend the credibility of its paper.
+
+    '
+- title: A country with no coins of its own
+  tag: quirk
+  source: Panama, Ecuador, El Salvador; dollarisation
+  text: 'Several countries use the US dollar with no currency of their own — Panama since 1904, Ecuador
+    since 2000. They import American monetary policy wholesale: no printing press, no devaluation,
+    no lender of last resort in their own unit. It is a standing demonstration that a national currency
+    is a policy choice, not a law of nature.
+
+    '
+- title: The Bombay Plan, capitalists asking for planning
+  tag: india
+  source: Bombay Plan, 1944; Tata, Birla et al.
+  text: 'In 1944 India''s leading industrialists — Tata, Birla, Shroff among them — published a plan
+    proposing heavy state investment and planning for independent India''s economy. Business asking
+    for a strong state sounds inverted now; they wanted infrastructure and a market built fast, and
+    expected controls. They got the controls, and spent the next forty years negotiating with them.
+
+    '
+- title: Finance, to settle a debt
+  tag: etymology
+  source: Old French finer; OED
+  text: 'Finance traces to the Old French finer, to end or settle, used for settling a debt. The
+    noun finance named the act of paying off an obligation. From ending a single debt it broadened
+    to the whole management of money. The word still carries the sense of bringing accounts to a
+    close.
+
+    '
+- title: The dollars that escaped America
+  tag: anecdote
+  source: Eurodollar market; Catherine Schenk
+  text: 'In the 1950s, Soviet-bloc banks wanted dollars but not in New York, where they could be
+    frozen. They parked them with banks in London. Those offshore dollars could be lent, re-lent
+    and multiplied outside American regulation, and the eurodollar market grew into one of the largest
+    funding pools on earth. A Cold War precaution built the offshore financial system.
+
+    '
+- title: The coin with a hole's logic
+  tag: quirk
+  source: Chinese cash coins; numismatic histories
+  text: 'Chinese bronze coins kept a square hole in the centre for two thousand years. The practical
+    reason: coins were low-value and used in bulk, so they were strung into standard strings of hundreds
+    or a thousand — the string itself became a denomination. Counting was replaced by weighing and
+    stringing. Design for handling, not beauty: the hole was the payment system.
+
+    '
+- title: UPI, the switch that ate cash's lunch
+  tag: india
+  source: NPCI data; Unified Payments Interface, 2016–
+  text: 'UPI launched in 2016 as a public payments rail: any bank, any app, instant, free for users.
+    Within a few years it was processing more transactions monthly than most countries manage yearly,
+    from vegetable carts to rent. The design choice that mattered — interoperability mandated from
+    day one — is why no single company owns Indian payments. Infrastructure beat walled gardens.
+
+    '
+- title: Lakh and crore, from Sanskrit
+  tag: etymology
+  source: Sanskrit laksha and koti; OED
+  text: 'Lakh, meaning one hundred thousand, comes from the Sanskrit laksha, a mark or a hundred
+    thousand. Crore, meaning ten million, comes from koti, the Sanskrit for ten million or the highest
+    point of a number. Both came through the Indian counting system into British colonial accounting
+    and stayed.
+
+    '
+- title: Account 88888
+  tag: anecdote
+  source: Nick Leeson, Rogue Trader; Bank of England report, 1995
+  text: 'Nick Leeson ran both trading and settlement in Barings'' Singapore office, so he could hide
+    losses in error account 88888 while reporting profits. The hole reached £827 million. Barings
+    — 233 years old, financier of the Louisiana Purchase — was sold to ING for £1. The failure was
+    less about one trader than one design flaw: nobody checking the man who kept the books.
+
+    '
+- title: Salt bars you could spend, then eat
+  tag: quirk
+  source: Amole salt money, Ethiopia
+  text: 'In highland Ethiopia, standardised salt bars — amole — circulated as money into the twentieth
+    century: mined, cut to size, checked for cracks like coins are checked for clipping. A currency
+    you could ultimately consume put a hard floor under its value. Fiat money inverted that completely:
+    modern notes are valuable only if you cannot eat them into scarcity.
+
+    '
+- title: Four hundred million accounts, opened by decree
+  tag: india
+  source: PM Jan Dhan Yojana, 2014–; government data
+  text: 'Jan Dhan pushed basic no-frills bank accounts to hundreds of millions of unbanked Indians,
+    banks measured and driven like a campaign. Critics noted the early accounts sat empty. Then benefit
+    transfers, pensions and pandemic payments began landing in them directly. An empty account is
+    an option on inclusion; the option got exercised at national scale.
+
+    '
+- title: Anna and paisa
+  tag: etymology
+  source: Sanskrit anna; OED; Hindi paisa
+  text: 'Anna, the old Indian coin, comes from a Sanskrit root meaning a fraction or a sixteenth,
+    fitting the sixteen-anna rupee. Paisa comes from the Sanskrit pada, a quarter, naming a quarter-anna
+    coin. Both named small daily fractions of a rupee before they were retired for decimalization.
+
+    '
+- title: The Nobel laureates who blew up
+  tag: anecdote
+  source: Roger Lowenstein, When Genius Failed
+  text: 'LTCM''s partners included Merton and Scholes, Nobel laureates of option pricing. The fund
+    levered small, "certain" convergence bets more than twenty-five to one. In 1998 Russia defaulted,
+    spreads widened instead of converging, and the fund lost most of its capital in weeks. The Fed
+    corralled fourteen banks into a rescue. The models were elegant; the leverage was the position.
+
+    '
+- title: The gold in the basement of Manhattan
+  tag: quirk
+  source: Federal Reserve Bank of New York vault
+  text: 'Eighty feet below the New York Fed sits one of the largest gold hoards on earth — most of
+    it owned by other countries. For decades, settling payments between nations sometimes meant staff
+    moving bars from one country''s cage to another''s, a few metres away. International finance,
+    at its most concrete, was a man with a trolley in a basement.
+
+    '
+- title: The kaudi in the language
+  tag: india
+  source: Cowrie currency in India; Hindi idiom
+  text: 'Cowrie shells were genuine Indian small change for centuries — tax schedules in parts of
+    Bengal were quoted in them into the colonial era. They live on in speech: "do kaudi ka aadmi",
+    a man worth two cowries; "kaudi kaudi ka mohtaj", needing every last shell. The currency died;
+    the contempt survives, fully convertible.
+
+    '
+- title: Worth his salt
+  tag: etymology
+  source: Folk etymology tied to Roman salarium
+  text: '"Worth his salt" means earning one''s keep. The phrase is commonly pinned to the Roman salarium,
+    the salt allowance given to soldiers, on the reading that a man not worth his salt was not worth
+    his wage. The idiom''s exact origin is uncertain, but the salt-and-pay link is old and plain.
+
+    '
+- title: The weekend Lehman died
+  tag: anecdote
+  source: September 2008; Andrew Ross Sorkin, Too Big to Fail
+  text: 'Over the weekend of 13–14 September 2008, regulators tried to sell Lehman Brothers. Bank
+    of America chose Merrill Lynch instead; Barclays was blocked by its regulator; Washington declined
+    to rescue. Monday morning Lehman filed the largest bankruptcy in history, $639 billion, and employees
+    carried boxes past news cameras. Money markets broke that week — the run had gone wholesale.
+
+    '
+- title: Britain's tally of the national debt
+  tag: quirk
+  source: UK consols, 1751–2015
+  text: 'Britain issued perpetual bonds — consols — that promised interest forever with no repayment
+    date. Some debt traced back to the South Sea bailout and the Napoleonic wars. Governments only
+    redeemed the last of them in 2015, when low rates made it cheap. For nearly three centuries,
+    investors willingly held debt designed never to be repaid. Duration is a matter of trust.
+
+    '
+- title: An eight-anna share of everything
+  tag: india
+  source: Pre-decimal idiom; partnership custom
+  text: 'Old Indian partnership deeds divided businesses in annas: a full owner held sixteen annas,
+    an equal partner eight. "Solah anna sach" — sixteen-anna true — still means completely true.
+    The rupee''s old fractions became the language of equity itself; cap tables existed in idiom
+    before they existed in law.
+
+    '
+- title: Shroff, from sarraf
+  tag: etymology
+  source: Arabic/Persian sarraf; OED
+  text: 'Shroff, an old term for a money changer or banker in India, comes from the Arabic and Persian
+    sarraf, one who exchanges money. A shroff tested coins, weighed them, and discounted worn or
+    counterfeit ones. The word lived in colonial records for any native banker or assayist of coin.
+
+    '
+- title: Eight central banks versus the gold price
+  tag: anecdote
+  source: London Gold Pool, 1961–1968
+  text: 'Through the 1960s, eight central banks jointly sold gold in London to hold the price at
+    $35 an ounce and protect Bretton Woods. Private demand kept buying. France pulled out; the drain
+    became a flood — hundreds of tonnes in days. In March 1968 the pool collapsed and gold split
+    into official and market prices. Three years later the dollar''s gold link went entirely.
+
+    '
+- title: The note that promises another note
+  tag: quirk
+  source: Bank of England notes; 'I promise to pay the bearer'
+  text: 'Every Bank of England note still reads "I promise to pay the bearer on demand the sum of..."
+    — a promise from the era when you could demand gold. Take a twenty to the Bank today and the
+    promise is honoured with another twenty. The sentence survives as a fossil: money''s convertibility
+    became circular, and almost nobody noticed or minded.
+
+    '
+- title: The RBI's first note
+  tag: india
+  source: RBI ₹5 note, January 1938
+  text: 'The RBI issued its first banknote in January 1938 — a five-rupee note bearing George VI.
+    Within a year war economics took over; within a decade the same institution was printing for
+    a republic, portrait swapped for the Lion Capital. The plates changed faster than the printing
+    presses; institutions outlive the faces on their paper.
+
+    '
+- title: Bazaar, from Persian
+  tag: etymology
+  source: Persian bazar; OED
+  text: 'Bazaar comes from the Persian bazar, a market. The word spread through the Middle East and
+    South Asia for a permanent marketplace or a covered row of shops. English picked it up from traders
+    and travelers, where it keeps the sense of a market, sometimes a charity sale.
+
+    '
+- title: The concentration camp counterfeits
+  tag: anecdote
+  source: Operation Bernhard; Lawrence Malkin, Krueger's Men
+  text: 'The SS ran a forgery workshop inside Sachsenhausen concentration camp, where prisoner engravers
+    and printers produced some £130 million in nearly perfect Bank of England notes, intended to
+    destabilise Britain. The notes were good enough that the Bank withdrew all denominations above
+    £5 after the war and kept them off issue for decades. The prisoners'' skill kept them alive.
+
+    '
+- title: Local money with Bowie on it
+  tag: quirk
+  source: Brixton pound, 2009–2023
+  text: 'Brixton in London issued its own local currency to keep spending in the neighbourhood, with
+    David Bowie — a local son — on the ten-pound note. Dozens of such local currencies exist; most
+    stay small because the discipline of money is acceptance, and acceptance stops at the district''s
+    edge. People kept the Bowie notes as souvenirs, which financed the scheme nicely.
+
+    '
+- title: Ambedkar's rupee thesis
+  tag: india
+  source: B. R. Ambedkar, The Problem of the Rupee, 1923
+  text: 'Before the Constitution, Ambedkar wrote a doctoral thesis on Indian currency — The Problem
+    of the Rupee — arguing against the gold-exchange standard the Raj ran and for a plain gold standard
+    with a closed mint, distrusting managed money in colonial hands. The Hilton Young Commission
+    cited the debates his work fed into. The republic''s chief constitutional architect was first
+    a monetary economist.
+
+    '
+- title: Coupon, to cut
+  tag: etymology
+  source: French couper, to cut; OED
+  text: 'Coupon comes from the French couper, to cut. Bearer bonds used to be issued with a sheet
+    of detachable coupons, one per interest payment. The holder cut off a coupon and presented it
+    to collect the interest due. The little slip cut away gave the word its name.
+
+    '
+- title: Cornering silver, almost
+  tag: anecdote
+  source: Hunt brothers, 1979–80; Silver Thursday
+  text: 'The Hunt brothers of Texas accumulated silver and futures until they controlled a huge share
+    of deliverable supply; the price ran from around $6 to nearly $50. Then the exchange changed
+    the rules, restricting new long positions and raising margins. The price collapsed, and on 27
+    March 1980 a missed margin call nearly took brokers down with it. The market''s referee decides
+    the game.
+
+    '
+- title: A four-hundred-year-old bank account
+  tag: quirk
+  source: Monte dei Paschi di Siena, founded 1472
+  text: 'The world''s oldest surviving bank, Monte dei Paschi, has operated in Siena since 1472 —
+    before Columbus sailed. It began as a charitable pawn lender against the security of communal
+    pasture income. It has also needed repeated rescues in the twenty-first century. Longevity in
+    banking is real, but it is not the same thing as safety.
+
+    '
+- title: Chit funds, the committee in the courtyard
+  tag: india
+  source: Chit Funds Act 1982; indigenous finance studies
+  text: 'The chit fund — a circle of savers pooling monthly, the pot auctioned to whoever bids the
+    deepest discount — is indigenous Indian finance still running at scale, regulated since 1982.
+    It is credit, savings and insurance in one social instrument, priced by reverse auction. Fintech
+    keeps rediscovering it with an app attached. The courtyard got there first.
+
+    '
+- title: Portfolio, a sheet carrier
+  tag: etymology
+  source: Italian portafoglio; OED
+  text: 'Portfolio comes from the Italian portafoglio, a "sheet carrier," a case for carrying loose
+    papers. By the 1800s it meant the bundle of investments a person held, as if carried in such
+    a case. From holding papers it came to mean the holdings themselves.
+
+    '
+- title: The insider who wrote the bubble
+  tag: anecdote
+  source: John Blunt; South Sea Company, 1720
+  text: 'John Blunt engineered the South Sea scheme: convert government debt into company shares,
+    talk the price up, and hand politicians free "stock" that only paid if the price rose — bribery
+    aligned with the bubble. When it burst, Parliament confiscated the directors'' estates; Blunt
+    was left a small allowance. The 1720 playbook — inflate, distribute to the powerful, exit — still
+    gets reused.
+
+    '
+- title: The cheapest way to move a billion
+  tag: quirk
+  source: SWIFT and correspondent banking
+  text: 'A billion dollars crosses the world not as cash or gold but as a message: instructions between
+    banks that adjust entries in accounts they hold with each other. The money never moves because
+    it never was anywhere — it is the ledger entries themselves. Most cross-border "flows" are sentences
+    in a very secure messaging system, settling by bookkeeping.
+
+    '
+- title: The million-rupee question of soiled notes
+  tag: india
+  source: RBI Note Refund Rules
+  text: 'The RBI runs formal refund rules for damaged money: a torn note''s value depends on how
+    much of it survives — beyond a threshold area you get full value, below it half or nothing. Counters
+    weigh burnt bricks of cash from house fires. A note is a claim, and the rules literally measure
+    how much of the claim remains on the paper.
+
+    '

@@ -1,0 +1,120 @@
+---
+layout: default
+title: "What is the Indian Financial System?"
+permalink: /indian-financial-system/
+description: "Money, the RBI's corridor, the rupee read correctly, and why everything ends at banking — built on Prof. Tantri's INFS notes, with four interactive machines."
+---
+
+<article class="essay">
+  <header class="essay-hero">
+    <p class="essay-kicker">A long read · 30 minutes · four machines to break</p>
+    <h1 class="display">What is the Indian financial system?</h1>
+    <p class="lede">Every INFS course he teaches starts the same way: not with a definition but with a fight currently running in the newspapers. Then he builds the system piece by piece until the fight resolves itself — and it always ends at banking, because in India everything ends at banking. This essay walks that same arc. ("I declare that no PhD student was harmed in the process of preparing these notes.")</p>
+    <p class="essay-meta">Built on Prof. Tantri's INFS lecture notes · genz-economics.com</p>
+  </header>
+
+  <h2><span class="ch-no">Chapter 1</span>Start with the fight in the papers</h2>
+  <p>Through 2024 the financial pages carried one running story: bank deposit growth was "lagging" credit growth. The Finance Minister told public banks to go all out and mobilise deposits; columnists blamed savers for defecting to mutual funds; bankers blamed the RBI. An entire policy debate — conducted loudly, at the highest level — rested on a picture of banking most people carry from school: banks collect deposits first, then lend them out. Savers deposit; banks on-lend. If deposits lag, lending must soon stall.</p>
+  <p>The notes open here for a reason. By the end of this essay you will be able to see what is wrong with that picture — not as a debating point but mechanically, the way you can see what is wrong with a mis-wired circuit. The correction requires understanding what money actually is, how it is created, who controls the tap, and what banks actually do. That is the whole financial system, in one newspaper fight.</p>
+  <p>And why should a business student care? His answer, from the first page: interest rates sit inside most business decisions — including, he notes, your placement prospects. To understand interest rates you must understand money and its creation. So money is where we start.</p>
+
+  <h2><span class="ch-no">Chapter 2</span>What money actually is</h2>
+  <p>Your school teacher said money is whatever serves as a medium of exchange, unit of account, and store of value — gold, stones, cigarettes in POW camps.<span class="fn">His actual footnote at this point in the notes: "Only those who were sitting and thinking about their first crush in social studies class will not remember this."</span> Fine. Now come to modern India and ask a sharper question: when you paid for lunch today, what money did you use? Not cash — you used UPI. No cash moved anywhere on your behalf. All that happened was a book entry: your deposit account debited, the vendor's credited. Only deposits have this property. Try paying for a masala dosa with a piece of real estate — the notes suggest this experiment — and report how it goes. The test even sorts financial products: a certificate of deposit pays more than a deposit, but, as the notes put it, you cannot satisfy the most critical need of the human race — eating masala dosa — using CDs. Not money.</p>
+  <p>So money in the modern world is cash plus deposits: <strong>M = C + D</strong>, the first equation of the course. In the RBI's own data the deposit part dwarfs the cash part several times over. Which raises the question the whole deposit debate turns on: where do deposits come from?</p>
+  <p>The school picture says: from savers. The notes say: mostly from <em>loans</em>. When a bank sanctions a working-capital loan, it does not hand over a sack of currency collected from grandmothers — it credits the borrower's deposit account. The loan <em>creates</em> the deposit. The borrower pays a supplier, the deposit hops to the supplier's bank; it does not vanish. Lending expands the system's deposits; repayment shrinks them. Watch it run, and watch what stops it from running forever:</p>
+
+  <div class="widget" id="w-create">
+    <p class="w-head">Machine №1 — the deposit-creation machine</p>
+    <div class="w-row">
+      <label for="crrSlider">Cash Reserve Ratio (CRR)</label>
+      <input type="range" id="crrSlider" data-crr min="1" max="20" step="0.5" value="4.5">
+      <output data-crr-label></output>
+    </div>
+    <div data-bars></div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>Now re-read the newspaper fight. If loans create deposits, systemwide deposits cannot structurally "run out" because savers bought mutual funds — the mutual fund's money lands right back in a bank account. What actually moved was the <em>mix</em> (savings accounts into time deposits and market instruments, raising banks' cost of funds) and the RBI's liquidity stance. The FM's exhortation and the columnists' scolding were aimed at a mechanism that does not exist. This is what the notes mean by developing "an original perspective on the ongoing debate" — the system, once you see its plumbing, refuses to support the popular story. The rest of the machinery — who sets the tap, what the rupee's fall really measures, and what banks are actually for — sits behind the login.</p>
+
+  <!-- ───────────── GATE ───────────── -->
+  <div class="essay-gate" id="essayGate">
+    <h3>Three more chapters behind the login.</h3>
+    <p>The RBI's corridor, the rupee read correctly, and why everything ends at banking — plus the professor's mock exam. A gate, not a fee.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+
+  <div class="gated" id="gatedChapters">
+
+  <h2><span class="ch-no">Chapter 3</span>Where interest rates are actually set</h2>
+  <p>The MPC announces the repo rate eight times a year and the anchors read it out. But no loan in the economy is priced off the announcement directly. What banks feel is the <em>overnight rate</em> — what it costs to be short of cash tonight — and that rate lives inside a corridor the RBI maintains: the SDF floor (park spare cash, earn the floor), the repo in the middle, the MSF ceiling (borrow in a pinch, pay the ceiling). Where the call rate sits inside the corridor is decided not by speeches but by <em>liquidity</em> — how much spare cash the banking system holds tonight. Drive it yourself:</p>
+
+  <div class="widget" id="w-corridor">
+    <p class="w-head">Machine №2 — the corridor</p>
+    <div class="w-row">
+      <label for="liqSlider">System liquidity</label>
+      <input type="range" id="liqSlider" data-liq min="-100" max="100" step="5" value="40">
+      <output data-liq-label></output>
+    </div>
+    <div data-viz></div>
+    <p class="w-big">Overnight rate: <span data-call></span></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>This is why the notes insist you watch the RBI's liquidity operations — VRR and VRRR auctions, OMOs — and not just the headline rate. The same repo rate with surplus liquidity is loose policy; with deficit liquidity it is tight. Once you have this, the "unconventional instruments" stop being jargon: they are all just ways of moving the pool the corridor prices. One caveat he insists on: the framework prices money, not vegetables — when a tomato or onion spike collides with an inflation-targeting mandate, the MPC ends up reacting anyway. His one-line summary from the group: "Sadly, onions are determining interest rates."</p>
+  <aside class="wa-aside">
+    <p class="wa-meta">From the group, correcting his own omission — on MSS</p>
+    <p>"MSS refers to special bonds issued by the RBI on behalf of the government, where the money received is kept under lock and key. Think of it as money being permanently sterilized. In a regular bond issuance, the money eventually flows back into the banking system when the government spends. Under MSS, this does not happen. The reserves are not spent. They do not come back. They are effectively removed from circulation." <em>(It was used to absorb the deposit flood of demonetisation.)</em></p>
+  </aside>
+
+  <h2><span class="ch-no">Chapter 4</span>The rupee, read correctly</h2>
+  <p>The forex chapter opens with three misconceptions the media repeats daily: the rupee is discussed only against the dollar (exchange rates are multilateral — hence NEER, the basket); every depreciation is reported as national weakness; and the RBI is imagined as the puppeteer of the price. The notes' correction runs in nine steps; here is the spine. The nominal rate is just a price — measure it like you measure a dosa: rupees per unit. The <em>real</em> rate asks the only question that matters for trade: after adjusting both currencies for what they buy at home, did Indian goods get cheaper or dearer abroad? If inflation runs 4% here and 2% there, a 2% nominal slide leaves the real rate exactly where it was — the dosa costs the same everywhere, competitiveness unchanged, nothing happened. His Mint column on this ran under the line: the rupee's depreciation is neither unusual nor indicative of great stress.</p>
+
+  <div class="widget" id="w-reer">
+    <p class="w-head">Machine №3 — the real-exchange-rate test</p>
+    <div class="w-row">
+      <label for="depSlider">Rupee's nominal fall this year</label>
+      <input type="range" id="depSlider" data-dep min="0" max="10" step="0.25" value="2">
+      <output data-dep-label></output>
+    </div>
+    <div class="w-row">
+      <label for="infSlider">Inflation gap (India − trading partners)</label>
+      <input type="range" id="infSlider" data-inf min="-2" max="8" step="0.25" value="2">
+      <output data-inf-label></output>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>Two consequences worth keeping. First, a country that inflates faster than its partners <em>must</em> see its currency drift down over time just to stand still — that drift is arithmetic, not weakness. Second, the genuinely dangerous case is the quiet one: a flat nominal rate with high home inflation, which is a real appreciation strangling exporters while the headlines celebrate stability. The RBI publishes NEER and REER tables precisely so you can check which case you are in. His own summary lines are sharper than any of this. On levels: "The problem is not whether the rupee is 90 or 200. The problem is: are we depreciating more than the inflation differential?" On direction: given that Indian inflation runs above US inflation, the rupee <em>should</em> touch an all-time low against the dollar regularly — that is the system working, not failing.<span class="fn">He signed off the Mint version of this chapter on the group with: "Hope you will all remember real exchange rates forever." Consider this machine the enforcement mechanism.</span> The notes teach you to read the RBI's own NEER-REER table; the TV never will.</p>
+
+  <h2><span class="ch-no">Chapter 5</span>Everything ends at banking</h2>
+  <p>Why does the course — every course he teaches, in fact — terminate here? Because banks are where the system's promises concentrate. Recall the most important function of finance from the corporate-finance essay: liquidity creation. A bank estimates what fraction of depositors will need cash at any moment, keeps that much liquid, and locks the rest into long, illiquid, productive loans. It manufactures liquid liabilities out of illiquid assets. Society gets factories funded by money that every depositor believes — correctly, most days — they can withdraw tonight.</p>
+
+  <div class="widget" id="w-run">
+    <p class="w-head">Machine №4 — the run</p>
+    <div class="w-row">
+      <label for="wdSlider">Depositors withdrawing today</label>
+      <input type="range" id="wdSlider" data-wd min="2" max="60" step="1" value="8">
+      <output data-wd-label></output>
+    </div>
+    <div class="w-row">
+      <label for="bufSlider">Liquid buffer the bank kept</label>
+      <input type="range" id="bufSlider" data-buf min="5" max="40" step="1" value="18">
+      <output data-buf-label></output>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>The notes run this machine on a fictional lender — Golmal Bank Ltd — whose adventures in reserve arithmetic fill two chapters.<span class="fn">Midway through which he catches a reader wanting entertainment: "One Dr. S is tired and looking for jokes in footnotes. No jokes; please focus on the main issue. Something important is coming." It was — this chapter.</span> Everything else in the banking chapters is society armouring itself against that machine's failure mode. Capital adequacy: owners must keep genuine skin in the game, measured against risk-weighted assets, so losses burn equity before they touch deposits. The NPA rules: a loan unpaid for 90 days must be called what it is, because the deadliest banking disease is pretending — "evergreening" dead loans with fresh ones. The bestiary of institutions — public sector banks, private banks, small finance banks, payments banks, NBFCs — is one design question answered differently: who may run the liquidity machine, and with how much armour. And the RBI sits behind all of it as lender of last resort, so that a solvent bank facing a queue need not die of illiquidity.</p>
+  <p>Now close the loop to Chapter 1. The deposit "crisis" debate assumed banks are warehouses that might run empty. They are not warehouses; they are the mint. The real constraints on lending are capital, credit demand, and the price of liquidity in the corridor — everything you now have machines for. That is the Indian financial system: money created by lending, priced in a corridor, measured against the world by the REER, and resting on the managed fragility of banks. The reader who has this can disagree with the Finance Minister for mechanical reasons, politely, with the RBI's own tables as evidence. That is the point of the course — the test he sets for it: ten years from now you should not be able to say "I could have picked this up online."</p>
+
+  <p class="pull">Money is created by lending, priced in a corridor, measured by the REER, and rests on the managed fragility of banks. Everything else is detail.</p>
+  <p>When you are done breaking the machines, the professor's own mock exam — the questions he posted to the group, answers and reasoning included — is in the <a href="{{ '/mock-exam/' | relative_url }}">practice room</a>.</p>
+
+  </div><!-- /gated -->
+</article>
+<script type="application/json" id="gloss-data">{{ site.data.glossary | jsonify }}</script>
+<script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/infs-essay.js' | relative_url }}" defer></script>

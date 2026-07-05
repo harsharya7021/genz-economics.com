@@ -1,0 +1,20 @@
+{
+  "as_of": "3 Jul 2026 close",
+  "auto": {
+    "nifty":  { "label": "NIFTY 50",  "v": "24,270.85", "chg": 0.39, "spark": [24176, 24149, 24188, 24205, 24234, 24216, 24252, 24271] },
+    "sensex": { "label": "SENSEX",    "v": "77,764.00", "chg": 0.34, "spark": [77502, 77445, 77560, 77618, 77690, 77655, 77731, 77764] },
+    "usdinr": { "label": "USD/INR",   "v": "95.22", "chg": -0.15, "spark": [95.36, 95.41, 95.33, 95.29, 95.31, 95.26, 95.24, 95.22] },
+    "brent":  { "label": "Brent ($)", "v": "$72.10", "chg": 0.42, "spark": [71.80, 71.62, 71.91, 72.05, 71.88, 71.97, 72.16, 72.10] },
+    "gold":   { "label": "Gold ($/oz)","v": "$4,170", "chg": 0.86, "spark": [4136, 4128, 4142, 4155, 4148, 4161, 4176, 4170] },
+    "ust10y": { "label": "US 10Y (%)","v": "4.49%", "chg": 0.22, "spark": [4.472, 4.468, 4.475, 4.481, 4.470, 4.479, 4.487, 4.485] }
+  },
+  "manual": {
+    "repo":   { "label": "RBI repo rate", "v": "5.25%", "as_of": "Jun 2026 MPC (held, 6–0)", "note": "Neutral stance. Next decision: see calendar." },
+    "cpi":    { "label": "CPI inflation (YoY)", "v": "3.9%", "as_of": "May 2026 print", "note": "New 2024 base. Food 4.8%." },
+    "wpi":    { "label": "WPI inflation (YoY)", "v": "9.7%", "as_of": "May 2026 print", "note": "First print on the new 2022-23 base — fuel & power at 30% did the damage." },
+    "gdp":    { "label": "GDP growth (last quarter)", "v": "7.8%", "as_of": "Q4 FY26", "note": "New 2022-23 base. Private consumption and investment carried it." },
+    "in10y":  { "label": "India 10Y G-sec (%)", "v": "6.72%", "as_of": "3 Jul close", "note": "Fifteen-week low — foreign buying ahead of the index-inclusion call." },
+    "fedrate":{ "label": "US Fed funds (upper)", "v": "3.75%", "as_of": "Jun 2026 FOMC (held)", "note": "Warsh's first hold — the dots flipped toward a hike." },
+    "reer":   { "label": "INR REER (40-currency)", "v": "94.0", "as_of": "Apr 2026 bulletin", "note": "Lowest since 2015 — the rupee is cheap in real terms. The dosa test lives here." }
+  }
+}

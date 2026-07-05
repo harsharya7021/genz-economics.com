@@ -1,0 +1,93 @@
+---
+layout: default
+title: "What is Macro?"
+permalink: /what-is-macro/
+description: "The long run, the short run, money and expectations — the Sunday macro series distilled into one interactive read, built on Prof. Tantri's chapters."
+---
+
+<article class="essay">
+  <header class="essay-hero">
+    <p class="essay-kicker">A long read · 25 minutes · three machines to break</p>
+    <h1 class="display">What is macro?</h1>
+    <p class="lede">The Sunday series exists because ISB made macro optional. This essay is the series' skeleton: the two time horizons, the one lever everyone overrates, and the expectations game that decides whether policy works at all. It pairs with the <a href="{{ '/indian-financial-system/' | relative_url }}">Indian financial system</a> read — that one is the plumbing; this one is the weather.</p>
+    <p class="essay-meta">Built on Prof. Tantri's macro chapters · genz-economics.com</p>
+  </header>
+
+  <h2><span class="ch-no">Chapter 1</span>Two clocks, one economy</h2>
+  <p>Nearly every macro argument on television is two people talking about different clocks. Macro runs on two: the <em>long run</em>, where prices adjust and output is set by how much an economy can produce — labour, capital, productivity — and the <em>short run</em>, where prices are sticky and output is set by how much people are willing to spend. Most policy fights are one person making a long-run claim and another making a short-run claim, each correct on their own clock, neither noticing the clocks differ.</p>
+  <p>The professor's GDP discipline sits underneath both clocks, and it is stricter than the textbook's. GDP is not money. It is the sum of <em>utilities</em> — the value of things people actually want — represented in money. You cannot create GDP with utility-less transactions, however much money changes hands. Keep that test handy: it retires half the schemes you will hear pitched in your career.</p>
+
+  <h2><span class="ch-no">Chapter 2</span>The long run — productivity or nothing</h2>
+  <p>In the long run, the notes are almost brutal in their simplicity: living standards are set by output per person, and output per person grows with productivity. Land and labour hit limits; capital runs into diminishing returns; what compounds without limit is doing more with the same — technology, organisation, skills, institutions that let a farmer's child become an engineer. Feel what the compounding does:</p>
+
+  <div class="widget" id="w-growth">
+    <p class="w-head">Machine №1 — the long-run machine</p>
+    <div class="w-row">
+      <label for="prodSlider">Productivity growth</label>
+      <input type="range" id="prodSlider" data-prod min="5" max="80" step="5" value="20">
+      <output data-prod-label></output>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>This is why the series keeps returning to reforms, competition, and open trade even in sessions nominally about money: nothing the RBI or the Budget does can substitute for productivity growth. Demand policy exists for a different job — the short run. Which is behind the login, along with money and the expectations game.</p>
+
+  <!-- ───────────── GATE ───────────── -->
+  <div class="essay-gate" id="essayGate">
+    <h3>The short run sits behind the login.</h3>
+    <p>The multiplier, why printing money works until it doesn't, and the expectations game — sign in once and it stays open.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+
+  <div class="gated" id="gatedChapters">
+
+  <h2><span class="ch-no">Chapter 3</span>The short run — spending sets output</h2>
+  <p>Now stick the prices. In the short run firms meet demand at posted prices, so total spending decides total output. (Price rigidity — he has said, mid-lecture, that only he gets this excited saying the words "price rigidity"; it is that fundamental. Sticky prices are the hinge the entire short run swings on.) One person's spending is another's income, which funds the next round of spending — the multiplier chain. This is the Keynesian cross from the October sessions, and it is why a downturn can feed itself: everyone saving more simultaneously cuts everyone's income (the paradox of thrift from the daily questions). Run the chain:</p>
+
+  <div class="widget" id="w-cross">
+    <p class="w-head">Machine №2 — the multiplier chain</p>
+    <div class="w-row">
+      <label for="mpcSlider">Marginal propensity to consume</label>
+      <input type="range" id="mpcSlider" data-mpc min="30" max="90" step="5" value="60">
+      <output data-mpc-label></output>
+    </div>
+    <div class="w-row">
+      <label for="gSlider">Government spends an extra</label>
+      <input type="range" id="gSlider" data-g min="10" max="100" step="10" value="50">
+      <output data-g-label></output>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <aside class="wa-aside">
+    <p class="wa-meta">From the group, when GST cuts were the argument of the week</p>
+    <p>"A common misconception is that the impact of a GST cut can be judged without separating short-run Keynesian dynamics from long-run effects. Short run: with sticky prices and constant spending, a GST cut is effectively a wider deficit — demand may rise, but someone else's income shrinks as fiscal space shrinks; in a balanced-budget setting the net effect is close to zero. Long run: cheaper goods shift the leisure–work trade-off and raise the return on savings — labour supply, investment, growth. Incomplete pass-through is not policy failure; retained margins can become capacity. The only caveat: markets must remain contestable."</p>
+    <p>"Long-term growth is going to come from increased production and not consumption. This one simple point, 99% of those who come on TV do not understand."</p>
+  </aside>
+
+  <h2><span class="ch-no">Chapter 4</span>Money, and the game of expectations</h2>
+  <p>Where does money sit in this? The financial-system essay builds the plumbing — deposits created by lending, priced in the RBI's corridor. Macro asks the other question: when the central bank loosens, does anything <em>real</em> happen? The IMS notes answer with three rounds, escalating in honesty. Round one, no inflation: stimulus lands on slack, output rises, everyone wins. Round two, unexpected inflation: the stimulus is partly eaten by prices — workers accepted wages expecting 4% inflation, got 7%, and effectively took a pay cut they didn't agree to.<span class="fn">The notes run all three rounds on a toy rice economy, with named students in the footnotes. To one who answered too cleverly: "Please accept 100 lashes from me as a compliment. You slept through 2 lectures." A named footnote is his highest form of attention.</span> Round three is the real world: it depends entirely on what people <em>expect</em>, and expectations come in flavours:</p>
+
+  <div class="widget" id="w-expect">
+    <p class="w-head">Machine №3 — the expectations game</p>
+    <div class="w-toggle" style="flex-wrap:wrap">
+      <button type="button" data-mode="anchored" aria-pressed="true">Anchored</button>
+      <button type="button" data-mode="adaptive" aria-pressed="false">Adaptive</button>
+      <button type="button" data-mode="rational" aria-pressed="false">Rational</button>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>This game is why central banking is nine parts credibility and one part plumbing. An RBI that is believed can look through a vegetable-price spike and hold; an RBI that is doubted must over-tighten just to prove itself — the difference is worth percentage points of GDP. And the caveat on the caveat, his standing warning: all of this works if inflation expectations hold still — if they move, the same policies turn counterproductive. Refer to the UK case. It is also why the inflation-targeting framework, the 4% anchor, and all the careful MPC communication exist: they are machinery for <em>manufacturing anchored expectations</em>. When you watch the next policy announcement, watch the language, not just the number — the language is aimed at the expectations machine above. (The open-economy extensions get their own Sunday sessions, where you will also hear his considered academic view of the Mundell–Fleming model: "total buckwas." He will then teach it to you anyway, properly, so you know exactly what you are dismissing.)</p>
+
+  <p class="pull">The long run is productivity. The short run is spending. Money is a promise, and expectations decide what the promise buys.</p>
+  <p>That is macro — the art around the KPI. The science of the KPI is in the <a href="{{ '/corporate-finance/' | relative_url }}">corporate finance</a> read; the plumbing is in the <a href="{{ '/indian-financial-system/' | relative_url }}">financial system</a> one. The professor's mock exam covering all of it is in the <a href="{{ '/mock-exam/' | relative_url }}">practice room</a>.</p>
+
+  </div><!-- /gated -->
+</article>
+<script type="application/json" id="gloss-data">{{ site.data.glossary | jsonify }}</script>
+<script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/macro-essay.js' | relative_url }}" defer></script>

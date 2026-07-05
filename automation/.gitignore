@@ -1,0 +1,7 @@
+node_modules/
+.env
+auth-state/
+corpus/
+polls.json
+downloads/
+*.log

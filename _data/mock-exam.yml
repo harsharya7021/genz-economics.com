@@ -1,0 +1,156 @@
+# Mock exam — the question series Prof. Tantri posted to the WhatsApp group
+# (March 2026, after the 'book every quarter' challenge began). Verbatim, with his answers.
+- n: 2
+  q: We learned in class that a Spanish commander attacked the Incas and brought a large amount
+    of gold to Spain, which used gold coins as currency at that time. Unfortunately, this led
+    to massive inflation. Under what circumstance would this not have caused inflation?
+  options:
+  - There was a drought that year (negative supply shock)
+  - Spain exported gold and imported muslin cloth from India
+  - The government used all the gold to pay salaries
+  - All of the above
+  answer: B
+  why: Using gold for paying for imports will not increase local money supply and therefore
+    no inflation
+- n: 3
+  q: A recent movie Dhurandhar claims that Pakistan was printing fake Indian currency before
+    demonetization. Under what circumstance would this fake currency have effectively substituted
+    for the correct monetary policy response?
+  options:
+  - Consumer demand collapsed and the RBI aggressively cut interest rates
+  - Consumer demand is booming and RBI has kept the interest rate below the neutral rate
+  - Consumer demand is booming and the RBI kept the repo rate above the neutral rate
+  - Consumer demand is depressed and the RBI has kept the rate high to avoid forex outflows
+  answer: D
+  why: Fake currency acts like unplanned monetary expansion, so it “helps” only when demand
+    is weak and policy is too tight (rates kept high).
+- n: 5
+  q: We know the George Soros story. The German government had to spend heavily on unification,
+    but the British pound was pegged to the German Mark under the ERM. Soros massively shorted
+    the pound and made billions. Which of the following assumptions did he not make?
+  options:
+  - The German government would finance the spending on unification
+  - Britain did not have vast forex reserves and gold
+  - British politicians care about growth
+  - British public care more about inflation than growth
+  answer: D
+  why: I think this is the only genuinely difficult question. He needed the opposite assumption.
+    For the peg to break, policymakers must prioritize growth over inflation, not inflation
+    over growth. If they prioritized inflation, they would have easily hiked rates and stopped
+    currency depreciation
+- n: 6
+  q: OMG. I am now realizing that I missed one more important instrument altogether - MSS (The
+    Market Stabilization Scheme). How exactly were you planning to face the real world without
+    knowing this? Let me correct my unpardonable folly here. MSS refers to special bonds issued
+    by the RBI on behalf of the government, where the money (i.e., reserves) received is kept
+    under lock and key. Think of it as money being permanently sterilized. To understand why
+    this matters, compare this with a normal bond issue. In a regular bond issuance, the RBI
+    issues bonds on behalf of the government and banks pay for them using reserve money. That
+    reserve money goes to the government. But sooner or later, when the government spends on
+    salaries, subsidies, or social welfare, that money flows back into the banking system. Under
+    MSS, this does not happen. The reserves collected are not spent. They do not come back.
+    They are effectively removed from circulation. Now that you are armed with this knowledge,
+    let us see whether you can apply it. When do you think India issued MSS?
+  options:
+  - In 2013, when there was a huge outflow of dollars
+  - In the early 2000s, when India issued Resurgent India Bonds for NRIs to offset the impact
+    of sanctions imposed by the US (if you do not know why, call your high school teacher)
+  - During COVID, when the economy was struggling and liquidity was scarce
+  - Recently, to offset Trump tariffs
+  answer: B
+  why: MSS is used to permanently absorb money. It is done when too much reserves are created.
+    Recently it was done during demonetization.
+- n: 7
+  q: 'I was just about to submit the question paper when AAs gently remind me that I have forgotten
+    yet another important instrument. Operation Twist. Clearly, I was planning to send you into
+    the real world half-armed. Let me fix that. Please don’t tell the Dean. So what is Operation
+    Twist? A couple of years ago, the RBI decided that short-term interest rates, say up to
+    one year, were too low, while long-term interest rates, ten years and beyond, were too high.
+    Instead of changing the overall liquidity in the system, the RBI did something clever. It
+    bought short-term bonds and sold long-term bonds. The idea was to push up short-term yields
+    and bring down long-term yields without injecting or withdrawing net money from the system.
+    No new money was created. No money was destroyed. Only the maturity structure of interest
+    rates was altered. Now assume the following: Inflation expectations remain unchanged. Nothing
+    else in the economy changes.  Given this, which of the following is the most reasonable
+    expectation regarding the Rupee?'
+  options:
+  - It is reasonable to expect an immediate depreciation of the Rupee
+  - It is reasonable to expect an immediate appreciation of the Rupee
+  - No change in the Rupee is a better expectation
+  - None of the above
+  answer: B
+  why: '- short term real rates are expected to increase. that’s all.'
+- n: 9
+  q: During the Great Depression, the US Federal Reserve once increased interest rates (Read
+    A Monetary History of the United States by Friedman and Schwartz). Why would they do that
+    when the economy was collapsing?
+  options:
+  - To control inflation
+  - To control inflation expectations
+  - To prevent outflow of gold
+  - None of the above
+  answer: C
+  why: Straight forward
+- n: 12
+  q: 'Bill discounting by Medici banks effectively:'
+  options:
+  - Increased inflation
+  - Improved liquidity
+  - Reduced trade
+  - Increased gold reserves
+  answer: B
+  why: Liquidity—you can discount it close to NPV
+- n: 14
+  q: During a crisis, RBI injects large reserves but lending does not increase. Why?
+  options:
+  - CRR too high
+  - Banks unwilling to lend due to risk
+  - Deposits too low
+  - Currency demand too high
+  answer: B
+  why: This is what happened after global financial crisis. All money goes to SDF. Without lending,
+    no money creation.
+- n: 15
+  q: In The Merchant of Venice, a pound of flesh was pledged as collateral for a loan. The court
+    eventually rules that the lender can enforce the collateral but cannot shed even a drop
+    of blood. Which of the following judgments/laws are in the same spirit?
+  options:
+  - Government enacts the Insolvency and Bankruptcy Code (IBC), under which the borrower (promoter)
+    loses control over the firm once the case is admitted
+  - Court rules that banks can file recovery cases (under SARFAESI) only in the borrower’s location,
+    whereas earlier banks could choose the location
+  - RBI increases penalties for wilful default
+  - Government extends strict recovery laws to non-banks as well
+  answer: B
+  why: Realize that the judgement is dilution of creditor rights. Rest are increase in creditor
+    rights.
+- n: 17
+  q: I used to walk to a nearby restaurant for dinner. Now I order food using Zomato. This gives
+    employment to the delivery person and leads to higher long-term economic growth. What is
+    wrong with this statement?
+  options:
+  - It does not explain how I earn more to pay more
+  - It does not explain whether the Zomato delivery person will spend or save
+  - It does not explain whether I would have spent or saved the money
+  - All of the above
+  answer: A
+  why: Long term growth happens when I earn and spend. Keynesian explanations based on demand
+    do not work.
+- n: 18
+  q: 'In a fiat monetary system, money derives its value from:'
+  options:
+  - Gold backing
+  - Intrinsic value
+  - Sovereign backing and acceptability
+  - Commodity convertibility
+  answer: C
+  why: Straight forward
+- n: 19
+  q: 'Government spending converts reserves into:'
+  options:
+  - Bonds
+  - Deposits
+  - Gold
+  - Capital
+  answer: B
+  why: Deposits—Will take D also A also but not C

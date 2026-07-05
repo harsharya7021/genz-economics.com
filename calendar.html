@@ -1,0 +1,118 @@
+---
+layout: default
+title: "The System's Timetable"
+permalink: /calendar/
+description: "Every date that moves the Indian financial system — MPC decisions, CPI on the 12th, WPI on the 14th, IIP on the 28th, GDP quarter-ends, the Budget, FOMC — with plain-English notes on why each matters. Subscribe as a calendar feed."
+---
+
+<section class="hero" style="padding-bottom:.5rem">
+  <div class="container">
+    <p class="eyebrow">The timetable · public — bring your brother-in-law</p>
+    <h1 class="display">The system runs on a <em>schedule</em>.</h1>
+    <p class="macro-intro">CPI lands on the 12th. WPI on the 14th. IIP on the 28th. The MPC meets six times a year on dates the RBI publishes every March, and money-supply data drops every Friday at five. None of this is secret — it is just never in one place. Here it is in one place, with what to watch in each print. The whole point of the course is that when the number drops, you already know what question to ask it.</p>
+    <div class="hero-cta" style="margin-top:1rem">
+      <a class="btn btn-primary" href="{{ '/assets/calendar.ics' | relative_url }}" download>Subscribe — .ics for your calendar</a>
+      <a class="btn btn-ghost" href="https://www.rbi.org.in/scripts/annualpolicy.aspx" target="_blank" rel="noopener">RBI's own MPC page →</a>
+    </div>
+  </div>
+</section>
+
+<section class="container cal-wrap dash">
+  <div>
+  <div class="cal-stats" aria-label="Countdowns">
+    <div class="stat stat-navy"><p class="stat-label">Next MPC decision</p><p class="stat-value" id="csMpc">—</p><p class="stat-note" id="csMpcD"></p></div>
+    <div class="stat stat-gold"><p class="stat-label">Next CPI print</p><p class="stat-value" id="csCpi">—</p><p class="stat-note">the 12th rule</p></div>
+    <div class="stat stat-paper"><p class="stat-label">Next GDP quarter</p><p class="stat-value" id="csGdp">—</p><p class="stat-note" id="csGdpD"></p></div>
+    <div class="stat stat-paper"><p class="stat-label">This Friday, 17:00</p><p class="stat-value" style="font-size:1.15rem;line-height:1.3">RBI weekly data</p><p class="stat-note">money supply · forex reserves</p></div>
+  </div>
+  <div class="section-head" style="margin-top:1.2rem"><h2>Next up</h2><span class="feed-link" id="calAsOf"></span></div>
+  <div class="cal-next" id="calNext"></div>
+
+  <div class="section-head" style="margin-top:2.2rem"><h2>The dated list</h2><span class="feed-link">FY27 · updates when RBI/MoSPI publish</span></div>
+  <div class="cal-list" id="calList">
+    {% assign evs = site.data['ifs-calendar'].events %}
+    {% assign prevMonth = "" %}
+    {% for e in evs %}
+    {% assign thisMonth = e.date | date: "%B %Y" %}
+    {% if thisMonth != prevMonth %}<p class="cal-month-label">{{ thisMonth }}</p>{% assign prevMonth = thisMonth %}{% endif %}
+    <div class="cal-row" data-date="{{ e.date }}" data-cat="{{ e.cat }}">
+      <div class="cal-date"><span class="cal-d">{{ e.date | date: "%-d" }}</span><span class="cal-m">{{ e.date | date: "%b %Y" }}</span></div>
+      <div class="cal-body">
+        <p class="cal-title">{{ e.title }}{% if e.shifted %} <span class="cal-shift" title="12th/14th/28th rule shifted past a weekend">shifted</span>{% endif %}</p>
+        <p class="cal-note">{% if e.time != "" %}<strong>{{ e.time }}</strong> · {% endif %}{{ e.note }}</p>
+      </div>
+      <span class="cal-cat cal-cat-{{ e.cat }}">{{ e.cat }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="cal-filter" id="calFilter" role="group" aria-label="Filter events">
+    <button data-cat="all" aria-pressed="true">All</button>
+    <button data-cat="rbi" aria-pressed="false">RBI</button>
+    <button data-cat="data" aria-pressed="false">Data prints</button>
+    <button data-cat="fiscal" aria-pressed="false">Fiscal</button>
+    <button data-cat="global" aria-pressed="false">Fed & global</button>
+  </div>
+
+  <div class="section-head" style="margin-top:2.4rem"><h2>The rules of the month</h2><span class="feed-link">memorise these, skip the news alerts</span></div>
+  <div class="cal-rules">
+    {% for r in site.data['ifs-calendar'].rules %}
+    <div class="cal-rule card">
+      <p class="cal-rule-day">{{ r.day }}</p>
+      <p class="cal-rule-what">{{ r.what }}</p>
+      <p class="cal-rule-note">{{ r.who }} · {{ r.note }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+  <aside class="rail">
+    <div data-month-grid></div>
+    <div class="mgrid" style="padding-top:.9rem">
+      <p class="mgrid-title" style="margin-bottom:.4rem">Take it with you</p>
+      <p style="font:500 .78rem var(--sans);color:var(--ink-soft);margin:0 0 .6rem">Every date on this page, as a calendar feed.</p>
+      <a class="btn btn-primary" style="font-size:.8rem;padding:.5rem 1rem" href="{{ '/assets/calendar.ics' | relative_url }}" download>Subscribe (.ics)</a>
+    </div>
+  </aside>
+  <p class="w-note" style="grid-column:1/-1;margin-top:1.4rem">Sources: RBI MPC calendar for FY27 (published 23 Mar 2026), MoSPI advance release calendar, federalreserve.gov. Dates marked <em>tentative</em> firm up close to release; the 12th/14th/28th rules shift to the next working day over holidays. FY28 MPC dates appear here when the RBI publishes them (~March 2027).</p>
+</section>
+
+<script type="application/json" id="cal-events-data">{{ site.data['ifs-calendar'].events | jsonify }}</script>
+<script src="{{ '/assets/js/month-grid.js' | relative_url }}" defer></script>
+<script>
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll(".cal-row"));
+  var today = new Date(); today.setHours(0,0,0,0);
+  var upcoming = [];
+  rows.forEach(function(r){
+    var d = new Date(r.getAttribute("data-date")+"T00:00:00");
+    if (d < today) r.classList.add("cal-past");
+    else upcoming.push({el:r, d:d});
+  });
+  // Next-up chips: first 4 upcoming
+  var next = document.getElementById("calNext");
+  upcoming.slice(0,4).forEach(function(u){
+    var days = Math.round((u.d - today)/864e5);
+    var chip = document.createElement("a");
+    chip.className = "evt-chip"; chip.href = "#";
+    chip.innerHTML = "<strong>" + (days===0?"today":days===1?"tomorrow":"in "+days+" days") + "</strong> " +
+      u.el.querySelector(".cal-title").textContent.replace("shifted","").trim();
+    chip.addEventListener("click", function(e){ e.preventDefault(); u.el.scrollIntoView({behavior:"smooth", block:"center"}); u.el.classList.add("cal-flash"); setTimeout(function(){u.el.classList.remove("cal-flash");},1600); });
+    next.appendChild(chip);
+  });
+  document.getElementById("calAsOf").textContent = "today: " + today.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
+  function firstMatch(re){ for (var i=0;i<upcoming.length;i++){ var t=upcoming[i].el.querySelector(".cal-title").textContent; if (re.test(t)) return upcoming[i]; } return null; }
+  function setCount(idV,idD,m){ if(!m) return; var days=Math.round((m.d-today)/864e5);
+    var v=document.getElementById(idV); if(v) v.textContent = days===0?"today":days+(days===1?" day":" days");
+    var dd=document.getElementById(idD); if(dd) dd.textContent = m.d.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"long"}); }
+  setCount("csMpc","csMpcD",firstMatch(/MPC decision/));
+  setCount("csCpi",null,firstMatch(/CPI inflation/));
+  setCount("csGdp","csGdpD",firstMatch(/GDP/));
+  // Filters
+  document.querySelectorAll("#calFilter button").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#calFilter button").forEach(function(x){ x.setAttribute("aria-pressed", x===b ? "true":"false"); });
+      var cat = b.getAttribute("data-cat");
+      rows.forEach(function(r){ r.style.display = (cat==="all" || r.getAttribute("data-cat")===cat) ? "" : "none"; });
+    });
+  });
+})();
+</script>

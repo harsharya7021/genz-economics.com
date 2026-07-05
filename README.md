@@ -1,57 +1,69 @@
 # Gen Z Economics
 
-> Open-source macroeconomics notes, refined in public.
+> The macro you can't just Google — Prof. Prasanna Tantri's ISB sessions, chaptered and
+> gated for the cohort.
 > **Live site:** [genz-economics.com](https://genz-economics.com)
 
-A community-maintained archive of notes from Prof. Tantri's macroeconomics sessions. Anyone can read, suggest edits, or propose new explainers. A rotating group of student moderators (currently: Finance Club members) reviews and merges changes.
+A **closed, sign-in-only study room** built on Prof. Tantri's macroeconomics sessions —
+weekly lecture recordings, chaptered notes, long-form essays (corporate finance, the
+Indian financial system, macro), a macro-data watch ("Vitals"), a daily question, Ask BIL,
+and the papers/circulars he shares with the group. All of it sits behind a Google sign-in.
+
+This didn't start closed. It began as an open, contribute-it-yourself notes archive —
+that model didn't work (too few contributors, and material calibrated for one cohort was
+sitting in public), so it was pivoted to closed. Full pivot story, decisions, and current
+status live in `HANDOFF.md`. Full technical architecture: `ARCHITECTURE.md`.
 
 ---
 
 ## How it works
 
 ```
-    ┌──────────────┐   PR / Issue    ┌────────────────┐   Merge   ┌─────────────┐
-    │ Contributor  │ ───────────────▶│ Student        │ ─────────▶│ Site        │
-    │ (anyone)     │                 │ Moderators     │           │ rebuilds    │
-    └──────────────┘                 └────────────────┘           └─────────────┘
+   ┌───────────┐  Google sign-in  ┌────────────────┐   reads (auth'd)  ┌────────────┐
+   │  Visitor  │ ────────────────▶│ Firebase Auth  │ ─────────────────▶│  Firestore │
+   └───────────┘                  └────────────────┘                   └────────────┘
 ```
 
-- **Notes** live as markdown files in `_posts/`.
-- **The site** is a plain Jekyll build served by GitHub Pages.
-- **The domain** (`genz-economics.com`) points at GitHub Pages via a `CNAME` record.
+- **Public shell** (landing, about, sign-in, newsletter capture) — static Jekyll, deployed
+  on **Render**. No gated content ships in this HTML.
+- **Gated app** — after Google sign-in, content is read from **Firestore** (authenticated
+  reads only).
+- **Honeypot assets** — lecture video via **Cloudflare Stream** signed playback tokens
+  (no-download); papers/audiobooks via signed, expiring URLs.
+- **Automation** (WhatsApp bot, session→notes→video pipeline, Ask BIL) runs on a separate
+  VPS, not on Render — see `automation/README-AUTOMATION.md`.
+- **The domain** (`genz-economics.com`) is a custom domain on Render.
 
-There is no CMS. There is no database. The markdown is the source of truth.
+There is no CMS and no admin panel. Markdown + YAML data files are the source of truth for
+content; Firebase/Firestore is the source of truth for who's allowed to see it.
 
 ## Repo layout
 
 ```
 .
-├── _config.yml              # Jekyll site config
-├── _layouts/                # default · home · post · page
-├── _posts/                  # one markdown file per session (YYYY-MM-DD-slug.md)
-├── _includes/               # reusable HTML snippets (future)
+├── _config.yml               # Jekyll site config
+├── _layouts/                 # default · home · post · essay/hub layouts
+├── _posts/                   # one markdown file per session (YYYY-MM-DD-slug.md)
+├── _data/                    # calendar, macro data, glossary, daily-question bank, etc.
 ├── assets/
-│   ├── css/main.css         # styles
-│   ├── images/<slug>/       # per-post images
+│   ├── css/main.css          # styles
+│   ├── js/                   # site interactions + per-page widgets
 │   └── favicon.svg
-├── index.html               # homepage (uses layout: home)
-├── about.md                 # /about
-├── contribute.md            # /contribute
-├── 404.html
-├── CNAME                    # genz-economics.com
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── MODERATORS.md            # moderator roster + how to join
-├── .github/
-│   ├── CODEOWNERS           # who gets auto-requested on PRs
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── ISSUE_TEMPLATE/
-└── Gemfile                  # pinned to github-pages gem
+├── *.html, *.md               # essays + hub pages (sessions, macro-watch/Vitals, BIL,
+│                              #   calendar, reading-room, glossary, learn, study, …)
+├── automation/                # WhatsApp bot + session pipeline + BIL RAG — runs on a VPS
+├── render.yaml                # Render deploy config
+├── ARCHITECTURE.md            # technical source of truth
+├── HANDOFF.md                 # project history / decisions / current status
+├── VOICE-TANTRI.md, VOICE-RAW-TANTRI.md   # the copy voice guide — read before writing copy
+└── Gemfile                    # pinned Jekyll gems
 ```
 
-## Running the site locally
+`CONTRIBUTING.md`, `MODERATORS.md`, `CODE_OF_CONDUCT.md`, and `.github/` (PR template, issue
+templates, CODEOWNERS) are leftover from the original open-contribution model and no longer
+describe how the project runs — see `ARCHITECTURE.md` §8 for the cleanup note.
 
-You only need this if you want to preview changes before pushing. Simple edits can be done fully in the GitHub web UI.
+## Running the site locally
 
 ```bash
 # One-time setup (requires Ruby 3.x)
@@ -61,16 +73,21 @@ bundle install
 bundle exec jekyll serve --livereload
 ```
 
+The public shell (landing, about) renders without any keys. Gated pages need a real
+Firebase project + config (`assets/js/firebase-config.js`) to sign in locally.
+
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full contributor guide, or the short version:
-
-1. **Small fixes** — use the "Edit this page" link on any live page. It opens the file directly on GitHub.
-2. **Bigger changes** — fork, branch, PR. A moderator will review.
-3. **Don't want to edit?** Open an Issue with one of our templates.
+This isn't an open-contribution project anymore — there's no public PR/review flow. It's
+built and maintained by Harsh, using Prof. Tantri's course material. If something's wrong,
+sign in and flag it from the relevant page, or reach out directly.
 
 ## License
 
-Content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Site code is MIT.
+See [`LICENSE`](./LICENSE) for the current terms (site code: MIT; content: CC BY 4.0).
+**Note:** the content license predates the closed-platform pivot and hasn't been
+re-reviewed against it — worth a look before treating it as final, since a lot of what's
+now gated (papers, recordings, cohort-specific notes) isn't really meant for open
+redistribution the way CC BY 4.0 implies.
 
-Credit for the underlying lectures: Prof. Tantri.
+Credit for the underlying teaching: Prof. Prasanna Tantri.
