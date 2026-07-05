@@ -352,13 +352,25 @@
     var app = m[0].initializeApp(window.GZE_FIREBASE, "site");
     var auth = m[1].getAuth(app);
     m[1].onAuthStateChanged(auth, function (user) {
+      if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
     });
     els.forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function (err) {
+        var provider = new m[1].GoogleAuthProvider();
+        provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+        m[1].signInWithPopup(auth, provider).then(function (res) {
+          var email = res.user && res.user.email;
+          if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
+            m[1].signOut(auth);
+            alert("This room is ISB-only — please sign in with your @isb.edu email.");
+          }
+        }).catch(function (err) {
           console.error("[gze] sign-in failed:", err && err.code, err);
+          if (err && err.code === "auth/unauthorized-domain") {
+            alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
+          }
         });
       });
     });

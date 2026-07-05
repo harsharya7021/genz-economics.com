@@ -455,10 +455,21 @@
       var app = m[0].initializeApp(window.GZE_FIREBASE, "essay");
       var auth = m[1].getAuth(app);
       m[1].onAuthStateChanged(auth, function (user) {
+        if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
         document.body.classList.toggle("essay-unlocked", !!user);
       });
       var btn = gate.querySelector("[data-gate-signin]");
-      if (btn) btn.addEventListener("click", function () { m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function (err) { console.error("[gze] sign-in failed:", err && err.code, err); }); });
+      if (btn) btn.addEventListener("click", function () {
+        var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+        m[1].signInWithPopup(auth, provider).then(function (res) {
+          if (window.GZE_emailAllowed && !window.GZE_emailAllowed(res.user && res.user.email)) {
+            m[1].signOut(auth); alert("This room is ISB-only — please sign in with your @isb.edu email.");
+          }
+        }).catch(function (err) {
+          console.error("[gze] sign-in failed:", err && err.code, err);
+          if (err && err.code === "auth/unauthorized-domain") alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
+        });
+      });
     }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
   })();
 })();

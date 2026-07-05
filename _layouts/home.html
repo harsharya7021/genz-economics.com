@@ -62,43 +62,12 @@ layout: default
      in and joins a centred pile, then the pile rides the scroll down and
      dissolves into the white CTA. home-stack.js drives it. ── -->
 <section class="stack-stage" id="walkthrough">
-  <!-- ambient background texture: a stilled candlestick chart, very low
-       opacity — pure decoration, echoes the "stock line" progress mark
-       in the stage foot below without competing with the cards. -->
-  <svg class="stage-candles" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
-    <g class="sc-candle">
-      <line x1="30.0" y1="197.9" x2="30.0" y2="223.7"/><rect x="23.0" y="213.4" width="14" height="4.0" rx="1.5"/>
-      <line x1="67.6" y1="205.0" x2="67.6" y2="236.5"/><rect x="60.6" y="217.2" width="14" height="6.3" rx="1.5"/>
-      <line x1="105.2" y1="214.3" x2="105.2" y2="251.1"/><rect x="98.2" y="223.5" width="14" height="15.9" rx="1.5"/>
-      <line x1="142.8" y1="230.9" x2="142.8" y2="244.3"/><rect x="135.8" y="235.8" width="14" height="4.0" rx="1.5"/>
-      <line x1="180.4" y1="228.9" x2="180.4" y2="259.3"/><rect x="173.4" y="235.8" width="14" height="9.9" rx="1.5"/>
-      <line x1="218.0" y1="231.9" x2="218.0" y2="254.1"/><rect x="211.0" y="241.8" width="14" height="4.0" rx="1.5"/>
-      <line x1="255.6" y1="219.7" x2="255.6" y2="252.2"/><rect x="248.6" y="231.9" width="14" height="10.0" rx="1.5"/>
-      <line x1="293.2" y1="222.2" x2="293.2" y2="247.0"/><rect x="286.2" y="230.4" width="14" height="4.0" rx="1.5"/>
-      <line x1="330.8" y1="197.2" x2="330.8" y2="237.8"/><rect x="323.8" y="210.9" width="14" height="19.4" rx="1.5"/>
-      <line x1="368.4" y1="191.0" x2="368.4" y2="222.3"/><rect x="361.4" y="203.1" width="14" height="7.9" rx="1.5"/>
-      <line x1="406.0" y1="165.5" x2="406.0" y2="217.3"/><rect x="399.0" y="181.8" width="14" height="21.3" rx="1.5"/>
-      <line x1="443.6" y1="158.6" x2="443.6" y2="199.5"/><rect x="436.6" y="166.6" width="14" height="15.2" rx="1.5"/>
-      <line x1="481.2" y1="151.9" x2="481.2" y2="176.4"/><rect x="474.2" y="157.5" width="14" height="9.1" rx="1.5"/>
-      <line x1="518.8" y1="137.2" x2="518.8" y2="163.7"/><rect x="511.8" y="151.8" width="14" height="5.7" rx="1.5"/>
-      <line x1="556.4" y1="120.6" x2="556.4" y2="156.3"/><rect x="549.4" y="131.4" width="14" height="20.3" rx="1.5"/>
-      <line x1="594.0" y1="114.2" x2="594.0" y2="146.1"/><rect x="587.0" y="127.6" width="14" height="4.0" rx="1.5"/>
-      <line x1="631.6" y1="115.6" x2="631.6" y2="148.7"/><rect x="624.6" y="127.6" width="14" height="4.9" rx="1.5"/>
-      <line x1="669.2" y1="124.1" x2="669.2" y2="153.5"/><rect x="662.2" y="132.5" width="14" height="7.3" rx="1.5"/>
-      <line x1="706.8" y1="126.8" x2="706.8" y2="151.9"/><rect x="699.8" y="139.2" width="14" height="4.0" rx="1.5"/>
-      <line x1="744.4" y1="128.8" x2="744.4" y2="159.8"/><rect x="737.4" y="139.2" width="14" height="4.8" rx="1.5"/>
-      <line x1="782.0" y1="126.8" x2="782.0" y2="172.9"/><rect x="775.0" y="144.0" width="14" height="18.3" rx="1.5"/>
-      <line x1="819.6" y1="143.3" x2="819.6" y2="167.1"/><rect x="812.6" y="156.6" width="14" height="5.7" rx="1.5"/>
-      <line x1="857.2" y1="142.8" x2="857.2" y2="190.7"/><rect x="850.2" y="156.6" width="14" height="21.1" rx="1.5"/>
-      <line x1="894.8" y1="156.6" x2="894.8" y2="193.2"/><rect x="887.8" y="174.5" width="14" height="4.0" rx="1.5"/>
-      <line x1="932.4" y1="166.5" x2="932.4" y2="184.4"/><rect x="925.4" y="174.5" width="14" height="4.0" rx="1.5"/>
-      <line x1="970.0" y1="160.5" x2="970.0" y2="179.3"/><rect x="963.0" y="173.9" width="14" height="4.0" rx="1.5"/>
-    </g>
-  </svg>
-  <!-- the progress line: same coordinate space as the candles, drawn just
-       above their wicks — it reveals left-to-right as you scroll the belt,
-       climbing over the candlestick trend, dot riding the tip. -->
+  <!-- the scroll line: a single clean trend line that draws left-to-right
+       as you scroll the belt (stroke-dashoffset, home-stack.js), a lit dot
+       riding the tip. Three hairline gridlines give it a chart's structure
+       without the old candlesticks. -->
   <svg class="stage-spark" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+    <g class="ssp-grid"><line x1="0" y1="90" x2="1000" y2="90"/><line x1="0" y1="150" x2="1000" y2="150"/><line x1="0" y1="210" x2="1000" y2="210"/></g>
     <path id="stackSparkPath" class="ssp-line" pathLength="1"
       d="M2 196 L30 188 L67.6 195 L105.2 204 L142.8 221 L180.4 219 L218 222 L255.6 210 L293.2 212 L330.8 187 L368.4 181 L406 155 L443.6 149 L481.2 142 L518.8 127 L556.4 111 L594 104 L631.6 106 L669.2 114 L706.8 117 L744.4 119 L782 117 L819.6 133 L857.2 133 L894.8 147 L932.4 157 L970 151 L998 118"/>
     <circle id="stackSparkDot" class="ssp-dot" r="4" cx="2" cy="196"></circle>
