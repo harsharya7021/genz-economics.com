@@ -1844,3 +1844,10 @@ dfn.lookup:hover { background: var(--highlight); }
 .mgrid-legend i { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: .3rem; }
 .tile-dark { --mkt-up:#35c76f; --mkt-up-soft:rgba(53,199,111,.20); --mkt-down:#ff6b6b; --mkt-down-soft:rgba(255,107,107,.18); }
 .tile-gold { --mkt-up:#1d6b38; --mkt-up-soft:rgba(29,107,56,.18); --mkt-down:#a02020; --mkt-down-soft:rgba(160,32,32,.16); }
+
+/* Visible signed-in state — the gate buttons flip to a quiet confirmation
+   (site.js swaps the label and adds .is-signed-in once Firebase reports a user). */
+[data-gate-signin].is-signed-in {
+  background: var(--isb-green, #1a7a4f); color: #fff;
+  pointer-events: auto; cursor: pointer;
+}

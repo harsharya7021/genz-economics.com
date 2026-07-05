@@ -354,9 +354,17 @@
     m[1].onAuthStateChanged(auth, function (user) {
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
+      /* make the signed-in state VISIBLE: every sign-in button flips to a
+         confirmation and stops opening the popup (click follows its href) */
+      els.forEach(function (el) {
+        if (!el.dataset.signinLabel) el.dataset.signinLabel = el.textContent;
+        el.textContent = user ? "Signed in \u2713 \u2014 you're in the room" : el.dataset.signinLabel;
+        el.classList.toggle("is-signed-in", !!user);
+      });
     });
     els.forEach(function (el) {
       el.addEventListener("click", function (e) {
+        if (auth.currentUser) return; /* already in \u2014 let the link act as a link */
         e.preventDefault();
         var provider = new m[1].GoogleAuthProvider();
         provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
