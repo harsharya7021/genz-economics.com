@@ -27,9 +27,6 @@
     var belt = stage.querySelector(".stack-belt");
     var head = stage.querySelector(".stage-head");
     var cards = gsap.utils.toArray(stage.querySelectorAll(".stack-card"));
-    var sparkPath = document.getElementById("stackSparkPath");
-    var sparkDot = document.getElementById("stackSparkDot");
-    var sparkLen = sparkPath ? sparkPath.getTotalLength() : 0;
     var n = cards.length;
     if (!n) return;
 
@@ -74,14 +71,6 @@
           delay: 0.06,
           ease: "power1.inOut"
         },
-        onUpdate: function (self) {
-          if (sparkPath) sparkPath.style.strokeDashoffset = (1 - self.progress).toFixed(4);
-          if (sparkDot && sparkPath && sparkLen) {
-            var pt = sparkPath.getPointAtLength(self.progress * sparkLen);
-            sparkDot.setAttribute("cx", pt.x);
-            sparkDot.setAttribute("cy", pt.y);
-          }
-        }
       }
     });
 

@@ -466,8 +466,12 @@
             m[1].signOut(auth); alert("This room is ISB-only — please sign in with your @isb.edu email.");
           }
         }).catch(function (err) {
-          console.error("[gze] sign-in failed:", err && err.code, err);
-          if (err && err.code === "auth/unauthorized-domain") alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
+          var code = err && err.code || "";
+          console.error("[gze] sign-in failed:", code, err);
+          if (code === "auth/unauthorized-domain") alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
+          else if (code === "auth/operation-not-allowed") alert("Google sign-in isn't switched on yet. In Firebase → Authentication → Sign-in method, enable Google.");
+          else if (code === "auth/popup-blocked" || code === "auth/cancelled-popup-request") alert("Your browser blocked the sign-in popup — allow popups for genz-economics.com and try again.");
+          else if (code) alert("Sign-in failed (" + code + ").");
         });
       });
     }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });

@@ -1460,10 +1460,12 @@ dfn.lookup:hover { background: var(--highlight); }
 
 /* the collage — generated brand art over the kinetic marquee */
 .mast-art { display: block; margin: 1.5rem 0 0; max-width: 560px; }
-.mast-art-img {
-  display: block; width: 100%; border-radius: 18px;
-  border: 1px solid var(--rule); box-shadow: var(--shadow-md);
-}
+.mast-art-img { display: block; width: 100%; }
+/* The hero art is transparent line-work: it reads as ink on the light
+   page, and in dark mode we simply invert it (hue-rotate keeps the brand
+   colours roughly true) so the lines go light on the dark ground. */
+[data-theme="dark"] .mast-art-img,
+[data-theme="dark"] .pf-art { filter: invert(1) hue-rotate(180deg); }
 .mast-art-grid { /* legacy coded-collage layout, kept for fallback */
   display: grid; grid-template-columns: 1fr 1.6fr .9fr; gap: .7rem;
   align-items: stretch;
@@ -1508,12 +1510,10 @@ dfn.lookup:hover { background: var(--highlight); }
 }
 .prof-stage.flipped .prof-flip { transform: rotateY(180deg); }
 .pf-face {
-  /* the art is ink-on-white — pin the light palette so the card stays a
-     clean ivory sheet in BOTH themes, like the belt cards */
-  --ink:#24313A; --ink-soft:#5D6F7A; --surface:#FFFFFF; --surface-2:#F4F8FA;
-  --rule:#D8E1E7; --accent:#192890; --accent-press:#245BFF; --gold-ink:#8A6A12;
+  /* theme-aware: light sheet in light mode, dark sheet in dark mode — the
+     transparent art sits on it and inverts with the theme (see filter above) */
   position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  background: #FFFFFF; border: 1px solid var(--rule); border-radius: 22px;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 22px;
   box-shadow: var(--shadow-md); padding: 1.2rem; overflow: hidden;
   color: var(--ink);
 }
@@ -1561,11 +1561,7 @@ dfn.lookup:hover { background: var(--highlight); }
   .flipped .hall-karma { animation: karmaPop .7s cubic-bezier(.2,1.4,.4,1) .5s both; }
   @keyframes karmaPop { from { transform: scale(0); } to { transform: scale(1); } }
 }
-/* The back face carries the dark lecture-hall art — pull the caption to
-   light and lay a soft scrim under it so it reads over the navy. */
-.pf-back { color: #EAF0F5; }
-.pf-back::after { content: ""; position: absolute; inset: auto 0 0 0; height: 52%; background: linear-gradient(transparent, rgba(10,14,42,.82)); z-index: 0; pointer-events: none; }
-.hall-caption { position: relative; z-index: 1; font: 400 .88rem/1.5 var(--body); color: #C4D0DA; margin: 0; max-width: 32ch; }
+.hall-caption { position: relative; z-index: 1; font: 400 .88rem/1.5 var(--body); color: var(--ink-soft); margin: 0; max-width: 32ch; }
 .mast-fact {
   display: flex; flex-direction: column; gap: .3rem; margin: 1.1rem 0 0;
   font: 600 .92rem var(--sans); color: var(--ink);
@@ -1621,7 +1617,11 @@ dfn.lookup:hover { background: var(--highlight); }
   position: relative;
 }
 /* ambient stilled candlestick chart, low opacity — decorative fill only */
-/* (candlestick backdrop removed — the single scroll line below is the mark) */
+/* Candlestick backdrop — a stilled chart behind the cards, very low
+   opacity, sharp bodies (no rounded dojis). Pure decoration. */
+.stage-candles { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; pointer-events: none; z-index: 0; }
+.stage-candles .sc-candle line { stroke: #C7D2DA; stroke-width: 1.5; }
+.stage-candles .sc-candle rect { fill: var(--isb-green); }
 .stack-pin { position: relative; z-index: 1; min-height: 100svh; padding: 4.5rem 0 4rem; display: flex; flex-direction: column; }
 .stage-head { display: grid; grid-template-columns: 190px 1fr; gap: 2.5rem; align-items: start; }
 .stage-label { font: 600 .78rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--isb-green); margin: .35rem 0 0; }
@@ -1661,11 +1661,6 @@ dfn.lookup:hover { background: var(--highlight); }
    coordinate space, drawn just above the wicks. Reveals left-to-right
    (stroke dashoffset, driven by home-stack.js) as you scroll the belt,
    a lit dot riding the tip. Invisible without JS (dashoffset 1). */
-.stage-spark { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
-.ssp-grid line { stroke: #F4F8FA; stroke-width: 1; vector-effect: non-scaling-stroke; opacity: .05; }
-.ssp-line { fill: none; stroke: var(--isb-green); stroke-width: 1.75; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; opacity: .55; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.ssp-dot { fill: var(--isb-green); r: 3; opacity: 0; }
-.stack-ready .ssp-dot { opacity: 1; }
 
 /* Desktop, once home-stack.js takes over */
 .stack-ready .stack-pin { overflow: hidden; }
