@@ -65,7 +65,9 @@ lectures_enabled: true
 # Optional: your Cloudflare Stream customer code (Stream dashboard URL). Blank = use videodelivery.net.
 stream_customer_code: ""
 
-# Skip noise
+# Skip noise — internal docs and tooling must never hit the Jekyll build
+# (GH Pages renders markdown even without front matter, and these contain
+# literal {% raw %}Liquid{% endraw %} snippets that break it)
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -77,3 +79,18 @@ exclude:
   - MODERATORS.md
   - CODE_OF_CONDUCT.md
   - .github
+  - HANDOFF.md
+  - SPEC-KARMA-GATING.md
+  - ARCHITECTURE.md
+  - VOICE-TANTRI.md
+  - VOICE-RAW-TANTRI.md
+  - COMMENTS-SETUP.md
+  - DEPLOY.md
+  - DEPLOY-RENDER.md
+  - VIDEO-SETUP.md
+  - LICENSE
+  - automation
+  - scripts
+  - render.yaml
+  - landing-v2-PREVIEW.html
+  - corporate-finance-v9-PREVIEW.html
