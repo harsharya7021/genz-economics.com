@@ -1458,10 +1458,15 @@ dfn.lookup:hover { background: var(--highlight); }
 .duo-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 3.2rem; align-items: start; }
 .duo-right { padding-top: 1.2rem; }
 
-/* kinetic collage */
-.mast-art {
+/* the collage — generated brand art over the kinetic marquee */
+.mast-art { display: block; margin: .4rem 0 1.4rem; max-width: 560px; }
+.mast-art-img {
+  display: block; width: 100%; border-radius: 14px;
+  border: 1px solid var(--rule); margin-bottom: .7rem;
+}
+.mast-art-grid { /* legacy coded-collage layout, kept for fallback */
   display: grid; grid-template-columns: 1fr 1.6fr .9fr; gap: .7rem;
-  align-items: stretch; margin: .4rem 0 1.4rem; max-width: 560px;
+  align-items: stretch;
 }
 .ma-cell { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: .8rem; position: relative; overflow: hidden; min-height: 108px; }
 .ma-bars { display: flex; align-items: flex-end; gap: 5px; }
@@ -1503,11 +1508,22 @@ dfn.lookup:hover { background: var(--highlight); }
 }
 .prof-stage.flipped .prof-flip { transform: rotateY(180deg); }
 .pf-face {
+  /* the art is ink-on-white — pin the light palette so the card stays a
+     clean ivory sheet in BOTH themes, like the belt cards */
+  --ink:#24313A; --ink-soft:#5D6F7A; --surface:#FFFFFF; --surface-2:#F4F8FA;
+  --rule:#D8E1E7; --accent:#192890; --accent-press:#245BFF; --gold-ink:#8A6A12;
   position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 22px;
+  background: #FFFFFF; border: 1px solid var(--rule); border-radius: 22px;
   box-shadow: var(--shadow-md); padding: 1.2rem; overflow: hidden;
+  color: var(--ink);
 }
 .pf-back { transform: rotateY(180deg); }
+.pf-art {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center bottom; z-index: 0;
+}
+.pf-art-hall { object-position: center 65%; }
+.hall-karma { z-index: 1; }
 .prof-art, .hall-art { position: absolute; inset: auto 0 0 0; width: 100%; height: 72%; color: var(--ink); }
 .ln { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
 .prof-lids rect { fill: none; stroke: currentColor; stroke-width: 2; }
