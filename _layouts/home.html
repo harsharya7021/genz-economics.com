@@ -2,11 +2,105 @@
 layout: default
 ---
 
-<!-- ── Act 1: masthead ── -->
-<section class="hero masthead" style="padding-bottom:1rem">
+<!-- ── Act 1: masthead — the lecture-hall hero.
+     Left: headline + lede + a kinetic GZE collage (OCW-style moving parts:
+     bars, a drawing yield curve, ticker chips, marquee type).
+     Right: Prof. Tantri as line art, posing today's question; the card
+     flips to the lecture hall — name card up, karma awarded — then flips
+     back. Daily question + money-history fact live HERE now (site.js
+     already fills #upscToday / #mhTitle). ── -->
+<section class="hero masthead hero-duo" style="padding-bottom:1.4rem">
+  <div class="container duo-grid">
+
+    <div class="duo-left">
+      <h1 class="display mast-display">ISB made macro optional.<br><em>Here it is anyway.</em></h1>
+      <p class="lede mast-lede">Somebody already explained macro to you — badly. A TV panel shouting past each other, a forwarded chart with no source. Meanwhile the repo rate set your EMI, the rupee priced your trip, and a yield curve you've never seen decided your offer letter. Prof. Tantri teaches the mechanism, not predictions — so the next time onions are setting the repo rate, you saw it coming.</p>
+
+      <!-- kinetic collage: gen-z cool × FT-serious. Pure CSS animation, stilled under reduced motion. -->
+      <div class="mast-art" aria-hidden="true">
+        <div class="ma-cell ma-bars">
+          <i style="--h:38%"></i><i style="--h:64%"></i><i style="--h:46%"></i><i style="--h:82%"></i><i style="--h:58%"></i><i style="--h:74%"></i><i style="--h:52%"></i>
+        </div>
+        <div class="ma-cell ma-curve">
+          <svg viewBox="0 0 220 110" preserveAspectRatio="none">
+            <path class="ma-grid-h" d="M0 88 H220 M0 58 H220 M0 28 H220"/>
+            <path class="ma-line" d="M6 92 C 40 88, 58 74, 84 62 S 138 44, 168 30 S 204 16, 214 12"/>
+            <circle class="ma-dot" cx="214" cy="12" r="4"/>
+          </svg>
+          <span class="ma-tag">yield, not vibes</span>
+        </div>
+        <div class="ma-cell ma-chip-stack">
+          <span class="ma-chip">repo 5.25%</span>
+          <span class="ma-chip ma-chip-b">CPI 3.9%</span>
+          <span class="ma-chip ma-chip-c">₹ 95.22</span>
+        </div>
+        <div class="ma-marquee"><span>GEN Z · ECONOMICS · MACRO YOU CAN USE · GEN Z · ECONOMICS · MACRO YOU CAN USE ·&nbsp;</span><span>GEN Z · ECONOMICS · MACRO YOU CAN USE · GEN Z · ECONOMICS · MACRO YOU CAN USE ·&nbsp;</span></div>
+      </div>
+
+    </div>
+
+    <div class="duo-right">
+      <div class="prof-stage" id="profStage" aria-label="Today's question from the professor — activates the lecture hall view">
+        <div class="prof-flip">
+
+          <!-- Face A: the professor, line art, posing today's question -->
+          <div class="pf-face pf-front">
+            <svg class="prof-art" viewBox="0 0 300 320" fill="none" aria-hidden="true">
+              <!-- lectern -->
+              <path class="ln" d="M28 300 L70 240 H150 L142 300 Z"/>
+              <path class="ln" d="M70 240 L74 228 H154 L150 240"/>
+              <!-- body -->
+              <path class="ln" d="M190 300 C186 260 190 232 204 214 C 212 204 228 198 240 198 C 258 198 272 208 278 226 C 284 246 284 274 282 300"/>
+              <!-- collar -->
+              <path class="ln" d="M226 200 L240 216 L254 200"/>
+              <!-- head -->
+              <path class="ln" d="M216 160 C 214 132 230 112 244 112 C 262 112 272 128 271 148 C 270 170 260 186 244 187 C 230 188 218 178 216 160 Z"/>
+              <!-- hair, side part -->
+              <path class="ln" d="M219 142 C 220 120 232 106 246 107 C 262 108 272 122 271 140 C 262 128 250 122 240 124 C 231 126 223 133 219 142 Z" style="fill:currentColor;opacity:.9"/>
+              <!-- glasses -->
+              <g class="ln"><rect x="224" y="146" width="17" height="13" rx="3"/><rect x="248" y="146" width="17" height="13" rx="3"/><path d="M241 152 H248 M224 150 L218 148 M265 150 L271 148"/></g>
+              <!-- blink lids -->
+              <g class="prof-lids"><rect x="226" y="150" width="13" height="0.5" rx="0.25"/><rect x="250" y="150" width="13" height="0.5" rx="0.25"/></g>
+              <!-- smile -->
+              <path class="ln" d="M238 172 C 243 176 250 176 256 171"/>
+              <!-- raised arm with marker -->
+              <g class="prof-arm"><path class="ln" d="M204 230 C 186 220 172 202 166 184 C 163 175 164 166 168 160"/><path class="ln" d="M168 160 L158 144 M168 160 L176 150"/></g>
+            </svg>
+            <div class="prof-bubble">
+              <p class="pb-label">Today's question · class participation open</p>
+              <p class="pb-q" id="upscToday">Loading today's question…</p>
+              <a class="pb-cta" href="{{ '/discussions/' | relative_url }}">Answer it → collect the karma</a>
+            </div>
+          </div>
+
+          <!-- Face B: the lecture hall — name card up, karma landing -->
+          <div class="pf-face pf-back">
+            <svg class="hall-art" viewBox="0 0 300 320" fill="none" aria-hidden="true">
+              <!-- board -->
+              <rect class="ln" x="70" y="24" width="160" height="58" rx="4"/>
+              <path class="ln" d="M84 44 H172 M84 58 H204" style="opacity:.5"/>
+              <!-- tiered desks, three arcs -->
+              <path class="ln" d="M30 150 Q150 118 270 150"/>
+              <path class="ln" d="M18 210 Q150 172 282 210"/>
+              <path class="ln" d="M8 274 Q150 230 292 274"/>
+              <!-- name cards row 2 -->
+              <g class="ln" style="opacity:.55"><rect x="52" y="188" width="34" height="14" rx="2"/><rect x="214" y="188" width="34" height="14" rx="2"/></g>
+              <!-- the contributor's card, lit -->
+              <g class="hall-you"><rect x="128" y="180" width="46" height="18" rx="3"/><text x="151" y="193" text-anchor="middle">YOU</text></g>
+              <!-- heads row 3 -->
+              <g class="ln" style="opacity:.4"><circle cx="70" cy="252" r="9"/><circle cx="150" cy="242" r="9"/><circle cx="230" cy="252" r="9"/></g>
+            </svg>
+            <span class="hall-karma">+2 karma</span>
+            <p class="hall-caption">Best answer gets read out in class — name card and all. Sign in, answer today's question, and the ledger remembers.</p>
+          </div>
+
+        </div>
+      </div>
+      <p class="mast-fact"><span class="mf-label">Today, in the history of money</span><span id="mhTitle">Loading…</span></p>
+    </div>
+
+  </div>
   <div class="container">
-    <h1 class="display mast-display">ISB made macro optional.<br><em>Here it is anyway.</em></h1>
-    <p class="lede mast-lede">Somebody already explained macro to you — badly. A TV panel shouting past each other, a forwarded chart with no source. Meanwhile the repo rate set your EMI, the rupee priced your trip, and a yield curve you've never seen decided your offer letter. Prof. Tantri has taught this, live, for years — the mechanism, not predictions, so you see it coming next time instead of reacting to the headline. Miss a Sunday, and you're back to asking your brother-in-law from IIM-A.</p>
     <a class="scroll-nudge" href="#walkthrough" aria-label="Scroll — see what the room holds">
       <span class="sn-label">scroll</span>
       <span class="sn-track" aria-hidden="true"><i></i></span>
@@ -14,19 +108,15 @@ layout: default
   </div>
 </section>
 
-<!-- ── Act 2: the walkthrough — Axiom's Observed-Systems fold, rebuilt.
-     A dark pinned stage: each of the six features arrives from the right
-     as a white card, holds centre to explain itself, then banks left onto
-     a growing pile. After the last card the pile dims and the white CTA
-     panel below rolls up over the stage. Choreography lives in
-     assets/js/home-stack.js (GSAP ScrollTrigger, ≥981px only); on mobile,
-     no JS, or reduced motion this degrades to a sticky card pile. ── -->
+<!-- ── Act 2: the walkthrough — dark pinned stage; each feature card flies
+     in and joins a centred pile, then the pile rides the scroll down and
+     dissolves into the white CTA. home-stack.js drives it. ── -->
 <section class="stack-stage" id="walkthrough">
   <div class="stack-pin">
     <div class="container">
       <div class="stage-head">
         <p class="stage-label">What the room holds</p>
-        <h2 class="stage-lead">A course page lists what's covered. This hands you the actual room — the sessions, the machines you can <em>break</em>, and the calendar the whole system runs on.</h2>
+        <h2 class="stage-lead">Five machines keep this room running. Each one walks on, says its piece, and joins the pile — by the last card you'll know exactly what a <em>sign-in buys</em>.</h2>
       </div>
     </div>
 
@@ -79,7 +169,7 @@ layout: default
       </article>
 
       <article class="stack-card signal-card">
-        <div class="signal-num"><span class="n">05</span><span>From the group</span></div>
+        <div class="signal-num"><span class="n">05</span><span>The library</span></div>
         <h3>What he sends, <em>with the verdicts.</em></h3>
         <div class="scene-visual">
           <p class="lib-title" style="margin:0 0 .3rem">RBI Bulletin — original data link <span class="lib-type">rbi-fed</span></p>
@@ -87,27 +177,14 @@ layout: default
           <p class="lib-title" style="margin:0 0 .3rem">Gormsen &amp; Huber — Corporate Discount Rates <span class="lib-type">paper</span></p>
           <p class="lib-verdict" style="margin:0">Firms do not change their hurdle rate when cost of capital changes.</p>
         </div>
-        <p class="scene-copy">Papers, RBI documents, his own columns — dropped into the group with one line that tells you exactly how to read them. Archived for the cohort, verdicts verbatim.</p>
-        <a class="scene-link" href="{{ '/reading-room/' | relative_url }}">Into the reading room →</a>
-      </article>
-
-      <article class="stack-card signal-card">
-        <div class="signal-num"><span class="n">06</span><span>The daily rituals</span></div>
-        <h3>A question and a story, <em>every day.</em></h3>
-        <div class="scene-visual">
-          <p class="eyebrow" style="margin:0 0 .3rem">Today's question · discuss it</p>
-          <p class="q" id="upscToday" style="margin:0 0 1rem;font:500 1rem/1.4 var(--serif);color:var(--ink)">Loading today's question…</p>
-          <p class="eyebrow" style="margin:0 0 .3rem">Today, in the history of money</p>
-          <p id="mhTitle" style="margin:0;font:600 .92rem var(--sans);color:var(--ink)">Loading…</p>
-        </div>
-        <p class="scene-copy">A UPSC-style question worth arguing over, and one true story from the history of money — both refreshed daily. Small habits; they compound.</p>
-        <a class="scene-link" href="{{ '/discussions/' | relative_url }}">Join today's discussion →</a>
+        <p class="scene-copy">Papers, RBI circulars, his own columns — each filed with the one line that tells you how to read it, verdicts verbatim. Plus the book club: one book a quarter, his pick.</p>
+        <a class="scene-link" href="{{ '/reading-room/' | relative_url }}">Into the library →</a>
       </article>
 
     </div>
 
     <div class="stage-foot container" aria-hidden="true">
-      <span class="stack-count" id="stackCount">01 / 06</span>
+      <span class="stack-count" id="stackCount">01 / 05</span>
       <span class="stack-progress"><i id="stackBar"></i></span>
     </div>
   </div>
@@ -115,12 +192,11 @@ layout: default
 <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
 <script type="application/json" id="money-history-data">{{ site.data['money-history'] | jsonify }}</script>
 
-<!-- ── Act 3: the fold — the white panel that rolls up over the stage.
-     Sign in, or keep scrolling: the free notes are right below. ── -->
+<!-- ── Act 3: the fold ── -->
 <section class="cta-band cta-fold">
   <div class="container">
     <h2>The stuff you can't just Google.</h2>
-    <p>But you can see it with your ISB id — sign in for the lectures and the notes. The whole point is what you can't pick up online; if ten years from now you can say "I could've just Googled this," it hasn't worked. Karma keeps score of being useful to the room — pass the quiz or get your own take on a session approved, and the next one unlocks. Miss three quizzes and Maneshwar drops you; he's the bad guy.</p>
+    <p>But you can read it with your ISB id — one Google sign-in. (Even the stuff you <em>can</em> Google goes down easier here.) The point stands: if ten years from now you can say "I could've just Googled this," it hasn't worked. Karma keeps score of being useful to the room — class participation, same as it ever was at ISB, except this leaderboard never resets. Miss three quizzes and Maneshwar drops you; he's the bad guy.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" id="ctaSignIn" href="#latest" data-gate-signin>Sign in with Google</a>
       <a class="btn btn-ghost" href="#latest">Check out the free notes ↓</a>
@@ -194,5 +270,17 @@ layout: default
     a.innerHTML = "<strong>" + (days===0?"today":days===1?"tomorrow":d.toLocaleDateString("en-IN",{day:"numeric",month:"short"})) + "</strong> " + e.title + (e.time ? " <span class='evt-t'>" + e.time + "</span>" : "");
     wrap.appendChild(a);
   });
+
+  // Hero flip: professor ⇄ lecture hall. Auto every 7s, click/keyboard to
+  // flip, paused on hover and under reduced motion.
+  var stage = document.getElementById("profStage");
+  if (!stage) return;
+  var hover = false, reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  stage.addEventListener("mouseenter", function(){ hover = true; });
+  stage.addEventListener("mouseleave", function(){ hover = false; });
+  stage.addEventListener("click", function(e){ if (e.target.closest("a")) return; stage.classList.toggle("flipped"); });
+  stage.setAttribute("tabindex","0");
+  stage.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); stage.classList.toggle("flipped"); } });
+  if (!reduce) setInterval(function(){ if (!hover) stage.classList.toggle("flipped"); }, 7000);
 })();
 </script>

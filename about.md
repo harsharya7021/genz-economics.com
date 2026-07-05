@@ -17,7 +17,7 @@ We tried it in the open. A handful of people did the work; everyone else watched
 
 There's a better reason, though. The material here — papers, RBI circulars, draft notes — is written for people with the background to use it correctly. Without that setup, the same document misleads more than it helps. So the login is not a fee. It's a gate, so the people reading this are the people it was written for. Not exclusivity — just not wasting your time, or mine.
 
-And the whole point is to give you what you *can't* pick up online. If ten years from now you can say "I could've just Googled this, why did I bother," then it hasn't worked. So the focus stays on what isn't available elsewhere.
+And the whole point is to give you what you cannot pick up online. If ten years from now you can say "I could've just Googled this, why did I bother," then it hasn't worked. So the focus stays on what isn't available elsewhere.
 
 ## Why one session a week
 

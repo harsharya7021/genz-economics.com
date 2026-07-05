@@ -56,6 +56,23 @@
         scrub: 1,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        /* Scroll-back polish: instead of cards free-floating in reverse,
+           the belt always settles on a card's resting beat — both
+           directions feel deliberate rather than replayed. */
+        snap: {
+          snapTo: function (value) {
+            var D = tl.duration();
+            var pts = [0];
+            for (var i = 0; i < n; i++) pts.push((i * seg + 1) / D);
+            pts.push(1);
+            var best = pts[0];
+            for (var j = 1; j < pts.length; j++) if (Math.abs(pts[j] - value) < Math.abs(best - value)) best = pts[j];
+            return best;
+          },
+          duration: { min: 0.15, max: 0.45 },
+          delay: 0.06,
+          ease: "power1.inOut"
+        },
         onUpdate: function (self) {
           if (bar) bar.style.transform = "scaleX(" + self.progress.toFixed(4) + ")";
           if (count) {
