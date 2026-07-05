@@ -94,6 +94,7 @@ exclude:
   - render.yaml
   - landing-v2-PREVIEW.html
   - corporate-finance-v9-PREVIEW.html
+  - helios-setup.sh
 
 # build 1783250404
 # rebuild 1783252964
