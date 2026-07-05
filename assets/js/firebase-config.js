@@ -15,12 +15,16 @@ window.GZE_FIREBASE = {
 
 /* Sign-in is ISB-only. Add domains here if alumni/faculty domains open up.
    The `hd` param only *hints* Google's picker — the real gate is this
-   post-sign-in check, shared by every sign-in button on the site. */
+   post-sign-in check, shared by every sign-in button on the site.
+   GZE_ALLOWED_EMAILS = admin exceptions (exact addresses) that get in
+   regardless of domain — currently Harsh's own account. */
 window.GZE_ALLOWED_DOMAINS = ["isb.edu"];
+window.GZE_ALLOWED_EMAILS = ["harsharya7021@gmail.com"];
 window.GZE_emailAllowed = function (email) {
   var allowed = window.GZE_ALLOWED_DOMAINS || [];
   if (!allowed.length) return true;
   email = (email || "").toLowerCase();
+  if ((window.GZE_ALLOWED_EMAILS || []).indexOf(email) !== -1) return true;
   var at = email.lastIndexOf("@");
   return at !== -1 && allowed.indexOf(email.slice(at + 1)) !== -1;
 };

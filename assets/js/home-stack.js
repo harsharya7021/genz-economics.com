@@ -2,9 +2,12 @@
    six features. GSAP ScrollTrigger pins the dark stage; each card flies
    in from the right and lands on a CENTRED pile with a small tilt and
    offset, covering the one before it (each card gets its beat on top
-   while the next approaches). After the last card lands, the whole pile
-   rides the scroll DOWNWARD and dissolves into the white CTA panel as it
-   climbs over the stage.
+   while the next approaches). While the deck plays, the gold trend line
+   in the candlestick backdrop draws itself left-to-right with the same
+   scroll — a lit dot riding its tip over a dashed drop-line (the chart
+   kit's tooltip anatomy). After the last card lands the pile rides the
+   scroll DOWNWARD — no fade — and is BURIED behind the white CTA panel
+   as it climbs over the stage.
 
    Desktop-only by design: below 981px, without JS, or with reduced
    motion the CSS sticky pile in main.css takes over. gsap.matchMedia
@@ -77,6 +80,31 @@
     /* the lead statement steps back once the first card takes the stage */
     tl.to(head, { opacity: 0.28, duration: 0.6, ease: "none" }, 0.55);
 
+    /* the gold trend line draws itself across the candlesticks for the
+       whole card run; the lit dot rides the tip, dashed drop under it */
+    var trend = stage.querySelector(".stage-trend");
+    var trendDot = stage.querySelector(".stage-trend-dot");
+    var trendDrop = stage.querySelector(".stage-trend-drop");
+    if (trend && trendDot && trendDrop) {
+      var trendLen = trend.getTotalLength();
+      var drawState = { p: 0 };
+      tl.to(drawState, {
+        p: 1,
+        duration: (n - 1) * seg + 1,
+        ease: "none",
+        onUpdate: function () {
+          trend.style.strokeDashoffset = String(1 - drawState.p);
+          var pt = trend.getPointAtLength(drawState.p * trendLen);
+          trendDot.setAttribute("cx", pt.x); trendDot.setAttribute("cy", pt.y);
+          trendDrop.setAttribute("x1", pt.x); trendDrop.setAttribute("x2", pt.x);
+          trendDrop.setAttribute("y1", pt.y + 6);
+          var vis = drawState.p > 0.01 ? 1 : 0;
+          trendDot.style.opacity = vis * 0.9;
+          trendDrop.style.opacity = vis * 0.45;
+        }
+      }, 0);
+    }
+
     cards.forEach(function (card, i) {
       tl.to(card, {
         x: function () { return slotX(i); },
@@ -87,19 +115,21 @@
       }, i * seg);
     });
 
-    /* dissolve, phase one (still pinned): the finished pile starts to
-       give — sinks a touch with the scroll and loosens its grip */
+    /* burial, phase one (still pinned): the finished pile starts to give —
+       sinks with the scroll. No opacity change: the cards stay solid so the
+       exit reads as the CTA covering them, not the cards dissolving. */
     var tEnd = (n - 1) * seg + 1;
-    tl.to(belt, { y: 34, opacity: 0.85, duration: 0.8, ease: "power1.in" }, tEnd + 0.4);
+    tl.to(belt, { y: 34, duration: 0.8, ease: "power1.in" }, tEnd + 0.4);
     tl.to({}, { duration: 0.2 }); // short beat, then unpin
 
-    /* dissolve, phase two (unpinned): the pile keeps moving DOWN with the
-       scroll and melts away exactly while the white CTA block climbs over
-       the stage — the stack dissolves into the CTA */
+    /* burial, phase two (unpinned): the pile keeps sliding DOWN with the
+       scroll at full opacity while the white CTA fold (higher z, opaque,
+       rounded shoulder) climbs over it — the cards disappear UNDER the
+       CTA's edge, buried, never faded. (.stack-pin's overflow:hidden clips
+       them a hair early, but that seam is hidden beneath the fold's
+       -44px overlap.) */
     gsap.to([belt, head], {
-      y: function (i, target) { return target === belt ? 210 : 130; },
-      opacity: 0,
-      scale: 0.97,
+      y: function (i, target) { return target === belt ? 260 : 150; },
       ease: "none",
       immediateRender: false,
       scrollTrigger: {

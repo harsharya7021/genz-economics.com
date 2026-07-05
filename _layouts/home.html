@@ -62,37 +62,48 @@ layout: default
      in and joins a centred pile, then the pile rides the scroll down and
      dissolves into the white CTA. home-stack.js drives it. ── -->
 <section class="stack-stage" id="walkthrough">
-  <!-- ambient background: a stilled candlestick chart, very low opacity —
-       pure decoration behind the cards, sharp bodies (no rounded dojis). -->
+  <!-- ambient background: a stilled two-tone candlestick chart (up = green,
+       down = muted steel, kit-style hairline grid), sharp bodies. A gold
+       trend line rides above the wicks and DRAWS ITSELF with the scroll —
+       lit dot on the tip, dashed drop-line under it (home-stack.js). -->
   <svg class="stage-candles" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
-    <g class="sc-candle">
-      <line x1="30.0" y1="220.8" x2="30.0" y2="246.6"/><rect x="23.5" y="224.7" width="13" height="11.9"/>
-      <line x1="67.6" y1="218.7" x2="67.6" y2="246.3"/><rect x="61.1" y="222.5" width="13" height="14.2"/>
-      <line x1="105.2" y1="218.1" x2="105.2" y2="239.2"/><rect x="98.7" y="222.3" width="13" height="8.4"/>
-      <line x1="142.8" y1="220.2" x2="142.8" y2="237.8"/><rect x="136.3" y="224.8" width="13" height="7.1"/>
-      <line x1="180.4" y1="212.5" x2="180.4" y2="251.1"/><rect x="173.9" y="220.7" width="13" height="14.7"/>
-      <line x1="218.0" y1="205.3" x2="218.0" y2="235.3"/><rect x="211.5" y="219.5" width="13" height="9.0"/>
-      <line x1="255.6" y1="201.7" x2="255.6" y2="231.0"/><rect x="249.1" y="215.3" width="13" height="10.4"/>
-      <line x1="293.2" y1="203.6" x2="293.2" y2="232.8"/><rect x="286.7" y="214.9" width="13" height="10.1"/>
-      <line x1="330.8" y1="209.2" x2="330.8" y2="235.0"/><rect x="324.3" y="214.9" width="13" height="8.3"/>
-      <line x1="368.4" y1="206.8" x2="368.4" y2="231.5"/><rect x="361.9" y="213.9" width="13" height="7"/>
-      <line x1="406.0" y1="199.0" x2="406.0" y2="227.1"/><rect x="399.5" y="211.1" width="13" height="9.8"/>
-      <line x1="443.6" y1="196.6" x2="443.6" y2="238.6"/><rect x="437.1" y="206.4" width="13" height="17.8"/>
-      <line x1="481.2" y1="205.8" x2="481.2" y2="229.3"/><rect x="474.7" y="210.3" width="13" height="10.6"/>
-      <line x1="518.8" y1="198.6" x2="518.8" y2="238.0"/><rect x="512.3" y="203.6" width="13" height="25.0"/>
-      <line x1="556.4" y1="195.7" x2="556.4" y2="232.4"/><rect x="549.9" y="206.1" width="13" height="11.9"/>
-      <line x1="594.0" y1="189.5" x2="594.0" y2="228.6"/><rect x="587.5" y="201.5" width="13" height="16.4"/>
-      <line x1="631.6" y1="184.3" x2="631.6" y2="227.7"/><rect x="625.1" y="199.6" width="13" height="18.9"/>
-      <line x1="669.2" y1="200.4" x2="669.2" y2="225.9"/><rect x="662.7" y="204.2" width="13" height="9.6"/>
-      <line x1="706.8" y1="192.5" x2="706.8" y2="226.2"/><rect x="700.3" y="199.2" width="13" height="19.0"/>
-      <line x1="744.4" y1="201.9" x2="744.4" y2="221.2"/><rect x="737.9" y="205.2" width="13" height="7"/>
-      <line x1="782.0" y1="188.5" x2="782.0" y2="214.0"/><rect x="775.5" y="201.5" width="13" height="7.8"/>
-      <line x1="819.6" y1="190.7" x2="819.6" y2="220.7"/><rect x="813.1" y="198.8" width="13" height="7.6"/>
-      <line x1="857.2" y1="177.1" x2="857.2" y2="219.7"/><rect x="850.7" y="191.6" width="13" height="14.4"/>
-      <line x1="894.8" y1="189.0" x2="894.8" y2="212.8"/><rect x="888.3" y="195.6" width="13" height="8.8"/>
-      <line x1="932.4" y1="183.4" x2="932.4" y2="212.8"/><rect x="925.9" y="188.4" width="13" height="19.1"/>
-      <line x1="970.0" y1="180.2" x2="970.0" y2="213.2"/><rect x="963.5" y="186.2" width="13" height="17.7"/>
+    <g class="sc-grid">
+      <line x1="0" y1="150" x2="1000" y2="150"/>
+      <line x1="0" y1="185" x2="1000" y2="185"/>
+      <line x1="0" y1="220" x2="1000" y2="220"/>
+      <line x1="0" y1="255" x2="1000" y2="255"/>
     </g>
+    <g class="sc-candle">
+      <g class="sc-up"><line x1="30.0" y1="219.0" x2="30.0" y2="239.8"/><rect x="23.5" y="227.6" width="13" height="6.4"/></g>
+      <g class="sc-up"><line x1="67.6" y1="216.9" x2="67.6" y2="233.7"/><rect x="61.1" y="221.0" width="13" height="6.6"/></g>
+      <g class="sc-down"><line x1="105.2" y1="217.4" x2="105.2" y2="231.6"/><rect x="98.7" y="221.0" width="13" height="5.8"/></g>
+      <g class="sc-up"><line x1="142.8" y1="211.4" x2="142.8" y2="230.0"/><rect x="136.3" y="218.6" width="13" height="8.2"/></g>
+      <g class="sc-down"><line x1="180.4" y1="211.7" x2="180.4" y2="232.0"/><rect x="173.9" y="218.6" width="13" height="6.7"/></g>
+      <g class="sc-up"><line x1="218.0" y1="216.5" x2="218.0" y2="228.6"/><rect x="211.5" y="222.7" width="13" height="2.6"/></g>
+      <g class="sc-up"><line x1="255.6" y1="215.3" x2="255.6" y2="228.4"/><rect x="249.1" y="218.5" width="13" height="4.2"/></g>
+      <g class="sc-up"><line x1="293.2" y1="204.0" x2="293.2" y2="225.3"/><rect x="286.7" y="210.1" width="13" height="8.4"/></g>
+      <g class="sc-up"><line x1="330.8" y1="197.2" x2="330.8" y2="214.7"/><rect x="324.3" y="202.9" width="13" height="7.1"/></g>
+      <g class="sc-down"><line x1="368.4" y1="194.9" x2="368.4" y2="217.0"/><rect x="361.9" y="202.9" width="13" height="6.8"/></g>
+      <g class="sc-up"><line x1="406.0" y1="200.9" x2="406.0" y2="213.2"/><rect x="399.5" y="205.6" width="13" height="4.1"/></g>
+      <g class="sc-down"><line x1="443.6" y1="197.6" x2="443.6" y2="214.8"/><rect x="437.1" y="205.6" width="13" height="3.8"/></g>
+      <g class="sc-down"><line x1="481.2" y1="206.5" x2="481.2" y2="219.8"/><rect x="474.7" y="209.5" width="13" height="6.1"/></g>
+      <g class="sc-down"><line x1="518.8" y1="206.6" x2="518.8" y2="225.1"/><rect x="512.3" y="215.5" width="13" height="4.2"/></g>
+      <g class="sc-up"><line x1="556.4" y1="205.1" x2="556.4" y2="224.3"/><rect x="549.9" y="212.8" width="13" height="6.9"/></g>
+      <g class="sc-up"><line x1="594.0" y1="199.2" x2="594.0" y2="220.3"/><rect x="587.5" y="208.0" width="13" height="4.8"/></g>
+      <g class="sc-up"><line x1="631.6" y1="200.1" x2="631.6" y2="211.3"/><rect x="625.1" y="203.7" width="13" height="4.2"/></g>
+      <g class="sc-down"><line x1="669.2" y1="197.4" x2="669.2" y2="212.1"/><rect x="662.7" y="203.7" width="13" height="2.7"/></g>
+      <g class="sc-up"><line x1="706.8" y1="195.0" x2="706.8" y2="213.3"/><rect x="700.3" y="198.8" width="13" height="7.6"/></g>
+      <g class="sc-up"><line x1="744.4" y1="189.1" x2="744.4" y2="203.4"/><rect x="737.9" y="193.4" width="13" height="5.4"/></g>
+      <g class="sc-down"><line x1="782.0" y1="188.5" x2="782.0" y2="207.5"/><rect x="775.5" y="193.4" width="13" height="5.8"/></g>
+      <g class="sc-up"><line x1="819.6" y1="185.8" x2="819.6" y2="206.1"/><rect x="813.1" y="194.0" width="13" height="5.3"/></g>
+      <g class="sc-up"><line x1="857.2" y1="180.2" x2="857.2" y2="198.5"/><rect x="850.7" y="184.5" width="13" height="9.4"/></g>
+      <g class="sc-down"><line x1="894.8" y1="179.8" x2="894.8" y2="191.4"/><rect x="888.3" y="184.5" width="13" height="3.5"/></g>
+      <g class="sc-up"><line x1="932.4" y1="176.9" x2="932.4" y2="194.6"/><rect x="925.9" y="181.4" width="13" height="6.6"/></g>
+      <g class="sc-up"><line x1="970.0" y1="167.0" x2="970.0" y2="187.3"/><rect x="963.5" y="175.7" width="13" height="5.7"/></g>
+    </g>
+    <path class="stage-trend" d="M 30.0 205.9 C 36.3 205.9, 55.1 206.2, 67.6 205.8 C 80.1 205.3, 92.7 203.9, 105.2 203.2 C 117.7 202.5, 130.3 201.8, 142.8 201.5 C 155.3 201.2, 167.9 201.0, 180.4 201.2 C 192.9 201.4, 205.5 202.7, 218.0 202.5 C 230.5 202.3, 243.1 201.4, 255.6 199.9 C 268.1 198.4, 280.7 195.7, 293.2 193.5 C 305.7 191.3, 318.3 188.0, 330.8 186.7 C 343.3 185.4, 355.9 185.8, 368.4 185.7 C 380.9 185.5, 393.5 185.1, 406.0 185.8 C 418.5 186.4, 431.1 188.7, 443.6 189.6 C 456.1 190.6, 468.7 190.8, 481.2 191.6 C 493.7 192.3, 506.3 194.1, 518.8 194.1 C 531.3 194.1, 543.9 192.4, 556.4 191.6 C 568.9 190.9, 581.5 190.3, 594.0 189.5 C 606.5 188.7, 619.1 187.6, 631.6 186.9 C 644.1 186.2, 656.7 186.4, 669.2 185.5 C 681.7 184.7, 694.3 182.9, 706.8 181.8 C 719.3 180.7, 731.9 179.9, 744.4 178.9 C 756.9 177.9, 769.5 176.8, 782.0 175.8 C 794.5 174.8, 807.1 173.9, 819.6 172.9 C 832.1 171.9, 844.7 170.9, 857.2 169.9 C 869.7 169.0, 882.3 168.2, 894.8 167.0 C 907.3 165.8, 919.9 163.7, 932.4 162.6 C 944.9 161.4, 963.7 160.4, 970.0 160.0" pathLength="1"/>
+    <line class="stage-trend-drop" x1="30.0" y1="205.94913361282607" x2="30.0" y2="290"/>
+    <circle class="stage-trend-dot" cx="30.0" cy="205.94913361282607" r="5"/>
   </svg>
   <div class="stack-pin">
     <div class="container">
