@@ -351,6 +351,10 @@
   Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
     var app = m[0].initializeApp(window.GZE_FIREBASE, "site");
     var auth = m[1].getAuth(app);
+    /* mobile path: completes a signInWithRedirect round-trip, and pre-warms
+       the popup machinery so iOS Safari's first tap can still open a popup
+       within its user-activation window */
+    m[1].getRedirectResult(auth).catch(function (err) { console.error("[gze] redirect result:", err && err.code); });
     m[1].onAuthStateChanged(auth, function (user) {
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
@@ -379,7 +383,12 @@
           console.error("[gze] sign-in failed:", code, err);
           if (code === "auth/unauthorized-domain") alert("Sign-in isn't enabled for this domain yet. In Firebase → Authentication → Settings → Authorized domains, add genz-economics.com.");
           else if (code === "auth/operation-not-allowed") alert("Google sign-in isn't switched on yet. In Firebase → Authentication → Sign-in method, enable Google.");
-          else if (code === "auth/popup-blocked" || code === "auth/cancelled-popup-request") alert("Your browser blocked the sign-in popup — allow popups for genz-economics.com and try again.");
+          else if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+            /* phones (esp. iOS Safari) often refuse the popup — use the
+               full-page redirect flow instead; getRedirectResult above
+               completes it when we land back */
+            m[1].signInWithRedirect(auth, provider).catch(function (e2) { console.error("[gze] redirect sign-in failed:", e2 && e2.code); alert("Sign-in failed (" + (e2 && e2.code) + ")."); });
+          }
           else if (code) alert("Sign-in failed (" + code + ").");
         });
       });
