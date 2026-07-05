@@ -12,6 +12,8 @@ editors: []
 stream_id: 004b24e6f61e3a54286e550470d1ba37
 ---
 
+Medium-term macro begins: tradables against non-tradables, why the same dentist earns differently in Hyderabad and New York, Balassa-Samuelson without the hand-waving — and the one exchange-rate number he insists you track. It is the REER, not the headline rupee, and the RBI publishes it every month for free.
+
 # **Medium-Term Macroeconomics Introduction**
 
 This session marks the transition from short-term to medium-term framework analysis. The fundamental shift involves understanding how inflation expectations become a critical variable in macroeconomic behavior.
@@ -230,3 +232,9 @@ Published data provides no competitive advantage - everyone has access. Ground-l
 ## **8. Medium-Term Framework Fundamentals**
 
 The shift from short-term to medium-term analysis requires understanding inflation expectations and how they anchor wage and price-setting behavior. Exchange rates, competitiveness, and long-term growth trajectories all hinge on expectations about future inflation.
+
+## **What You Can Now Do**
+
+Stop reacting to ₹/$ headlines; open the RBI bulletin's REER table instead. A falling rupee with a stable REER is arithmetic, not crisis — that distinction is the whole session, and it is also the argument of his own Mint column on the rupee. And keep the Asian Paints case in mind: the information advantage came from observing the mechanism, not from a terminal.
+
+Continue to [Session 7 — Exchange Rates, Inflation & Interest Rate Parity]({% post_url 2026-01-11-exchange-rates-inflation-and-interest-rate-parity %}).

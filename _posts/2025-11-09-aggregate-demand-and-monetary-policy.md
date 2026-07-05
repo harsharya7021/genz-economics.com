@@ -12,6 +12,8 @@ editors: []
 stream_id: dd4425ba5997ad1ecd120ae5da33cd91
 ---
 
+Two ideas carry this session: the interest rate that matters is the real one, and the rate you see is a choice the central bank makes, not a market accident. From liquidity preference to the move from IS-LM to IS-MP, this is where the RBI enters the model — including the 2023–25 stretch he flags as a mistake worth studying, not excusing.
+
 # **Recap - The Keynesian Cross Model**
 
 This session begins by revisiting the fundamental aggregate demand equation that forms the foundation of Keynesian macroeconomic analysis. Understanding this model is essential for analysing how consumption, investment, and government spending interact to determine income equilibrium in the short run.
@@ -394,3 +396,9 @@ A central bank targeting the interest rate must maintain credibility that it wil
 > • Understanding the monetary policy transmission mechanism and its limitations
 
 ![](/assets/img/notes/image16.png)
+
+## **What You Can Now Do**
+
+Next time the repo decision drops, don't stop at the headline rate: subtract expected inflation and watch what the real rate did — that is the number investment answers to. And check whether the liquidity operations (the VRRs and VRRRs) agree with the announced stance. When the plumbing and the press release disagree, believe the plumbing.
+
+Continue to [Session 4 — IS-MP Framework & Modern Monetary Policy]({% post_url 2025-11-16-is-mp-framework-and-modern-monetary-policy %}), where the pieces click into one usable machine.

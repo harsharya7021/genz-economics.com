@@ -11,6 +11,8 @@ authors:
 editors: []
 ---
 
+The medium-term machinery arrives: wage-setting, price-setting, the natural rate of unemployment, and the z variable — the institutional residual where India hides most of its labour-market story. This is the session that turns 'inflation is high' from a complaint into a diagnosis.
+
 # **Opening: Kevin Warsh on Inflation as a Choice**
 
 ## **Context and Relevance**
@@ -266,3 +268,7 @@ The Phillips curve will connect the natural rate framework to inflation dynamics
 7.  **AI's macroeconomic impact is genuinely uncertain.** It could reduce markups, boost productivity, and create unprecedented growth. Or it could destroy the human learning pipeline needed for future breakthroughs, leaving us worse off in the very long run.
 
 8.  **Simple toy models yield powerful insights.** The Y = N production function, combined with wage and price setting equations, builds a complete framework for understanding inflation, unemployment, and monetary policy in the medium term.
+
+## **What You Can Now Do**
+
+When the next CPI print lands on the 12th, place it against the natural-rate question instead of the month's noise: is this wage pressure, price-setter margin, or z moving? That frame carries every inflation argument from here on — and it is the one the MPC itself is quietly using when it talks about the output gap without saying the words.

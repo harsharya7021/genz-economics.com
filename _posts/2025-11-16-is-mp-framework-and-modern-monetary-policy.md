@@ -12,6 +12,8 @@ editors: []
 stream_id: 17f8a109d81ce28cf9367ce0aae9397c
 ---
 
+This is the session where the course becomes a usable machine: the IS curve from the goods market, the MP curve from the RBI's reaction function, and every stimulus debate reduced to one question — does the central bank accommodate, or not? India's fiscal trilemma gets named here too, and it does not flatter anyone.
+
 # **Review of Previous Material**
 
 ![](/assets/img/notes/image29.png)
@@ -357,3 +359,9 @@ Keynesian Cross — Transition to IS Curve
 ![](/assets/img/notes/image4.jpg)
 
 Money Market — The New Paradigm of Monetary Policy
+
+## **What You Can Now Do**
+
+When a stimulus is announced, you no longer need an opinion — you need the bond market. If yields rise and the RBI sits still, you are in the no-accommodation case and the multiplier is being taxed away in real time; if the RBI leans in, the expansion is real and so is the inflation risk. Reread the fiscal trilemma before every budget season; it is the constraint the speeches never mention.
+
+Continue to [Session 5 — Fiscal Policy, Crowding Out & Transmission]({% post_url 2025-11-23-is-lm-framework-and-fiscal-policy %}).

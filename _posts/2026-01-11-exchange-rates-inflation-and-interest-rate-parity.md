@@ -12,6 +12,8 @@ editors: []
 stream_id: 09f54f9eab7e396a9b53e9db2aa16364
 ---
 
+Three facts that look contradictory — higher inflation here, a weaker rupee every decade, and similar risk-adjusted returns across markets — reconciled by two workhorses: the Fisher equation and uncovered interest parity. Plus the distinction the evening news never makes: anticipated versus unanticipated rate moves, which decides whether a hike strengthens a currency or does nothing at all.
+
 # **The Central Paradox**
 
 Three seemingly contradictory statements that confuse many:
@@ -274,3 +276,9 @@ Trade policies affect real growth potential and real interest rates through supp
 </table>
 
 This lecture completed the short-term macroeconomics portion. The next session will provide a summary of core short-term macro concepts and book recommendations for deeper study. Future classes will extend to medium-term (growth, productivity) and long-term (institutions, development) perspectives.
+
+## **What You Can Now Do**
+
+When a central bank hikes and the currency falls anyway, you now know the question: was the hike already priced? The forward rate is not a forecast, and 40-to-90 over two decades is parity arithmetic, not national failure. Rupee headlines should read differently from today — and when they don't, you'll know exactly which step the writer skipped.
+
+Continue to [Session 8 — Medium-Term Economics: Inflation, Labor & the Phillips Curve]({% post_url 2026-02-15-medium-term-inflation-labor-markets-phillips-curve %}).

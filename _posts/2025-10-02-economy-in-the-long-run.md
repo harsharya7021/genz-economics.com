@@ -12,6 +12,8 @@ editors: []
 stream_id: 496015c69069e0f44a91ada4253f66a2
 ---
 
+Session one, and he starts with a warning, not a formula: almost everything you believe about growth — that consumption drives it, that events create it, that government spending buys it — is going to fail an audit in the next hour. The tools are simple (an island, five workers, ten kilos of rice), but every later session stands on what the island proves. Take this one slowly; the course builds.
+
 # **Course Structure**
 
 ## **Course Overview**
@@ -36,7 +38,7 @@ Supplementary: Prof will provide readings for each session
 
 ## **Real-World Motivations and Examples**
 
-macroeconomics grounding theory in practical economic realities.
+He refuses to start with theory. Three puzzles from real places first — each one is a question the course will eventually let you answer, and none of them can be waved away with a headline.
 
 ### **Example 1: Micro-lending in Hyderabad**
 
@@ -158,7 +160,9 @@ Government is justified only when services increase productivity enough to offse
 
 ![](/assets/img/notes/image10.png)
 
-**Scenario 2: Investment and Capital Formation**
+Note what just happened: measured GDP barely moved, but half a kilo of rice simply vanished from the island. That gap between what the accounts say and what people actually eat is the whole point of the scenario — and it's why "government spending creates growth" fails the audit above.
+
+# **Scenario 2: Investment and Capital Formation**
 
 ## **Setup: Building a Productive Asset**
 
@@ -202,6 +206,10 @@ The real interest rate is the expected percentage return on investment. If the p
 > 
 > Modern Growth Is Exceptional
 
+## **What You Can Now Do**
+
+The next time someone tells you a cricket stadium, a wedding season, or a new airport will "boost the economy," you can ask the island question: did anyone on the island work more, or did rice just move between plates? And when a budget speech promises growth through spending, look for the half kilo that goes missing — the deadweight the accounts never show. Watch one number with new eyes this week: the real interest rate. It is not a policy lever; it is the island's pond telling you what capital actually earns.
+
 ## **Looking Forward**
 
-These foundational principles will guide all subsequent analysis of macroeconomic phenomena. The next sessions will explore how these principles manifest in closed-economy macroeconomics (Phase 1) and eventually open-economy settings with international trade (Phase 2).
+These foundational principles will guide all subsequent analysis of macroeconomic phenomena. The next sessions will explore how these principles manifest in closed-economy macroeconomics (Phase 1) and eventually open-economy settings with international trade (Phase 2). Continue to [Session 2 — The Keynesian Cross]({% post_url 2025-10-19-the-keynesian-cross %}), where the clock shortens and prices stop moving.

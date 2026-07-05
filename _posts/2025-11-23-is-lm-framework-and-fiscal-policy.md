@@ -12,6 +12,8 @@ editors: []
 stream_id: a3feaa9e95e125c5fe8d7607597b444e
 ---
 
+Fiscal policy gets its full hearing: the GST tax-cut case worked end-to-end, crowding out in both its textbook form and its modern RBI-accommodates form, and a five-step transmission chain you can test against data instead of asserting at dinner. The session ends somewhere unexpected — AI, human capital, and what India's constraint actually is.
+
 # **GST Tax Cut Analysis** 
 
 Professor Prasanna Tantri begins by analyzing recent GST rate cuts in India and their limited macroeconomic impact:
@@ -213,3 +215,9 @@ Figure 5: From Keynesian Cross to IS-LM Framework (Recreated from handwritten no
 > • But if most can't get a job with more fulfilled/easier access *— implications for women in labour market*
 > 
 > • Supply of labour, domestic labour & wealth in economy *— output depends on these factors*
+
+## **What You Can Now Do**
+
+At the next GST or income-tax cut, walk the five steps and mark where the chain can break — that is where the empirics will show up first. If G-sec yields climb while the RBI holds, you are watching crowding out happen live; no anchor will say the words, but you will see it in the curve.
+
+Continue to [Session 6 — Real Exchange Rates & Productivity]({% post_url 2025-12-04-real-exchange-rates-and-productivity %}), where the course steps out to the medium term.

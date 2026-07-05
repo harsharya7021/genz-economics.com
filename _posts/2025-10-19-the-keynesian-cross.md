@@ -12,6 +12,8 @@ editors: []
 stream_id: 4414e5f39cc203bb5799cb6cbf82eb9f
 ---
 
+The clock changes in this session. Session 1 was decades — growth, ponds, patience. Now the horizon shrinks to quarters, prices stop moving, and demand runs the show. This is the machinery behind every stimulus debate you have ever watched — the multiplier, the 45-degree line, the paradox of thrift — built from one equation and pushed until it squeaks, including on GST cuts, tariffs, and Sri Lanka.
+
 # **Opening & Research Context**
 
 Professor Prasanna Tantri opens with research on street vendor financing in emerging markets, presenting data from 1000 treatment and 1000 control groups. This empirical work motivates the shift from long-run growth theory to short-term demand analysis. He references Joel Mokyr's seminal idea: *"ideas create the world."* This philosophical foundation underpins the session's focus on how expectations and shocks drive output in the short run.
@@ -431,3 +433,9 @@ Production/labour efficiency/human capital constraints apply in the longer run
 ![](/assets/img/notes/image15.jpg)
 
 *Fiscal Multiplier & Income-Demand Cycle* ![](/assets/img/notes/image18.png)
+
+## **What You Can Now Do**
+
+When the next tax-cut headline lands, ask the two questions this session armed you with: what happens to G, and where does the MPC actually sit? A cut financed by lower spending is a different animal from one financed by deficit — the two scenarios carry different multipliers, and that difference is the whole argument. And when someone praises a savings drive in a slowdown, remember the paradox of thrift: individually virtuous, collectively contractionary — in the short run only.
+
+Continue to [Session 3 — Aggregate Demand & Monetary Policy]({% post_url 2025-11-09-aggregate-demand-and-monetary-policy %}), where interest rates enter the model and the RBI walks in with them.
