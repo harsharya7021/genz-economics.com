@@ -357,8 +357,10 @@
     els.forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function () {});
+        m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function (err) {
+          console.error("[gze] sign-in failed:", err && err.code, err);
+        });
       });
     });
-  }).catch(function () {});
+  }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
 })();

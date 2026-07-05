@@ -41,10 +41,14 @@ the session pipeline (recording → chaptered notes + screenshots + Stream), and
    45 18 * * 1-5   cd $HOME/genz/automation && /usr/bin/node src/macro/fetch.js >> macro.log 2>&1
    ```
    (Poll/tally crons live inside the bot process — `.env` `POLL_CRON`/`TALLY_CRON`.)
-9. **BIL on the website**: deploy `firebase-bil-function.js` in your Firebase functions
-   (set `BIL_URL` to the VPS endpoint — expose :8047 via your domain/Cloudflare Tunnel — and
-   `BIL_TOKEN` to match `.env`). Put the deployed function URL into `bil.html`'s
-   `data-fn-url`. The page is already in the site + nav.
+9. **BIL on the website** (2026-07-05, replaces the Firebase-function design — that
+   needed the Blaze plan): `serve.js` now verifies the visitor's Firebase ID token
+   itself (`verify-firebase.js`, zero new deps) and answers CORS for the site origin.
+   So the widget calls the VPS directly: expose :8047 over HTTPS (quick path:
+   `cloudflared tunnel --url http://localhost:8047`; stable path: caddy + a
+   `bil.` subdomain) and put that URL + `/ask` into `bil.html`'s `data-fn-url`.
+   `firebase-bil-function.js` is kept only as a reference. One-paste VPS setup:
+   `helios-setup.sh` in this folder.
 
 ## Testing without waiting for Wednesday
 ```

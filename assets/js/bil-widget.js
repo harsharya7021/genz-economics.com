@@ -17,8 +17,8 @@
       if (user && !log.childElementCount) add("bil", "You found the chat. Fine. Ask — but ask something the course covers; I read the notes so you clearly didn't have to.");
     });
     var btn = gate.querySelector("[data-gate-signin]");
-    if (btn) btn.addEventListener("click", function () { m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()); });
-  }).catch(function () {});
+    if (btn) btn.addEventListener("click", function () { m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()).catch(function (err) { console.error("[gze] sign-in failed:", err && err.code, err); }); });
+  }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
 
   function add(who, text, sources) {
     var d = document.createElement("div");
