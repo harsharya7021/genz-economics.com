@@ -9,6 +9,7 @@ excerpt_override: "Session 1 — foundations of long-run growth: pre-industrial 
 authors:
   - harsh
 editors: []
+stream_id: 496015c69069e0f44a91ada4253f66a2
 ---
 
 # **Course Structure**

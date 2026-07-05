@@ -9,6 +9,7 @@ excerpt_override: "Session 3 — real vs. nominal rates, liquidity preference, a
 authors:
   - harsh
 editors: []
+stream_id: dd4425ba5997ad1ecd120ae5da33cd91
 ---
 
 # **Recap - The Keynesian Cross Model**

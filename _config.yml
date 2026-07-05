@@ -63,7 +63,7 @@ issue_base_url: "https://github.com/harsharya7021/genz-economics.com/issues/new/
 # Flip this to `true` to switch every gated lecture player on site-wide.
 lectures_enabled: true
 # Optional: your Cloudflare Stream customer code (Stream dashboard URL). Blank = use videodelivery.net.
-stream_customer_code: ""
+stream_customer_code: "ymvws9hh7xkt34jv"
 
 # Skip noise — internal docs and tooling must never hit the Jekyll build
 # (GH Pages renders markdown even without front matter, and these contain

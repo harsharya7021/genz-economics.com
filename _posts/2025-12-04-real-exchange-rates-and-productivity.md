@@ -9,6 +9,7 @@ excerpt_override: "Session 5 — medium-term macro: tradables vs. non-tradables,
 authors:
   - harsh
 editors: []
+stream_id: 004b24e6f61e3a54286e550470d1ba37
 ---
 
 # **Medium-Term Macroeconomics Introduction**

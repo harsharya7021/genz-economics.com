@@ -9,6 +9,7 @@ excerpt_override: "Session 2 — short-run Keynesian macro: the consumption func
 authors:
   - harsh
 editors: []
+stream_id: 4414e5f39cc203bb5799cb6cbf82eb9f
 ---
 
 # **Opening & Research Context**

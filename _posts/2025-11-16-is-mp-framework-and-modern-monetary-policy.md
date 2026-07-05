@@ -9,6 +9,7 @@ excerpt_override: "Session 3A — building the IS-MP framework, walking through 
 authors:
   - harsh
 editors: []
+stream_id: 17f8a109d81ce28cf9367ce0aae9397c
 ---
 
 # **Review of Previous Material**
