@@ -22,6 +22,15 @@ permalink: /discussions/
   </details>
   {% include comments.html daily=true thread="daily" %}
 
+  <!-- The bank (every question + model answer) is cohort-only: the daily
+       ritual up top stays public, the full archive sits behind the same
+       soft gate as the essays (essay.js: #essayGate / #gatedChapters). -->
+  <div class="essay-gate" id="essayGate" style="margin-top:2.6rem">
+    <h3>The bank is for the cohort</h3>
+    <p>{{ site.data.daily | size }} questions with model answers — the whole ledger of daily discussions. Sign in once and it stays open for you. Today's question above is free; the archive is the reward for being in the room.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+  <div class="gated" id="gatedChapters">
   <div class="section-head" style="margin-top:2.6rem"><h2>The bank</h2><span class="feed-link" style="color:var(--ink-soft)">{{ site.data.daily | size }} questions</span></div>
   <div class="gloss-grid">
     {% for d in site.data.daily %}
@@ -30,5 +39,7 @@ permalink: /discussions/
     </article>
     {% endfor %}
   </div>
+  </div>
   <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
+  <script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>
 </div></section>
