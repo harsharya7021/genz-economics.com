@@ -18,6 +18,8 @@ window.GZE_FIREBASE = {
    post-sign-in check, shared by every sign-in button on the site.
    GZE_ALLOWED_EMAILS = admin exceptions (exact addresses) that get in
    regardless of domain — currently Harsh's own account. */
+/* isb.edu = students/faculty; any *.isb.edu subdomain also passes, which
+   covers alumni on pgp.isb.edu (and pgppro.isb.edu, fpm.isb.edu, etc.). */
 window.GZE_ALLOWED_DOMAINS = ["isb.edu"];
 window.GZE_ALLOWED_EMAILS = ["harsharya7021@gmail.com"];
 window.GZE_emailAllowed = function (email) {
@@ -26,7 +28,9 @@ window.GZE_emailAllowed = function (email) {
   email = (email || "").toLowerCase();
   if ((window.GZE_ALLOWED_EMAILS || []).indexOf(email) !== -1) return true;
   var at = email.lastIndexOf("@");
-  return at !== -1 && allowed.indexOf(email.slice(at + 1)) !== -1;
+  if (at === -1) return false;
+  var domain = email.slice(at + 1);
+  return allowed.some(function (d) { return domain === d || domain.slice(-(d.length + 1)) === "." + d; });
 };
 
 /* Defensive helper: every gate script (site.js, essay.js, bil-widget.js)

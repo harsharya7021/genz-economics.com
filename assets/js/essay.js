@@ -469,7 +469,7 @@
       });
       var btn = gate.querySelector("[data-gate-signin]");
       if (btn) btn.addEventListener("click", function () {
-        var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+        var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ prompt: "select_account" });
         m[1].signInWithPopup(auth, provider).then(function (res) {
           if (window.GZE_emailAllowed && !window.GZE_emailAllowed(res.user && res.user.email)) {
             m[1].signOut(auth); alert("This room is ISB-only — please sign in with your @isb.edu email.");

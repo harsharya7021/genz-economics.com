@@ -346,7 +346,7 @@
    attached. */
 (function () {
   var els = document.querySelectorAll("[data-gate-signin]");
-  if (!els.length || !window.GZE_onFirebaseReady) return;
+  if ((!els.length && !document.getElementById("gzeAcct")) || !window.GZE_onFirebaseReady) return;
   window.GZE_onFirebaseReady(function () {
   var base = "https://www.gstatic.com/firebasejs/10.12.2/";
   Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
@@ -359,6 +359,16 @@
     m[1].onAuthStateChanged(auth, function (user) {
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
+      /* header account chip: avatar + first name + sign-out when signed in */
+      var acct = document.getElementById("gzeAcct");
+      if (acct) {
+        if (user) {
+          var av = document.getElementById("gzeAcctAv"), nm = document.getElementById("gzeAcctName");
+          if (av) { if (user.photoURL) { av.src = user.photoURL; av.hidden = false; } else { av.hidden = true; } }
+          if (nm) nm.textContent = (user.displayName || user.email || "You").split(" ")[0];
+          acct.hidden = false;
+        } else { acct.hidden = true; }
+      }
       /* make the signed-in state VISIBLE: every sign-in button flips to a
          confirmation and stops opening the popup (click follows its href) */
       els.forEach(function (el) {
@@ -367,12 +377,14 @@
         el.classList.toggle("is-signed-in", !!user);
       });
     });
+    var outBtn = document.getElementById("gzeAcctOut");
+    if (outBtn) outBtn.addEventListener("click", function () { m[1].signOut(auth); });
     els.forEach(function (el) {
       el.addEventListener("click", function (e) {
         if (auth.currentUser) return; /* already in \u2014 let the link act as a link */
         e.preventDefault();
         var provider = new m[1].GoogleAuthProvider();
-        provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+        provider.setCustomParameters({ prompt: "select_account" });
         m[1].signInWithPopup(auth, provider).then(function (res) {
           var email = res.user && res.user.email;
           if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
