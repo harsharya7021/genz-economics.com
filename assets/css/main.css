@@ -1725,6 +1725,26 @@ body:not(.site-signed-in) .lrc-lock {
   .np-clip + .np-clip { border-left: 0; padding-left: 0; }
 }
 
+/* ═══ Book club (/book-club/) — Fäkra/Bookland book-cover look ═══ */
+.club-quote { font: italic 400 1.25rem/1.5 var(--body); color: var(--ink); border-left: 4px solid var(--accent); padding: .3rem 0 .3rem 1.3rem; margin: 0 0 2.2rem; max-width: 62ch; }
+.club-quote cite { display: block; font: 600 .74rem var(--mono); font-style: normal; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); margin-top: .6rem; }
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.7rem 1.4rem; }
+.book-card { display: flex; flex-direction: column; }
+.book-cover { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: .25rem; aspect-ratio: 3 / 4; border-radius: 3px 9px 9px 3px; padding: 1.1rem 1rem 1.2rem 1.35rem; text-decoration: none; overflow: hidden; box-shadow: 0 16px 32px -14px rgba(0,0,0,.5); border-left: 6px solid rgba(0,0,0,.28); }
+.book-cover::after { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 3px; background: rgba(255,255,255,.16); }
+.bc-kicker { position: absolute; top: 1rem; left: 1.35rem; font: 600 .58rem var(--mono); text-transform: uppercase; letter-spacing: .11em; color: rgba(255,255,255,.85); }
+.bc-title { font: 500 1.35rem/1.12 var(--serif); color: #fff; }
+.bc-author { font: 400 .82rem var(--sans); color: rgba(255,255,255,.82); }
+.book-cover--ascent { background: linear-gradient(150deg, #E0A80E, #7a5c00); }
+.book-cover--debt   { background: linear-gradient(150deg, #b03a2e, #5c150d); }
+.book-cover--future { background: linear-gradient(150deg, #6b7a86, #2E3B42); }
+a.book-cover { transition: transform .18s ease, box-shadow .18s ease; }
+a.book-cover:hover { transform: translateY(-5px); box-shadow: 0 22px 40px -14px rgba(0,0,0,.55); }
+.book-meta { padding: .75rem .1rem 0; }
+.book-cat { font: 600 .62rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--gold-ink); }
+.book-note { font: 400 .86rem/1.45 var(--sans); color: var(--ink-soft); margin: .2rem 0 .5rem; }
+.book-soon { font: 600 .62rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: .1rem .5rem; }
+
 /* ── CP: the bank — collapsible dated ledger with filters ── */
 .bank { border: 1px solid var(--rule); border-radius: var(--r-lg, 14px); background: var(--paper); overflow: hidden; }
 .bank > .bank-summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 1.3rem; }
