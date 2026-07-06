@@ -1,0 +1,61 @@
+# Build and deploy the Jekyll site to GitHub Pages via a single, serialized
+# workflow. This replaces the classic "Deploy from a branch" flow, which
+# spins up a separate deployment for every push — and when two land close
+# together (which happens a lot while iterating) the older deploy job fails
+# with a conflicting-deployment error (the recurring red ✗ on `deploy`).
+#
+# The `concurrency: group: "pages"` block below is the actual fix: GitHub
+# lets only ONE run in the "pages" group be active at a time, so deploys
+# queue instead of colliding. A superseded run is cancelled (grey), never
+# failed (red). Same github-pages gem as before → identical build output;
+# CNAME (genz-economics.com) is copied into the build, so the custom domain
+# is preserved.
+#
+# ONE-TIME SETTING (Harsh): GitHub → repo Settings → Pages → Build and
+# deployment → Source → switch from "Deploy from a branch" to
+# "GitHub Actions". Until that's flipped, this workflow won't take over.
+name: Deploy Jekyll site to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Serialize deploys. Don't cancel a deploy that's already mid-flight; just
+# queue the next one and let GitHub drop any run that a newer push obsoletes.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
