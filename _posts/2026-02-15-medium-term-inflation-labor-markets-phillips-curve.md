@@ -9,6 +9,7 @@ excerpt_override: "Session 11 — transition to medium-term macro: wage-setting,
 authors:
   - harsh
 editors: []
+stream_id: 8063b82d0e773efd99b46b357b4be90e
 ---
 
 The medium-term machinery arrives: wage-setting, price-setting, the natural rate of unemployment, and the z variable — the institutional residual where India hides most of its labour-market story. This is the session that turns 'inflation is high' from a complaint into a diagnosis.
