@@ -9,6 +9,7 @@ excerpt_override: "Session 9 — a live diagnosis: are Indian interest rates ris
 authors:
   - harsh
 editors: []
+stream_id: a2881c1d3bc6f1b883e5cf3d7d3b337f
 ---
 
 Interest rates in India are going up. RBI's diagnosis: transient liquidity squeeze — festival cash withdrawals, tax-payment timing, nothing structural, hence the open market operations. Tantri's diagnosis, argued for three hours on WhatsApp with the Chief Economic Advisor the same week: it's demand, not supply — and demand problems don't fix themselves with OMOs. The two diagnoses make different predictions about the one thing nobody can fake: the exchange rate.
