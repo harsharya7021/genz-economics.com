@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lecture series
+title: Lecture Theatre
 permalink: /sessions/
 ---
 
@@ -9,10 +9,10 @@ permalink: /sessions/
 
 <section class="hero" style="padding-bottom:1.5rem">
   <div class="container">
-    <p class="eyebrow">Lecture series · {{ sessions | size }} sessions</p>
+    <p class="eyebrow">Lecture Theatre · {{ sessions | size }} sessions · 3 long reads</p>
     <h1 class="display">The whole course, <em>one week at a time.</em></h1>
     <p class="lede">
-      Every Sunday he teaches. The notes go up the same evening — chaptered, with screenshots — and the recording lands mid-week. Take them in order; the course builds, and macro punishes skipped steps. Miss a Sunday, and you're back to asking your brother-in-law from IIM-A. Sign in to press play.
+      Every Sunday he teaches. The notes go up the same evening — chaptered, with screenshots — and the recording lands mid-week. Take them in order; the course builds, and macro punishes skipped steps. Miss a Sunday, and you're back to asking your brother-in-law from IIM-A. The notes are open to all; sign in to press play. Scroll past the sessions for the three long-form reads.
     </p>
   </div>
 </section>
@@ -51,5 +51,16 @@ permalink: /sessions/
       {% endfor %}
     </div>
     <p class="w-note" style="margin-top:1.2rem">Recordings are uploaded with Wednesday's poll; notes publish the same evening as the class. Chapters come from the session pipeline — jump straight to the part you forgot.</p>
+
+    <div class="section-head" style="margin-top:2.8rem">
+      <h2>Long-form course notes</h2>
+      <span class="feed-link" style="color:var(--ink-soft)">open to all · the machines run his numbers</span>
+    </div>
+    <p class="w-note" style="margin:.2rem 0 1rem">Three courses, rebuilt from his own class notes as long reads — each with interactive machines that run his exact figures. Read a chapter, then break the machine with your own hands.</p>
+    <div class="learn-grid">
+      <a class="learn-card" href="{{ '/corporate-finance/' | relative_url }}"><span class="lc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 16l4-6 4 3 4-8"/></svg></span><h3>What is corporate finance?</h3><p>The long read — six chapters, seven interactive machines to break.</p></a>
+      <a class="learn-card" href="{{ '/indian-financial-system/' | relative_url }}"><span class="lc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/></svg></span><h3>What is the Indian financial system?</h3><p>Money, the corridor, the rupee, banking — four machines to break.</p></a>
+      <a class="learn-card" href="{{ '/what-is-macro/' | relative_url }}"><span class="lc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16c2-6 5-9 7-9s5 3 7 9"/></svg></span><h3>What is macro?</h3><p>Two clocks, the multiplier, and the expectations game.</p></a>
+    </div>
   </div>
 </section>

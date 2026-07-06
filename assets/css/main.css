@@ -582,10 +582,14 @@ blockquote {
   .cta-band + .site-footer { margin-top: -22px; border-radius: 16px 16px 0 0; }
 }
 .footer-inner {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 2rem;
+  flex-wrap: wrap;
 }
+.footer-made { display: flex; flex-direction: column; gap: .3rem; align-items: flex-end; text-align: right; }
+.footer-made .footer-credit { font-size: .95rem; }
 .footer-tag { color: var(--ink-soft); margin-top: .5rem; max-width: 34ch; }
 .footer-col h4 {
   font-family: var(--mono); font-size: .78rem;
@@ -666,7 +670,8 @@ blockquote {
   .site-nav { flex-wrap: wrap; justify-content: center; gap: .3rem .95rem; font-size: .88rem; }
   .site-nav a.ext { display: none; }
   .hero { padding: 3rem 0 2rem; }
-  .footer-inner { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .footer-made { align-items: flex-start; text-align: left; }
   .post-card-link::after { display: none; }
   .post-actions .btn { flex: 1; justify-content: center; }
   .post-body { font-size: 1.08rem; line-height: 1.65; }
@@ -683,6 +688,10 @@ blockquote {
 
 /* Header polish */
 .site-nav { align-items: center; }
+/* Home icon — sits with the theme toggle at the end of the nav */
+.nav-home { display: inline-grid; place-items: center; width: 34px; height: 34px; color: var(--ink); border-radius: 999px; }
+.nav-home:hover { color: var(--accent); background: var(--accent-soft, transparent); }
+.nav-home svg { display: block; }
 .wordmark .wordmark-dot { color: var(--gold-ink); }
 [data-theme="dark"] .wordmark .wordmark-dot { color: var(--gold); }
 
@@ -1339,6 +1348,12 @@ textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
 .gated { display: none; }
 .essay-unlocked .gated { display: block; }
 .essay-unlocked .essay-gate { display: none; }
+/* The written notes are open to everyone — only the video and the library
+   stay behind sign-in. So ungate the long-form course reads unconditionally.
+   Scoped to .essay (the reads); the library's gate lives in .reading-wrap
+   and is deliberately left locked. */
+.essay .gated { display: block; }
+.essay .essay-gate { display: none; }
 
 /* essay data tables (opportunity cost, gamble) */
 .w-table { width: 100%; border-collapse: collapse; margin: .8rem 0 .4rem; font-family: var(--sans); font-size: .88rem; }
@@ -1518,6 +1533,42 @@ dfn.lookup:hover { background: var(--highlight); }
 .lib-verdict { font: 400 .88rem var(--body); font-style: italic; color: var(--ink-soft); margin: 0; }
 .lib-verdict::before { content: "— "; }
 .lib-type { font: 600 .62rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--gold-ink); margin-left: .5rem; }
+
+/* ── LRC library cards (source-tile "cover" + verdict) ── */
+.lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.lib-card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: var(--r-lg, 14px); overflow: hidden; background: var(--paper); }
+.lib-card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); box-shadow: var(--shadow-sm, 0 6px 20px -12px rgba(0,0,0,.25)); }
+.lib-thumb { position: relative; height: 84px; display: flex; align-items: flex-end; padding: .6rem .8rem; background: var(--band-bg); }
+.lib-thumb-tag { font: 600 .68rem var(--mono); text-transform: uppercase; letter-spacing: .06em; color: #fff; opacity: .95; }
+.lib-thumb--his-work { background: linear-gradient(135deg, var(--gold, #FFD866), color-mix(in srgb, var(--gold, #FFD866) 55%, #7a5c00)); }
+.lib-thumb--his-work .lib-thumb-tag { color: #2b2200; }
+.lib-thumb--rbi-fed  { background: linear-gradient(135deg, var(--legacy-blue, #192890), #245BFF); }
+.lib-thumb--paper    { background: linear-gradient(135deg, #245BFF, #1b3fb0); }
+.lib-thumb--reading  { background: linear-gradient(135deg, #2f6e50, #80EDD9); }
+.lib-thumb--reading .lib-thumb-tag { color: #06251b; }
+.lib-thumb--data     { background: linear-gradient(135deg, #2E3B42, #566670); }
+.lib-card-body { padding: .8rem .9rem 1rem; display: flex; flex-direction: column; gap: .35rem; }
+.lib-meta { font: 600 .68rem var(--mono); color: var(--ink-soft); display: flex; gap: .5rem; align-items: center; }
+.lib-card-title { font: 600 .98rem var(--sans); line-height: 1.3; margin: 0; }
+.lib-card-title a { color: var(--ink); text-decoration: none; }
+.lib-card-title a:hover { color: var(--accent); }
+.lib-badge { font: 600 .64rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: .12rem .5rem; align-self: flex-start; margin-top: .2rem; }
+
+/* ── The vault: faded, locked to the cohort until signed in ── */
+.lrc-vault { position: relative; }
+body:not(.essay-unlocked) .lrc-vault .lib-grid {
+  max-height: 30rem; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
+          mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
+}
+.lrc-lock { margin: 0; }
+body:not(.essay-unlocked) .lrc-lock {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(560px, 94%);
+}
+.essay-unlocked .lrc-vault .lib-grid { max-height: none; -webkit-mask-image: none; mask-image: none; }
+.essay-unlocked .lrc-lock { display: none; }
+@media (max-width: 620px){ body:not(.essay-unlocked) .lrc-vault .lib-grid { max-height: 34rem; } }
 
 /* ═══ Story landing + kit-language components (2026-07-03, from Harsh's UI kits) ═══ */
 /* Tracker board — Crome-style two-tone stat cards */

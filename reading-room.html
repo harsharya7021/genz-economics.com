@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Library
+title: LRC
 permalink: /reading-room/
 ---
 
 <section class="hero" style="padding-bottom:1rem">
   <div class="container">
-    <p class="eyebrow">The library</p>
+    <p class="eyebrow">Learning Resource Centre · LRC</p>
     <h1 class="display">The <em>reading list</em>, updated as he reads.</h1>
     <p class="reading-intro">
       Columns, circulars, papers — each filed with his verdict attached, verbatim, so you know how to read it before you open it. Sometimes that verdict is “please read this <em>super boring</em> circular carefully.” Read it carefully.
@@ -21,134 +21,83 @@ permalink: /reading-room/
 <section class="reading-wrap">
   <div class="container">
 
-    <!-- Lead story: his own column -->
-    <article class="lead-brief">
-      <a class="lead-art" href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}" aria-label="Read the rupee column">
-        <span class="kicker"><span class="brief-cat gold">★ Tantri in Mint</span></span>
-        <span class="mark">₹</span>
-      </a>
-      <div class="lead-body">
-        <div class="brief-src"><span class="src">Mint</span><span class="dot">·</span><span>Apr 1, 2026</span><span class="dot">·</span><span class="star">★ his column</span></div>
-        <h2><a href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">The rupee’s depreciation is neither unusual nor indicative of great stress</a></h2>
-        <p class="lead-dek">His framing of why a sliding rupee is mostly mechanical, not a crisis — the cleanest companion to the exchange-rate sessions.</p>
-        <a class="read-on" href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">Read on site →</a>
+    <!-- ── Open preview: his own writing, rebuilt on this site ── -->
+    <div class="brief-section-head"><h2>His own writing, on this site</h2><span class="feed-link" style="color:var(--ink-soft)">open to all</span></div>
+    <div class="lib-grid">
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--his-work"><span class="lib-thumb-tag">★ Tantri · Mint</span></div>
+        <div class="lib-card-body">
+          <div class="lib-meta"><span>Apr 1, 2026</span></div>
+          <h3 class="lib-card-title"><a href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">The rupee’s depreciation is neither unusual nor indicative of great stress</a></h3>
+          <p class="lib-verdict">His framing of why a sliding rupee is mostly mechanical, not a crisis — the cleanest companion to the exchange-rate sessions.</p>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--his-work"><span class="lib-thumb-tag">★ Tantri · essay</span></div>
+        <div class="lib-card-body">
+          <div class="lib-meta"><span>Sep 5, 2025</span></div>
+          <h3 class="lib-card-title"><a href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Clarifying the narrative on GST cuts</a></h3>
+          <p class="lib-verdict">His own walk-through of who actually bears a consumption-tax cut.</p>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--paper"><span class="lib-thumb-tag">★ Working paper</span></div>
+        <div class="lib-card-body">
+          <div class="lib-meta"><span>May 29, 2025</span></div>
+          <h3 class="lib-card-title"><a href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Savings transactions for credit scoring — first draft</a></h3>
+          <p class="lib-verdict">Our write-up of his fintech paper shared into the group.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── The full library — from the group, locked to the cohort ── -->
+    <div class="section-head" style="margin-top:2.6rem"><h2>The full library</h2><span class="feed-link">his one-line verdicts, verbatim</span></div>
+    <p class="w-note" style="margin:.2rem 0 1.1rem">Every paper, circular, column and reading he has shared into the group — each linked to its source, filed with the line he sent it with. Signed links to the PDFs he shared arrive with the papers archive.</p>
+
+    {% assign lib = site.data['shared-library'] | sort: "date" | reverse %}
+    <div class="lrc-vault">
+      <div class="lib-grid" id="lrcGrid">
+        {% for item in lib %}
+        <article class="lib-card">
+          <div class="lib-thumb lib-thumb--{{ item.type }}">
+            <span class="lib-thumb-tag">
+              {% case item.type %}
+                {% when 'his-work' %}★ Tantri
+                {% when 'rbi-fed' %}RBI · Fed
+                {% when 'paper' %}Paper
+                {% when 'reading' %}Reading
+                {% when 'data' %}Data
+                {% else %}Link
+              {% endcase %}
+            </span>
+          </div>
+          <div class="lib-card-body">
+            <div class="lib-meta"><span>{{ item.date | date: "%b %-d, %Y" }}</span><span class="lib-type">{{ item.type }}</span></div>
+            <h3 class="lib-card-title">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }} ↗</a>{% else %}{{ item.title }}{% endif %}</h3>
+            {% if item.verdict != "" %}<p class="lib-verdict">{{ item.verdict }}</p>{% endif %}
+            {% unless item.url %}{% if item.doc %}<span class="lib-badge">PDF · shared in the group</span>{% endif %}{% endunless %}
+          </div>
+        </article>
+        {% endfor %}
       </div>
-    </article>
 
-    <!-- Global & monetary -->
-    <div class="brief-section-head"><h2>Global &amp; monetary</h2><span class="feed-link" style="color:var(--ink-soft)">★ = Tantri shared</span></div>
-    <div class="brief-grid">
-      <article class="brief-card">
-        <span class="brief-cat">Global · rates</span>
-        <h3>The Bank of Japan Raised Rates. Here’s Why You Should Care.</h3>
-        <div class="brief-src"><span class="src">Wall Street Journal</span><span class="dot">·</span><span>Dec 26, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">On how one central bank’s exit from ultra-low rates ripples worldwide.</p>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat">Global · rates</span>
-        <h3>Japan’s bond-market tremble reflects a fiscal–monetary clash</h3>
-        <div class="brief-src"><span class="src">The Economist</span><span class="dot">·</span><span>Jan 25, 2026</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">A live case of fiscal and monetary policy pulling against each other.</p>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat green">Global</span>
-        <h3>Japan’s big-spending Takaichinomics is ten years out of date</h3>
-        <div class="brief-src"><span class="src">The Economist</span><span class="dot">·</span><span>Dec 26, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Fiscal stimulus when the constraint has changed — useful AD/AS reasoning.</p>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat green">Global</span>
-        <h3>Javier Milei loosens his grip on the peso</h3>
-        <div class="brief-src"><span class="src">The Economist</span><span class="dot">·</span><span>Dec 26, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Exchange-rate regimes and credibility, in real time.</p>
-      </article>
-      <article class="brief-card linked">
-        <span class="brief-cat">Theory</span>
-        <h3>Keynesian Economics — the explainer</h3>
-        <div class="brief-src"><span class="src">Econlib</span><span class="dot">·</span><span>Oct 19, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Foundations behind <a href="{{ '/2025/10/the-keynesian-cross/' | relative_url }}">Session 2 — the Keynesian Cross</a>.</p>
-        <a class="read-on" href="{{ '/2025/10/the-keynesian-cross/' | relative_url }}">Companion note →</a>
-      </article>
+      <div class="essay-gate lrc-lock" id="essayGate">
+        <h3>Sign in with your ISB ID to open the full library</h3>
+        <p>The written notes are open to everyone. The library — every paper, RBI circular and column, with his verdict attached — is licensed ISB material, shared here for the cohort. Sign in once; it stays open.</p>
+        <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+      </div>
     </div>
-
-    <!-- India -->
-    <div class="brief-section-head"><h2>India: rupee, banking, credit</h2></div>
-    <div class="brief-grid">
-      <article class="brief-card">
-        <span class="brief-cat gold">India · FX</span>
-        <h3>Why a weaker rupee is riskier than it appears for Indian borrowers</h3>
-        <div class="brief-src"><span class="src">Mint</span><span class="dot">·</span><span>Jan 14, 2026</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Pairs directly with his own rupee column above.</p>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat gold">India · banking</span>
-        <h3>Collateral-free lending may widen risks for banks before helping MSMEs</h3>
-        <div class="brief-src"><span class="src">Mint</span><span class="dot">·</span><span>Mar 25, 2026</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Credit policy and unintended consequences for bank balance sheets.</p>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat gold">India · credit</span>
-        <h3>How India’s middle-class debt crisis is threatening growth</h3>
-        <div class="brief-src"><span class="src">Financial Times</span><span class="dot">·</span><span>Apr 17, 2025</span><span class="dot">·</span><span>shared by Yash Tambi</span></div>
-        <p class="note">Household leverage as a drag on demand.</p>
-      </article>
-    </div>
-
-    <!-- His own writing -->
-    <div class="brief-section-head"><h2>His own columns &amp; essays</h2></div>
-    <div class="brief-grid">
-      <article class="brief-card linked">
-        <span class="brief-cat gold">★ Essay</span>
-        <h3><a href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Clarifying the narrative on GST cuts</a></h3>
-        <div class="brief-src"><span class="src">WhatsApp essay → site</span><span class="dot">·</span><span>Sep 5, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">His own walk-through of who actually bears a consumption-tax cut.</p>
-        <a class="read-on" href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Read on site →</a>
-      </article>
-      <article class="brief-card linked">
-        <span class="brief-cat">★ Working paper</span>
-        <h3><a href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Savings transactions for credit scoring — first draft</a></h3>
-        <div class="brief-src"><span class="src">Tantri (working)</span><span class="dot">·</span><span>May 29, 2025</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Our write-up of his fintech paper shared into the group.</p>
-        <a class="read-on" href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Read our write-up →</a>
-      </article>
-      <article class="brief-card">
-        <span class="brief-cat">Policy · PIB</span>
-        <h3>Press Information Bureau release</h3>
-        <div class="brief-src"><span class="src">PIB</span><span class="dot">·</span><span>Feb 13, 2026</span><span class="dot">·</span><span class="star">★</span></div>
-        <p class="note">Shared as post-INFS-exam discussion context.</p>
-      </article>
-    </div>
+    <div class="gated" id="gatedChapters" hidden></div>
 
     <div class="cta-band" style="border-radius:var(--r-xl); margin-top:2.5rem">
       <div class="container">
-        <h2>That’s the highlight reel.</h2>
-        <p>The complete index — every paper, book, report and class note shared over 18 months — is on the reading list.</p>
+        <h2>Want the full index?</h2>
+        <p>The complete text index — every paper, book, report and class note shared over 18 months, with the ★ ones he flagged — lives on the reading list.</p>
         <div class="hero-cta"><a class="btn btn-primary" href="{{ '/reading-list/' | relative_url }}">Open the full reading list →</a></div>
       </div>
     </div>
 
   </div>
-
-    <!-- ── From the group — his drops, his verdicts (gated) ── -->
-    <div class="section-head" style="margin-top:2.4rem"><h2>From the group</h2><span class="feed-link">his one-line verdicts, verbatim</span></div>
-    <div class="essay-gate" id="essayGate">
-      <h3>The drops are for the cohort</h3>
-      <p>Papers, RBI documents, his own columns — with the line he sent each one with. Sign in once; it stays open.</p>
-      <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
-    </div>
-    <div class="gated" id="gatedChapters">
-      {% assign lib = site.data['shared-library'] | sort: "date" | reverse %}
-      {% for item in lib %}
-      <div class="lib-row">
-        <span class="lib-date">{{ item.date | date: "%b %d, %Y" }}</span>
-        <div>
-          <p class="lib-title">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }} ↗</a>{% else %}{{ item.title }} <span class="lib-type">shared as PDF</span>{% endif %}<span class="lib-type">{{ item.type }}</span></p>
-          {% if item.verdict != "" %}<p class="lib-verdict">{{ item.verdict }}</p>{% endif %}
-        </div>
-      </div>
-      {% endfor %}
-      <p class="w-note" style="margin-top:1rem">Verbatim from the group, lightly curated (course-note drops live on the site itself). PDFs he shared are in the papers archive — signed links come with the Phase-2 build.</p>
-    </div>
 </section>
 
 <script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-dek: ISB made macro optional. This is macro anyway — for people who want the real thing.
+dek: Macro isn't optional — least of all now. This is the real thing, for people who want it.
 permalink: /about/
 ---
 
@@ -11,11 +11,11 @@ Prof. Prasanna Tantri's macro, in one room — the session notes, the lectures, 
 
 The wish behind it is specific: that you walk around with a short-term working model of the economy in your head, at any point in time. So when the headlines scream "rupee at an all-time low," you already know it *should* hit a low against the dollar more or less every day — our inflation is higher than theirs — and the real question is whether we're depreciating by *more* than the inflation differential. That kind of thing. Useful. Not storytelling.
 
-## Why it's closed
+## Why it isn't open-sourced
 
-We tried it in the open. A handful of people did the work; everyone else watched.
+Read that carefully: the notes are open. Anyone can read every one of them. What sits behind a sign-in is the video and the library — the papers, RBI circulars and draft notes the professor built — because that material is ISB's, shared here on his say-so, for the people it was meant for.
 
-There's a better reason, though. The material here — papers, RBI circulars, draft notes — is written for people with the background to use it correctly. Without that setup, the same document misleads more than it helps. So the login is not a fee. It's a gate, so the people reading this are the people it was written for. Not exclusivity — just not wasting your time, or mine.
+We did try running the whole thing as a democracy once: open, crowd-sourced, everyone welcome to add. A handful of people did the work; everyone else watched. Osho used to needle his audiences with a version of the reason — democracy sounds noble, but a show of hands only ever counts how many, never how much anyone actually knows. Curation isn't exclusion. It's someone taking responsibility for what is worth your time.
 
 And the whole point is to give you what you cannot pick up online. If ten years from now you can say "I could've just Googled this, why did I bother," then it hasn't worked. So the focus stays on what isn't available elsewhere.
 
@@ -29,6 +29,6 @@ This won't read like a textbook. There are caveats on the caveats — all of it 
 
 ## Who's behind it
 
-Built on Prof. Prasanna Tantri's ISB sessions, put together by Harsh. ("Why do you need this joker in between?" Fair question — mostly to keep the notes in one place and the gate on the door.)
+Built on Prof. Prasanna Tantri's ISB sessions, put together by Harsh. ("Why do you need this joker in between?" Fair question.)
 
 Think of it as a 25-year plan, not a 12-month one. It keeps expanding. Your job is to keep reading — and to push back the moment the data says something different from what's written here. Your forty lakhs and one year are worth that much effort.

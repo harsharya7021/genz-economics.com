@@ -43,13 +43,15 @@
         <span class="wordmark-g">gen&nbsp;z</span><span class="wordmark-dot">·</span><span class="wordmark-e">economics</span>
       </a>
       <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}#latest">Notes</a>
-        <a href="{{ '/sessions/' | relative_url }}">Lecture series</a>
-        <a href="{{ '/learn/' | relative_url }}">Course notes</a>
-        <a href="{{ '/reading-room/' | relative_url }}">Library</a>
+        <a href="{{ '/sessions/' | relative_url }}" title="Lecture Theatre — the lectures and their notes">LT</a>
+        <a href="{{ '/reading-room/' | relative_url }}" title="Learning Resource Centre — the library">LRC</a>
         <a href="{{ '/macro-watch/' | relative_url }}">Vitals</a>
+        <a href="{{ '/discussions/' | relative_url }}" title="Class participation — the discussion">Class&nbsp;participation</a>
         <a href="{{ '/bil/' | relative_url }}">BIL</a>
         <a href="{{ '/about/' | relative_url }}">About</a>
+        <a class="nav-home" href="{{ '/' | relative_url }}" aria-label="Home" title="Home">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/></svg>
+        </a>
         <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -69,31 +71,19 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-col">
+      <div class="footer-brand">
         <div class="wordmark small">
           <span class="wordmark-g">gen&nbsp;z</span><span class="wordmark-dot">·</span><span class="wordmark-e">economics</span>
         </div>
         <p class="footer-tag">The macro you can't just Google.</p>
       </div>
-      <div class="footer-col">
-        <h4>Inside</h4>
-        <ul>
-          <li><a href="{{ '/sessions/' | relative_url }}">Weekly sessions</a></li>
-          <li><a href="{{ '/player/' | relative_url }}">Lectures &amp; audio</a></li>
-          <li><a href="{{ '/reading-room/' | relative_url }}">The reading room</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>About</h4>
-        <ul>
-          <li>Built on Prof. Prasanna Tantri's ISB sessions</li>
-          <li><a href="{{ '/about/' | relative_url }}">Why this is closed →</a></li>
-        </ul>
+      <div class="footer-made">
+        <span class="footer-credit">Made with passion by <a href="https://harsharya.com" target="_blank" rel="noopener">harsharya.com</a></span>
+        <button type="button" class="footer-feedback" data-feedback-open>Feedback &amp; bug reports</button>
       </div>
     </div>
     <div class="container copyline">
       <span>© {{ 'now' | date: '%Y' }} Gen Z Economics · all rights reserved</span>
-      <span class="footer-credit">Made with passion by <a href="https://harsharya.com" target="_blank" rel="noopener">harsharya.com</a> · <button type="button" class="footer-feedback" data-feedback-open>Feedback &amp; bug reports</button></span>
     </div>
   </footer>
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
