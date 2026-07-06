@@ -28,6 +28,7 @@ layout: default
 
       <div class="byline">
         <div class="byline-authors">
+          <span class="byline-avatar" aria-hidden="true"></span>
           <span class="byline-by">By</span>
           {% if page.authors and page.authors.size > 0 %}
             {% for a in page.authors %}<span class="byline-name">{{ a | capitalize }}</span>{% unless forloop.last %}<span class="sep">·</span>{% endunless %}{% endfor %}
@@ -52,6 +53,26 @@ layout: default
       </ul>
       {% endif %}
     </header>
+
+    <aside class="share-rail" aria-label="Share this note">
+      <span class="share-rail-label">Share</span>
+      <a class="share-btn" data-share="x" href="#" aria-label="Share on X" title="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a class="share-btn" data-share="linkedin" href="#" aria-label="Share on LinkedIn" title="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.52v14H.24zM8.24 8h4.33v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.52v-6.62c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V22H8.24z"/></svg></a>
+      <a class="share-btn" data-share="whatsapp" href="#" aria-label="Share on WhatsApp" title="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.87 9.87 0 004.71 1.2h.004c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0012.04 2zm4.52 11.86c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
+      <button class="share-btn" type="button" data-share="copy" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></button>
+    </aside>
+    <script>
+    (function(){
+      var rail=document.querySelector(".share-rail"); if(!rail) return;
+      var u=encodeURIComponent(location.href.split("#")[0]);
+      var tEl=document.querySelector(".post-title-display");
+      var t=encodeURIComponent(tEl?tEl.textContent.trim():document.title);
+      var map={x:"https://twitter.com/intent/tweet?url="+u+"&text="+t,linkedin:"https://www.linkedin.com/sharing/share-offsite/?url="+u,whatsapp:"https://wa.me/?text="+t+"%20"+u};
+      rail.querySelectorAll("a[data-share]").forEach(function(a){var k=a.getAttribute("data-share");if(map[k]){a.href=map[k];a.target="_blank";a.rel="noopener";}});
+      var c=rail.querySelector('[data-share="copy"]');
+      if(c)c.addEventListener("click",function(){if(navigator.clipboard)navigator.clipboard.writeText(location.href.split("#")[0]).then(function(){c.classList.add("copied");setTimeout(function(){c.classList.remove("copied");},1400);});});
+    })();
+    </script>
 
     {% if page.session %}{% include lecture-player.html title=page.title session=page.session stream_id=page.stream_id %}<script src="{{ '/assets/js/lecture-gate.js' | relative_url }}" defer></script>{% endif %}
 
