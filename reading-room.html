@@ -9,7 +9,7 @@ permalink: /reading-room/
     <p class="eyebrow">Learning Resource Centre · LRC</p>
     <h1 class="display">The <em>reading list</em>, updated as he reads.</h1>
     <p class="reading-intro">
-      Columns, circulars, papers — each filed with his verdict attached, verbatim, so you know how to read it before you open it. Sometimes that verdict is “please read this <em>super boring</em> circular carefully.” Read it carefully.
+      Everything Prof. Tantri has shared — articles, papers, books, and his own working notes — organised by what they're for. Where a source is public we link it; his own class notes are unpublished, so the right way to get them is to take the course or ask him. Sometimes his verdict is “please read this <em>super boring</em> circular carefully.” Read it carefully.
     </p>
     <div class="hero-cta" style="margin-bottom:.5rem">
       <a class="btn btn-ghost" href="{{ '/book-club/' | relative_url }}">Prof. Tantri's book club →</a>
@@ -20,190 +20,118 @@ permalink: /reading-room/
 <section class="reading-wrap">
   <div class="container">
 
-    <!-- ── The drawers: file the material into neat folders ── -->
-    {% assign flib = site.data['shared-library'] %}
-    {% assign f_hw = flib | where: "type", "his-work" %}
-    {% assign f_rb = flib | where: "type", "rbi-fed" %}
-    {% assign f_pa = flib | where: "type", "paper" %}
-    {% assign f_rd = flib | where: "type", "reading" %}
-    {% assign f_da = flib | where: "type", "data" %}
-    <div class="brief-section-head" style="margin-top:.2rem"><h2>Filed into drawers</h2><span class="feed-link" style="color:var(--ink-soft)">tap a folder to filter the shelf below</span></div>
+    <!-- ── The drawers: pick a kind; its full index opens below ── -->
+    <div class="brief-section-head" style="margin-top:.2rem"><h2>Open a drawer</h2><span class="feed-link" style="color:var(--ink-soft)">pick a folder — its full index opens below</span></div>
     <div class="folder-grid">
-      <button type="button" class="folder" data-folder="his-work">
-        <img class="folder-ico" src="{{ '/assets/img/folders/moleskine.svg' | relative_url }}" alt="" width="78" height="78">
-        <span class="folder-name">His writing</span>
-        <span class="folder-cap"><strong>{{ f_hw | size }}</strong> · columns, essays &amp; working papers</span>
+      <button type="button" class="folder" data-kind="classnotes">
+        <img class="folder-ico" src="{{ '/assets/img/folders/mac-classnotes.svg' | relative_url }}" alt="" width="78" height="78">
+        <span class="folder-name">Class notes</span><span class="folder-cap">INFS &amp; FCRV — his working chapters</span>
       </button>
-      <button type="button" class="folder" data-folder="rbi-fed">
-        <img class="folder-ico" src="{{ '/assets/img/folders/folder-invoices.svg' | relative_url }}" alt="" width="78" height="78">
-        <span class="folder-name">RBI &amp; Fed</span>
-        <span class="folder-cap"><strong>{{ f_rb | size }}</strong> · circulars, minutes, statements</span>
+      <button type="button" class="folder" data-kind="columns">
+        <img class="folder-ico" src="{{ '/assets/img/folders/mac-columns.svg' | relative_url }}" alt="" width="78" height="78">
+        <span class="folder-name">Columns</span><span class="folder-cap">his published writing</span>
       </button>
-      <button type="button" class="folder" data-folder="paper">
-        <img class="folder-ico" src="{{ '/assets/img/folders/binders-folder.svg' | relative_url }}" alt="" width="78" height="78">
-        <span class="folder-name">Papers</span>
-        <span class="folder-cap"><strong>{{ f_pa | size }}</strong> · the academic work he sends</span>
+      <button type="button" class="folder" data-kind="articles">
+        <img class="folder-ico" src="{{ '/assets/img/folders/mac-articles.svg' | relative_url }}" alt="" width="78" height="78">
+        <span class="folder-name">Articles</span><span class="folder-cap">what he sent us to read</span>
       </button>
-      <button type="button" class="folder" data-folder="reading">
-        <img class="folder-ico" src="{{ '/assets/img/folders/opened-folder.svg' | relative_url }}" alt="" width="78" height="78">
-        <span class="folder-name">Readings</span>
-        <span class="folder-cap"><strong>{{ f_rd | size }}</strong> · columns &amp; explainers worth the time</span>
+      <button type="button" class="folder" data-kind="papers">
+        <img class="folder-ico" src="{{ '/assets/img/folders/mac-papers.svg' | relative_url }}" alt="" width="78" height="78">
+        <span class="folder-name">Papers</span><span class="folder-cap">the academic reads</span>
       </button>
-      <button type="button" class="folder" data-folder="data">
-        <img class="folder-ico" src="{{ '/assets/img/folders/folder-tree.svg' | relative_url }}" alt="" width="78" height="78">
-        <span class="folder-name">Data &amp; reports</span>
-        <span class="folder-cap"><strong>{{ f_da | size }}</strong> · the source data, not the newspaper</span>
+      <button type="button" class="folder" data-kind="books">
+        <img class="folder-ico" src="{{ '/assets/img/folders/mac-books.svg' | relative_url }}" alt="" width="78" height="78">
+        <span class="folder-name">Books</span><span class="folder-cap">the quarterly challenge</span>
       </button>
     </div>
 
-    <!-- ── Open preview: his own writing, rebuilt on this site ── -->
-    <div class="brief-section-head"><h2>His own writing, on this site</h2><span class="feed-link" style="color:var(--ink-soft)">open to all</span></div>
-    <div class="lib-grid">
-      <article class="lib-card">
-        <div class="lib-thumb lib-thumb--his-work"><span class="lib-thumb-tag">★ Tantri · Mint</span></div>
-        <div class="lib-card-body">
-          <div class="lib-meta"><span>Apr 1, 2026</span></div>
-          <h3 class="lib-card-title"><a href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">The rupee’s depreciation is neither unusual nor indicative of great stress</a></h3>
-          <p class="lib-verdict">His framing of why a sliding rupee is mostly mechanical, not a crisis — the cleanest companion to the exchange-rate sessions.</p>
-        </div>
-      </article>
-      <article class="lib-card">
-        <div class="lib-thumb lib-thumb--his-work"><span class="lib-thumb-tag">★ Tantri · essay</span></div>
-        <div class="lib-card-body">
-          <div class="lib-meta"><span>Sep 5, 2025</span></div>
-          <h3 class="lib-card-title"><a href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Clarifying the narrative on GST cuts</a></h3>
-          <p class="lib-verdict">His own walk-through of who actually bears a consumption-tax cut.</p>
-        </div>
-      </article>
-      <article class="lib-card">
-        <div class="lib-thumb lib-thumb--paper"><span class="lib-thumb-tag">★ Working paper</span></div>
-        <div class="lib-card-body">
-          <div class="lib-meta"><span>May 29, 2025</span></div>
-          <h3 class="lib-card-title"><a href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Savings transactions for credit scoring — first draft</a></h3>
-          <p class="lib-verdict">Our write-up of his fintech paper shared into the group.</p>
-        </div>
-      </article>
-    </div>
-
-    <!-- ── The full library — from the group, locked to the cohort ── -->
-    <div class="section-head" style="margin-top:2.6rem"><h2>The full library</h2><span class="feed-link">his one-line verdicts, verbatim</span></div>
-    <p class="w-note" style="margin:.2rem 0 1.1rem">Every paper, circular, column and reading he has shared into the group — each linked to its source, filed with the line he sent it with. Signed links to the PDFs he shared arrive with the papers archive.</p>
-
-    {% assign lib = site.data['shared-library'] | sort: "date" | reverse %}
     <div class="lrc-vault">
       <div class="lrc-preview">
-        <div class="lib-grid" id="lrcGrid">
-          {% for item in lib %}
-          <article class="lib-card" data-cat="{{ item.type }}">
-            <div class="lib-thumb lib-thumb--{{ item.type }}">
-              <span class="lib-thumb-tag">
-                {% case item.type %}
-                  {% when 'his-work' %}★ Tantri
-                  {% when 'rbi-fed' %}RBI · Fed
-                  {% when 'paper' %}Paper
-                  {% when 'reading' %}Reading
-                  {% when 'data' %}Data
-                  {% else %}Link
-                {% endcase %}
-              </span>
-            </div>
-            <div class="lib-card-body">
-              <div class="lib-meta"><span>{{ item.date | date: "%b %-d, %Y" }}</span><span class="lib-type">{{ item.type }}</span></div>
-              <h3 class="lib-card-title">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }} ↗</a>{% else %}{{ item.title }}{% endif %}</h3>
-              {% if item.verdict != "" %}<p class="lib-verdict">{{ item.verdict }}</p>{% endif %}
-              {% unless item.url %}{% if item.doc %}<span class="lib-badge">PDF · shared in the group</span>{% endif %}{% endunless %}
-            </div>
-          </article>
-          {% endfor %}
-        </div>
+        <p class="drawer-hint" id="drawerHint">Pick a drawer above — its full index opens here.</p>
 
-        <!-- ── The complete index — the whole reading list, folded in here ── -->
-        <div class="section-head" style="margin-top:2.6rem"><h2>The complete index</h2><span class="feed-link" style="color:var(--ink-soft)">18 months · everything · ★ = Tantri shared</span></div>
-        <p class="w-note" style="margin:.2rem 0 1rem">Every PDF, article, paper, book and class note that came up in the group. Public sources link out; his own class notes are unpublished — take the course or ask him.</p>
-
-        <details class="idx" open><summary>His class notes — INFS &amp; FCRV <span class="idx-n">unpublished</span></summary>
+        <div class="drawer" data-kind="classnotes" hidden>
+          <div class="section-head"><h2>Class notes</h2><span class="feed-link" style="color:var(--ink-soft)">unpublished · take the course or ask him</span></div>
           <div class="idx-group"><h5>INFS · Mohali, 2025</h5><ul class="idx-list">
-            <li><span class="idx-d">Mar 2</span> ★ Ch 1 — Introduction <span class="idx-p">9p</span></li>
-            <li><span class="idx-d">Mar 3</span> ★ Ch 2 — Economy in the Long Run <span class="idx-p">8p</span></li>
-            <li><span class="idx-d">Mar 4–9</span> ★ Ch 3 — Economy in the Short Run <span class="idx-p">5–9p</span></li>
-            <li><span class="idx-d">Mar 9–11</span> ★ Ch 4 — The Monetary System <span class="idx-p">6–8p</span></li>
-            <li><span class="idx-d">Mar 14–18</span> ★ Ch 5–6 — Monetary Policy: Mechanics &amp; Economics <span class="idx-p">4–15p</span></li>
-            <li><span class="idx-d">Mar 18</span> ★ Ch 7 — Post-COVID Landscape <span class="idx-p">8p</span></li>
-            <li><span class="idx-d">Mar 20–21</span> ★ Ch 8 — Forex Markets <span class="idx-p">3 versions</span></li>
-            <li><span class="idx-d">Mar 21</span> ★ All Sessions — combined Mohali notes <span class="idx-p">56p</span></li>
-            <li><span class="idx-d">Mar 22</span> ★ Ch 9 — Financial Intermediation <span class="idx-p">27p</span></li>
+            <li><span class="idx-d">Mar 2</span> Ch 1 — Introduction <span class="idx-p">9p</span></li>
+            <li><span class="idx-d">Mar 3</span> Ch 2 — Economy in the Long Run <span class="idx-p">8p</span></li>
+            <li><span class="idx-d">Mar 4–9</span> Ch 3 — Economy in the Short Run <span class="idx-p">5–9p</span></li>
+            <li><span class="idx-d">Mar 9–11</span> Ch 4 — The Monetary System <span class="idx-p">6–8p</span></li>
+            <li><span class="idx-d">Mar 14–18</span> Ch 5–6 — Monetary Policy: Mechanics &amp; Economics <span class="idx-p">4–15p</span></li>
+            <li><span class="idx-d">Mar 18</span> Ch 7 — Post-COVID Landscape <span class="idx-p">8p</span></li>
+            <li><span class="idx-d">Mar 20–21</span> Ch 8 — Forex Markets <span class="idx-p">3 versions</span></li>
+            <li><span class="idx-d">Mar 21</span> All Sessions — combined Mohali notes <span class="idx-p">56p</span></li>
+            <li><span class="idx-d">Mar 22</span> Ch 9 — Financial Intermediation <span class="idx-p">27p</span></li>
           </ul></div>
           <div class="idx-group"><h5>INFS · Mohali, 2026</h5><ul class="idx-list">
-            <li><span class="idx-d">Feb 27 – Mar 5</span> ★ Class 1–3 Notes</li>
-            <li><span class="idx-d">Mar 24</span> ★ Ch 4 — Basics of Macro · Note 5 — Short Run · Note 6 — Indian Monetary System · Class 7 — Monetary Policy Economics</li>
+            <li><span class="idx-d">Feb 27 – Mar 5</span> Class 1–3 Notes</li>
+            <li><span class="idx-d">Mar 24</span> Ch 4 — Basics of Macro · Note 5 — Short Run · Note 6 — Indian Monetary System · Class 7 — Monetary Policy Economics</li>
           </ul></div>
           <div class="idx-group"><h5>INFS · Hyderabad (2025–26)</h5><ul class="idx-list">
-            <li><span class="idx-d">Dec 27</span> ★ INFS — composite note</li>
-            <li><span class="idx-d">Jan 18</span> ★ Close notes 6 · Close notes 7 — Economics Behind RBI Action</li>
+            <li><span class="idx-d">Dec 27</span> INFS — composite note</li>
+            <li><span class="idx-d">Jan 18</span> Close notes 6 · Close notes 7 — Economics Behind RBI Action</li>
           </ul></div>
           <div class="idx-group"><h5>FCRV — Financing, Capital Raising &amp; Valuation (2025)</h5><ul class="idx-list">
-            <li><span class="idx-d">Mar 21</span> ★ Mid-Term Final · End-Term v1 (early draft)</li>
-            <li><span class="idx-d">Jun 5–10</span> ★ Session 2 · June-10 notes</li>
-            <li><span class="idx-d">Jul 7</span> ★ End-Term v1</li>
+            <li><span class="idx-d">Mar 21</span> Mid-Term Final · End-Term v1 (early draft)</li>
+            <li><span class="idx-d">Jun 5–10</span> Session 2 · June-10 notes</li>
+            <li><span class="idx-d">Jul 7</span> End-Term v1</li>
           </ul></div>
           <div class="idx-group"><h5>Background reading he sent (INFS Co25)</h5><ul class="idx-list">
-            <li><span class="idx-d">Sep 2024</span> ★ Financial Accelerator <span class="idx-p">83p</span> · Bank Cleanups <span class="idx-p">45p</span> · Fear of Fire Sales <span class="idx-p">35p</span> · Board Conduct in Banks <span class="idx-p">30p</span> · Patra et al. (RBI WP) <span class="idx-p">9p</span></li>
-            <li><span class="idx-d">Sep 30</span> ★ Tantri (2024) — Health Insurance &amp; Credit Markets (the PMJAY paper, <em>Management Science</em>) <span class="idx-p">20p</span> · Contract Labor &amp; Monetary Policy Transmission <span class="idx-p">14p</span></li>
-            <li><span class="idx-d">Oct 1</span> ★ Boys Will Be Boys (Barber–Odean) <span class="idx-p">32p</span></li>
-            <li><span class="idx-d">Apr 15, 2025</span> ★ Robo Advisory (Prabhala et al.) <span class="idx-p">38p</span></li>
-            <li><span class="idx-d">May 29, 2025</span> ★ <a href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Fintech paper — first draft</a> (savings-transactions credit scoring) <span class="idx-p">72p</span></li>
+            <li><span class="idx-d">Sep 2024</span> Financial Accelerator <span class="idx-p">83p</span> · Bank Cleanups <span class="idx-p">45p</span> · Fear of Fire Sales <span class="idx-p">35p</span> · Board Conduct in Banks <span class="idx-p">30p</span> · Patra et al. (RBI WP) <span class="idx-p">9p</span></li>
+            <li><span class="idx-d">Sep 30</span> Tantri (2024) — Health Insurance &amp; Credit Markets (the PMJAY paper, <em>Management Science</em>) <span class="idx-p">20p</span> · Contract Labor &amp; Monetary Policy Transmission <span class="idx-p">14p</span></li>
+            <li><span class="idx-d">Oct 1</span> Boys Will Be Boys (Barber–Odean) <span class="idx-p">32p</span></li>
+            <li><span class="idx-d">Apr 15, 2025</span> Robo Advisory (Prabhala et al.) <span class="idx-p">38p</span></li>
+            <li><span class="idx-d">May 29, 2025</span> <a href="{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}">Fintech paper — first draft</a> (savings-transactions credit scoring) <span class="idx-p">72p</span></li>
           </ul></div>
-        </details>
+        </div>
 
-        <details class="idx"><summary>His published writing</summary><ul class="idx-list">
-          <li><span class="idx-d">Apr 1, 2026</span> ★ <a href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">The rupee's depreciation is neither unusual nor indicative of great stress</a> — <em>Mint</em></li>
-          <li><span class="idx-d">Sep 5, 2025</span> ★ <a href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Clarifying the narrative on GST cuts</a> — WhatsApp essay</li>
-          <li><span class="idx-d">Mar 10, 2025</span> ★ Presentation to the PMO <span class="idx-p">73p · internal</span></li>
-        </ul></details>
+        <div class="drawer" data-kind="columns" hidden>
+          <div class="section-head"><h2>Columns</h2><span class="feed-link" style="color:var(--ink-soft)">his published writing</span></div>
+          <ul class="idx-list">
+            <li><span class="idx-d">Apr 1, 2026</span> <a href="{{ '/2026/04/the-rupee-s-depreciation-is-neither-unusual-nor-indicative-of-great-stress/' | relative_url }}">The rupee's depreciation is neither unusual nor indicative of great stress</a> — <em>Mint</em></li>
+            <li><span class="idx-d">Sep 5, 2025</span> <a href="{{ '/2025/09/clarifying-the-narrative-on-gst-cuts/' | relative_url }}">Clarifying the narrative on GST cuts</a> — his own walk-through</li>
+            <li><span class="idx-d">Mar 10, 2025</span> Presentation to the PMO <span class="idx-p">73p · internal</span></li>
+          </ul>
+        </div>
 
-        <details class="idx"><summary>Articles he sent us to read</summary>
+        <div class="drawer" data-kind="articles" hidden>
+          <div class="section-head"><h2>Articles he sent us to read</h2><span class="feed-link" style="color:var(--ink-soft)">public — links out</span></div>
           <div class="idx-group"><h5>Macro &amp; monetary</h5><ul class="idx-list">
-            <li>★ <a href="https://www.econlib.org/library/Enc/KeynesianEconomics.html" target="_blank" rel="noopener">Keynesian Economics</a> — Econlib <span class="idx-d">Oct 19, 2025</span></li>
-            <li>★ Javier Milei loosens his grip on the peso — <em>The Economist</em> <span class="idx-d">Dec 26, 2025</span></li>
-            <li>★ Japan's Takaichinomics is ten years out of date — <em>The Economist</em> <span class="idx-d">Dec 26, 2025</span></li>
-            <li>★ The Bank of Japan Raised Rates. Here's Why You Should Care — <em>WSJ</em> <span class="idx-d">Dec 26, 2025</span></li>
-            <li>★ Japan's bond-market tremble — <em>The Economist</em> <span class="idx-d">Jan 25, 2026</span></li>
+            <li><a href="https://www.econlib.org/library/Enc/KeynesianEconomics.html" target="_blank" rel="noopener">Keynesian Economics</a> — Econlib <span class="idx-d">Oct 19, 2025</span></li>
+            <li>Javier Milei loosens his grip on the peso — <em>The Economist</em> <span class="idx-d">Dec 26, 2025</span></li>
+            <li>Japan's Takaichinomics is ten years out of date — <em>The Economist</em> <span class="idx-d">Dec 26, 2025</span></li>
+            <li>The Bank of Japan Raised Rates. Here's Why You Should Care — <em>WSJ</em> <span class="idx-d">Dec 26, 2025</span></li>
+            <li>Japan's bond-market tremble — <em>The Economist</em> <span class="idx-d">Jan 25, 2026</span></li>
           </ul></div>
           <div class="idx-group"><h5>India: rupee, MSMEs, banking</h5><ul class="idx-list">
-            <li>★ Why a weaker rupee is riskier than it appears for Indian borrowers — <em>Mint</em> <span class="idx-d">Jan 14, 2026</span></li>
-            <li>★ Collateral-free lending may widen risks for banks before helping MSMEs <span class="idx-d">Mar 25, 2026</span></li>
-            <li><em>Yash Tambi:</em> How India's middle-class debt crisis is threatening growth — <em>FT</em> <span class="idx-d">Apr 17, 2025</span></li>
-            <li>★ Press Information Bureau release <span class="idx-d">Feb 13, 2026</span></li>
+            <li>Why a weaker rupee is riskier than it appears for Indian borrowers — <em>Mint</em> <span class="idx-d">Jan 14, 2026</span></li>
+            <li>Collateral-free lending may widen risks for banks before helping MSMEs <span class="idx-d">Mar 25, 2026</span></li>
+            <li>Press Information Bureau release <span class="idx-d">Feb 13, 2026</span></li>
           </ul></div>
-        </details>
+        </div>
 
-        <details class="idx"><summary>Academic papers</summary><ul class="idx-list">
-          <li>1995 · ★ <a href="https://www.nber.org/papers/w4921" target="_blank" rel="noopener">Petersen — Credit Market Competition &amp; Lending Relationships</a></li>
-          <li>2025 · ★ <a href="https://www.nber.org/papers/w31329" target="_blank" rel="noopener">Gormsen &amp; Huber — Corporate Discount Rates</a></li>
-          <li>2025 · ★ <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5047452" target="_blank" rel="noopener">Guenzel — In Too Deep: Sunk Costs &amp; Corporate Investment</a> (<em>JF</em>)</li>
-          <li>2025 · <em>Harsh:</em> Goldin (2025), with gold-price companion data</li>
-          <li><em>MK:</em> SSRN-4590406 <span class="idx-p">89p</span> · Final Durables Consumption Paper <span class="idx-p">78p</span> · 58.1.1-17 <span class="idx-p">17p</span></li>
-        </ul></details>
+        <div class="drawer" data-kind="papers" hidden>
+          <div class="section-head"><h2>Papers</h2><span class="feed-link" style="color:var(--ink-soft)">the academic reads · why he sent each</span></div>
+          <ul class="idx-list">
+            <li><a href="https://www.nber.org/papers/w4921" target="_blank" rel="noopener">Petersen — Credit Market Competition &amp; Lending Relationships</a> <span class="idx-p">1995</span><br><span class="idx-why">Came up alongside an RBI press release on relationship lending.</span></li>
+            <li><a href="https://www.nber.org/papers/w31329" target="_blank" rel="noopener">Gormsen &amp; Huber — Corporate Discount Rates</a> <span class="idx-p">2025</span><br><span class="idx-why">Firms do not change their hurdle rate when the cost of capital changes.</span></li>
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5047452" target="_blank" rel="noopener">Guenzel — In Too Deep: Sunk Costs &amp; Corporate Investment</a> <span class="idx-p">JF 2025</span><br><span class="idx-why">“CEOs' decision to divest a unit depends heavily on the price they bought it at years ago.”</span></li>
+          </ul>
+        </div>
 
-        <details class="idx"><summary>Books &amp; the quarterly reading challenge</summary><ul class="idx-list">
-          <li><span class="idx-d">Sep 10, 2024</span> Ray Dalio — <em>Power Index Appendix</em> <span class="idx-p">186p</span> · <em>Pooja</em></li>
-          <li><span class="idx-d">Feb 27, 2026</span> Niall Ferguson — <em>The Ascent of Money</em> · <em>MK</em></li>
-          <li class="idx-quote">"Let's start a book every quarter — the Ascent of Money, then the House of Debt." — his challenge, Mar 25, 2026</li>
-        </ul></details>
-
-        <details class="idx"><summary>Reports &amp; one-offs</summary><ul class="idx-list">
-          <li>Budget 2025-26 <span class="idx-p">16p</span> · Economic Survey 2025-26 <span class="idx-p">739p</span> · HCES SBI Report</li>
-          <li>Kotak Strategy (Oct 2025) · Perplexity Macro Dashboard · AU Bank's Big Step · India Real Estate H1 2024 <span class="idx-p">70p</span></li>
-          <li>Inflation Expectations · 2023 CFA L2 (Exchange Rates) · Fintechs in India <span class="idx-p">44p</span> · Dr Ashima Goyal — Sept 28 session</li>
-          <li>Maruti Q2 FY25 <span class="idx-p">541p</span> · Muddy Waters — MRO manipulations <span class="idx-p">64p</span> · AI hurtles ahead · <a href="https://youtu.be/qVFEcg-RIAk" target="_blank" rel="noopener">RLI vs AI</a></li>
-        </ul></details>
-
-        <p class="w-note" style="margin:1.2rem 0 0">Spotted something worth adding, or a dead link? Sign in and flag it in <a href="{{ '/discussions/' | relative_url }}">Class participation</a> — tell us which row. Prof. Tantri vets what gets added.</p>
+        <div class="drawer" data-kind="books" hidden>
+          <div class="section-head"><h2>Books</h2><span class="feed-link" style="color:var(--ink-soft)">a book a quarter</span></div>
+          <ul class="idx-list">
+            <li>Niall Ferguson — <em>The Ascent of Money: A Financial History</em> <span class="idx-p">Q1</span></li>
+            <li>Atif Mian &amp; Amir Sufi — <em>House of Debt</em> <span class="idx-p">Q2</span></li>
+            <li class="idx-quote">“Let's start a book every quarter — the Ascent of Money, then the House of Debt.” — his challenge, Mar 25, 2026</li>
+          </ul>
+          <p class="w-note" style="margin:.6rem 0 0">The audiobooks live in <a href="{{ '/book-club/' | relative_url }}">Prof. Tantri's book club →</a></p>
+        </div>
       </div>
 
       <div class="essay-gate lrc-lock" id="essayGate">
-        <h3>Sign in with your ISB ID to open the full index</h3>
-        <p>The written notes are open to everyone. The library and the full 18-month index — every paper, circular, column, class note and book, with his verdict attached — is licensed ISB material, shared here for the cohort. Sign in once; it stays open.</p>
+        <h3>Sign in with your ISB ID to open the drawers</h3>
+        <p>The written notes are open to everyone. The reading list — everything he has shared, with his framing — is licensed ISB material, kept here for the cohort. Sign in once; it stays open.</p>
         <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
       </div>
     </div>
@@ -213,22 +141,25 @@ permalink: /reading-room/
 </section>
 
 <script>
-/* Drawers → filter the shelf by category (tap a folder; tap again to reset) */
+/* Drawers — pick a folder, its full index opens; pick again to close */
 (function(){
-  var folders = document.querySelectorAll(".folder[data-folder]");
-  var cards = document.querySelectorAll("#lrcGrid .lib-card[data-cat]");
-  if (!folders.length || !cards.length) return;
+  var folders = document.querySelectorAll(".folder[data-kind]");
+  var drawers = document.querySelectorAll(".drawer[data-kind]");
+  var hint = document.getElementById("drawerHint");
+  if (!folders.length || !drawers.length) return;
   var active = null;
-  function apply(cat){ cards.forEach(function(c){ c.style.display = (!cat || c.getAttribute("data-cat") === cat) ? "" : "none"; }); }
+  function show(kind){
+    drawers.forEach(function(d){ d.hidden = d.getAttribute("data-kind") !== kind; });
+    folders.forEach(function(f){ f.classList.toggle("is-active", f.getAttribute("data-kind") === kind); });
+    if (hint) hint.hidden = !!kind;
+    if (!kind){ drawers.forEach(function(d){ d.hidden = true; }); folders.forEach(function(f){ f.classList.remove("is-active"); }); }
+  }
   folders.forEach(function(f){
     f.addEventListener("click", function(){
-      var cat = f.getAttribute("data-folder");
-      if (active === cat){ active = null; apply(null); folders.forEach(function(x){ x.classList.remove("is-active"); }); return; }
-      active = cat;
-      folders.forEach(function(x){ x.classList.toggle("is-active", x === f); });
-      apply(cat);
-      var vault = document.querySelector(".lrc-vault");
-      if (vault) vault.scrollIntoView({ behavior: "smooth", block: "start" });
+      var kind = f.getAttribute("data-kind");
+      if (active === kind){ active = null; show(null); return; }
+      active = kind; show(kind);
+      var v = document.querySelector(".lrc-vault"); if (v) v.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 })();
