@@ -9,6 +9,7 @@ excerpt_override: "Session 13 — the formal Phillips curve derivation, and why 
 authors:
   - harsh
 editors: []
+stream_id: 0b37a87dfefabdbcdde16e0c8d88dcb4
 ---
 
 It had been a while. Attendance had "completely collapsed" the last time he ran the wage- and price-setting equations on a whiteboard, so Prof. Tantri opens by rebuilding the medium-term apparatus quickly for the new joiners, with a promise to the regulars that the payoff is coming. Then he delivers it: the formal algebraic derivation of the Phillips curve, run alongside the sharpest live case study the course has had yet — an actual, ongoing supply shock (crude near $130, a forecast 8% monsoon deficit) that shows why India's policymakers are choosing between two bad outcomes, with no good one on the table.

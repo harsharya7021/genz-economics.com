@@ -9,6 +9,7 @@ excerpt_override: "Session 10 — the wage-setting and price-setting equations g
 authors:
   - harsh
 editors: []
+stream_id: 36d1cfc3241277993b082b9adbe76775
 ---
 
 Two equations get written on the board today, and Tantri is upfront that the payoff is still a class away: *"Today, we are only going to set it up. Insights will come from next class."* The setup is worth having anyway, because the last twenty minutes turn it on Japan — forty years of near-zero interest rates, a carry trade that quietly funds power projects and pension funds worldwide, and the first real sign that the rule is breaking.

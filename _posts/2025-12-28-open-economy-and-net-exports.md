@@ -9,6 +9,7 @@ excerpt_override: "Session 7 — the Keynesian Cross goes open: domestic demand 
 authors:
   - harsh
 editors: []
+stream_id: a976cb1dd2413069f7a7b72a79c27e20
 ---
 
 *Do you see the difference between domestic demand and demand for domestic goods?* That is the whole session in one sentence, and Tantri asks it before writing a single new symbol. Domestic demand is whatever Indians want to buy, full stop. Demand for domestic goods is whatever Indians and everyone else want to buy *from India*. The two overlap almost entirely and differ in exactly one place — and that one place is where the rest of open-economy macro lives.
