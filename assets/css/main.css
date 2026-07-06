@@ -1606,7 +1606,7 @@ dfn.lookup:hover { background: var(--highlight); }
 
 /* ── The vault: faded, locked to the cohort until signed in ── */
 .lrc-vault { position: relative; }
-body:not(.site-signed-in) .lrc-vault .lib-grid {
+body:not(.site-signed-in) .lrc-vault .lrc-preview {
   max-height: 30rem; overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
           mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
@@ -1616,9 +1616,9 @@ body:not(.site-signed-in) .lrc-lock {
   position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
   width: min(560px, 94%);
 }
-.site-signed-in .lrc-vault .lib-grid { max-height: none; -webkit-mask-image: none; mask-image: none; }
+.site-signed-in .lrc-vault .lrc-preview { max-height: none; -webkit-mask-image: none; mask-image: none; }
 .site-signed-in .lrc-lock { display: none; }
-@media (max-width: 620px){ body:not(.site-signed-in) .lrc-vault .lib-grid { max-height: 34rem; } }
+@media (max-width: 620px){ body:not(.site-signed-in) .lrc-vault .lrc-preview { max-height: 34rem; } }
 
 /* ── LRC drawers: colored folders with files peeking out (portfolio ref) ── */
 .folder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.5rem 1.3rem; margin: 0 0 2.6rem; }
@@ -1641,6 +1641,31 @@ body:not(.site-signed-in) .lrc-lock {
 .folder--paper   .folder-body, .folder--paper   .folder-tab { background: linear-gradient(180deg, #77A6FF, #1B3FB0); }
 .folder--reading .folder-body, .folder--reading .folder-tab { background: linear-gradient(180deg, #8CEAC7, #2F9E6E); }
 .folder--data    .folder-body, .folder--data    .folder-tab { background: linear-gradient(180deg, #B4BEC7, #5A6A74); }
+/* icon-pack drawers (Folders Icon Pack) — replaces the CSS folders above */
+.folder-ico { width: 78px; height: 78px; display: block; margin: 0 0 .55rem; transition: transform .18s ease; }
+.folder:hover .folder-ico { transform: translateY(-4px) scale(1.04); }
+.folder.is-active .folder-name { text-decoration: underline; text-underline-offset: 3px; }
+.folder.is-active .folder-ico { filter: drop-shadow(0 3px 6px rgba(0,0,0,.25)); }
+
+/* ── LRC preview wrapper (vault cards + complete index share one lock/fade) ── */
+.lrc-preview { position: relative; }
+
+/* ── The complete index — collapsible sections folded in from the reading list ── */
+.idx { border-top: 1px solid var(--rule); }
+.idx > summary { cursor: pointer; font: 600 1rem var(--sans); color: var(--ink); padding: .8rem .2rem; list-style: none; display: flex; align-items: center; gap: .5rem; }
+.idx > summary::-webkit-details-marker { display: none; }
+.idx > summary::before { content: "▸"; color: var(--ink-soft); font-size: .78rem; transition: transform .15s ease; }
+.idx[open] > summary::before { transform: rotate(90deg); }
+.idx-n { font: 600 .58rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: .06rem .45rem; }
+.idx-group { margin: .1rem 0 .9rem; }
+.idx-group h5 { font: 600 .7rem var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--gold-ink); margin: .6rem 0 .3rem; }
+.idx-list { list-style: none; margin: 0; padding: 0 0 .5rem; }
+.idx-list li { font: 400 .9rem/1.5 var(--sans); color: var(--ink); padding: .3rem 0; border-bottom: 1px solid var(--rule); }
+.idx-list a { color: var(--accent); text-decoration: none; }
+.idx-list a:hover { text-decoration: underline; }
+.idx-d { font: 600 .68rem var(--mono); color: var(--ink-soft); margin-right: .35rem; white-space: nowrap; }
+.idx-p { font: 600 .64rem var(--mono); color: var(--ink-soft); }
+.idx-quote { font-style: italic; color: var(--ink-soft); border-bottom: 0 !important; }
 
 /* ── CP: the bank — collapsible dated ledger with filters ── */
 .bank { border: 1px solid var(--rule); border-radius: var(--r-lg, 14px); background: var(--paper); overflow: hidden; }

@@ -9,8 +9,11 @@
 name: Market data (morning refresh)
 
 on:
-  schedule:
-    - cron: "30 3 * * 1-5"      # 03:30 UTC ≈ 09:00 IST, Mon–Fri
+  # PARKED: the morning auto-schedule is disabled until FRED_API_KEY is added
+  # and Pages source is "GitHub Actions". Nothing runs on its own. To switch it
+  # on later, restore the two `schedule` lines below and push:
+  #   schedule:
+  #     - cron: "30 3 * * 1-5"   # 03:30 UTC ≈ 09:00 IST, Mon–Fri
   workflow_dispatch:
 
 permissions:
