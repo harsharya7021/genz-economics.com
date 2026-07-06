@@ -196,6 +196,12 @@ Update or retire in a cleanup pass.
   - **Hero image swap + candlestick backdrop rethink** — the candlestick background behind "what the room holds" isn't sitting right with Harsh; needs a direction (softer / different motif / remove). Flagged, not changed.
   - **Platform showcase** — a carousel / PPT / showcase of the platform to send as an emailer + on WhatsApp, plus designing the email. Explicitly "just noted", not part of this project.
   - **Personal-brand track (harsharya.com + his businesses), a SEPARATE engagement from this site:** polish his LinkedIn; a proper online storefront + Google My Business; his personal website to carry blogs + a newsletter. Noted for later.
+  - **SEO audit** of the whole site before roll-out — titles/meta, sitemap, headings, internal links, structured data, performance.
+  - **"Tantri the Mantri" logo** — newspaper was renamed Tantridaman → **Tantri the Mantri** (2026-07-07); masthead is text-only for now. Harsh created a logo image for it — add it to the masthead once he drops the file in the workspace.
+  - **Switch "What is corporate finance" to the version Harsh prefers** — `corporate-finance.html` (live at `/corporate-finance/`), `corporate-finance-v9.html`, and `corporate-finance-v9-PREVIEW.html` all exist; Harsh to say which he likes, then repoint the permalink.
+  - **Editor account for Prof. Tantri** — give the professor editorial access: add his GitHub as a repo collaborator once the Decap CMS Worker is deployed; he then edits About + notes at `/admin/`.
+  - **Topic tree / knowledge map** — a tree/graph connecting the disparate themes and topics (macro, corporate finance, INFS) "like NLM does" — a concept map linking sessions, models and terms. New build, later.
+  - **New single-line line-art of the professor** (shown in chat 2026-07-07 — at a lectern, blue pen) — can't save an in-chat image to the repo from here; Harsh to drop the file in the workspace/Downloads and say where it goes (hero flip card and/or the newspaper lead).
 
 ---
 
