@@ -16,15 +16,15 @@
     verdict: "Graduation is coming. INFS folks who cannot understand this will be in trouble." }
 - { date: "2025-02-27", type: rbi-fed, title: "RBI press release — with a Rajan paper as anchor", url: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=59829",
     verdict: "Using this Rajan paper as an anchor." }
-- { date: "2025-03-01", type: paper, title: "Petersen — The Effect of Credit Market Competition on Lending Relationships (1995)", doc: "Petersen-EffectCreditMarket-1995.pdf",
+- { date: "2025-03-01", type: paper, title: "Petersen — The Effect of Credit Market Competition on Lending Relationships (1995)", url: "https://www.nber.org/papers/w4921", doc: "Petersen-EffectCreditMarket-1995.pdf",
     verdict: "Please go through, this will be useful." }
 - { date: "2025-04-11", type: his-work, title: "Presentation to the PMO (73 slides)", doc: "Presentation to the PMO.pdf",
     verdict: "Presented this to the PMO yesterday. Some of these were covered in class." }
 - { date: "2025-05-23", type: rbi-fed, title: "RBI Bulletin — original data link", url: "https://rbidocs.rbi.org.in/rdocs/Bulletin/",
     verdict: "Do not use newspaper sources. The original data link is this." }
-- { date: "2025-06-05", type: paper, title: "Gormsen & Huber — Corporate Discount Rates (AER 2025)", doc: "gormsen-huber-2025-corporate-discount-rates.pdf",
+- { date: "2025-06-05", type: paper, title: "Gormsen & Huber — Corporate Discount Rates (AER 2025)", url: "https://www.nber.org/papers/w31329", doc: "gormsen-huber-2025-corporate-discount-rates.pdf",
     verdict: "The paper demonstrates (using data) that firms do not change their hurdle rate when cost of capital changes." }
-- { date: "2025-06-20", type: paper, title: "Guenzel — In Too Deep: Sunk Costs and Corporate Investment (JF 2025)", doc: "GUENZEL - In Too Deep.pdf",
+- { date: "2025-06-20", type: paper, title: "Guenzel — In Too Deep: Sunk Costs and Corporate Investment (JF 2025)", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5047452", doc: "GUENZEL - In Too Deep.pdf",
     verdict: "CEOs' decision to divest a unit depends heavily on at what price it was bought. Look for instances where organizations use sunk costs in decision making." }
 - { date: "2025-09-18", type: rbi-fed, title: "Fed statement + projections, Sep 2025 (25bp cut)", url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
     verdict: "As you know, Fed has cut by 25 bps." }
@@ -34,7 +34,7 @@
     verdict: "Keynesian Cross." }
 - { date: "2025-10-02", type: reading, title: "How to fortify your town against economic shocks (Agglomerations)", url: "https://agglomerations.substack.com/p/how-to-fortify-your-town-against-shocks",
     verdict: "Pre-read for today's class. I will talk about economic growth today." }
-- { date: "2025-10-02", type: reading, title: "Keynesian Economics — Econlib", doc: "Keynesian Economics - Econlib.pdf",
+- { date: "2025-10-02", type: reading, title: "Keynesian Economics — Econlib", url: "https://www.econlib.org/library/Enc/KeynesianEconomics.html", doc: "Keynesian Economics - Econlib.pdf",
     verdict: "Pre-read." }
 - { date: "2025-10-16", type: his-work, title: "His Business Standard article — straight from INFS class", doc: "Why a weaker rupee is riskier than it appears for Indian borrowers.pdf",
     verdict: "My article in Business Standard. Straight from INFS class." }

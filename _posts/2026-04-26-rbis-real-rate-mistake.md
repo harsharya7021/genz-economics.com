@@ -45,7 +45,7 @@ A student, Shashwat, asks the sharpest question of the Q&A: if windfall taxes ge
 The most striking new number in the session is what state-government subsidy schemes add to this picture, worked out live at his request. Take a hypothetical ₹3,000/month household transfer scheme, scaled to Uttar Pradesh's roughly 3-4 crore households, then scaled again to all of India (which he estimates at "6 times Uttar Pradesh"): the arithmetic lands at *"something close to like 2% of GDP"* in additional deficit, on top of whatever the oil shock itself costs. That's the mechanism behind a claim he makes almost in passing but doesn't walk back: *"we have a unique situation in India where state governments will cause money printing."* States running deficits still get financed one way or another, and if the RBI is the one absorbing that pressure through OMOs rather than letting rates rise, the inflation-expectation math doesn't care which level of government did the spending.
 
 <div class="widget" id="w-realrate">
-  <p class="w-head">Machine — real rate, correctly measured</p>
+  <p class="w-head">Model — real rate, correctly measured</p>
   <p class="w-note" style="margin:0 0 .6rem">RBI's mistake was using actual inflation instead of expected inflation to compute the real rate. Set both, and see how differently the same nominal rate reads depending on which formula you use.</p>
   <div class="w-row"><label>Nominal (repo) rate</label><input type="range" data-nom min="3" max="8" step="0.25" value="5.5"><output data-nom-label></output></div>
   <div class="w-row"><label>Actual (reported) inflation</label><input type="range" data-act min="0" max="6" step="0.25" value="1"><output data-act-label></output></div>

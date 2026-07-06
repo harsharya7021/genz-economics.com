@@ -31,7 +31,7 @@ That stability turned into the foundation of a trade the rest of the world leans
 They are no longer staying near zero. Post-COVID inflation expectations rose "anywhere in the world, in most places, and so is in Japan" — and for the first time in a generation, Japanese wages and prices are actually moving. *"A generation in Japan hasn't heard of something known as inflation. Now they are having 2% inflation."* The tell he points to is specific and startling: Japan's 40-year government bond, for the first time, priced at a 4% yield — *"unheard of for Japan."* The Bank of Japan, trying to catch up, has pushed its policy rate to 0.75%, which by his account is *"not sufficient, because the inflation expectation is going even higher pace."*
 
 <div class="widget" id="w-carry">
-  <p class="w-head">Machine — the carry trade's breakeven</p>
+  <p class="w-head">Model — the carry trade's breakeven</p>
   <p class="w-note" style="margin:0 0 .6rem">Borrow in yen at Japan's rate, invest abroad at a fixed 6%. Slide Japan's own rate up from near-zero and watch the spread that made the trade worth doing.</p>
   <div class="w-row"><label>Japan's policy rate</label><input type="range" data-jrate min="0" max="6" step="0.25" value="0.75"><output data-jrate-label></output></div>
   <p class="w-big" data-out></p>

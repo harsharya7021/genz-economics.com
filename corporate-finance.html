@@ -2,18 +2,18 @@
 layout: default
 title: "What is Corporate Finance?"
 permalink: /corporate-finance/
-description: "Prof. Tantri's corporate finance course as one long read — his own notes, his own numbers, thirteen interactive machines. Opportunity cost, cost of capital, CAPM, NPV, IRR, Modigliani-Miller, tax shields, bankruptcy, and the skill to smell before the fire starts."
+description: "Prof. Tantri's corporate finance course as one long read — his own notes, his own numbers, thirteen interactive models. Opportunity cost, cost of capital, CAPM, NPV, IRR, Modigliani-Miller, tax shields, bankruptcy, and the skill to smell before the fire starts."
 ---
 
 <article class="essay">
   <header class="essay-hero">
-    <p class="essay-kicker">A long read · his notes, made playable · 13 machines</p>
+    <p class="essay-kicker">A long read · his notes, made playable · 13 models</p>
     <h1 class="display">What is corporate finance?</h1>
-    <p class="lede">In October 2024, Prof. Prasanna Tantri told the group what he was working on: <em>"The current obsession is a simple and intuitive book on basics of corporate finance. That's all."</em> The chapters below are that material — the lecture notes he writes himself, the numbers he works in class, the questions he sets in exams — arranged as one continuous read. His words throughout. What we added are the machines: the Excel examples attached to his notes, wired up so you can move the assumptions yourself.</p>
+    <p class="lede">In October 2024, Prof. Prasanna Tantri told the group what he was working on: <em>"The current obsession is a simple and intuitive book on basics of corporate finance. That's all."</em> The chapters below are that material — the lecture notes he writes himself, the numbers he works in class, the questions he sets in exams — arranged as one continuous read. His words throughout. What we added are the models: the Excel examples attached to his notes, wired up so you can move the assumptions yourself.</p>
     <div class="foreword">
 <p class="wa-meta" style="margin:0 0 .6rem">How to read this</p>
-<p>Straight through, ideally with a pencil. Every chapter builds on the previous one, the way his course does — he does not front-load conclusions, and neither does this page. When you hit a machine, stop and break it: every number in every machine is taken from his notes, and each one has a trap he sets in class. Dotted-underlined terms open a plain-language definition on tap. The footnote markers are his digressions — read them; they are usually the best part.</p>
-<p class="fw-sig">— <a href="https://harsharya.com" target="_blank" rel="noopener">Harsh</a>, who stitched the notes and built the machines</p>
+<p>Straight through, ideally with a pencil. Every chapter builds on the previous one, the way his course does — he does not front-load conclusions, and neither does this page. When you hit a model, stop and break it: every number in every model is taken from his notes, and each one has a trap he sets in class. Dotted-underlined terms open a plain-language definition on tap. The footnote markers are his digressions — read them; they are usually the best part.</p>
+<p class="fw-sig">— <a href="https://harsharya.com" target="_blank" rel="noopener">Harsh</a>, who stitched the notes and built the models</p>
 </div>
     <p class="essay-meta">Source: Prof. Tantri's FCRV lecture notes (Sessions 1–10, June 2025 book draft), his exams, and his messages to the Finance Enthusiasts group · genz-economics.com</p>
   </header>
@@ -111,7 +111,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Let us understand opportunity cost using his example. A manager is presented with two projects, A and B. The firm has an ongoing project, C. Projects B and C require the same skilled labour, and there is a shortage — the firm must rely on internal resources. Going by accounting profit, B looks better than A. But choosing B means pulling skilled labour off C, and the firm misses out on C's 50 of profit. That 50 is the opportunity cost of using skilled labour on B.</p>
 
   <div class="widget" id="w-oppcost">
-    <p class="w-head">Machine №1 — the opportunity-cost table (June-10 notes, §2.1)</p>
+    <p class="w-head">Model №1 — the opportunity-cost table (June-10 notes, §2.1)</p>
     <p class="w-note" style="margin:0 0 .6rem">His three scenarios, exactly as the notes run them. The last column is the profit that actually moves the share price:</p>
     <div class="w-toggle" style="flex-wrap:wrap">
       <button type="button" data-scen="base" aria-pressed="true">C is running</button>
@@ -134,7 +134,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>But lending to a firm is not the same as depositing with SBI — the firm is risky. Suppose the probability of default is 10%: if you lend to a zillion firms that are alike, approximately 10% of them default. Then you charge 22.22% (that is, 110/90), so that you make 10% <em>in expectation</em>. Lend 100; you expect back 0.9 × 100 × 1.2222 + 0.1 × 0 = 110 — exactly what SBI would have paid. The extra 12.22 percentage points are not profit, and — he is emphatic on this — <em>not a risk premium</em>. This is what a risk-neutral lender would charge.<span class="fn">His footnote defining the term: a risk-neutral lender is indifferent between a certain 100 and a coin-flip between 200 and 0. A risk-averse lender prefers the certain 100 — and every real lender is risk-averse.</span></p>
 
   <div class="widget" id="w-lender">
-    <p class="w-head">Machine №2 — the lender's arithmetic (June-10 notes, §2.3)</p>
+    <p class="w-head">Model №2 — the lender's arithmetic (June-10 notes, §2.3)</p>
     <div class="w-row"><label>Risk-free rate (SBI deposit)</label><input type="range" data-rf min="1" max="15" step="0.5" value="10"><output data-rf-label></output></div>
     <div class="w-row"><label>Expected default rate</label><input type="range" data-pd min="0" max="60" step="1" value="10"><output data-pd-label></output></div>
     <p class="w-big" data-rate></p>
@@ -206,14 +206,14 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>The offer implies a valuation of 100/0.55 = Rs 181. The firm's expected cash flow next year is 200 + 40 = Rs 240. So the shark's expected return solves 240/(1 + k<sub>e</sub>) = 181 — a cost of equity of <strong>32%</strong>. If Rs 240 is realised, 55% of it — Rs 132 — goes to the shark; you get Rs 108 on your Rs 100. Your return has been squeezed to 8%, because you are paying 32% as the cost of equity on a project you expected to return 20%. <em>The shark charges the expected return by controlling today's valuation.</em> That is how equity investors charge — not through a contract, but through the price at which they enter.</p>
 
   <div class="widget" id="w-shark">
-    <p class="w-head">Machine №3 — the shark's terms (Session 3)</p>
+    <p class="w-head">Model №3 — the shark's terms (Session 3)</p>
     <p class="w-note" style="margin:0 0 .6rem">Rs 100 already in, expected to make Rs 20. The shark puts in Rs 100 more, also expected to make Rs 20. Drag the stake the shark demands:</p>
     <div class="w-row"><label>Shark's stake for Rs 100</label><input type="range" data-stake min="42" max="70" step="1" value="55"><output data-stake-label></output></div>
     <div data-table></div>
     <p class="w-note" data-verdict></p>
   </div>
 
-  <p>Run his three scenarios on the machine. At 55%, the shark charges 32% and your return is 8%. At 45%, the shark charges 8% — your stake is worth Rs 122 the moment the deal signs, and your return is 32%. At 60%, the shark charges 44%, the firm is valued at Rs 167, your Rs 100 stake is suddenly worth Rs 67, and your return is <em>minus</em> 4% — <em>"you would rather invest your stake in a risk-free bond than accept the offer."</em> To see why the value falls, imagine selling your remaining stake to a private-equity firm: it expects the same 32% return the shark established, so it values your 45% claim on 240 at 108/1.32 = Rs 81. The deal with the shark <em>repriced your firm</em>.</p>
+  <p>Run his three scenarios on the model. At 55%, the shark charges 32% and your return is 8%. At 45%, the shark charges 8% — your stake is worth Rs 122 the moment the deal signs, and your return is 32%. At 60%, the shark charges 44%, the firm is valued at Rs 167, your Rs 100 stake is suddenly worth Rs 67, and your return is <em>minus</em> 4% — <em>"you would rather invest your stake in a risk-free bond than accept the offer."</em> To see why the value falls, imagine selling your remaining stake to a private-equity firm: it expects the same 32% return the shark established, so it values your 45% claim on 240 at 108/1.32 = Rs 81. The deal with the shark <em>repriced your firm</em>.</p>
   <p>Four statements, he insists, mean exactly the same thing: a higher expected return; a higher cost of equity; a lower valuation; a bigger stake for the same money. If you internalise that equivalence, half of finance journalism becomes translatable.</p>
 
   <h3>Which risks get priced — CAPM</h3>
@@ -253,7 +253,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <!-- ───────────── GATE ───────────── -->
   <div class="essay-gate" id="essayGate">
     <h3>The next seven chapters are for the cohort</h3>
-    <p>WACC and free cash flow, NPV and the share price, the IRR trap, Modigliani-Miller, the tax shield, bankruptcy, and the growth-assumption machine. Sign in once — it is a gate, not a fee — and it stays open for you.</p>
+    <p>WACC and free cash flow, NPV and the share price, the IRR trap, Modigliani-Miller, the tax shield, bankruptcy, and the growth-assumption model. Sign in once — it is a gate, not a fee — and it stays open for you.</p>
     <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
   </div>
 
@@ -292,7 +292,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Now the regulation moves the mix to 2:8. The cost of capital rises to (20×2 + 10×8)/10 = 12%. Keep charging 11% and only Rs 3 remains for Rs 20 of equity — 15%, below the 20% equity holders expect. <em>"Hence, the stock price of the bank falls."</em> To prevent it, the bank must raise lending rates to 12%. The change in the equity-debt mix changes the cost of capital, and the cost of capital changes the price of loans. The SBI Chairman said it in one line after the announcement: <em>"If my cost of funds is going up, I will certainly increase interest rates. We have to do the calculation."</em></p>
 
   <div class="widget" id="w-bank">
-    <p class="w-head">Machine №4 — the regulator moves your WACC (Session 5)</p>
+    <p class="w-head">Model №4 — the regulator moves your WACC (Session 5)</p>
     <p class="w-note" style="margin:0 0 .6rem">A bank funded with equity (k<sub>e</sub> 20%) and debt (k<sub>d</sub> 10%), lending Rs 100 at 11%. Drag the equity share the regulator demands:</p>
     <div class="w-row"><label>Equity share of funding</label><input type="range" data-eq min="5" max="50" step="1" value="10"><output data-eq-label></output></div>
     <div class="w-mixbar" aria-hidden="true"><div class="w-mix-e" data-mix-e></div><div class="w-mix-d" data-mix-d></div></div>
@@ -333,7 +333,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Now the subtle part — <em>"we will make things a little more complicated (or interesting — depending on your perspective)"</em>. There is an inherent assumption inside that 2.645: that the cash flows the project throws off are <em>reinvested at the cost of capital</em>. Compound 12, 11 and 110 forward to year 3 at 10% and you get 136.62; discount that single pile back three years and the NPV is the same 2.645. Now suppose the interim cash actually sits in a bank paying 6%. The pile is only 135.14, and the NPV falls to 1.535. Same project, same projections. And he pushes it one step further: make the year-1 cash flow 10 instead of 12, and the project is positive-NPV under the 10% assumption but <em>negative</em> under 6% — <em>"an incorrect assumption about reinvestment can potentially lead to wrong project selections."</em></p>
 
   <div class="widget" id="w-npv">
-    <p class="w-head">Machine №5 — NPV and its hidden assumption (Session 6)</p>
+    <p class="w-head">Model №5 — NPV and its hidden assumption (Session 6)</p>
     <p class="w-note" style="margin:0 0 .6rem">His cash flows: −100, +12, +11, +110. Move the cost of capital, then move the reinvestment rate away from it and watch the NPV drift:</p>
     <div class="w-row"><label>Cost of capital</label><input type="range" data-rate min="4" max="16" step="0.5" value="10"><output data-rate-label></output></div>
     <div class="w-row"><label>Actual reinvestment rate</label><input type="range" data-reinv min="4" max="16" step="0.5" value="10"><output data-reinv-label></output></div>
@@ -344,17 +344,17 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
 
   <h3>Finance profit</h3>
   <p>Why should the share price care about this number? Because NPV is the project's <em>finance profit</em> — his term, and the purest form of profit after factoring in the cost of capital. Each year, holding Rs 100 of investors' money costs Rs 10. Year 1 earns 12 — finance profit 2, worth 1.818 today. Year 2 earns 11 — profit 1, worth 0.826. Year 3 earns 110 against 110 owed — zero. Total: 2.645. <em>Exactly</em> the NPV. Theoretically, then, the share price should rise by the amount of NPV on the announcement of the project — in the limiting case where markets are efficient. (In practice the price moves directionally but not exactly, because investors do not fully trust firms' projections — information asymmetry. The theoretical case is the one that teaches.)</p>
-  <p>To see the price move, let investor A — who put in the Rs 100 — sell to investor B after the announcement. Knowing the PV of the expected cash flows is 102.645, A sells at nothing less. Will B, buying at 102.645, earn anything? <em>"The answer is yes!"</em> — the cost of capital, 10%, every year, regardless of dividend policy. That claim sounds too clean to be true, so the notes prove it both ways, and the machine below lets you slide between them.</p>
+  <p>To see the price move, let investor A — who put in the Rs 100 — sell to investor B after the announcement. Knowing the PV of the expected cash flows is 102.645, A sells at nothing less. Will B, buying at 102.645, earn anything? <em>"The answer is yes!"</em> — the cost of capital, 10%, every year, regardless of dividend policy. That claim sounds too clean to be true, so the notes prove it both ways, and the model below lets you slide between them.</p>
 
   <div class="widget" id="w-price">
-    <p class="w-head">Machine №6 — dividend or reinvest: the investor earns 10% either way (Session 6)</p>
+    <p class="w-head">Model №6 — dividend or reinvest: the investor earns 10% either way (Session 6)</p>
     <p class="w-note" style="margin:0 0 .6rem">Investor B buys at 102.645. Year 1 produces Rs 12. Split it between dividend and reinvestment (reinvested cash compounds at 10% to year 3):</p>
     <div class="w-row"><label>Paid as dividend (of the 12)</label><input type="range" data-div min="0" max="12" step="1" value="0"><output data-div-label></output></div>
     <div data-table></div>
     <p class="w-note" data-verdict></p>
   </div>
 
-  <p>Work the two ends of the slider against the notes. Full reinvestment: year-3 cash flow becomes 110 + 12(1.1)² = 124.52, and the year-1 price is 11/1.1 + 124.52/1.1² = <strong>112.909</strong> — precisely 10% above 102.645. Full dividend: the price is only 100.909 — the share price <em>falls</em> 1.69% — but add the Rs 12 dividend and B's return is (100.909 + 12 − 102.645)/102.645 = 10% again. A falling share price and a satisfied investor, simultaneously. File that away for every headline about a stock "punished" on its ex-dividend date. His homework asks you to verify the 6-and-6 split does the same; the machine will show you it does.</p>
+  <p>Work the two ends of the slider against the notes. Full reinvestment: year-3 cash flow becomes 110 + 12(1.1)² = 124.52, and the year-1 price is 11/1.1 + 124.52/1.1² = <strong>112.909</strong> — precisely 10% above 102.645. Full dividend: the price is only 100.909 — the share price <em>falls</em> 1.69% — but add the Rs 12 dividend and B's return is (100.909 + 12 − 102.645)/102.645 = 10% again. A falling share price and a satisfied investor, simultaneously. File that away for every headline about a stock "punished" on its ex-dividend date. His homework asks you to verify the 6-and-6 split does the same; the model will show you it does.</p>
 
   <!-- ═══════════ CHAPTER 6 ═══════════ -->
   <h2><span class="ch-no">Chapter 6</span>IRR, and the tools you will meet in meetings</h2>
@@ -364,7 +364,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Now his trap, spring-loaded. Your hurdle is 10.75%. The naive IRR — 11.07% — clears it. The true return — 10.56% — does not. <em>"If you had done the naive estimation, you would have incorrectly accepted the project."</em></p>
 
   <div class="widget" id="w-irr">
-    <p class="w-head">Machine №7 — the IRR trap (Session 7)</p>
+    <p class="w-head">Model №7 — the IRR trap (Session 7)</p>
     <p class="w-note" style="margin:0 0 .6rem">Excel will always tell you 11.07%. Reality depends on where the interim cash actually sits:</p>
     <div class="w-row"><label>Interim cash actually earns</label><input type="range" data-reinv min="3" max="14" step="0.5" value="6"><output data-reinv-label></output></div>
     <div class="w-row"><label>Your hurdle rate</label><input type="range" data-hurdle min="9.5" max="12" step="0.05" value="10.75"><output data-hurdle-label></output></div>
@@ -375,7 +375,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Three more failure modes, from the notes, each one exam-fodder. <strong>NPV and IRR can contradict.</strong> Project A: invest 1,000, receive 10,000 — IRR 900%, NPV 8,091. Project B: invest 10,00,000, receive 20,00,000 — IRR "only" 100%, NPV 8,18,182. Mutually exclusive? IRR says A; NPV says B. <em>"Always select projects based on NPV, because it has a direct bearing on shareholder value."</em> A ratio cannot pay salaries; an absolute amount can. <strong>There can be multiple IRRs.</strong> IRR solves a polynomial; polynomials have multiple roots. His example — −5,00,000; +16,05,000; −17,16,900; +6,12,040 — has three IRRs: 4%, 7% and 10%. Which one goes in the board deck? <strong>Or none at all.</strong> Flip signs the wrong way (−105, +250, −150) and the polynomial has no real root. Excel prints #NUM! and the meeting moves on, none the wiser.</p>
 
   <div class="widget" id="w-irrprofile">
-    <p class="w-head">Machine №8 — the NPV profile: where IRR lives, and where it multiplies (Session 7)</p>
+    <p class="w-head">Model №8 — the NPV profile: where IRR lives, and where it multiplies (Session 7)</p>
     <p class="w-note" style="margin:0 0 .6rem">NPV plotted against the discount rate. The IRR is where the curve crosses zero — <em>if</em> it crosses once:</p>
     <div class="w-toggle">
       <button type="button" data-prof="normal" aria-pressed="true">His base project</button>
@@ -416,7 +416,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p><strong>Road 3, the NOPAT method.</strong> Put the benefit in the <em>cash flow</em>: compute the actual tax paid (on income minus interest), subtract it from operating cash flow, and discount at the plain unlevered 8%. Same firm, same years — <strong>17.13</strong>.</p>
 
   <div class="widget" id="w-trio">
-    <p class="w-head">Machine №9 — three roads, one valuation (Session 9)</p>
+    <p class="w-head">Model №9 — three roads, one valuation (Session 9)</p>
     <p class="w-note" style="margin:0 0 .6rem">His firm: 10 a year for four years, r<sub>u</sub> 8%, r<sub>d</sub> 6%, D/E held at 1:1. Drag the tax rate — at zero you are back in the M&M world and debt adds nothing:</p>
     <div class="w-row"><label>Tax rate</label><input type="range" data-tax min="0" max="50" step="5" value="50"><output data-tax-label></output></div>
     <div data-table></div>
@@ -433,7 +433,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Then add the thing that does destroy value. Bankruptcy has <em>costs</em>: customers postpone purchases or defect, lenders file cases, lawyers bill. In the notes this is one clean change: the bad-state cash flow drops from 50 to 40. The lender re-prices — now he must charge <strong>41%</strong> — and the cost of equity stays 35%, because bankruptcy cost is a firm-specific risk and firm-specific risk is not priced into expected returns. Equity value falls to 25.28; the firm is worth <strong>83.25</strong>. The missing 3.71 is the PV of the expected bankruptcy cost (a loss of 10, half the time, discounted at 35%: 5/1.35 = 3.70 — his "another way to arrive at it"). And notice who bears it: the equity holder, because the lender priced himself out of harm's way.</p>
 
   <div class="widget" id="w-mm">
-    <p class="w-head">Machine №10 — leverage, priced default, and the cost that sticks (Sessions 8–10)</p>
+    <p class="w-head">Model №10 — leverage, priced default, and the cost that sticks (Sessions 8–10)</p>
     <p class="w-note" style="margin:0 0 .6rem">Good state 150, bad state 50, unlevered value 86.96. Add debt; then switch on real bankruptcy costs (bad state 50 → 40) and watch which numbers move:</p>
     <div class="w-row"><label>Debt</label><input type="range" data-debt min="0" max="60" step="1" value="0"><output data-debt-label></output></div>
     <div class="w-toggle"><button type="button" data-bc aria-pressed="false">Bankruptcy cost: OFF</button></div>
@@ -452,7 +452,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <p>Disease one. Debt repayment due: 100. Cash in hand: 90. Equity gets nothing either way. Along comes a gamble: stake 20, double-or-nothing, win probability 10% — expected value hopelessly negative. The firm's expected cash flow drops from 90 to 74. The lender's drops from 90 to 73. And the equity holder? From 0 to 1 — <em>positive</em>. Heads you win, tails the lender loses. <em>"The equity investor is incentivized to invest in projects that have negative NPV for the firm."</em> Risk shifting, asset substitution, overinvestment, gambling for resurrection — <em>"I may use any of these terms in the exam."</em></p>
 
   <div class="widget" id="w-gamble">
-    <p class="w-head">Machine №11 — gambling for resurrection (Session 10)</p>
+    <p class="w-head">Model №11 — gambling for resurrection (Session 10)</p>
     <p class="w-note" style="margin:0 0 .6rem">Debt 100, cash 90, stake 20, double or nothing. Drag the odds and find where the gamble stops paying <em>you</em> — then notice how absurdly bad it can be and still tempt the equity holder:</p>
     <div class="w-row"><label>Win probability</label><input type="range" data-win min="0" max="60" step="5" value="10"><output data-win-label></output></div>
     <div data-table></div>
@@ -466,7 +466,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
 <aside class="wa-aside">
   <p class="wa-meta">To the group, April 2026 — eight months after the course ended</p>
   <p>"Will turn the main gate into Strait of Hormuz today. Hope you guys remember the difference between risk shifting and debt overhang."</p>
-  <p class="wa-meta" style="margin-top:.5rem">You now have both machines. You have no excuse.</p>
+  <p class="wa-meta" style="margin-top:.5rem">You now have both models. You have no excuse.</p>
 </aside>
 
   <p>And the course's final word on debt is, deliberately, a kind one: debt <em>disciplines</em>. It leaves less free cash with managers, and managers with less idle cash build fewer empires — fewer negative-NPV vanity projects. Lenders reinforce it with covenants. <em>"We end the FCRV sessions on this positive note."</em></p>
@@ -475,10 +475,10 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
   <h2><span class="ch-no">Chapter 10</span>The skill to smell before the fire starts</h2>
 
   <p>The takeaway section of his notes begins by asking what the course actually equipped you with, and answers: the habit of probing assumptions. <em>"In practical scenarios, most of the time, you will hear valuation being discussed in terms of ratios such as PE and EV/EBITDA. In the majority of cases, a naive way of arriving at the value is to use these ratios of comparable firms as the benchmark — also known as relative valuation. However, you must understand that there are underlying assumptions in the calculation of enterprise values of comparables as well. You are essentially relying on the assumptions made by someone else to value your own company — assumptions that may not be suitable for your firm's context."</em></p>
-  <p>His closing example. L&T must decide on a project: cash inflow of 10,000 crore at the end of year one, growing 20% a year for the next six years, then 10% in perpetuity, against an investment of 3,00,000 crore. In the base case the inflows are worth 2,53,779 crore — <em>negative</em> NPV, walk away. Nudge the initial growth assumption from 20% to 30% and the same project is worth 3,64,305 crore — comfortably positive. One assumption, one Excel cell, a hundred-thousand-crore swing.<span class="fn">The notes print the two output values but not the discount rate behind them; the machine backs out ≈16.15% from the base case, and at that rate the 30% scenario lands within ~7% of his printed figure — his sheet likely handles the terminal value slightly differently. The lesson survives any convention: the answer lives in the assumptions. (Editor's note, so you know exactly what is his and what is ours.)</span></p>
+  <p>His closing example. L&T must decide on a project: cash inflow of 10,000 crore at the end of year one, growing 20% a year for the next six years, then 10% in perpetuity, against an investment of 3,00,000 crore. In the base case the inflows are worth 2,53,779 crore — <em>negative</em> NPV, walk away. Nudge the initial growth assumption from 20% to 30% and the same project is worth 3,64,305 crore — comfortably positive. One assumption, one Excel cell, a hundred-thousand-crore swing.<span class="fn">The notes print the two output values but not the discount rate behind them; the model backs out ≈16.15% from the base case, and at that rate the 30% scenario lands within ~7% of his printed figure — his sheet likely handles the terminal value slightly differently. The lesson survives any convention: the answer lives in the assumptions. (Editor's note, so you know exactly what is his and what is ours.)</span></p>
 
   <div class="widget" id="w-lnt">
-    <p class="w-head">Machine №12 — the assumption machine (Session 10, his closing example)</p>
+    <p class="w-head">Model №12 — the assumption model (Session 10, his closing example)</p>
     <p class="w-note" style="margin:0 0 .6rem">Value of the inflows against the 3,00,000 cr investment. Move any assumption; watch the verdict flip:</p>
     <div class="w-row"><label>Growth, years 2–7</label><input type="range" data-g1 min="5" max="35" step="1" value="20"><output data-g1-label></output></div>
     <div class="w-row"><label>Perpetual growth after</label><input type="range" data-g2 min="2" max="12" step="0.5" value="10"><output data-g2-label></output></div>
@@ -499,7 +499,7 @@ description: "Prof. Tantri's corporate finance course as one long read — his o
 </aside>
 
   <p>Which is where this page hands over. The expected return you spent ten chapters constructing is built on a real rate, an expected inflation, and a market risk premium — and every one of those is macro. His macro course picks up exactly there, and so does <a href="/what-is-macro/">the next long read</a>. The <a href="/indian-financial-system/">Indian financial system</a> read shows the same machinery running a country's banking system.</p>
-  <p>One more thing. In February 2026, when the FT ranked ISB twelfth in the world, his reaction to the group was not a celebration: <em>"Now all of you will have to take corporate finance exam again as we are supposed to be better than Yale and Chicago! The exam I gave does not cross the bar. Let's plan a re-exam in the light of these rankings."</em> The re-exam never happened. The mock exam on this site is the next best thing — <a href="/mock-exam/">his own questions, from the group</a> — and the machines above are the open-book version. <em>"My hope is that these will be useful in your future decision-making. You should be able to use this in all interviews, including non-finance interviews."</em></p>
+  <p>One more thing. In February 2026, when the FT ranked ISB twelfth in the world, his reaction to the group was not a celebration: <em>"Now all of you will have to take corporate finance exam again as we are supposed to be better than Yale and Chicago! The exam I gave does not cross the bar. Let's plan a re-exam in the light of these rankings."</em> The re-exam never happened. The mock exam on this site is the next best thing — <a href="/mock-exam/">his own questions, from the group</a> — and the models above are the open-book version. <em>"My hope is that these will be useful in your future decision-making. You should be able to use this in all interviews, including non-finance interviews."</em></p>
 
   </div><!-- /gated -->
 </article>

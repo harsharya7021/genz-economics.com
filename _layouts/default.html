@@ -15,7 +15,14 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
   <!-- Fonts: Reckless + Inter are self-hosted brand files (see main.css);
-       only the mono still comes from Google -->
+       only the mono still comes from Google.
+       Preload the two brand fonts so they're in hand before first paint —
+       otherwise the page paints in the fallback serif/sans and visibly
+       "changes type" a beat later when Reckless/Inter swap in (the FOUT
+       Harsh reported). Discovered here in <head>, they fetch in parallel
+       with the CSS instead of only after the @font-face rules parse. -->
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="{{ '/assets/fonts/recklessgx.ttf' | relative_url }}">
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="{{ '/assets/fonts/inter-v-1.ttf' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">

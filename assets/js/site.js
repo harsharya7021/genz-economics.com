@@ -373,7 +373,7 @@
          confirmation and stops opening the popup (click follows its href) */
       els.forEach(function (el) {
         if (!el.dataset.signinLabel) el.dataset.signinLabel = el.textContent;
-        el.textContent = user ? "Signed in \u2713 \u2014 you're in the room" : el.dataset.signinLabel;
+        el.textContent = user ? "Marked present \u2713 \u2014 explore the full suite" : el.dataset.signinLabel;
         el.classList.toggle("is-signed-in", !!user);
       });
     });

@@ -37,7 +37,7 @@ An interest rate is always real rate plus expected inflation, and the two halves
 Walk his own numbers: $1 = ₹100, US real rate 2% with 0% expected inflation, India real rate 2% too — but with expected inflation now drifting from 8% toward 10%. If the *entire* gap between the US and Indian rate is inflation expectation, the rupee has to depreciate by almost exactly that differential over the year, purely so that the dollar-converted return still comes out to 2% on both sides. Nobody arbitrages anything; the currency just does the arithmetic for you. But if the gap were instead a *real* rate increase — RBI genuinely tightening, inflation expectations flat — money would flood in chasing the higher real return, and the rupee would appreciate until the free lunch disappeared. Same rising interest rate, opposite currency prediction, depending entirely on which half of the rate is doing the moving.
 
 <div class="widget" id="w-mundell">
-  <p class="w-head">Machine — Mundell-Fleming, his own numbers</p>
+  <p class="w-head">Model — Mundell-Fleming, his own numbers</p>
   <p class="w-note" style="margin:0 0 .6rem">$1 = ₹100. US: 2% real, 0% expected inflation. Slide how much of the widening India-US rate gap is expected inflation versus a genuine real-rate increase, and watch which way the rupee moves a year out.</p>
   <div class="w-row"><label>Share of the gap that is inflation expectation</label><input type="range" data-share min="0" max="100" step="5" value="100"><output data-share-label></output></div>
   <p class="w-big" data-out></p>

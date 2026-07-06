@@ -28,7 +28,7 @@ You already know the dosa test. One dosa in the US, one dosa in India. If a dosa
 Play with it. Two things move the real rate: how far the rupee falls in nominal terms, and how much more India inflates than the US. Push them and watch which way the discount goes.
 
 <div class="widget" id="s16-reer">
-  <p class="w-head">Machine №1 — the dosa test (real vs nominal)</p>
+  <p class="w-head">Model №1 — the dosa test (real vs nominal)</p>
   <div class="w-row"><label>Rupee's nominal fall vs 2015-16</label><input type="range" data-nom min="0" max="45" step="1" value="32"><output data-nom-l></output></div>
   <div class="w-row"><label>India's excess inflation vs the US</label><input type="range" data-infl min="0" max="30" step="1" value="18"><output data-infl-l></output></div>
   <p class="w-big" data-reer></p>
@@ -62,7 +62,7 @@ Spillovers cut both ways, and I'll be honest about the one that worried me — b
 So I went to the data. Stress it yourself.
 
 <div class="widget" id="s16-borrower">
-  <p class="w-head">Machine №3 — the unhedged borrower's stress test</p>
+  <p class="w-head">Model №3 — the unhedged borrower's stress test</p>
   <div class="w-row"><label>Sudden rupee depreciation</label><input type="range" data-dep min="0" max="25" step="1" value="11"><output data-dep-l></output></div>
   <div class="w-row"><label>Share of the loan hedged</label><input type="range" data-hedge min="0" max="100" step="5" value="30"><output data-hedge-l></output></div>
   <p class="w-big" data-cost></p>
@@ -78,7 +78,7 @@ The channel to respect is still the relationship one. Finance is relationship-sp
 Now the sharpest thing in the session, and it explains the split from the top. FDI and FII do not think alike.
 
 <div class="widget" id="s16-flows">
-  <p class="w-head">Machine №2 — who responds to a cheap rupee?</p>
+  <p class="w-head">Model №2 — who responds to a cheap rupee?</p>
   <div class="w-toggle" role="group" aria-label="Which kind of investor?">
     <button type="button" data-who="fdi" aria-pressed="true">You build things (FDI)</button>
     <button type="button" data-who="fii" aria-pressed="false">You chase prices (FII)</button>

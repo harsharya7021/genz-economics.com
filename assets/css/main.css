@@ -1687,7 +1687,8 @@ body:not(.essay-unlocked) .lrc-lock {
 .pf-front { display: flex; flex-direction: column; }
 .pf-front .pf-art {
   position: relative; inset: auto; flex: 1 1 0; min-height: 0; height: auto;
-  object-fit: cover; object-position: center 24%; border-radius: 12px;
+  object-fit: cover; object-position: center 22%; border-radius: 12px;
+  transform: scale(1.12); transform-origin: center 30%;
 }
 .pf-front .prof-bubble { margin-top: .9rem; max-width: none; }
 .pf-art-hall { object-position: center 65%; }
@@ -1703,8 +1704,24 @@ body:not(.essay-unlocked) .lrc-lock {
 }
 .prof-bubble {
   position: relative; z-index: 1; background: var(--surface-2);
-  border: 1px solid var(--rule); border-radius: 16px 16px 16px 4px;
+  border: 1px solid var(--rule); border-radius: 16px;
   padding: .9rem 1rem; max-width: 34ch;
+}
+/* speech-bubble tail, pointing up toward the professor */
+.prof-bubble::after {
+  content: ""; position: absolute; top: -11px; left: 30px;
+  border-left: 10px solid transparent; border-right: 10px solid transparent;
+  border-bottom: 11px solid var(--rule);
+}
+.prof-bubble::before {
+  content: ""; position: absolute; top: -9px; left: 31px; z-index: 1;
+  border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-bottom: 10px solid var(--surface-2);
+}
+/* the bubble "forms" each time he turns to face you (front of the card) */
+@media (prefers-reduced-motion: no-preference){
+  .prof-stage:not(.flipped) .prof-bubble { animation: bubbleForm .55s cubic-bezier(.2,1.3,.4,1) .18s both; transform-origin: 32px -8px; }
+  @keyframes bubbleForm { from { opacity: 0; transform: translateY(7px) scale(.9); } to { opacity: 1; transform: none; } }
 }
 .pb-label { font: 600 .64rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-ink); margin: 0 0 .4rem; }
 .pb-q { font: 500 1.02rem/1.4 var(--serif); color: var(--ink); margin: 0 0 .6rem; }
@@ -1714,8 +1731,9 @@ body:not(.essay-unlocked) .lrc-lock {
 .hall-you text { font: 700 9px var(--mono); fill: var(--ink); letter-spacing: .08em; }
 .hall-karma {
   position: absolute; top: 1.1rem; right: 1.1rem;
-  font: 700 .72rem var(--mono); color: var(--ink);
-  background: var(--isb-green); border-radius: 999px; padding: .32rem .65rem;
+  font: 700 .72rem var(--mono); color: #06251b;
+  background: #80EDD9; border-radius: 999px; padding: .32rem .65rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.22);
 }
 @media (prefers-reduced-motion: no-preference){
   .flipped .hall-karma { animation: karmaPop .7s cubic-bezier(.2,1.4,.4,1) .5s both; }
