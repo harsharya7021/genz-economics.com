@@ -363,9 +363,10 @@
       var acct = document.getElementById("gzeAcct");
       if (acct) {
         if (user) {
-          var av = document.getElementById("gzeAcctAv"), nm = document.getElementById("gzeAcctName");
+          var av = document.getElementById("gzeAcctAv"), nm = document.getElementById("gzeAcctName"), full = document.getElementById("gzeAcctFull");
           if (av) { if (user.photoURL) { av.src = user.photoURL; av.hidden = false; } else { av.hidden = true; } }
           if (nm) nm.textContent = (user.displayName || user.email || "You").split(" ")[0];
+          if (full) full.textContent = user.displayName || user.email || "You";
           acct.hidden = false;
         } else { acct.hidden = true; }
       }
@@ -408,4 +409,32 @@
     });
   }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
   }); /* end GZE_onFirebaseReady */
+})();
+
+/* ── Nav + account dropdowns — click to toggle, click-outside / Esc to close.
+   (The LT nav menu also opens on hover via CSS on pointer devices; this adds
+   the tap/click path for touch and keyboards, and drives the account menu.) */
+(function () {
+  var drops = Array.prototype.slice.call(document.querySelectorAll("[data-nav-drop], [data-acct-drop]"));
+  if (!drops.length) return;
+  function closeAll(except) {
+    drops.forEach(function (d) {
+      if (d === except) return;
+      d.classList.remove("open");
+      var b = d.querySelector("button[aria-expanded]");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  }
+  drops.forEach(function (d) {
+    var btn = d.querySelector("button");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = d.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      closeAll(d);
+    });
+  });
+  document.addEventListener("click", function () { closeAll(null); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(null); });
 })();

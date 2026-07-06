@@ -708,13 +708,35 @@ blockquote {
 [data-theme="dark"] .theme-toggle .i-moon { display: block; }
 
 /* Header account chip — shown once signed in (site.js fills it) */
-.acct { display: inline-flex; align-items: center; gap: .45rem; }
-.acct-av { width: 24px; height: 24px; border-radius: 999px; border: 1px solid var(--rule); object-fit: cover; }
+/* account chip → avatar button + dropdown */
+.acct { position: relative; display: inline-flex; align-items: center; }
+.acct-btn { display: inline-flex; align-items: center; gap: .4rem; background: none; border: 1px solid transparent; border-radius: 999px; padding: .18rem .5rem .18rem .22rem; cursor: pointer; color: var(--ink); }
+.acct-btn:hover { border-color: var(--rule); background: var(--surface); }
+.acct-av { width: 26px; height: 26px; border-radius: 999px; border: 1px solid var(--rule); object-fit: cover; }
 .acct-name { font: 600 .9rem var(--sans); color: var(--ink); }
-.acct-out {
-  font: 600 .78rem var(--sans); color: var(--ink-soft);
-  background: none; border: 0; padding: .1rem .1rem; cursor: pointer;
-  text-decoration: underline; text-underline-offset: 2px;
+.acct-caret { color: var(--ink-soft); transition: transform .18s ease; }
+.acct.open .acct-caret { transform: rotate(180deg); }
+.acct-menu { position: absolute; top: calc(100% + .5rem); right: 0; min-width: 200px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow-md); padding: .75rem .85rem; display: none; z-index: 40; }
+.acct.open .acct-menu { display: block; }
+.acct-menu-full { font: 600 .9rem var(--sans); color: var(--ink); margin: 0 0 .15rem; }
+.acct-menu-sub { font: 600 .64rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--gold-ink); margin: 0 0 .65rem; }
+.acct-out { font: 600 .84rem var(--sans); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.acct-out:hover { color: var(--accent-press); }
+
+/* nav dropdown (LT → Sunday Macro Series / ISB Courses) */
+.nav-drop { position: relative; display: inline-flex; align-items: center; }
+.nav-drop-btn { display: inline-flex; align-items: center; gap: .18rem; background: none; border: 0; padding: 0; font: inherit; font-weight: 500; color: inherit; cursor: pointer; }
+.nav-drop-btn:hover { color: var(--accent); }
+.nav-caret { color: var(--ink-soft); transition: transform .18s ease; }
+.nav-drop:hover .nav-caret, .nav-drop.open .nav-caret { transform: rotate(180deg); }
+.nav-drop-menu { position: absolute; top: calc(100% + .55rem); left: 0; min-width: 234px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow-md); padding: .4rem; display: none; z-index: 40; }
+.nav-drop:hover .nav-drop-menu, .nav-drop.open .nav-drop-menu { display: block; }
+.nav-drop-menu a { display: block; padding: .55rem .7rem; border-radius: 8px; text-decoration: none; color: var(--ink); }
+.nav-drop-menu a:hover { background: var(--accent-soft, var(--surface)); }
+.nav-drop-menu strong { display: block; font: 600 .95rem var(--sans); }
+.ndm-sub { display: block; font: 400 .78rem var(--sans); color: var(--ink-soft); margin-top: .05rem; }
+@media (max-width: 720px){
+  .nav-drop-menu, .acct-menu { left: 50%; right: auto; transform: translateX(-50%); }
 }
 .acct-out:hover { color: var(--accent); }
 
@@ -723,6 +745,10 @@ blockquote {
 .site-signed-in .signin-only { display: none; }
 .site-signed-in .signedin-only { display: revert; }
 .site-signed-in .hero-cta .signin-only { display: none; }
+/* a signed-in button row (.hero-cta.signedin-only) must lay out as flex,
+   not the block that `display: revert` would give a div */
+.hero-cta.signedin-only { display: none; }
+.site-signed-in .hero-cta.signedin-only { display: flex; }
 
 /* Reading-progress bar (notes only) */
 .read-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; pointer-events: none; display: none; background: transparent; }
@@ -1346,8 +1372,8 @@ textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
 .essay-gate h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0 0 .6rem; }
 .essay-gate p { font-family: var(--sans); font-size: .95rem; color: color-mix(in srgb, var(--band-ink) 78%, transparent); max-width: 46ch; margin: 0 auto 1.2rem; }
 .gated { display: none; }
-.essay-unlocked .gated { display: block; }
-.essay-unlocked .essay-gate { display: none; }
+.site-signed-in .gated { display: block; }
+.site-signed-in .essay-gate { display: none; }
 /* The written notes are open to everyone — only the video and the library
    stay behind sign-in. So ungate the long-form course reads unconditionally.
    Scoped to .essay (the reads); the library's gate lives in .reading-wrap
@@ -1538,7 +1564,12 @@ dfn.lookup:hover { background: var(--highlight); }
 .lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
 .lib-card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: var(--r-lg, 14px); overflow: hidden; background: var(--paper); }
 .lib-card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); box-shadow: var(--shadow-sm, 0 6px 20px -12px rgba(0,0,0,.25)); }
-.lib-thumb { position: relative; height: 84px; display: flex; align-items: flex-end; padding: .6rem .8rem; background: var(--band-bg); }
+.lib-thumb { position: relative; height: 84px; display: flex; align-items: flex-end; padding: .6rem .8rem; background: var(--band-bg); overflow: hidden; }
+/* folded page-corner so each cover reads as a document/file (first pass) */
+.lib-thumb::after {
+  content: ""; position: absolute; top: -14px; right: -14px; width: 28px; height: 28px;
+  background: var(--paper); transform: rotate(45deg); box-shadow: -1px 2px 3px rgba(0,0,0,.18);
+}
 .lib-thumb-tag { font: 600 .68rem var(--mono); text-transform: uppercase; letter-spacing: .06em; color: #fff; opacity: .95; }
 .lib-thumb--his-work { background: linear-gradient(135deg, var(--gold, #FFD866), color-mix(in srgb, var(--gold, #FFD866) 55%, #7a5c00)); }
 .lib-thumb--his-work .lib-thumb-tag { color: #2b2200; }
@@ -1556,19 +1587,19 @@ dfn.lookup:hover { background: var(--highlight); }
 
 /* ── The vault: faded, locked to the cohort until signed in ── */
 .lrc-vault { position: relative; }
-body:not(.essay-unlocked) .lrc-vault .lib-grid {
+body:not(.site-signed-in) .lrc-vault .lib-grid {
   max-height: 30rem; overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
           mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
 }
 .lrc-lock { margin: 0; }
-body:not(.essay-unlocked) .lrc-lock {
+body:not(.site-signed-in) .lrc-lock {
   position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
   width: min(560px, 94%);
 }
-.essay-unlocked .lrc-vault .lib-grid { max-height: none; -webkit-mask-image: none; mask-image: none; }
-.essay-unlocked .lrc-lock { display: none; }
-@media (max-width: 620px){ body:not(.essay-unlocked) .lrc-vault .lib-grid { max-height: 34rem; } }
+.site-signed-in .lrc-vault .lib-grid { max-height: none; -webkit-mask-image: none; mask-image: none; }
+.site-signed-in .lrc-lock { display: none; }
+@media (max-width: 620px){ body:not(.site-signed-in) .lrc-vault .lib-grid { max-height: 34rem; } }
 
 /* ═══ Story landing + kit-language components (2026-07-03, from Harsh's UI kits) ═══ */
 /* Tracker board — Crome-style two-tone stat cards */
