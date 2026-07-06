@@ -3,9 +3,9 @@ layout: post
 title: "Medium-Term Economics: Inflation, Labor & the Phillips Curve Foundation"
 dek: "Kevin Warsh on inflation as a policy choice, then the wage- and price-setting equations that underpin the Phillips curve."
 date: 2026-02-15
-session: 8
+session: 11
 tags: [phillips-curve, inflation, labor-market, medium-term, natural-rate]
-excerpt_override: "Session 7 — transition to medium-term macro: wage-setting, price-setting, the natural rate, and the institutional z variable."
+excerpt_override: "Session 11 — transition to medium-term macro: wage-setting, price-setting, the natural rate, and the institutional z variable."
 authors:
   - harsh
 editors: []
@@ -272,3 +272,5 @@ The Phillips curve will connect the natural rate framework to inflation dynamics
 ## **What You Can Now Do**
 
 When the next CPI print lands on the 12th, place it against the natural-rate question instead of the month's noise: is this wage pressure, price-setter margin, or z moving? That frame carries every inflation argument from here on — and it is the one the MPC itself is quietly using when it talks about the output gap without saying the words.
+
+Next: {% post_url 2026-02-22-you-cant-exploit-the-phillips-curve-twice %} — the wage- and price-setting equations built here get run through the algebra, and the natural rate meets its most famous critic.

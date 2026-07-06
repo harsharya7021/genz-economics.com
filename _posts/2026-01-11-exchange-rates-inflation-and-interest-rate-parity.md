@@ -3,9 +3,9 @@ layout: post
 title: "Exchange Rates, Inflation & Interest Rate Parity"
 dek: "The central paradox: how inflation, nominal depreciation, and interest differentials are all telling the same story."
 date: 2026-01-11
-session: 7
+session: 8
 tags: [exchange-rates, inflation, interest-rate-parity, irp, fisher]
-excerpt_override: "Session 6 — inflation, nominal depreciation, and interest-rate parity: three apparently contradictory facts reconciled."
+excerpt_override: "Session 8 — inflation, nominal depreciation, and interest-rate parity: three apparently contradictory facts reconciled."
 authors:
   - harsh
 editors: []
