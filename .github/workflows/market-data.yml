@@ -1,0 +1,67 @@
+# Morning market refresh for the Bloomburger Terminal.
+# Fetches live metrics (FRED + Yahoo), commits the updated _data files, and
+# rebuilds/deploys the site so the page shows fresh numbers. Shares the "pages"
+# concurrency group with pages.yml so the two never deploy at once.
+#
+# SETUP: add a repo secret FRED_API_KEY (Settings → Secrets and variables →
+# Actions → New repository secret). Get a free key at
+# https://fredaccount.stlouisfed.org/apikeys — see the market-tracker notes.
+name: Market data (morning refresh)
+
+on:
+  schedule:
+    - cron: "30 3 * * 1-5"      # 03:30 UTC ≈ 09:00 IST, Mon–Fri
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Fetch + write market data
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fetch_market_data.py
+
+      - name: Commit refreshed data (if changed)
+        run: |
+          git config user.name "gze-market-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add _data/markets.yml _data/macro.json
+          git diff --staged --quiet || git commit -m "data: morning market refresh"
+          git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

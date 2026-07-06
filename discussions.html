@@ -31,15 +31,86 @@ permalink: /discussions/
     <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
   </div>
   <div class="gated" id="gatedChapters">
-  <div class="section-head" style="margin-top:2.6rem"><h2>The bank</h2><span class="feed-link" style="color:var(--ink-soft)">{{ site.data.daily | size }} questions</span></div>
-  <div class="gloss-grid">
-    {% for d in site.data.daily %}
-    <article class="gloss-card"><span class="cat">{{ d.topic }}</span><h3 style="font-size:1.12rem">{{ d.q }}</h3>
-      <details class="daily-reveal" style="margin-top:.6rem;border-left-width:3px"><summary>Model answer</summary><p class="rv-a">{{ d.model }}</p></details>
-    </article>
-    {% endfor %}
+  {% assign dated = site.data.daily | sort: "date" | reverse %}
+  <details class="bank" id="bankCollapse" style="margin-top:2.6rem">
+    <summary class="bank-summary">
+      <span class="bank-summary-title"><h2>The bank</h2><span class="bank-count">{{ site.data.daily | size }} questions · dated ledger</span></span>
+      <svg class="bank-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="bank-body">
+      <div class="bank-controls">
+        <div class="search-box">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          <input id="bankSearch" type="search" placeholder="Search the bank — question, topic, keyword…" aria-label="Search the bank" autocomplete="off">
+        </div>
+        <div class="bank-filter-row">
+          <label class="bank-select">Month <select id="bankMonth"><option value="all">All months</option></select></label>
+          <div class="bank-sort" id="bankSort" role="group" aria-label="Sort by recency">
+            <button type="button" data-sort="new" aria-pressed="true">Newest</button>
+            <button type="button" data-sort="old" aria-pressed="false">Oldest</button>
+          </div>
+        </div>
+        <div class="filter-chips" id="bankTopics"><button type="button" data-topic="all" aria-pressed="true">All topics</button></div>
+      </div>
+      <ol class="bank-list" id="bankList">
+        {% for d in dated %}
+        <li class="bank-item" data-topic="{{ d.topic }}" data-date="{{ d.date }}" data-month="{{ d.date | date: '%Y-%m' }}" data-search="{{ d.q | append: ' ' | append: d.topic | append: ' ' | append: d.model | strip_html | downcase | strip_newlines | escape }}">
+          <div class="bank-row"><span class="bank-date">{{ d.date | date: "%b %-d, %Y" }}</span><span class="bank-topic-tag">{{ d.topic }}</span></div>
+          <h3 class="bank-q">{{ d.q }}</h3>
+          <details class="daily-reveal" style="margin-top:.5rem;border-left-width:3px"><summary>Model answer</summary><p class="rv-a">{{ d.model }}</p></details>
+        </li>
+        {% endfor %}
+      </ol>
+      <p class="bank-empty" id="bankEmpty" hidden>No questions match — clear the search or filters.</p>
+    </div>
+  </details>
+
+  <!-- Timed quiz — coming soon (same page) -->
+  <div class="soon-panel" style="margin-top:2rem">
+    <h3 style="color:#F4F8FA">Take a timed quiz <span style="font:600 .62rem var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--gold-ink);border:1px solid var(--gold);border-radius:999px;padding:.14rem .55rem;margin-left:.5rem;vertical-align:middle;white-space:nowrap">coming soon</span></h3>
+    <p>Pick a topic, start the clock, and see how many you can reason through before it runs out — his exam questions, timed like the real thing, scored against the model answers. Landing on this page soon.</p>
   </div>
   </div>
+
+  <script>
+  /* The bank — search + month/recency filters over the dated ledger */
+  (function(){
+    var list = document.getElementById("bankList"); if (!list) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll(".bank-item"));
+    var search = document.getElementById("bankSearch"), monthSel = document.getElementById("bankMonth");
+    var sortWrap = document.getElementById("bankSort"), topicWrap = document.getElementById("bankTopics"), empty = document.getElementById("bankEmpty");
+    var st = { q:"", month:"all", topic:"all", sort:"new" };
+    var months = {}; items.forEach(function(it){ var m=it.getAttribute("data-month"); if(m) months[m]=1; });
+    Object.keys(months).sort().reverse().forEach(function(m){
+      var d=new Date(m+"-01T00:00:00"), o=document.createElement("option");
+      o.value=m; o.textContent=d.toLocaleDateString("en-IN",{month:"long",year:"numeric"}); monthSel.appendChild(o);
+    });
+    var topics = {}; items.forEach(function(it){ var t=it.getAttribute("data-topic"); if(t) topics[t]=1; });
+    Object.keys(topics).sort().forEach(function(t){
+      var b=document.createElement("button"); b.type="button"; b.setAttribute("data-topic",t); b.setAttribute("aria-pressed","false"); b.textContent=t; topicWrap.appendChild(b);
+    });
+    function apply(){
+      var shown=0;
+      items.forEach(function(it){
+        var ok = (!st.q || (it.getAttribute("data-search")||"").indexOf(st.q)!==-1)
+              && (st.month==="all" || it.getAttribute("data-month")===st.month)
+              && (st.topic==="all" || it.getAttribute("data-topic")===st.topic);
+        it.style.display = ok ? "" : "none"; if(ok) shown++;
+      });
+      if(empty) empty.hidden = shown>0;
+    }
+    function sortList(){
+      items.slice().sort(function(a,b){
+        var da=a.getAttribute("data-date"), db=b.getAttribute("data-date");
+        return st.sort==="new" ? (db<da?-1:db>da?1:0) : (da<db?-1:da>db?1:0);
+      }).forEach(function(it){ list.appendChild(it); });
+    }
+    if(search) search.addEventListener("input", function(){ st.q=search.value.trim().toLowerCase(); apply(); });
+    if(monthSel) monthSel.addEventListener("change", function(){ st.month=monthSel.value; apply(); });
+    if(sortWrap) sortWrap.addEventListener("click", function(e){ var b=e.target.closest("button[data-sort]"); if(!b) return; st.sort=b.getAttribute("data-sort"); sortWrap.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");}); sortList(); });
+    if(topicWrap) topicWrap.addEventListener("click", function(e){ var b=e.target.closest("button[data-topic]"); if(!b) return; st.topic=b.getAttribute("data-topic"); topicWrap.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");}); apply(); });
+  })();
+  </script>
   <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
   <script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>
 </div></section>

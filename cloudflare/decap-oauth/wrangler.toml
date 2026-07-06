@@ -1,0 +1,7 @@
+name = "gze-decap-oauth"
+main = "worker.js"
+compatibility_date = "2024-11-06"
+
+# Secrets are NOT set here — never commit them. Set them once after deploy:
+#   wrangler secret put GITHUB_CLIENT_ID
+#   wrangler secret put GITHUB_CLIENT_SECRET

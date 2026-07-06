@@ -750,6 +750,18 @@ blockquote {
 .hero-cta.signedin-only { display: none; }
 .site-signed-in .hero-cta.signedin-only { display: flex; }
 
+/* "Pick up where you left off" — resume cards with a reading-progress bar */
+.continue-wrap { margin: 0 0 1.2rem; }
+.continue-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .9rem; margin: .5rem 0 0; max-width: 780px; }
+.continue-empty { display: none; font: 400 .92rem var(--sans); color: var(--ink-soft); margin: .4rem 0 0; }
+.continue-card { display: flex; flex-direction: column; gap: .4rem; padding: .85rem 1rem; border: 1px solid var(--rule); border-radius: 12px; background: var(--surface); text-decoration: none; }
+.continue-card:hover { border-color: var(--accent); }
+.cc-kicker { font: 600 .6rem var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--gold-ink); }
+.cc-title { font: 600 .98rem/1.3 var(--sans); color: var(--ink); }
+.cc-bar { height: 6px; border-radius: 999px; background: var(--rule); overflow: hidden; margin-top: .1rem; }
+.cc-bar i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.cc-meta { font: 600 .7rem var(--mono); color: var(--ink-soft); }
+
 /* Reading-progress bar (notes only) */
 .read-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; pointer-events: none; display: none; background: transparent; }
 body.post .read-progress { display: block; }
@@ -1629,6 +1641,32 @@ body:not(.site-signed-in) .lrc-lock {
 .folder--paper   .folder-body, .folder--paper   .folder-tab { background: linear-gradient(180deg, #77A6FF, #1B3FB0); }
 .folder--reading .folder-body, .folder--reading .folder-tab { background: linear-gradient(180deg, #8CEAC7, #2F9E6E); }
 .folder--data    .folder-body, .folder--data    .folder-tab { background: linear-gradient(180deg, #B4BEC7, #5A6A74); }
+
+/* ── CP: the bank — collapsible dated ledger with filters ── */
+.bank { border: 1px solid var(--rule); border-radius: var(--r-lg, 14px); background: var(--paper); overflow: hidden; }
+.bank > .bank-summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 1.3rem; }
+.bank > .bank-summary::-webkit-details-marker { display: none; }
+.bank-summary-title { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
+.bank-summary-title h2 { margin: 0; }
+.bank-count { font: 600 .72rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); }
+.bank-chev { color: var(--ink-soft); transition: transform .2s ease; flex: none; }
+.bank[open] > .bank-summary .bank-chev { transform: rotate(180deg); }
+.bank-body { padding: 0 1.3rem 1.3rem; }
+.bank-controls { display: flex; flex-direction: column; gap: .8rem; margin: .2rem 0 1.1rem; }
+.bank-filter-row { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; align-items: center; }
+.bank-select { font: 600 .78rem var(--sans); color: var(--ink-soft); display: inline-flex; align-items: center; gap: .4rem; }
+.bank-select select { font: 500 .85rem var(--sans); color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: .3rem .5rem; }
+.bank-sort { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.bank-sort button { font: 600 .78rem var(--sans); color: var(--ink-soft); background: none; border: 0; padding: .32rem .85rem; cursor: pointer; }
+.bank-sort button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.bank-list { list-style: none; margin: 0; padding: 0; }
+.bank-item { padding: .9rem .2rem; border-top: 1px solid var(--rule); }
+.bank-item:first-child { border-top: 0; }
+.bank-row { display: flex; align-items: center; gap: .7rem; margin-bottom: .3rem; }
+.bank-date { font: 600 .7rem var(--mono); color: var(--ink-soft); }
+.bank-topic-tag { font: 600 .62rem var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--gold-ink); border: 1px solid var(--rule); border-radius: 999px; padding: .1rem .5rem; }
+.bank-q { font: 600 1.05rem/1.35 var(--sans); margin: 0; color: var(--ink); }
+.bank-empty { font: 400 .9rem var(--sans); color: var(--ink-soft); padding: 1rem .2rem; }
 
 /* ═══ Story landing + kit-language components (2026-07-03, from Harsh's UI kits) ═══ */
 /* Tracker board — Crome-style two-tone stat cards */

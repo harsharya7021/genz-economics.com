@@ -1,0 +1,84 @@
+# Decap CMS config — in-browser editing that commits straight to this repo.
+# Editorial rights = GitHub write access to harsharya7021/genz-economics.com.
+# Sign in at /admin/ with the GitHub account that owns (or collaborates on) the
+# repo. Auth goes through the Cloudflare OAuth broker below.
+#
+# ONE-TIME SETUP (see cloudflare/decap-oauth/README.md):
+#   1. Create a GitHub OAuth App; note the Client ID + Secret.
+#   2. Deploy the broker Worker with those secrets, then paste its URL into
+#      `base_url` below (replace the placeholder) and commit.
+
+backend:
+  name: github
+  repo: harsharya7021/genz-economics.com
+  branch: main
+  base_url: https://gze-decap-oauth.REPLACE-SUBDOMAIN.workers.dev   # ← the deployed Worker URL
+  auth_endpoint: /auth
+
+# Uploaded images land here (used by the markdown editor's image button)
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+publish_mode: simple
+site_url: https://genz-economics.com
+
+collections:
+  # ── The About page ──────────────────────────────────────────────
+  - name: about
+    label: "About page"
+    delete: false
+    files:
+      - name: about
+        label: "About"
+        file: "about.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "Title", name: "title", widget: "hidden", default: "About" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/about/" }
+          - { label: "Dek (the italic subtitle)", name: "dek", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # ── Session notes (the LT / Sunday-series notes) ────────────────
+  #    Front matter is fully editable here — especially `stream_id`, which
+  #    you paste once the Cloudflare video is up. The body is a RAW text box
+  #    on purpose: these notes embed interactive-model HTML + <script> tags,
+  #    and a rich markdown editor would mangle them. Edit prose here; build
+  #    or change the models in the repo (or with me).
+  - name: notes
+    label: "Session notes (LT)"
+    label_singular: "Session note"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Session number", name: "session", widget: "number", required: false, value_type: "int" }
+      - { label: "Dek (subtitle)", name: "dek", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cloudflare Stream video ID", name: "stream_id", widget: "string", required: false, hint: "Leave blank until the recording is uploaded — the note shows 'recording coming soon' until then." }
+      - { label: "Body (raw — keeps model HTML intact)", name: "body", widget: "text" }
+
+  # ── LRC reading list (the shared library) ───────────────────────
+  #    Editable as a list of entries. NOTE: this needs the data file to be a
+  #    map with an `items:` key rather than a bare list — see the README
+  #    ("Enabling LRC editing"). Until that one-line restructure is done, this
+  #    collection stays commented out and the library is edited in the repo.
+  # - name: library
+  #   label: "LRC — the library"
+  #   files:
+  #     - name: shared_library
+  #       label: "Shared library"
+  #       file: "_data/shared-library.yml"
+  #       fields:
+  #         - label: "Items"
+  #           name: "items"
+  #           widget: "list"
+  #           fields:
+  #             - { label: "Date", name: "date", widget: "string" }
+  #             - { label: "Type", name: "type", widget: "select", options: ["his-work","paper","rbi-fed","reading","data"] }
+  #             - { label: "Title", name: "title", widget: "string" }
+  #             - { label: "URL", name: "url", widget: "string", required: false }
+  #             - { label: "PDF filename", name: "doc", widget: "string", required: false }
+  #             - { label: "His verdict", name: "verdict", widget: "text", required: false }

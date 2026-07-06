@@ -186,7 +186,11 @@ layout: default
   <div class="container">
     <h2 class="signin-only">The stuff you can't just Google.</h2>
     <p class="signin-only">But you can read it with your ISB id — one Google sign-in. (Even the stuff you <em>can</em> Google goes down easier here.) The point stands: if ten years from now you can say "I could've just Googled this," it hasn't worked. Karma keeps score of being useful to the room — class participation, same as it ever was at ISB, except this leaderboard never resets. Miss three quizzes and Maneshwar drops you; he's the bad guy.</p>
-    <h2 class="signedin-only">Pick up where you left off.</h2>
+    <div class="signedin-only continue-wrap">
+      <h2>Pick up where you left off.</h2>
+      <div class="continue-grid" id="continueGrid"></div>
+      <p class="continue-empty" id="continueEmpty">Nothing in progress yet — open a note and it'll wait for you right here, with your spot saved.</p>
+    </div>
     <div class="hero-cta signin-only">
       <a class="btn btn-primary" id="ctaSignIn" href="#latest" data-gate-signin>Sign in with Google</a>
       <a class="btn btn-ghost" href="#latest">Check out the free notes ↓</a>
@@ -204,6 +208,7 @@ layout: default
       <h2>Latest notes</h2>
       <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
+    <p style="color:var(--ink-soft);margin:.1rem 0 1.1rem;font-size:.95rem">New notes, essays and lectures — every update to the blog and the Sunday series lands here first.</p>
     <div class="feed-controls">
       <div class="search-box">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
@@ -305,5 +310,30 @@ layout: default
   stage.setAttribute("tabindex","0");
   stage.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); stage.classList.toggle("flipped"); } });
   if (!reduce) setInterval(function(){ if (!hover) stage.classList.toggle("flipped"); }, 7000);
+})();
+</script>
+
+<script>
+/* "Pick up where you left off" — resume cards from saved reading progress
+   (site.js writes gze-continue as you scroll each note). Videos will slot in
+   here too once the lecture gate is live and Stream watch-progress is wired. */
+(function(){
+  var grid = document.getElementById("continueGrid"), empty = document.getElementById("continueEmpty");
+  if (!grid) return;
+  var store; try { store = JSON.parse(localStorage.getItem("gze-continue") || "{}"); } catch(e){ store = {}; }
+  var items = Object.keys(store).map(function(u){ var o = store[u] || {}; o.url = u; return o; })
+    .filter(function(o){ return o && o.title && o.pct >= 3 && o.pct < 96; })
+    .sort(function(a,b){ return (b.ts||0) - (a.ts||0); }).slice(0, 4);
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  if (!items.length) { if (empty) empty.style.display = "block"; return; }
+  grid.innerHTML = items.map(function(o){
+    return '<a class="continue-card" href="' + esc(o.url) + '">' +
+      '<span class="cc-kicker">Continue reading</span>' +
+      '<span class="cc-title">' + esc(o.title) + '</span>' +
+      '<span class="cc-bar"><i style="width:' + o.pct + '%"></i></span>' +
+      '<span class="cc-meta">' + o.pct + '% read · resume →</span>' +
+    '</a>';
+  }).join("");
+  grid.style.display = "grid";
 })();
 </script>

@@ -15,19 +15,42 @@
     });
   }
 
-  /* ── 2. Reading-progress bar (notes only) ────────────────── */
+  /* ── 2. Reading-progress bar (+ persist for "continue reading") ── */
   var bar = doc.getElementById("readbar");
   var body = doc.querySelector(".post-body");
   if (bar && body) {
+    var lastSave = 0;
+    var saveProgress = function (pct) {
+      try {
+        var store = JSON.parse(localStorage.getItem("gze-continue") || "{}");
+        if (pct >= 96) { delete store[location.pathname]; }            /* finished — drop it */
+        else if (pct >= 3) {
+          var t = doc.querySelector(".post-title-display");
+          var ses = doc.querySelector(".post-header .eyebrow");
+          store[location.pathname] = {
+            title: (t && t.textContent.trim()) || (doc.title || "").split(" · ")[0],
+            meta: ses ? ses.textContent.replace(/\s+/g, " ").trim() : "",
+            pct: pct, ts: Date.now()
+          };
+        }
+        var keys = Object.keys(store);
+        if (keys.length > 24) keys.sort(function (a, b) { return store[b].ts - store[a].ts; }).slice(24).forEach(function (k) { delete store[k]; });
+        localStorage.setItem("gze-continue", JSON.stringify(store));
+      } catch (e) {}
+    };
     var onScroll = function () {
       var r = body.getBoundingClientRect();
       var vh = window.innerHeight || root.clientHeight;
       var total = r.height - vh + 80;
       var done = Math.min(Math.max(-r.top + 80, 0), total);
-      bar.style.width = (total > 0 ? (done / total) * 100 : 0) + "%";
+      var pct = total > 0 ? (done / total) * 100 : 0;
+      bar.style.width = pct + "%";
+      var now = Date.now();
+      if (now - lastSave > 1500) { lastSave = now; saveProgress(Math.round(pct)); }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    window.addEventListener("beforeunload", onScroll);
     onScroll();
   }
 

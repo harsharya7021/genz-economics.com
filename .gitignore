@@ -20,3 +20,7 @@ node_modules/
 # local pre-reskin backup (do not publish)
 _backup_pre-reskin*/
 assets/img/.wtest
+
+# Python
+__pycache__/
+*.pyc
