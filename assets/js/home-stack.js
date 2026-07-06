@@ -80,27 +80,22 @@
     /* the lead statement steps back once the first card takes the stage */
     tl.to(head, { opacity: 0.28, duration: 0.6, ease: "none" }, 0.55);
 
-    /* the gold trend line draws itself across the candlesticks for the
-       whole card run; the lit dot rides the tip, dashed drop under it */
-    var trend = stage.querySelector(".stage-trend");
-    var trendDot = stage.querySelector(".stage-trend-dot");
-    var trendDrop = stage.querySelector(".stage-trend-drop");
-    if (trend && trendDot && trendDrop) {
-      var trendLen = trend.getTotalLength();
-      var drawState = { p: 0 };
-      tl.to(drawState, {
+    /* the candlesticks light up faintly, left-to-right, across the whole
+       card run — a soft glow sweeping the chart instead of a drawn line */
+    var candles = gsap.utils.toArray(stage.querySelectorAll(".sc-candle > g"));
+    if (candles.length) {
+      gsap.set(candles, { opacity: 0.2 });
+      var litState = { p: 0 };
+      tl.to(litState, {
         p: 1,
         duration: (n - 1) * seg + 1,
         ease: "none",
         onUpdate: function () {
-          trend.style.strokeDashoffset = String(1 - drawState.p);
-          var pt = trend.getPointAtLength(drawState.p * trendLen);
-          trendDot.setAttribute("cx", pt.x); trendDot.setAttribute("cy", pt.y);
-          trendDrop.setAttribute("x1", pt.x); trendDrop.setAttribute("x2", pt.x);
-          trendDrop.setAttribute("y1", pt.y + 6);
-          var vis = drawState.p > 0.01 ? 1 : 0;
-          trendDot.style.opacity = vis * 0.9;
-          trendDrop.style.opacity = vis * 0.45;
+          var edge = litState.p * (candles.length + 5);
+          candles.forEach(function (c, i) {
+            var d = edge - i;                        /* how far the sweep has passed this candle */
+            c.style.opacity = d <= 0 ? 0.2 : d >= 5 ? 0.85 : 0.2 + (d / 5) * 0.65;
+          });
         }
       }, 0);
     }

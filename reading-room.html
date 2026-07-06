@@ -21,6 +21,42 @@ permalink: /reading-room/
 <section class="reading-wrap">
   <div class="container">
 
+    <!-- ── The drawers: file the material into neat folders ── -->
+    {% assign flib = site.data['shared-library'] %}
+    {% assign f_hw = flib | where: "type", "his-work" %}
+    {% assign f_rb = flib | where: "type", "rbi-fed" %}
+    {% assign f_pa = flib | where: "type", "paper" %}
+    {% assign f_rd = flib | where: "type", "reading" %}
+    {% assign f_da = flib | where: "type", "data" %}
+    <div class="brief-section-head" style="margin-top:.2rem"><h2>Filed into drawers</h2><span class="feed-link" style="color:var(--ink-soft)">tap a folder to filter the shelf below</span></div>
+    <div class="folder-grid">
+      <button type="button" class="folder folder--hiswork" data-folder="his-work">
+        <span class="folder-stack"><span class="folder-peek"><i class="fpk"></i><i class="fpk"></i></span><span class="folder-body"><i class="folder-tab"></i></span></span>
+        <span class="folder-name">His writing</span>
+        <span class="folder-cap"><strong>{{ f_hw | size }} items</strong> · columns, essays &amp; working papers, in his own hand</span>
+      </button>
+      <button type="button" class="folder folder--rbifed" data-folder="rbi-fed">
+        <span class="folder-stack"><span class="folder-peek"><i class="fpk"></i><i class="fpk"></i></span><span class="folder-body"><i class="folder-tab"></i></span></span>
+        <span class="folder-name">RBI &amp; Fed</span>
+        <span class="folder-cap"><strong>{{ f_rb | size }} items</strong> · circulars, minutes &amp; statements — the originals</span>
+      </button>
+      <button type="button" class="folder folder--paper" data-folder="paper">
+        <span class="folder-stack"><span class="folder-peek"><i class="fpk"></i><i class="fpk"></i></span><span class="folder-body"><i class="folder-tab"></i></span></span>
+        <span class="folder-name">Papers</span>
+        <span class="folder-cap"><strong>{{ f_pa | size }} items</strong> · the academic work he sends, verdict attached</span>
+      </button>
+      <button type="button" class="folder folder--reading" data-folder="reading">
+        <span class="folder-stack"><span class="folder-peek"><i class="fpk"></i><i class="fpk"></i></span><span class="folder-body"><i class="folder-tab"></i></span></span>
+        <span class="folder-name">Readings</span>
+        <span class="folder-cap"><strong>{{ f_rd | size }} items</strong> · columns &amp; explainers worth the time</span>
+      </button>
+      <button type="button" class="folder folder--data" data-folder="data">
+        <span class="folder-stack"><span class="folder-peek"><i class="fpk"></i><i class="fpk"></i></span><span class="folder-body"><i class="folder-tab"></i></span></span>
+        <span class="folder-name">Data &amp; reports</span>
+        <span class="folder-cap"><strong>{{ f_da | size }} items</strong> · the source data, not the newspaper version</span>
+      </button>
+    </div>
+
     <!-- ── Open preview: his own writing, rebuilt on this site ── -->
     <div class="brief-section-head"><h2>His own writing, on this site</h2><span class="feed-link" style="color:var(--ink-soft)">open to all</span></div>
     <div class="lib-grid">
@@ -58,7 +94,7 @@ permalink: /reading-room/
     <div class="lrc-vault">
       <div class="lib-grid" id="lrcGrid">
         {% for item in lib %}
-        <article class="lib-card">
+        <article class="lib-card" data-cat="{{ item.type }}">
           <div class="lib-thumb lib-thumb--{{ item.type }}">
             <span class="lib-thumb-tag">
               {% case item.type %}
@@ -92,4 +128,25 @@ permalink: /reading-room/
   </div>
 </section>
 
+<script>
+/* Drawers → filter the shelf by category (tap a folder; tap again to reset) */
+(function(){
+  var folders = document.querySelectorAll(".folder[data-folder]");
+  var cards = document.querySelectorAll("#lrcGrid .lib-card[data-cat]");
+  if (!folders.length || !cards.length) return;
+  var active = null;
+  function apply(cat){ cards.forEach(function(c){ c.style.display = (!cat || c.getAttribute("data-cat") === cat) ? "" : "none"; }); }
+  folders.forEach(function(f){
+    f.addEventListener("click", function(){
+      var cat = f.getAttribute("data-folder");
+      if (active === cat){ active = null; apply(null); folders.forEach(function(x){ x.classList.remove("is-active"); }); return; }
+      active = cat;
+      folders.forEach(function(x){ x.classList.toggle("is-active", x === f); });
+      apply(cat);
+      var vault = document.querySelector(".lrc-vault");
+      if (vault) vault.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+})();
+</script>
 <script src="{{ '/assets/js/essay.js' | relative_url }}" defer></script>

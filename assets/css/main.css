@@ -1371,6 +1371,13 @@ textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
 .essay-gate { text-align: center; background: var(--band-bg); color: var(--band-ink); border-radius: var(--r-xl); padding: 2.4rem 1.8rem; margin: 2.5rem 0; box-shadow: var(--shadow-md); }
 .essay-gate h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0 0 .6rem; }
 .essay-gate p { font-family: var(--sans); font-size: .95rem; color: color-mix(in srgb, var(--band-ink) 78%, transparent); max-width: 46ch; margin: 0 auto 1.2rem; }
+/* A static "coming soon" panel — same navy look as the gate, but it is NOT
+   a sign-in gate, so it must stay visible when signed in (used on /bil/).
+   Reusing .essay-gate here made the box flash in then vanish for signed-in
+   users, because .site-signed-in .essay-gate is display:none. */
+.soon-panel { text-align: center; background: var(--band-bg); color: var(--band-ink); border-radius: var(--r-xl); padding: 2.4rem 1.8rem; margin: 2.5rem 0; box-shadow: var(--shadow-md); }
+.soon-panel h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0 0 .6rem; color: var(--band-ink); }
+.soon-panel p { font-family: var(--sans); font-size: .95rem; color: color-mix(in srgb, var(--band-ink) 82%, transparent); max-width: 54ch; margin: 0 auto; }
 .gated { display: none; }
 .site-signed-in .gated { display: block; }
 .site-signed-in .essay-gate { display: none; }
@@ -1600,6 +1607,28 @@ body:not(.site-signed-in) .lrc-lock {
 .site-signed-in .lrc-vault .lib-grid { max-height: none; -webkit-mask-image: none; mask-image: none; }
 .site-signed-in .lrc-lock { display: none; }
 @media (max-width: 620px){ body:not(.site-signed-in) .lrc-vault .lib-grid { max-height: 34rem; } }
+
+/* ── LRC drawers: colored folders with files peeking out (portfolio ref) ── */
+.folder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.5rem 1.3rem; margin: 0 0 2.6rem; }
+.folder { display: flex; flex-direction: column; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
+.folder-stack { position: relative; height: 158px; }
+.folder-peek { position: absolute; left: 6%; right: 6%; top: 0; height: 74px; }
+.folder-peek .fpk { position: absolute; top: 2px; width: 58%; height: 66px; background: #fff; border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 4px 10px -3px rgba(0,0,0,.22); }
+.folder-peek .fpk:nth-child(1){ left: 4%; transform: rotate(-5deg); }
+.folder-peek .fpk:nth-child(2){ right: 4%; transform: rotate(6deg); }
+.folder-body { position: absolute; left: 0; right: 0; bottom: 0; height: 112px; border-radius: 6px 14px 14px 14px; box-shadow: 0 14px 26px -12px rgba(0,0,0,.4); transition: transform .18s ease; }
+.folder-tab { position: absolute; top: -13px; left: 12px; width: 44%; height: 16px; border-radius: 8px 10px 0 0; background: inherit; }
+.folder:hover .folder-body { transform: translateY(-4px); }
+.folder.is-active .folder-body { outline: 3px solid var(--ink); outline-offset: 3px; }
+.folder-name { font: 800 italic 1.12rem/1.1 var(--sans); margin: .75rem 0 .25rem; color: var(--ink); }
+.folder-cap { font: 400 .8rem/1.4 var(--sans); color: var(--ink-soft); }
+.folder-cap strong { color: var(--ink); font-weight: 700; }
+/* drawer colours */
+.folder--hiswork .folder-body, .folder--hiswork .folder-tab { background: linear-gradient(180deg, #F6BAD2, #E86AA0); }
+.folder--rbifed  .folder-body, .folder--rbifed  .folder-tab { background: linear-gradient(180deg, #7C93E6, #192890); }
+.folder--paper   .folder-body, .folder--paper   .folder-tab { background: linear-gradient(180deg, #77A6FF, #1B3FB0); }
+.folder--reading .folder-body, .folder--reading .folder-tab { background: linear-gradient(180deg, #8CEAC7, #2F9E6E); }
+.folder--data    .folder-body, .folder--data    .folder-tab { background: linear-gradient(180deg, #B4BEC7, #5A6A74); }
 
 /* ═══ Story landing + kit-language components (2026-07-03, from Harsh's UI kits) ═══ */
 /* Tracker board — Crome-style two-tone stat cards */
@@ -1831,7 +1860,9 @@ body:not(.site-signed-in) .lrc-lock {
    scroll (stroke-dash driven by home-stack.js), a lit dot riding the
    tip with a dashed drop-line — the kit's tooltip anatomy, minus the
    invented number. Line/dot/drop are invisible until JS moves them. */
-.stage-candles { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .16; pointer-events: none; z-index: 0; }
+.stage-candles { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .45; pointer-events: none; z-index: 0; }
+.stage-candles .sc-candle > g { opacity: .2; }  /* base faint — home-stack.js lights them up on scroll */
+.stage-candles .stage-trend, .stage-candles .stage-trend-dot, .stage-candles .stage-trend-drop { display: none; }  /* retired: the candles glow now, no drawn line */
 .stage-candles .sc-grid line { stroke: #C7D2DA; stroke-width: .5; opacity: .35; }
 .stage-candles .sc-candle line { stroke: #C7D2DA; stroke-width: 1.5; }
 .stage-candles .sc-up rect { fill: var(--isb-green); }
