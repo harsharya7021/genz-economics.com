@@ -40,6 +40,7 @@
       +       '<input class="fb-name" type="text" placeholder="Your name (optional)" autocomplete="name">'
       +       '<input class="fb-email" type="email" placeholder="Email — if you want a reply" autocomplete="email">'
       +     '</div>'
+      +     '<div class="fb-hp-wrap" aria-hidden="true"><label>Do not fill this in<input class="fb-hp" type="text" tabindex="-1" autocomplete="off"></label></div>'
       +     '<div class="fb-actions"><button type="button" class="btn btn-ghost" data-fb-close>Cancel</button><button type="submit" class="btn btn-primary fb-send">Send it →</button></div>'
       +     '<p class="fb-status" aria-live="polite"></p>'
       +   '</form>'
@@ -69,6 +70,8 @@
     });
   }
 
+  var COOLDOWN_MS = 45000; // one submission per 45s from this browser
+
   function submit(e) {
     e.preventDefault();
     var form = modal.querySelector(".fb-form");
@@ -76,6 +79,22 @@
     var status = form.querySelector(".fb-status");
     var sendBtn = form.querySelector(".fb-send");
     if (!msg) return;
+
+    // Guardrail 1 — honeypot: a hidden field no human sees. If it's filled,
+    // it's a bot; pretend success and drop the write silently.
+    var hp = form.querySelector(".fb-hp");
+    if (hp && hp.value) { status.className = "fb-status ok"; status.textContent = "Got it — thank you."; setTimeout(close, 1200); return; }
+
+    // Guardrail 2 — client cooldown: block rapid re-submits from this browser.
+    try {
+      var last = +localStorage.getItem("gze_fb_last") || 0;
+      if (Date.now() - last < COOLDOWN_MS) {
+        status.className = "fb-status err";
+        status.textContent = "You just sent one — give it a moment before the next.";
+        return;
+      }
+    } catch (_) {}
+
     sendBtn.disabled = true; status.className = "fb-status"; status.textContent = "Sending…";
     var payload = {
       type: (form.querySelector('input[name="fbType"]:checked') || {}).value || "feedback",
@@ -93,6 +112,7 @@
       payload.createdAt = f.fs.serverTimestamp();
       return f.fs.addDoc(f.fs.collection(f.db, "tickets"), payload);
     }).then(function () {
+      try { localStorage.setItem("gze_fb_last", Date.now()); } catch (_) {}
       status.className = "fb-status ok"; status.textContent = "Got it — thank you. That's on my list now.";
       form.querySelector(".fb-msg").value = ""; form.querySelector(".fb-name").value = ""; form.querySelector(".fb-email").value = "";
       setTimeout(close, 1400);
