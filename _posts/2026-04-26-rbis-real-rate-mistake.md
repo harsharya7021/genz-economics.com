@@ -9,6 +9,7 @@ excerpt_override: "Session 14 — a live case study in a central bank's real-rat
 authors:
   - harsh
 editors: []
+stream_id: adcedc67d9bd78e0ae36504819ac6287
 ---
 
 He opens by promising to close the medium-term unit "in another 10 minutes," and does — the equation gets one more quick pass for anyone who missed it, the Friedman story gets a two-minute recap for latecomers. Then Prof. Tantri spends the rest of the session doing something this series hasn't seen him do quite this way before: pointing the whole Phillips-curve-and-real-rate apparatus at India's actual policy stance right now, live, with real numbers — RBI's rate cuts, its 8.8-lakh-crore bond-buying program, a CRR cut, and an Iran-driven oil shock landing on top of all of it — and arguing the central bank has made a specific, nameable, conceptual mistake.
