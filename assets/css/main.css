@@ -1544,8 +1544,15 @@ dfn.lookup:hover { background: var(--highlight); }
    variants: same invert+hue-rotate math baked per-pixel, EXCEPT yellows,
    which are masked out and kept true gold (scripted; see HANDOFF). */
 [data-theme="dark"] .mast-art-img { content: url("/assets/img/hero/hero-collage-dark.png"); }
-[data-theme="dark"] .pf-art { content: url("/assets/img/hero/hero-prof-dark.png"); }
 [data-theme="dark"] .pf-art.pf-art-hall { content: url("/assets/img/hero/hero-hall-dark.png"); }
+/* The professor stays the BLACK-line figure in dark mode too — it sits on
+   a light "paper" front face (below) so the ink reads; only the hall (back)
+   swaps to its light-on-dark variant. The flip is the lights-down moment. */
+[data-theme="dark"] .pf-front {
+  --ink:#24313A; --ink-soft:#5D6F7A; --surface:#E9EEF2; --surface-2:#FFFFFF;
+  --rule:#D8E1E7; --accent:#192890; --accent-press:#245BFF; --gold-ink:#8A6A12;
+  background: #E9EEF2; color: var(--ink);
+}
 .mast-art-grid { /* legacy coded-collage layout, kept for fallback */
   display: grid; grid-template-columns: 1fr 1.6fr .9fr; gap: .7rem;
   align-items: stretch;
