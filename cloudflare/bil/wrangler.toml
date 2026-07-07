@@ -1,0 +1,22 @@
+name = "gze-bil"
+main = "worker.js"
+compatibility_date = "2025-07-01"
+workers_dev = true
+
+# Workers AI — embeddings (bge) + generation (llama). No external LLM key needed.
+[ai]
+binding = "AI"
+
+# Vectorize — the corpus index the ingest script fills.
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "gze-bil"
+
+# Optional extra allowed emails, comma-separated. ISB addresses + the owner are
+# already hard-allowed in worker.js; use this only to add one-off guests.
+[vars]
+ALLOWED = ""
+
+# FIREBASE_API_KEY is a SECRET, not a var — set it with:
+#   wrangler secret put FIREBASE_API_KEY
+# (the same Web API key the site's firebase config uses)
