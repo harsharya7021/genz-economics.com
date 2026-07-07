@@ -743,9 +743,9 @@ blockquote {
 .nav-drop-btn { display: inline-flex; align-items: center; gap: .18rem; background: none; border: 0; padding: 0; font: inherit; font-weight: 500; color: inherit; cursor: pointer; }
 .nav-drop-btn:hover { color: var(--accent); }
 .nav-caret { color: var(--ink-soft); transition: transform .18s ease; }
-.nav-drop:hover .nav-caret, .nav-drop.open .nav-caret { transform: rotate(180deg); }
+.nav-drop.open .nav-caret { transform: rotate(180deg); }
 .nav-drop-menu { position: absolute; top: calc(100% + .55rem); left: 0; min-width: 234px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow-md); padding: .4rem; display: none; z-index: 40; }
-.nav-drop:hover .nav-drop-menu, .nav-drop.open .nav-drop-menu { display: block; }
+.nav-drop.open .nav-drop-menu { display: block; }
 .nav-drop-menu a { display: block; padding: .55rem .7rem; border-radius: 8px; text-decoration: none; color: var(--ink); }
 .nav-drop-menu a:hover { background: var(--accent-soft, var(--surface)); }
 .nav-drop-menu strong { display: block; font: 600 .95rem var(--sans); }
@@ -1520,14 +1520,8 @@ dfn.lookup:hover { background: var(--highlight); }
 /* ── The Reading Room — a little desktop, Bliss-adjacent ── */
 .rr-wrap { margin: 1.4rem 0 0; }
 .rr-hint { font: .75rem/1.5 var(--mono); color: var(--ink-soft); text-align: center; margin: .7rem 0 0; }
-.rr-desktop { position: relative; min-height: 62vh; border-radius: 14px; overflow: hidden; border: 1px solid var(--rule);
-  background:
-    radial-gradient(55% 38% at 20% 24%, rgba(255,255,255,.85), rgba(255,255,255,0) 62%),
-    radial-gradient(42% 26% at 70% 15%, rgba(255,255,255,.72), rgba(255,255,255,0) 60%),
-    radial-gradient(30% 20% at 86% 30%, rgba(255,255,255,.6), rgba(255,255,255,0) 60%),
-    radial-gradient(165% 100% at 50% 150%, #74b451 0 44%, rgba(116,180,81,0) 46%),
-    linear-gradient(180deg, #3f83d6 0%, #67a1e2 52%, #a9d2f0 76%, #cfe6cf 100%);
-  background-repeat: no-repeat; }
+.rr-desktop { position: relative; min-height: 68vh; overflow: visible; } /* wallpaper is now full-page (.rr-bg) */
+.rr-bg { position: fixed; inset: 0; z-index: -1; background-color: #6aa3e2; background-position: center; background-size: cover; background-repeat: no-repeat; }
 .rr-icons { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fill, 96px); gap: 1rem .8rem; padding: 1.2rem; }
 .rr-folder { width: 96px; display: flex; flex-direction: column; align-items: center; gap: .3rem; cursor: pointer; background: none; border: 0; padding: .4rem .3rem; border-radius: 6px; color: #fff; font: 600 .76rem/1.2 var(--sans); text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .rr-folder:hover, .rr-folder:focus-visible { background: rgba(255,255,255,.16); outline: 1px dotted rgba(255,255,255,.7); }
@@ -1546,7 +1540,8 @@ dfn.lookup:hover { background: var(--highlight); }
 .rr-crumb { color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rr-window-body { padding: .9rem; overflow: auto; background: #fff; }
 .rr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: .6rem; }
-.rr-item { display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: .55rem .3rem; border: 0; background: none; cursor: pointer; border-radius: 6px; font: 500 .74rem/1.25 var(--sans); color: #1a1a1a; text-align: center; }
+.rr-item { display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: .55rem .3rem; border: 0; background: none; cursor: pointer; border-radius: 6px; font: 500 .74rem/1.25 var(--sans); color: #1a1a1a; text-align: center; text-decoration: none; }
+.rr-note { margin: .2rem .1rem 0; padding: .55rem .7rem; background: #fff7e0; border: 1px solid #e6cf88; border-radius: 6px; font: 500 .74rem/1.45 var(--sans); color: #6b4e0c; }
 .rr-item:hover, .rr-item:focus-visible { background: #e8f0fe; outline: 1px solid #a9c7f5; }
 .rr-item .rr-meta { font: 500 .62rem var(--mono); color: #8a8a8a; }
 /* terminal */
