@@ -5,57 +5,55 @@ permalink: /reading-room/
 ---
 
 <style>
-  /* Full-page wallpaper — the real Bliss on top, a gradient underneath as fallback */
-  .rr-bg {
-    background-image:
-      url('{{ '/assets/img/bliss.jpg' | relative_url }}'),
-      linear-gradient(180deg, #3f83d6 0%, #67a1e2 44%, #a9d2f0 60%, #8fc35a 61%, #6aa63f 100%);
-  }
-  .rr-hero-panel { display: inline-block; max-width: 64ch; background: rgba(255,255,255,.74); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.7); border-radius: 16px; padding: 1.4rem 1.7rem; box-shadow: 0 10px 34px rgba(0,0,0,.16); }
-  .rr-hero-panel .eyebrow { color: #2b4a2f; }
-  .rr-hero-panel .display { color: #163a1c; }
-  .rr-hero-panel .display em { color: #2f7d3a; font-style: italic; }
-  .rr-hero-panel .reading-intro { color: #294a2e; }
+  /* the real Bliss, full-bleed */
+  .rr-bg { background-image: url('{{ '/assets/img/Bliss.png' | relative_url }}'); }
+  /* run the grass under the header, this page only */
+  .site-header { background: linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,0)) !important; border-bottom: 0 !important; box-shadow: none !important; }
+  .site-header .site-nav > a, .site-header .nav-drop-btn, .site-header .wordmark span, .site-header .theme-toggle, .site-header .acct-name { color: #fff !important; }
+  .site-header .wordmark-dot { color: #d6e6ff !important; }
+  .site-footer { position: relative; z-index: 1; }
 </style>
 
 <div class="rr-bg" aria-hidden="true"></div>
 
-<section class="hero" style="padding-bottom:1rem"><div class="container"><div class="rr-hero-panel">
-  <p class="eyebrow">Learning Resource Centre · the Reading Room</p>
-  <h1 class="display">The Reading <em>Room.</em></h1>
-  <p class="reading-intro">An homage to the Stone Age — back when people used to read things. This is where the reading actually gets done: his class notes, the articles he sent, and the papers, filed away in folders. Sign in, then open one and dig.</p>
-</div></div></section>
+<section class="rr-stage">
+  <div class="container">
+    <!-- DOS command-line title -->
+    <div class="rr-dos">
+      <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <b>dir</b></div>
+      <div>&nbsp;</div>
+      <div><b>THE READING ROOM</b> — an homage to the Stone Age, back when people read things.</div>
+      <div>His class notes, the articles he sent, and the papers. Filed in folders, like it's 1997.</div>
+      <div>&nbsp;</div>
+      <div>Open a folder. Files open in Notepad — with a link to the real thing.</div>
+      <div>&nbsp;</div>
+      <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <span class="rr-cur"></span></div>
+    </div>
 
-<section class="reading-wrap"><div class="container">
-
-  <!-- Logged out: the gate -->
-  <div class="essay-gate" id="essayGate">
-    <h3>Sign in with your ISB ID to open the Reading Room</h3>
-    <p>The references — everything he has shared to read, with his framing — are licensed ISB material, kept here for the cohort. Sign in once; it stays open. (The book club and his press are open to all.)</p>
-    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+    <!-- Logged out: the gate -->
+    <div class="essay-gate" id="essayGate" style="margin-top:1.4rem">
+      <h3>Sign in with your ISB ID to open the Reading Room</h3>
+      <p>The references — everything he has shared to read, with his framing — are licensed ISB material, kept here for the cohort. Sign in once; it stays open. (The book club and his press are open to all.)</p>
+      <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+    </div>
   </div>
 
   <!-- Signed in: the desktop -->
   <div class="gated">
-    <div class="rr-wrap">
-      <div class="rr-desktop" id="rrDesktop">
-        <div class="rr-icons" id="rrIcons"></div>
-      </div>
-      <p class="rr-hint">Click a folder to open it. Click a file to open the PDF in a new tab.</p>
+    <div class="rr-desktop" id="rrDesktop">
+      <div class="rr-icons" id="rrIcons"></div>
     </div>
+    <p class="rr-hint">Click a folder to open it. Click a file to open it in Notepad, then the real document.</p>
   </div>
-
-</div></section>
+</section>
 
 <script>
 (function(){
   var desktop = document.getElementById("rrDesktop"); if(!desktop) return;
   var iconWrap = document.getElementById("rrIcons");
 
-  /* The tree. Class notes are unpublished (locked). Articles/papers open in a new
-     tab; link-less articles open a search. Nothing here is fabricated. */
   var TREE = [
-    { type:"folder", name:"Class notes", meta:"unpublished", children:[
+    { type:"folder", name:"Class notes", children:[
       { type:"folder", name:"INFS · Mohali 2025", children:[
         {type:"file", name:"Ch 1 — Introduction", meta:"9p", locked:true},
         {type:"file", name:"Ch 2 — Economy in the Long Run", meta:"8p", locked:true},
@@ -97,7 +95,7 @@ permalink: /reading-room/
         {type:"file", name:"Fintech paper — first draft (savings-transactions credit scoring)", meta:"72p", url:"{{ '/2025/05/fintech-savings-transactions-credit-paper/' | relative_url }}"}
       ]}
     ]},
-    { type:"folder", name:"Articles", meta:"he sent us to read", children:[
+    { type:"folder", name:"Articles", children:[
       { type:"folder", name:"Macro & monetary", children:[
         {type:"file", name:"Keynesian Economics — Econlib", url:"https://www.econlib.org/library/Enc/KeynesianEconomics.html"},
         {type:"file", name:"Javier Milei loosens his grip on the peso — The Economist"},
@@ -111,7 +109,7 @@ permalink: /reading-room/
         {type:"file", name:"Press Information Bureau release"}
       ]}
     ]},
-    { type:"folder", name:"Papers", meta:"the academic reads", children:[
+    { type:"folder", name:"Papers", children:[
       {type:"file", name:"Petersen — Credit Market Competition & Lending Relationships", meta:"1995", url:"https://www.nber.org/papers/w4921"},
       {type:"file", name:"Gormsen & Huber — Corporate Discount Rates", meta:"2025", url:"https://www.nber.org/papers/w31329"},
       {type:"file", name:"Guenzel — In Too Deep: Sunk Costs & Corporate Investment", meta:"JF 2025", url:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5047452"}
@@ -123,8 +121,9 @@ permalink: /reading-room/
   var LOCK_SVG = '<svg width="40" height="50" viewBox="0 0 40 50" fill="none"><path d="M6 2h19.5L38 14.5V46a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#f4f1e4" stroke="#b8ac86" stroke-width="1.5"/><path d="M25.5 2v12H38" fill="#e9e3cd" stroke="#b8ac86" stroke-width="1.5"/><rect x="13" y="27" width="14" height="11" rx="1.5" fill="#c99a1e"/><path d="M16 27v-2.5a4 4 0 0 1 8 0V27" stroke="#c99a1e" stroke-width="2" fill="none"/></svg>';
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"").slice(0,16) || "file"; }
 
-  var stack = [], win = null;
+  var stack = [], win = null, npWin = null;
   function currentKids(){ return stack.length ? stack[stack.length-1].children : TREE; }
 
   function openIcons(){
@@ -143,29 +142,52 @@ permalink: /reading-room/
     var crumb = ["Reading Room"].concat(stack.map(function(n){return n.name;})).join(" ▸ ");
     var grid = kids.map(function(c,i){
       var label = '<span>'+esc(c.name)+'</span>'+(c.meta?'<span class="rr-meta">'+esc(c.meta)+'</span>':'');
-      if(c.type==="folder") return '<button class="rr-item" data-i="'+i+'" data-kind="folder">'+FOLDER_SVG+label+'</button>';
-      if(c.locked)          return '<button class="rr-item" data-i="'+i+'" data-kind="locked">'+LOCK_SVG+label+'</button>';
-      var href = c.url ? c.url : "https://www.google.com/search?q="+encodeURIComponent(c.name);
-      return '<a class="rr-item" href="'+esc(href)+'" target="_blank" rel="noopener">'+FILE_SVG+label+'</a>';
+      var ico = c.type==="folder" ? FOLDER_SVG : (c.locked ? LOCK_SVG : FILE_SVG);
+      return '<button class="rr-item" data-i="'+i+'">'+ico+label+'</button>';
     }).join("");
     win.innerHTML =
       '<div class="rr-titlebar"><span class="rr-tb-title">'+esc(node?node.name:"The Reading Room")+'</span><button class="rr-tb-btn" data-close aria-label="Close">×</button></div>'+
       '<div class="rr-toolbar"><button class="rr-back"'+(stack.length?"":" disabled")+'>◂ Back</button><span class="rr-crumb">'+esc(crumb)+'</span></div>'+
-      '<div class="rr-window-body"><div class="rr-grid">'+grid+'</div><div class="rr-note" hidden></div></div>';
+      '<div class="rr-window-body"><div class="rr-grid">'+grid+'</div></div>';
     win.querySelector("[data-close]").addEventListener("click", closeWindow);
     win.querySelector(".rr-back").addEventListener("click", function(){ if(stack.length){ stack.pop(); if(stack.length) renderWindow(); else closeWindow(); } });
-    Array.prototype.forEach.call(win.querySelectorAll("button.rr-item"), function(b){
+    Array.prototype.forEach.call(win.querySelectorAll(".rr-item"), function(b){
       b.addEventListener("click", function(){
         var c = kids[+b.getAttribute("data-i")];
-        if(b.getAttribute("data-kind")==="folder"){ stack.push(c); renderWindow(); }
-        else note("These are his class notes — unpublished. The honest way in is to take the course, or ask him.");
+        if(c.type==="folder"){ stack.push(c); renderWindow(); } else openNotepad(c);
       });
     });
   }
-  function note(msg){ var n = win && win.querySelector(".rr-note"); if(n){ n.textContent = msg; n.hidden = false; } }
-  function closeWindow(){ if(win){ win.remove(); win=null; } stack=[]; }
+  function closeWindow(){ if(win){ win.remove(); win=null; } stack=[]; closeNotepad(); }
 
-  desktop.addEventListener("click", function(e){ if(e.target===desktop){ closeWindow(); } });
+  function openNotepad(file){
+    closeNotepad();
+    npWin = document.createElement("div"); npWin.className = "rr-window rr-notepad";
+    var fname, body, action = "";
+    if(file.locked){
+      fname = "readme.txt";
+      body = "These are his class notes — unpublished.\n\nThe honest way in is to take the course, or ask him.\n\n(You didn't hear it from Notepad.)";
+    } else if(file.url){
+      fname = slug(file.name) + ".txt";
+      body = "Document : " + file.name + "\nType     : " + (file.meta ? file.meta + " · " : "") + "external file\n\nThis one lives off-site. Open it in a new tab:";
+      action = '<a class="rr-open-btn" href="'+esc(file.url)+'" target="_blank" rel="noopener">Open document ↗</a>';
+    } else {
+      fname = slug(file.name) + ".txt";
+      var q = "https://www.google.com/search?q=" + encodeURIComponent(file.name);
+      body = "Document : " + file.name + "\n\nNo direct link on file — print-only, or shared in class. Search for it:";
+      action = '<a class="rr-open-btn" href="'+esc(q)+'" target="_blank" rel="noopener">Search for it ↗</a>';
+    }
+    npWin.innerHTML =
+      '<div class="rr-titlebar"><span class="rr-tb-title">'+esc(fname)+' — Notepad</span><button class="rr-tb-btn" data-close aria-label="Close">×</button></div>'+
+      '<div class="rr-menubar"><span>File</span><span>Edit</span><span>Search</span><span>Help</span></div>'+
+      '<div class="rr-np-body">'+esc(body)+'</div>'+
+      (action ? '<div class="rr-np-foot">'+action+'</div>' : '');
+    desktop.appendChild(npWin);
+    npWin.querySelector("[data-close]").addEventListener("click", closeNotepad);
+  }
+  function closeNotepad(){ if(npWin){ npWin.remove(); npWin=null; } }
+
+  desktop.addEventListener("click", function(e){ if(e.target===desktop){ closeNotepad(); closeWindow(); } });
 
   openIcons();
 })();
