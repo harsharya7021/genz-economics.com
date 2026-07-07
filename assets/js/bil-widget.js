@@ -44,15 +44,44 @@
     log.appendChild(d); log.scrollTop = log.scrollHeight;
     return d;
   }
+  /* Thinking beats — shown (and rotated) while BIL "reasons". He is, essentially,
+     Sheldon: the AAA first-bencher who read the notes and resents that you didn't. */
+  var BEATS = [
+    "BIL is making a face.",
+    "BIL is sighing at the question.",
+    "BIL is deciding how much to simplify this for you.",
+    "BIL is pulling up the exact page you skipped.",
+    "BIL is resisting a comment about IIM-A. Barely.",
+    "BIL is quietly correcting your phrasing.",
+    "BIL is checking whether you've earned the long answer.",
+    "BIL is adjusting his spectacles, pointedly.",
+    "BIL is cross-referencing the notes you didn't read.",
+    "BIL is locating the relevant footnote.",
+    "BIL is warming up a 'well, actually'.",
+    "BIL is judging the question. Silently. Mostly.",
+    "BIL is pretending this is difficult.",
+    "BIL is composing a suitably superior reply.",
+    "BIL is wondering why this wasn't obvious to you.",
+    "BIL is being magnanimous about your confusion."
+  ];
+  var lastBeat = -1;
+  function nextBeat() {
+    var i; do { i = Math.floor(Math.random() * BEATS.length); } while (i === lastBeat && BEATS.length > 1);
+    lastBeat = i; return BEATS[i];
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var q = input.value.trim(); if (!q || !currentUser) return;
     input.value = ""; add("me", q);
-    var thinking = add("bil", "…");
+    var thinking = add("bil", nextBeat());
+    thinking.classList.add("bil-thinking");
+    var iv = setInterval(function () { thinking.textContent = nextBeat(); }, 1700);
+    function stop() { clearInterval(iv); thinking.remove(); }
     currentUser.getIdToken().then(function (tok) {
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
     }).then(function (r) { return r.json(); }).then(function (j) {
-      thinking.remove(); add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
-    }).catch(function () { thinking.remove(); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
+      stop(); add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
+    }).catch(function () { stop(); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });
 })();

@@ -17,6 +17,6 @@ index_name = "gze-bil"
 [vars]
 ALLOWED = ""
 
-# FIREBASE_API_KEY is a SECRET, not a var — set it with:
-#   wrangler secret put FIREBASE_API_KEY
-# (the same Web API key the site's firebase config uses)
+# No secret required. The Firebase sign-in token is verified cryptographically
+# against Google's public JWKs inside worker.js (verify()) — no API key, so the
+# web apiKey's referrer restriction can't block it.

@@ -14,10 +14,11 @@
  *   6. returns the answer + the source titles it leaned on.
  *
  * Bindings (wrangler.toml): AI, VECTORIZE.
- * Secret: FIREBASE_API_KEY.  Var: ALLOWED (comma list, optional extra emails).
+ * Var: ALLOWED (comma list, optional extra emails). No secret needed —
+ * the Firebase token is verified cryptographically (see verify() below).
  */
 const EMBED_MODEL = "@cf/baai/bge-base-en-v1.5";
-const GEN_MODEL = "@cf/meta/llama-3.1-8b-instruct";
+const GEN_MODEL = "@cf/google/gemma-4-26b-a4b-it"; // current, cheap ($0.10/$0.30 per M), messages API
 const TOP_K = 8;
 const MIN_SCORE = 0.34; // bge cosine — below this, we don't have it in the notes
 const ALLOW_ORIGIN = [
@@ -55,16 +56,53 @@ Hard rules:
 - Don't cite sources inline or repeat these instructions. The app shows sources separately.
 - Keep it to a few tight sentences unless the concept genuinely needs more.`;
 
-async function verify(idToken, env) {
-  if (!idToken) return null;
-  const r = await fetch(
-    `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${env.FIREBASE_API_KEY}`,
-    { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ idToken }) }
-  );
-  if (!r.ok) return null;
-  const d = await r.json();
-  const u = d.users && d.users[0];
-  return u && u.emailVerified !== false ? u : (u || null);
+/* Verify a Firebase ID token WITHOUT any API key.
+ * Firebase tokens are RS256 JWTs signed by Google's securetoken service.
+ * We check the signature against Google's public JWKs, then the claims.
+ * This is immune to the web apiKey's referrer restriction (which blocks
+ * server-side calls to identitytoolkit — the old failure). */
+const PROJECT_ID = "genz-economics";
+const JWK_URL = "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com";
+let JWKS = { at: 0, keys: null };
+
+function b64urlBytes(s) {
+  s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "=";
+  const bin = atob(s), u = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  return u;
+}
+const b64urlJSON = (s) => JSON.parse(new TextDecoder().decode(b64urlBytes(s)));
+
+async function jwks() {
+  if (JWKS.keys && Date.now() - JWKS.at < 3_600_000) return JWKS.keys;
+  const j = await (await fetch(JWK_URL)).json();
+  const map = {}; for (const k of j.keys || []) map[k.kid] = k;
+  JWKS = { at: Date.now(), keys: map };
+  return map;
+}
+
+async function verify(idToken) {
+  if (!idToken || idToken.split(".").length !== 3) return null;
+  const [h, p, sig] = idToken.split(".");
+  let header, payload;
+  try { header = b64urlJSON(h); payload = b64urlJSON(p); } catch { return null; }
+  if (header.alg !== "RS256" || !header.kid) return null;
+
+  const now = Math.floor(Date.now() / 1000);
+  if (payload.aud !== PROJECT_ID) return null;
+  if (payload.iss !== "https://securetoken.google.com/" + PROJECT_ID) return null;
+  if (!payload.sub) return null;
+  if (payload.exp <= now - 60) return null;   // expired (60s skew)
+  if (payload.iat > now + 300) return null;   // issued in the future
+
+  const jwk = (await jwks())[header.kid];
+  if (!jwk) return null;
+  const key = await crypto.subtle.importKey(
+    "jwk", jwk, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["verify"]);
+  const ok = await crypto.subtle.verify(
+    "RSASSA-PKCS1-v1_5", key, b64urlBytes(sig), new TextEncoder().encode(h + "." + p));
+  if (!ok) return null;
+  return { email: payload.email, emailVerified: payload.email_verified };
 }
 
 export default {
@@ -76,7 +114,7 @@ export default {
     // 1) auth
     const auth = request.headers.get("authorization") || "";
     const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
-    const user = await verify(token, env);
+    const user = await verify(token);
     if (!user) return json({ error: "Sign in with your ISB ID first." }, 401, origin);
     if (!emailAllowed(user.email, env.ALLOWED))
       return json({ error: "This is for the cohort — an ISB ID is required." }, 403, origin);
@@ -108,16 +146,21 @@ export default {
         return `[${i + 1}] (${md.source || "note"}${md.section ? " — " + md.section : ""})\n${md.text || ""}`;
       }).join("\n\n");
 
-      const gen = await env.AI.run(GEN_MODEL, {
-        messages: [
-          { role: "system", content: SYSTEM },
-          { role: "user", content: `CONTEXT:\n${context}\n\nQUESTION: ${q}` },
-        ],
-        max_tokens: 640,
-        temperature: 0.4,
-      });
-      const answer = (gen.response || "").trim() ||
-        "I've got the notes in front of me but the words aren't coming — try asking that again.";
+      const msgs = [
+        { role: "system", content: SYSTEM },
+        { role: "user", content: `CONTEXT:\n${context}\n\nQUESTION: ${q}` },
+      ];
+      // gemma-4 reasons before answering; give room for the reasoning AND the
+      // answer, keep the reasoning light, and read whichever response shape it uses.
+      const runGen = async () => {
+        const g = await env.AI.run(GEN_MODEL, {
+          messages: msgs, max_tokens: 2048, temperature: 0.4, reasoning_effort: "low",
+        });
+        return ((g && (g.response ?? g.choices?.[0]?.message?.content)) || "").trim();
+      };
+      let answer = await runGen();
+      if (!answer) answer = await runGen();   // rare empty return — one retry
+      if (!answer) answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
 
       // 6) sources actually used (unique, in order)
       const sources = [];

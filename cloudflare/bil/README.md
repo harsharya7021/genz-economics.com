@@ -63,17 +63,17 @@ You'll see `Wrote N vectors → cloudflare/bil/corpus.ndjson`.
 wrangler vectorize insert gze-bil --file corpus.ndjson
 ```
 
-**4. Set the Firebase secret** (the same Web API key in the site's firebase
-config — it's how the Worker validates the sign-in token):
-```bash
-wrangler secret put FIREBASE_API_KEY
-```
-
-**5. Deploy**
+**4. Deploy**
 ```bash
 wrangler deploy
 ```
 Copy the URL it prints, e.g. `https://gze-bil.<subdomain>.workers.dev`.
+
+> No secret needed. The Worker verifies the Firebase sign-in token
+> cryptographically against Google's public keys (see `verify()` in
+> `worker.js`) — no API key, so the web apiKey's referrer restriction can't
+> break it. (An earlier version called Google's token-lookup endpoint with
+> that key and got blocked server-side; that's fixed.)
 
 **6. Point the widget at it.** In `bil.html`, set the endpoint on the chat:
 ```html
