@@ -44,25 +44,14 @@
     log.appendChild(d); log.scrollTop = log.scrollHeight;
     return d;
   }
-  /* Thinking beats — shown (and rotated) while BIL "reasons". He is, essentially,
-     Sheldon: the AAA first-bencher who read the notes and resents that you didn't. */
-  var BEATS = [
+  /* Thinking beats — one shown (and rotated) while BIL "reasons". The full set
+     of 365 lives in bil-beats.js (window.BIL_BEATS); this is a small fallback. */
+  var BEATS = (window.BIL_BEATS && window.BIL_BEATS.length) ? window.BIL_BEATS : [
     "BIL is making a face.",
     "BIL is sighing at the question.",
-    "BIL is deciding how much to simplify this for you.",
-    "BIL is pulling up the exact page you skipped.",
-    "BIL is resisting a comment about IIM-A. Barely.",
-    "BIL is quietly correcting your phrasing.",
-    "BIL is checking whether you've earned the long answer.",
-    "BIL is adjusting his spectacles, pointedly.",
     "BIL is cross-referencing the notes you didn't read.",
-    "BIL is locating the relevant footnote.",
-    "BIL is warming up a 'well, actually'.",
-    "BIL is judging the question. Silently. Mostly.",
-    "BIL is pretending this is difficult.",
-    "BIL is composing a suitably superior reply.",
-    "BIL is wondering why this wasn't obvious to you.",
-    "BIL is being magnanimous about your confusion."
+    "BIL is deciding how much to simplify this for you.",
+    "BIL is judging the question. Silently. Mostly."
   ];
   var lastBeat = -1;
   function nextBeat() {
