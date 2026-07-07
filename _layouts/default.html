@@ -58,7 +58,14 @@
             <a href="{{ '/learn/' | relative_url }}"><strong>ISB Courses</strong><span class="ndm-sub">long-form reads, with models</span></a>
           </div>
         </div>
-        <a href="{{ '/reading-room/' | relative_url }}" title="Learning Resource Centre — the library">LRC</a>
+        <div class="nav-drop" data-nav-drop>
+          <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false" title="Learning Resource Centre" data-lrc-flash>LRC<svg class="nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="nav-drop-menu">
+            <a href="{{ '/book-club/' | relative_url }}"><strong>Professor's Book Club</strong><span class="ndm-sub">one book a quarter, his pick</span></a>
+            <a href="{{ '/press/' | relative_url }}"><strong>His Press · Tantri the Mantri</strong><span class="ndm-sub">his columns, as a newspaper</span></a>
+            <a href="{{ '/reading-room/' | relative_url }}"><strong>The Reading Room</strong><span class="ndm-sub">where the reading gets done</span></a>
+          </div>
+        </div>
         <a href="{{ '/macro-watch/' | relative_url }}" title="Bloomburger Terminal — the macro vitals">Bloomburger</a>
         <a href="{{ '/discussions/' | relative_url }}" title="Class participation — the discussion">CP</a>
         <a href="{{ '/bil/' | relative_url }}">BIL</a>
@@ -115,5 +122,21 @@
   {% if page.study %}<script src="{{ '/assets/js/study.js' | relative_url }}" defer></script>{% endif %}
   {% if page.quiz %}<script src="{{ '/assets/js/quiz.js' | relative_url }}" defer></script>{% endif %}
   <script src="{{ '/assets/js/comments.js' | relative_url }}" defer></script>
+  <script>
+  /* LRC gag — clicking LRC flashes a sign-in prompt for a blink, then the menu opens as normal. */
+  (function(){
+    var btn = document.querySelector("[data-lrc-flash]"); if(!btn) return;
+    var el;
+    btn.addEventListener("click", function(){
+      if(!el){
+        el = document.createElement("div"); el.className = "lrc-flash"; el.setAttribute("aria-hidden","true");
+        el.innerHTML = '<div class="lrc-flash-card"><p class="lrc-flash-h">Sign in with your ISB ID to open the LRC</p><span class="lrc-flash-btn">Sign in with Google</span></div>';
+        document.body.appendChild(el);
+      }
+      el.classList.add("is-on");
+      clearTimeout(el._t); el._t = setTimeout(function(){ el.classList.remove("is-on"); }, 430);
+    });
+  })();
+  </script>
 </body>
 </html>

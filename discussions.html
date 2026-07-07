@@ -1,40 +1,40 @@
 ---
 layout: default
-title: Daily Discussion
+title: Weekly Discussion
 permalink: /discussions/
 ---
 <section class="hero" style="padding-bottom:.4rem"><div class="container">
-  <p class="eyebrow">Daily discussion · one question a day</p>
+  <p class="eyebrow">Weekly discussion · one question a week</p>
   <h1 class="display">Think it through, <em>out loud.</em></h1>
-  <p class="macro-intro">A fresh question every day to chew on and argue about in the comments — sign in to post. The model answer drops the next day. Everything stays here for the archive. Push back when you disagree; that's the point.</p>
+  <p class="macro-intro">One question a week to chew on and argue about in the comments — sign in to post. It stays open all week; the model answer drops when the next one goes up. Everything stays here for the archive. Push back when you disagree; that's the point.</p>
 </div></section>
 <section class="study-wrap"><div class="container">
   <div class="ponder-card">
-    <p class="eyebrow">Today's question · discuss it</p>
+    <p class="eyebrow">This week's question · discuss it</p>
     <p class="upsc-meta" id="upscTodayMeta"></p>
-    <p class="q" id="upscToday">Loading today's question…</p>
-    <p class="sub">Add your take below — sign in to post. Yesterday's answer is just under it.</p>
+    <p class="q" id="upscToday">Loading this week's question…</p>
+    <p class="sub">Add your take below — sign in to post. Last week's answer is just under it.</p>
   </div>
   <details class="daily-reveal">
-    <summary>Reveal yesterday's answer</summary>
+    <summary>Reveal last week's answer</summary>
     <p class="rv-q" id="dailyPrevQ"></p>
     <p class="rv-a" id="dailyPrevA"></p>
   </details>
   {% include comments.html daily=true thread="daily" %}
 
-  <!-- The bank (every question + model answer) is cohort-only: the daily
-       ritual up top stays public, the full archive sits behind the same
+  <!-- The bank (every question + model answer) is cohort-only: the weekly
+       question up top stays public, the full archive sits behind the same
        soft gate as the essays (essay.js: #essayGate / #gatedChapters). -->
   <div class="essay-gate" id="essayGate" style="margin-top:2.6rem">
     <h3>The bank is for the cohort</h3>
-    <p>{{ site.data.daily | size }} questions with model answers — the whole ledger of daily discussions. Sign in once and it stays open for you. Today's question above is free; the archive is the reward for being in the room.</p>
+    <p>{{ site.data.daily | size }} questions with model answers — every week's discussion, filed by month. Sign in once and it stays open for you. This week's question above is free; the archive is the reward for being in the room.</p>
     <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
   </div>
   <div class="gated" id="gatedChapters">
   {% assign dated = site.data.daily | sort: "date" | reverse %}
   <details class="bank" id="bankCollapse" style="margin-top:2.6rem">
     <summary class="bank-summary">
-      <span class="bank-summary-title"><h2>The bank</h2><span class="bank-count">{{ site.data.daily | size }} questions · dated ledger</span></span>
+      <span class="bank-summary-title"><h2>The bank</h2><span class="bank-count">{{ site.data.daily | size }} questions · one a week, filed by month</span></span>
       <svg class="bank-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </summary>
     <div class="bank-body">
@@ -73,7 +73,7 @@ permalink: /discussions/
   </div>
 
   <script>
-  /* The bank — search + month/recency filters over the dated ledger */
+  /* The bank — search + month/recency filters over the ledger, grouped by month */
   (function(){
     var list = document.getElementById("bankList"); if (!list) return;
     var items = Array.prototype.slice.call(list.querySelectorAll(".bank-item"));
@@ -89,6 +89,17 @@ permalink: /discussions/
     Object.keys(topics).sort().forEach(function(t){
       var b=document.createElement("button"); b.type="button"; b.setAttribute("data-topic",t); b.setAttribute("aria-pressed","false"); b.textContent=t; topicWrap.appendChild(b);
     });
+    function monthLabel(m){ return new Date(m+"-01T00:00:00").toLocaleDateString("en-IN",{month:"long",year:"numeric"}); }
+    /* insert a month divider before each new month, in current DOM order, over visible items only */
+    function regroup(){
+      Array.prototype.slice.call(list.querySelectorAll(".bank-month-head")).forEach(function(h){ list.removeChild(h); });
+      var last=null;
+      Array.prototype.slice.call(list.children).forEach(function(node){
+        if(!node.classList || !node.classList.contains("bank-item") || node.style.display==="none") return;
+        var m=node.getAttribute("data-month");
+        if(m!==last){ var h=document.createElement("li"); h.className="bank-month-head"; h.textContent=monthLabel(m); list.insertBefore(h,node); last=m; }
+      });
+    }
     function apply(){
       var shown=0;
       items.forEach(function(it){
@@ -98,17 +109,20 @@ permalink: /discussions/
         it.style.display = ok ? "" : "none"; if(ok) shown++;
       });
       if(empty) empty.hidden = shown>0;
+      regroup();
     }
     function sortList(){
       items.slice().sort(function(a,b){
         var da=a.getAttribute("data-date"), db=b.getAttribute("data-date");
         return st.sort==="new" ? (db<da?-1:db>da?1:0) : (da<db?-1:da>db?1:0);
       }).forEach(function(it){ list.appendChild(it); });
+      apply();
     }
     if(search) search.addEventListener("input", function(){ st.q=search.value.trim().toLowerCase(); apply(); });
     if(monthSel) monthSel.addEventListener("change", function(){ st.month=monthSel.value; apply(); });
     if(sortWrap) sortWrap.addEventListener("click", function(e){ var b=e.target.closest("button[data-sort]"); if(!b) return; st.sort=b.getAttribute("data-sort"); sortWrap.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");}); sortList(); });
     if(topicWrap) topicWrap.addEventListener("click", function(e){ var b=e.target.closest("button[data-topic]"); if(!b) return; st.topic=b.getAttribute("data-topic"); topicWrap.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");}); apply(); });
+    apply(); /* initial grouping */
   })();
   </script>
   <script type="application/json" id="daily-data">{{ site.data.daily | jsonify }}</script>
