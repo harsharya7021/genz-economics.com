@@ -390,16 +390,25 @@ function gzeWeekIndex() {
     m[1].onAuthStateChanged(auth, function (user) {
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
-      /* header account chip: avatar + first name + sign-out when signed in */
+      /* header account chip — always visible; the menu flips between
+         "Sign in" (signed out, neutral placeholder avatar) and "Sign out" */
       var acct = document.getElementById("gzeAcct");
       if (acct) {
+        var av = document.getElementById("gzeAcctAv"), nm = document.getElementById("gzeAcctName"),
+            full = document.getElementById("gzeAcctFull"), outBtn = document.getElementById("gzeAcctOut");
+        if (av && !av.dataset.placeholder) av.dataset.placeholder = av.src; /* remember the neutral face */
         if (user) {
-          var av = document.getElementById("gzeAcctAv"), nm = document.getElementById("gzeAcctName"), full = document.getElementById("gzeAcctFull");
-          if (av) { if (user.photoURL) { av.src = user.photoURL; av.hidden = false; } else { av.hidden = true; } }
+          if (av) { av.src = user.photoURL || av.dataset.placeholder; av.hidden = false; }
           if (nm) nm.textContent = (user.displayName || user.email || "You").split(" ")[0];
           if (full) full.textContent = user.displayName || user.email || "You";
-          acct.hidden = false;
-        } else { acct.hidden = true; }
+          if (outBtn) outBtn.textContent = "Sign out";
+        } else {
+          if (av) { av.src = av.dataset.placeholder; av.hidden = false; }
+          if (nm) nm.textContent = "";
+          if (full) full.textContent = "Not signed in";
+          if (outBtn) outBtn.textContent = "Sign in";
+        }
+        acct.hidden = false;
       }
       /* make the signed-in state VISIBLE: every sign-in button flips to a
          confirmation and stops opening the popup (click follows its href) */
@@ -409,14 +418,25 @@ function gzeWeekIndex() {
         el.classList.toggle("is-signed-in", !!user);
       });
     });
+    /* one sign-in flow, shared by the gate buttons and the account menu */
+    function doSignIn() {
+      var provider = new m[1].GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+      runSignIn(provider);
+    }
     var outBtn = document.getElementById("gzeAcctOut");
-    if (outBtn) outBtn.addEventListener("click", function () { m[1].signOut(auth); });
+    if (outBtn) outBtn.addEventListener("click", function () {
+      if (auth.currentUser) m[1].signOut(auth);
+      else doSignIn();
+    });
     els.forEach(function (el) {
       el.addEventListener("click", function (e) {
         if (auth.currentUser) return; /* already in \u2014 let the link act as a link */
         e.preventDefault();
-        var provider = new m[1].GoogleAuthProvider();
-        provider.setCustomParameters({ prompt: "select_account" });
+        doSignIn();
+      });
+    });
+    function runSignIn(provider) {
         m[1].signInWithPopup(auth, provider).then(function (res) {
           var email = res.user && res.user.email;
           if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
@@ -436,8 +456,7 @@ function gzeWeekIndex() {
           }
           else if (code) alert("Sign-in failed (" + code + ").");
         });
-      });
-    });
+    }
   }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
   }); /* end GZE_onFirebaseReady */
 })();
