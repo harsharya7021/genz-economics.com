@@ -13,7 +13,7 @@ permalink: /macro-watch/
 </section>
 
 <section class="macro-wrap">
-  <div class="container dash">
+  <div class="container">
     {% assign mx = site.data.macro %}
     <div>
       <!-- Policy hero: next MPC big, CPI/repo split-pair -->
@@ -53,20 +53,16 @@ permalink: /macro-watch/
       {% endif %}{% endfor %}
     </div>
 
-    <!-- Right rail: month grid + next up -->
-    <aside class="rail">
-      <div data-month-grid></div>
-      <div class="mgrid" style="padding-top:.9rem">
-        <p class="mgrid-title" style="margin-bottom:.5rem">What drops next</p>
-        <div id="mwNextList"></div>
-        <a class="feed-link" href="{{ '/calendar/' | relative_url }}" style="display:inline-block;margin-top:.5rem">full timetable + subscribe →</a>
+      <!-- the timetable lives on its own page now — Bloomburger is the vitals -->
+      <div class="soon-panel" style="margin-top:2rem;text-align:center">
+        <h3 style="color:#F4F8FA">The full timetable</h3>
+        <p>Every print, every MPC date, on a page of its own — subscribe once and your calendar knows forever.</p>
+        <a class="btn btn-primary" href="{{ '/calendar/' | relative_url }}" style="margin-top:.9rem;display:inline-block">Open the timetable →</a>
       </div>
-    </aside>
   </div>
 </section>
 
 <script type="application/json" id="mpc-data">{{ site.data['ifs-calendar'].events | jsonify }}</script>
-<script src="{{ '/assets/js/month-grid.js' | relative_url }}" defer></script>
 <script>
 (function(){
   var evs; try { evs = JSON.parse(document.getElementById("mpc-data").textContent); } catch(e){ return; }
@@ -78,13 +74,5 @@ permalink: /macro-watch/
     document.getElementById("mpcCountdown").textContent = days === 0 ? "Today, 10:00" : days + (days===1?" day":" days");
     document.getElementById("mpcDate").textContent = d.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long",year:"numeric"}) + " · watch the stance and the vote split, not just the rate.";
   }
-  var list = document.getElementById("mwNextList");
-  if (list) up.slice(0,5).forEach(function(e){
-    var d = new Date(e.date+"T00:00:00"), days = Math.round((d-today)/864e5);
-    var p = document.createElement("p");
-    p.style.cssText = "margin:0 0 .45rem;font:500 .78rem var(--sans)";
-    p.innerHTML = "<span style='font:600 .62rem var(--mono);color:var(--gold-ink);margin-right:.4rem'>" + (days===0?"TODAY":days===1?"TMRW":"+"+days+"d") + "</span>" + e.title;
-    list.appendChild(p);
-  });
 })();
 </script>

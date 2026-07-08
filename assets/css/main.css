@@ -2459,8 +2459,20 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 @media (prefers-reduced-motion: reduce) { .tt-page { transition: none; } }
 
 /* masthead */
-.tt-masthead { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 1rem;
-  border-bottom: 3.5px double #211d15; padding-bottom: .55rem; }
+.tt-masthead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1.4rem;
+  border-bottom: 3.5px double #211d15; padding-bottom: .55rem; margin-bottom: 1.2rem; }
+/* the corner desk: the editor watches, a different quip every visit */
+.tt-corner { max-width: 250px; display: grid; grid-template-columns: 64px 1fr; gap: .6rem; align-items: start;
+  border: 1.5px solid #211d15; padding: .5rem .6rem; background: rgba(255,255,255,.35); }
+.tt-corner img { width: 64px; height: 64px; object-fit: cover; border: 1px solid #c9bfa2; transform: rotate(-2deg); }
+.tt-corner p { font: 500 .62rem/1.5 var(--mono); color: #33301f; margin: 0; }
+/* space he asked to keep open on the left — filled next edition */
+.tt-space { margin-top: 1.2rem; border: 1px dashed #c9bfa2; min-height: 180px; display: grid; place-items: center; }
+.tt-space span { font: 600 .6rem var(--mono); text-transform: uppercase; letter-spacing: .12em; color: #a99e7e; }
+[data-theme="dark"] .tt-corner { background: rgba(0,0,0,.18); border-color: #e8e1cd; }
+[data-theme="dark"] .tt-corner p { color: #b0a685; }
+[data-theme="dark"] .tt-space { border-color: #4a4438; }
+[data-theme="dark"] .tt-space span { color: #6f684f; }
 .tt-title { font: 800 clamp(2.2rem, 5.4vw, 3.6rem)/1 var(--serif); letter-spacing: -.015em; margin: 0; text-align: center; white-space: nowrap; }
 .tt-motto { font: 500 .72rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .13em; text-align: center; margin: .45rem 0 0; color: #4a4232; }
 .tt-ear { font: 500 .64rem/1.45 var(--mono); color: #4a4232; margin: 0; }
