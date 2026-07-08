@@ -9,7 +9,7 @@ excerpt_override: "Session 16 — the rupee at 89 read properly: current account
 authors:
   - harsh
 editors: []
-description: "Rupee depreciation explained via REER: at 89 the real exchange rate is a discount, not a crisis. Why exports gain, FDI returns while FII stays out, and why RBI's FCNR(B) wasn't needed."
+description: "The rupee at 89 in real terms is a discount, not a crisis. The capital-account story, the FDI–FII split, and why RBI's FCNR(B) grab wasn't needed."
 ---
 
 Everyone read the falling rupee as a crisis. It isn't. The current account is fine — a deficit of about 0.6% of GDP, nothing to lose sleep over. The action was on the *capital* account, and once you separate the two, the whole story changes: a real exchange rate at 89 is not a country failing, it's a country on sale. Today we work out why exports pick up, why FDI turned up exactly when FII stayed out, why the borrower risk that looked like a Southeast-Asian crisis turned out small, and why the one measure the RBI reached for — FCNR(B) — was the one it didn't need.

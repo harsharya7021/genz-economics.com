@@ -1,0 +1,1860 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PREVIEW v4 — What is corporate finance?</title><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>/* ─────────────────────────────────────────────────────────────
+   Gen Z Economics — base styles
+   Editorial · warm · high-contrast · Gen Z.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Design tokens ───────────────────────────────────────────
+   Reskin: scholarly NAVY + GOLD on warm paper, drawn from the
+   Podcast-Player kit; dark theme drawn from the Meditation kit.
+   All colour is tokenised so [data-theme] flips the whole site. */
+:root {
+  /* Palette — light */
+  --ink:       #16181F;
+  --ink-soft:  #4B515F;
+  --paper:     #FAF7F0;
+  --paper-2:   #F1EBDD;
+  --surface:   #FFFFFF;      /* card surface */
+  --surface-2: #FBF8F2;
+  --rule:      #E7E0D0;
+  --rule-soft: #EFEADD;
+  --accent:      #20307F;    /* navy — primary brand */
+  --accent-press:#172361;
+  --accent-soft: #ECEEF8;    /* navy tint fill */
+  --gold:      #E3A310;      /* bright gold — fills, waveform, stars */
+  --gold-ink:  #7A5E10;      /* gold that passes contrast on light */
+  --accent-2:  #7A5E10;      /* labels/markers → scholarly gold */
+  --highlight: #FFE8A0;      /* marker yellow */
+  --header-bg: rgba(250,247,240,.85);
+  --code-bg:   #16181F;      /* code blocks stay dark in both themes */
+  --code-ink:  #F2ECDD;
+  --band-bg:   #16181F;      /* CTA band */
+  --band-ink:  #FAF7F0;
+
+  /* Type */
+  --serif: "Fraunces", "Times New Roman", Georgia, serif;
+  --body:  "Fraunces", "Iowan Old Style", Charter, "Georgia", serif;
+  --sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Scale */
+  --max:   1180px;
+  --narrow: 680px;   /* tighter measure — ~66ch body text */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  28px;
+
+  --shadow-sm: 0 1px 2px rgba(21,24,40,.06);
+  --shadow-md: 0 14px 30px -16px rgba(21,24,40,.20);
+  --shadow-lg: 0 28px 60px -28px rgba(21,24,40,.32);
+}
+
+/* Dark theme — Meditation-kit inspired: near-black, indigo + gold */
+[data-theme="dark"] {
+  --ink:       #ECEDF3;
+  --ink-soft:  #A7ACBE;
+  --paper:     #0F1014;
+  --paper-2:   #171A24;
+  --surface:   #181B26;
+  --surface-2: #1F2331;
+  --rule:      #2A2E3C;
+  --rule-soft: #232734;
+  --accent:      #818FFF;   /* brighter indigo for dark */
+  --accent-press:#9CA7FF;
+  --accent-soft: #1C2138;
+  --gold:      #F2B705;
+  --gold-ink:  #F2C44D;
+  --accent-2:  #F2C44D;
+  --highlight: #3B3410;
+  --header-bg: rgba(15,16,20,.78);
+  --code-bg:   #0B0C11;
+  --code-ink:  #E8E6F4;
+  --band-bg:   #141931;
+  --band-ink:  #ECEDF3;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.5);
+  --shadow-md: 0 16px 34px -18px rgba(0,0,0,.7);
+  --shadow-lg: 0 30px 64px -28px rgba(0,0,0,.8);
+}
+html { color-scheme: light dark; }
+:root, [data-theme] { transition: background-color .25s ease, color .25s ease; }
+
+/* Reset-ish */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-color: var(--rule); transition: text-decoration-color .15s ease, color .15s ease; }
+a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+a.ext::after { content: ""; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+code, pre { font-family: var(--mono); }
+code { background: var(--paper-2); padding: .12em .32em; border-radius: 4px; font-size: .9em; }
+pre { background: var(--code-bg); color: var(--code-ink); padding: 1rem 1.1rem; border-radius: var(--r-md); overflow-x: auto; font-size: .88rem; line-height: 1.55; }
+pre code { background: transparent; padding: 0; color: inherit; }
+blockquote {
+  margin: 1.6rem 0; padding: .25rem 0 .25rem 1.2rem;
+  border-left: 3px solid var(--accent);
+  font-family: var(--serif); font-size: 1.32rem; line-height: 1.45; color: var(--ink-soft);
+}
+::selection { background: var(--highlight); color: var(--ink); }
+
+/* Layout */
+.container { width: 92%; max-width: var(--max); margin: 0 auto; }
+.container.narrow { max-width: var(--narrow); }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0;
+}
+.wordmark {
+  font-family: var(--serif); font-size: 1.5rem; line-height: 1;
+  letter-spacing: -.01em; color: var(--ink);
+  text-decoration: none;
+}
+.wordmark .wordmark-g { font-style: italic; }
+.wordmark .wordmark-dot { color: var(--accent); margin: 0 .15em; font-weight: bold; }
+.wordmark .wordmark-e { font-weight: 500; }
+.wordmark.small { font-size: 1.1rem; }
+.site-nav { display: flex; gap: 1.35rem; font-size: .95rem; font-weight: 500; }
+.site-nav a { text-decoration: none; }
+.site-nav a:hover { color: var(--accent); }
+.site-nav a.ext { color: var(--ink-soft); }
+
+/* Hero */
+.hero { padding: 5.5rem 0 3rem; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent-2); margin: 0 0 1rem;
+}
+.display {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin: 0 0 1.25rem;
+  font-weight: 400;
+}
+.display em { font-style: italic; color: var(--accent); }
+.lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--ink-soft); max-width: 58ch; margin: 0 0 2rem;
+  line-height: 1.55;
+}
+.hero-cta { display: flex; gap: .7rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-meta {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 1.6rem;
+  border-top: 1px solid var(--rule); padding-top: 1.25rem;
+  font-size: .9rem; color: var(--ink-soft);
+}
+.hero-meta strong { color: var(--ink); font-weight: 600; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .7rem 1.1rem; border-radius: 999px;
+  font-size: .95rem; font-weight: 600;
+  text-decoration: none; border: 1.5px solid transparent;
+  transition: transform .1s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--accent-press); color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* Section heads */
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  border-top: 1px solid var(--ink); padding-top: 1rem; margin-top: 1rem; margin-bottom: 1.5rem;
+}
+.section-head h2 {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 400; margin: 0;
+  letter-spacing: -.01em;
+}
+.feed-link {
+  font-family: var(--mono); font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  text-decoration: none;
+}
+
+/* Post list (feed) */
+.feed { padding: 1rem 0 5rem; }
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-card {
+  border-top: 1px solid var(--rule);
+}
+.post-card:last-child { border-bottom: 1px solid var(--rule); }
+.post-card-link {
+  display: block; padding: 1.75rem 0; text-decoration: none;
+  position: relative;
+}
+.post-card-link::after {
+  content: "→";
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  font-family: var(--serif); font-size: 2rem; color: var(--rule);
+  transition: color .15s ease, transform .2s ease;
+}
+.post-card-link:hover::after { color: var(--accent); transform: translate(4px, -50%); }
+.post-meta {
+  font-family: var(--mono); font-size: .78rem;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: .6rem;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.post-session { color: var(--accent-2); }
+.post-title {
+  font-family: var(--serif); font-size: clamp(1.55rem, 2.4vw, 2rem);
+  line-height: 1.12; letter-spacing: -.01em; margin: 0 0 .55rem;
+  font-weight: 400; color: var(--ink);
+}
+.post-card-link:hover .post-title { color: var(--accent); }
+.post-dek {
+  color: var(--ink-soft); margin: 0; max-width: 60ch;
+  font-size: 1.02rem;
+}
+
+/* Chips */
+.chips { list-style: none; padding: 0; margin: .75rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: lowercase; letter-spacing: .04em;
+  padding: .25rem .55rem; border: 1px solid var(--rule);
+  border-radius: 999px; color: var(--ink-soft);
+}
+
+/* CTA band */
+.cta-band {
+  background: var(--band-bg); color: var(--band-ink);
+  padding: 4rem 0; margin-top: 3rem;
+}
+.cta-band h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -.01em;
+  margin: 0 0 .6rem;
+}
+.cta-band p { color: color-mix(in srgb, var(--band-ink) 72%, transparent); margin: 0 0 1.5rem; max-width: 60ch; }
+.cta-band .btn-primary { background: var(--gold); color: #15151A; }
+.cta-band .btn-primary:hover { background: #fff; color: #15151A; }
+.cta-band .btn-ghost { color: var(--band-ink); border-color: color-mix(in srgb, var(--band-ink) 55%, transparent); }
+.cta-band .btn-ghost:hover { background: var(--band-ink); color: var(--band-bg); border-color: var(--band-ink); }
+
+/* ─────────────────────────────────────────────────────────────
+   Post page — editorial typography
+   Inspired by FT, Economist, NYT Magazine — serif body, tight
+   measure, clear hierarchy, generous vertical rhythm.
+   ───────────────────────────────────────────────────────────── */
+.post { padding: 3.5rem 0 4rem; }
+
+.post-header {
+  margin-bottom: 2.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.post-header .eyebrow {
+  color: var(--accent-2);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.post-header .eyebrow .sep {
+  margin: 0 .55em;
+  color: var(--rule);
+}
+.post-title-display {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.03; letter-spacing: -.02em;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+}
+.standfirst {
+  font-family: var(--body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.48;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+  max-width: 62ch;
+}
+
+.byline {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: .75rem 1.5rem;
+  margin: 1.5rem 0 .25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: .92rem;
+}
+.byline-authors { color: var(--ink); }
+.byline-by {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ink-soft); margin-right: .45rem;
+}
+.byline-name { font-weight: 600; }
+.byline-meta { color: var(--ink-soft); font-size: .88rem; }
+.byline-meta .sep, .byline-authors .sep {
+  margin: 0 .5em; color: var(--rule);
+}
+
+/* Body column */
+.post-body {
+  font-family: var(--body);
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  font-feature-settings: "liga", "kern";
+}
+
+/* Opening paragraph — larger, more air, drop-cap-lite */
+.post-body > p:first-child {
+  font-size: 1.26rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Section headings */
+.post-body h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  line-height: 1.1; letter-spacing: -.01em;
+  margin: 3.25rem 0 .9rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ink);
+  color: var(--ink);
+}
+.post-body h1:first-child { margin-top: 2rem; padding-top: 1.5rem; }
+.post-body h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.85rem; line-height: 1.15; letter-spacing: -.01em;
+  margin: 2.75rem 0 .75rem;
+  color: var(--ink);
+}
+.post-body h3 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.4rem; line-height: 1.2;
+  margin: 2.1rem 0 .55rem;
+  color: var(--ink);
+}
+.post-body h4 {
+  font-family: var(--sans); font-weight: 600;
+  font-size: .82rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent-2);
+  margin: 1.8rem 0 .5rem;
+}
+
+.post-body p { margin: 0 0 1.25rem; hyphens: auto; }
+.post-body strong { color: var(--ink); font-weight: 600; }
+.post-body em { font-style: italic; }
+
+.post-body ul, .post-body ol { padding-left: 1.4rem; margin: 0 0 1.25rem; }
+.post-body li { margin-bottom: .5rem; }
+.post-body li::marker { color: var(--accent-2); }
+
+/* Pull-quote / blockquote — the FT-style big, serif, bordered */
+.post-body blockquote {
+  margin: 2rem 0;
+  padding: .4rem 0 .4rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.42;
+  color: var(--ink);
+}
+.post-body blockquote p { margin: 0 0 .6rem; }
+.post-body blockquote p:last-child { margin-bottom: 0; }
+
+/* Inline links — serif underline */
+.post-body a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.post-body a:hover { color: var(--accent); }
+
+/* Code */
+.post-body code { font-size: .9em; }
+.post-body pre { margin: 1.5rem 0; }
+
+/* Images & figures */
+.post-body img {
+  margin: 2rem auto;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--rule);
+}
+.post-body figure {
+  margin: 2rem 0;
+}
+.post-body figure img { margin: 0; }
+.post-body figure figcaption,
+.post-body p > img + em,
+.post-body p > em:only-child {
+  display: block;
+  font-family: var(--sans);
+  font-size: .85rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-top: .65rem;
+  padding-left: .5rem;
+  border-left: 2px solid var(--rule);
+  font-style: normal;
+}
+
+/* Tables — financial-newspaper tidy */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: var(--sans);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+.post-body thead th {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: .55rem .7rem;
+}
+.post-body tbody td, .post-body tbody th {
+  padding: .55rem .7rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.post-body tbody tr:last-child td { border-bottom: 1px solid var(--ink); }
+
+/* Horizontal rules — section breaks inside prose */
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem auto;
+  max-width: 180px;
+  position: relative;
+}
+.post-body hr::after {
+  content: "§";
+  position: absolute;
+  top: -.75rem; left: 50%; transform: translateX(-50%);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 0 .5rem;
+}
+
+/* Footer */
+.post-footer { margin-top: 3rem; }
+.rule { border-top: 1px solid var(--rule); }
+.post-actions { display: flex; gap: .7rem; flex-wrap: wrap; margin: 1.5rem 0; }
+.post-note { font-size: .88rem; color: var(--ink-soft); font-style: italic; font-family: var(--body); }
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.post-nav a {
+  display: flex; flex-direction: column; gap: .35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  transition: border-color .15s ease, transform .1s ease;
+}
+.post-nav a:hover { border-color: var(--ink); transform: translateY(-1px); }
+.post-nav .next { text-align: right; }
+.post-nav .next:only-child { grid-column: 2; }
+.post-nav-eyebrow {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent-2);
+}
+.post-nav-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.15rem; line-height: 1.25; color: var(--ink);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  padding: 3rem 0 1.5rem;
+  margin-top: 0;
+  font-size: .92rem;
+}
+.cta-band + .site-footer { margin-top: 0; }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer-tag { color: var(--ink-soft); margin-top: .5rem; max-width: 34ch; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  margin: 0 0 .75rem; color: var(--ink-soft);
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin-bottom: .35rem; color: var(--ink-soft); }
+.footer-col a { color: var(--ink); }
+.copyline {
+  margin-top: 2.5rem; padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: .78rem; color: var(--ink-soft);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .site-nav { gap: .9rem; font-size: .88rem; }
+  .site-nav a.ext { display: none; }
+  .hero { padding: 3rem 0 2rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .post-card-link::after { display: none; }
+  .post-actions .btn { flex: 1; justify-content: center; }
+  .post-body { font-size: 1.08rem; line-height: 1.65; }
+  .post-body > p:first-child { font-size: 1.15rem; }
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav .next { text-align: left; }
+  .byline { flex-direction: column; align-items: flex-start; gap: .4rem; }
+}
+
+/* ============================================================
+   RESKIN COMPONENTS — Podcast/Meditation kit language
+   (navy + gold, Poppins UI, rounded surfaces, waveform player)
+   ============================================================ */
+
+/* Header polish */
+.site-nav { align-items: center; }
+.wordmark .wordmark-dot { color: var(--gold-ink); }
+[data-theme="dark"] .wordmark .wordmark-dot { color: var(--gold); }
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-grid; place-items: center; width: 38px; height: 38px;
+  border: 1.5px solid var(--rule); border-radius: 999px;
+  background: var(--surface); color: var(--ink); cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, transform .1s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.theme-toggle .i-moon { display: none; }
+[data-theme="dark"] .theme-toggle .i-sun { display: none; }
+[data-theme="dark"] .theme-toggle .i-moon { display: block; }
+
+/* Reading-progress bar (notes only) */
+.read-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; pointer-events: none; display: none; background: transparent; }
+body.post .read-progress { display: block; }
+.read-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--gold)); }
+
+/* Hero — gold marker on the emphasised phrase */
+.hero .display em { color: var(--accent); background: linear-gradient(transparent 68%, var(--highlight) 0); padding: 0 .06em; }
+
+/* ── Feed → kit cards ─────────────────────────────────────── */
+.post-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.1rem; }
+.post-card { border: 0; }
+.post-card:last-child { border: 0; }
+.post-card-link {
+  display: flex; flex-direction: column; gap: .15rem; height: 100%;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--r-lg); padding: 1.35rem 1.4rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.post-card-link:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 38%, var(--rule)); }
+.post-card-link::after { content: ""; position: static; }
+.post-card-link:hover::after { transform: none; }
+.post-card .post-session { color: var(--gold-ink); font-weight: 600; }
+[data-theme="dark"] .post-card .post-session { color: var(--gold); }
+.post-card .post-title { font-size: clamp(1.28rem, 1.7vw, 1.55rem); margin-bottom: .5rem; }
+.post-card .post-dek { font-size: .96rem; }
+.post-card .chips li { background: var(--surface-2); }
+
+/* ── Search & filter ─────────────────────────────────────── */
+.feed-controls { display: flex; flex-wrap: wrap; gap: .7rem .9rem; align-items: center; margin: 0 0 1.5rem; }
+.search-box { position: relative; flex: 1 1 250px; max-width: 380px; }
+.search-box svg { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); color: var(--ink-soft); }
+.search-box input {
+  width: 100%; font-family: var(--sans); font-size: .95rem; color: var(--ink);
+  background: var(--surface); border: 1.5px solid var(--rule); border-radius: 999px;
+  padding: .62rem 1rem .62rem 2.45rem; outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.search-box input::placeholder { color: var(--ink-soft); }
+.search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.filter-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.filter-chips button {
+  font-family: var(--sans); font-size: .8rem; font-weight: 500; cursor: pointer;
+  padding: .36rem .8rem; border-radius: 999px; border: 1.5px solid var(--rule);
+  background: transparent; color: var(--ink-soft); transition: all .14s ease;
+}
+.filter-chips button:hover { border-color: var(--accent); color: var(--accent); }
+.filter-chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.feed-empty { display: none; padding: 2.5rem 0; color: var(--ink-soft); font-style: italic; }
+.feed-empty.show { display: block; }
+
+/* ── In-note Table of Contents (margin, sticky) ──────────── */
+.toc {
+  position: fixed; top: 100px; left: max(1.4rem, calc(50% - 575px));
+  width: 212px; max-height: 72vh; overflow: auto; z-index: 5;
+  font-family: var(--sans); padding-right: .4rem;
+}
+.toc-title { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 .65rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--rule); }
+.toc li a { display: block; padding: .28rem .85rem; margin-left: -2px; border-left: 2px solid transparent; color: var(--ink-soft); text-decoration: none; font-size: .84rem; line-height: 1.3; transition: color .14s ease, border-color .14s ease; }
+.toc li a:hover { color: var(--accent); }
+.toc li.lvl-3 a { padding-left: 1.5rem; font-size: .8rem; }
+.toc li a.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+@media (max-width: 1180px) { .toc { display: none; } }
+
+/* ── Sessions hub ────────────────────────────────────────── */
+.sessions-wrap { padding: 1rem 0 4.5rem; }
+.session-intro { color: var(--ink-soft); max-width: 60ch; margin: .4rem 0 0; }
+.session-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.1rem; margin-top: 1.6rem; }
+.session-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease; }
+.session-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 38%, var(--rule)); }
+.session-thumb { position: relative; aspect-ratio: 16/9; background: linear-gradient(135deg, #27306b, #0c1130); display: grid; place-items: center; }
+.session-thumb .play { width: 52px; height: 52px; border-radius: 999px; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.65); color: #fff; display: grid; place-items: center; }
+.session-thumb .badge { position: absolute; top: .6rem; left: .6rem; font-family: var(--sans); font-size: .66rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: .24rem .6rem; border-radius: 999px; background: rgba(0,0,0,.46); color: #fff; display: inline-flex; gap: .3rem; align-items: center; }
+.session-thumb .num { position: absolute; right: .75rem; bottom: .4rem; font-family: var(--serif); font-size: 1.7rem; color: rgba(255,255,255,.9); }
+.session-body { display: flex; flex-direction: column; gap: .55rem; padding: 1.1rem 1.2rem 1.3rem; flex: 1; }
+.session-body h3 { font-family: var(--serif); font-weight: 400; font-size: 1.28rem; line-height: 1.16; margin: 0; }
+.session-body h3 a { text-decoration: none; }
+.session-body h3 a:hover { color: var(--accent); }
+.session-body .s-dek { color: var(--ink-soft); font-size: .92rem; margin: 0; flex: 1; }
+.session-meta { display: flex; gap: .7rem; flex-wrap: wrap; font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); }
+.session-actions { display: flex; gap: .45rem; flex-wrap: wrap; margin-top: .25rem; }
+.s-tag { display: inline-flex; align-items: center; gap: .32rem; font-family: var(--sans); font-size: .72rem; font-weight: 500; padding: .26rem .62rem; border-radius: 999px; text-decoration: none; }
+.s-tag.notes { background: var(--accent-soft); color: var(--accent); }
+.s-tag.rec { background: color-mix(in srgb, var(--gold) 24%, transparent); color: var(--gold-ink); }
+[data-theme="dark"] .s-tag.rec { color: var(--gold); }
+.s-tag.locked { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--rule); }
+
+/* ── Gated lecture player (Video-Class + waveform) ───────── */
+.lecture { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-xl); box-shadow: var(--shadow-md); overflow: hidden; margin: 2rem 0; }
+.gate-banner { display: flex; gap: .55rem; align-items: flex-start; padding: .85rem 1.2rem; background: var(--accent-soft); color: var(--accent); font-family: var(--sans); font-size: .84rem; line-height: 1.45; border-bottom: 1px solid var(--rule); }
+.gate-banner strong { font-weight: 600; }
+.lecture-stage { position: relative; aspect-ratio: 16/9; background: radial-gradient(120% 120% at 50% 0, #283373, #0b1030); display: grid; place-items: center; }
+.lecture-stage .ghost-title { position: absolute; top: 1rem; left: 1.15rem; right: 1.15rem; color: rgba(255,255,255,.92); font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.45rem); line-height: 1.2; }
+.lecture-stage .play-lg { width: 82px; height: 82px; border-radius: 999px; background: rgba(255,255,255,.14); border: 2px solid rgba(255,255,255,.72); color: #fff; display: grid; place-items: center; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.lecture-stage .play-lg:hover { transform: scale(1.06); background: rgba(255,255,255,.24); }
+.lecture-stage .stamp { position: absolute; top: 1rem; right: 1.15rem; font-family: var(--sans); font-size: .68rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.4); padding: .26rem .6rem; border-radius: 999px; display: inline-flex; gap: .35rem; align-items: center; }
+.lecture-bar { display: flex; align-items: center; gap: 1rem; padding: 1.05rem 1.2rem .4rem; }
+.lec-btn { width: 40px; height: 40px; border-radius: 999px; border: 1.5px solid var(--rule); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color .14s ease, color .14s ease, background .14s ease; }
+.lec-btn:hover { border-color: var(--accent); color: var(--accent); }
+.lec-btn.primary { width: 52px; height: 52px; background: var(--accent); border-color: var(--accent); color: #fff; }
+.lec-btn.primary:hover { background: var(--accent-press); color: #fff; }
+.waveform { flex: 1; display: flex; align-items: center; gap: 2px; height: 46px; }
+.waveform .bar { flex: 1 1 auto; min-width: 2px; background: var(--rule); border-radius: 2px; }
+.waveform .bar.on { background: var(--accent); }
+.waveform .bar.cursor { background: var(--gold); }
+.lec-time { font-family: var(--mono); font-size: .74rem; color: var(--ink-soft); min-width: 3.4em; text-align: center; }
+.lecture-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: .4rem 1.2rem 1.1rem; }
+.lecture-foot .meta { font-family: var(--sans); font-size: .85rem; color: var(--ink-soft); }
+.transcript-toggle { font-family: var(--sans); font-size: .82rem; font-weight: 500; color: var(--accent); background: transparent; border: 0; cursor: pointer; display: inline-flex; gap: .35rem; align-items: center; }
+.transcript-toggle:hover { text-decoration: underline; }
+.transcript { display: none; border-top: 1px solid var(--rule); padding: 1rem 1.2rem 1.3rem; max-height: 300px; overflow: auto; font-family: var(--body); font-size: .96rem; line-height: 1.6; color: var(--ink-soft); }
+.transcript.open { display: block; }
+.transcript .cue { display: flex; gap: .85rem; padding: .22rem 0; }
+.transcript .cue time { font-family: var(--mono); font-size: .72rem; color: var(--accent); flex: 0 0 auto; padding-top: .15rem; }
+.lecture.gated .lecture-bar { opacity: .5; pointer-events: none; filter: saturate(.6); }
+.lecture.gated .lecture-stage .play-lg { cursor: not-allowed; opacity: .8; }
+
+/* Small screens */
+@media (max-width: 720px) {
+  .feed-controls { gap: .6rem; }
+  .toc { display: none; }
+  .lecture-bar { gap: .6rem; }
+  .lec-btn { width: 36px; height: 36px; }
+  .lec-btn.primary { width: 46px; height: 46px; }
+}
+
+/* ============================================================
+   READING ROOM — news-app kit (Neweizt) language
+   ============================================================ */
+.reading-wrap, .macro-wrap { padding: 1rem 0 4.5rem; }
+.reading-intro, .macro-intro { color: var(--ink-soft); max-width: 62ch; margin: .4rem 0 0; }
+
+/* Featured lead story */
+.lead-brief { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); margin: 1.6rem 0 2rem; }
+.lead-brief .lead-art { position: relative; background: radial-gradient(120% 130% at 20% 0, #2a3576, #0c1130); min-height: 230px; display: grid; place-items: center; padding: 1.5rem; }
+.lead-brief .lead-art .kicker { position: absolute; top: 1rem; left: 1.1rem; }
+.lead-brief .lead-art .mark { font-family: var(--serif); font-size: clamp(2.4rem,5vw,3.6rem); color: rgba(255,255,255,.92); line-height: 1; text-align: center; }
+.lead-brief .lead-body { padding: 1.6rem 1.7rem; display: flex; flex-direction: column; gap: .7rem; justify-content: center; }
+.lead-brief h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem,2.4vw,2.05rem); line-height: 1.12; margin: 0; }
+.lead-brief h2 a { text-decoration: none; }
+.lead-brief h2 a:hover { color: var(--accent); }
+.lead-brief .lead-dek { color: var(--ink-soft); margin: 0; font-size: 1rem; }
+
+/* Category pill + source meta */
+.brief-cat { display: inline-flex; align-items: center; gap: .3rem; font-family: var(--sans); font-size: .68rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: .26rem .6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); width: max-content; }
+.brief-cat.gold { background: color-mix(in srgb, var(--gold) 22%, transparent); color: var(--gold-ink); }
+[data-theme="dark"] .brief-cat.gold { color: var(--gold); }
+.brief-cat.green { background: color-mix(in srgb, #2F6E50 20%, transparent); color: #2F6E50; }
+[data-theme="dark"] .brief-cat.green { color: #6FBF99; }
+.brief-src { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-family: var(--sans); font-size: .8rem; color: var(--ink-soft); }
+.brief-src .src { font-weight: 600; color: var(--ink); }
+.brief-src .star { color: var(--gold-ink); }
+[data-theme="dark"] .brief-src .star { color: var(--gold); }
+.brief-src .dot { color: var(--rule); }
+
+/* Brief grid + cards */
+.brief-section-head { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--ink); padding-top: 1rem; margin: 2.2rem 0 1.3rem; }
+.brief-section-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; margin: 0; }
+.brief-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; }
+.brief-card { display: flex; flex-direction: column; gap: .55rem; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.15rem 1.2rem 1.25rem; box-shadow: var(--shadow-sm); transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease; }
+.brief-card.linked:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 38%, var(--rule)); }
+.brief-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.18rem; line-height: 1.2; margin: 0; }
+.brief-card h3 a { text-decoration: none; }
+.brief-card h3 a:hover { color: var(--accent); }
+.brief-card .note { font-size: .9rem; color: var(--ink-soft); margin: 0; font-style: italic; }
+.brief-card .read-on { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: var(--accent); text-decoration: none; margin-top: auto; }
+.brief-card .read-on:hover { text-decoration: underline; }
+
+/* ============================================================
+   MACRO WATCH — India data calendar
+   ============================================================ */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem; margin: 1.6rem 0 .6rem; }
+.stat { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md); padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); }
+.stat .k { font-family: var(--sans); font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 .35rem; }
+.stat .v { font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: var(--ink); }
+.stat .v small { font-family: var(--sans); font-size: .8rem; color: var(--ink-soft); }
+.stat .sub { font-family: var(--mono); font-size: .68rem; color: var(--gold-ink); margin-top: .3rem; text-transform: uppercase; letter-spacing: .04em; }
+[data-theme="dark"] .stat .sub { color: var(--gold); }
+.as-of { font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); margin: .2rem 0 0; }
+
+/* Corridor diagram */
+.corridor { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.4rem 1.4rem 1.1rem; margin: 1.6rem 0; box-shadow: var(--shadow-sm); }
+.corridor h3 { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; margin: 0 0 1.1rem; }
+.corridor-bar { position: relative; height: 64px; border-radius: 10px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 14%, transparent), color-mix(in srgb, var(--gold) 18%, transparent)); border: 1px solid var(--rule); margin: 2.2rem 0 1.4rem; }
+.corridor-mark { position: absolute; top: -1.8rem; transform: translateX(-50%); text-align: center; }
+.corridor-mark .lab { font-family: var(--sans); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-soft); display: block; }
+.corridor-mark .val { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+.corridor-mark::after { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: 1.7rem; background: var(--rule); transform: translateX(-50%); }
+.corridor-mark.floor .val { color: var(--accent); }
+.corridor-mark.repo .val { color: var(--gold-ink); }
+[data-theme="dark"] .corridor-mark.repo .val { color: var(--gold); }
+.corridor-mark.ceil .val { color: #C0473A; }
+.corridor-legend { display: flex; gap: 1.2rem; flex-wrap: wrap; font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); }
+
+/* Watch calendar */
+.watch-list { display: flex; flex-direction: column; gap: .7rem; margin: 1.4rem 0; }
+.watch-row { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: var(--r-md); padding: 1rem 1.15rem; box-shadow: var(--shadow-sm); }
+.watch-row.gold { border-left-color: var(--gold); }
+.watch-row.muted { border-left-color: var(--rule); opacity: .72; }
+.watch-date { text-align: center; font-family: var(--sans); min-width: 56px; }
+.watch-date .d { font-size: 1.45rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.watch-date .m { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+.watch-main .t { font-family: var(--serif); font-size: 1.18rem; margin: 0 0 .15rem; }
+.watch-main .why { font-family: var(--sans); font-size: .86rem; color: var(--ink-soft); margin: 0; }
+.watch-main .why a { color: var(--accent); text-decoration: none; } .watch-main .why a:hover { text-decoration: underline; }
+.when { font-family: var(--sans); font-size: .74rem; font-weight: 600; padding: .3rem .65rem; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); }
+.when.soon { background: color-mix(in srgb, var(--gold) 24%, transparent); color: var(--gold-ink); }
+[data-theme="dark"] .when.soon { color: var(--gold); }
+.when.past { background: var(--surface-2); color: var(--ink-soft); }
+
+/* Indicator explainer cards */
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.metric-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.2rem 1.25rem 1.3rem; box-shadow: var(--shadow-sm); }
+.metric-card .ico { width: 38px; height: 38px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: .7rem; }
+.metric-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.22rem; margin: 0 0 .4rem; }
+.metric-card p { font-size: .9rem; color: var(--ink-soft); margin: 0 0 .6rem; line-height: 1.55; }
+.metric-card .link { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: var(--accent); text-decoration: none; } .metric-card .link:hover { text-decoration: underline; }
+
+@media (max-width: 720px) {
+  .lead-brief { grid-template-columns: 1fr; }
+  .lead-brief .lead-art { min-height: 150px; }
+  .watch-row { grid-template-columns: auto 1fr; }
+  .watch-row .when { grid-column: 2; justify-self: start; }
+}
+
+/* more nav items → allow wrap */
+.site-nav { flex-wrap: wrap; row-gap: .4rem; justify-content: flex-end; }
+
+/* ============================================================
+   LISTEN — media player (audiobook / podcast kit language)
+   ============================================================ */
+.player-page { padding-bottom: 120px; }
+.shelf { margin: 2.2rem 0; }
+.shelf-head { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--ink); padding-top: 1rem; margin-bottom: 1.2rem; }
+.shelf-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; margin: 0; }
+.shelf-head .hint { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+
+/* Audiobook cards */
+.ab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.1rem; }
+.ab-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .14s ease, box-shadow .18s ease; }
+.ab-card.playing { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft), var(--shadow-md); }
+.ab-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.ab-cover { position: relative; aspect-ratio: 1/1; display: grid; place-items: center; }
+.ab-cover .mono { font-family: var(--serif); font-size: 2.6rem; color: rgba(255,255,255,.92); }
+.ab-cover .ab-play { position: absolute; right: .6rem; bottom: .6rem; width: 46px; height: 46px; border-radius: 999px; background: var(--gold); color: #15151A; border: 0; display: grid; place-items: center; cursor: pointer; box-shadow: var(--shadow-md); transition: transform .12s ease; }
+.ab-cover .ab-play:hover { transform: scale(1.08); }
+.ab-meta { padding: .8rem .9rem 1rem; }
+.ab-meta h3 { font-family: var(--serif); font-weight: 400; font-size: 1.1rem; line-height: 1.18; margin: 0 0 .2rem; }
+.ab-meta p { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); margin: 0; }
+.ab-meta .tag-empty { display: inline-block; margin-top: .5rem; font-size: .68rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--gold-ink); }
+[data-theme="dark"] .ab-meta .tag-empty { color: var(--gold); }
+
+/* Podcast rows */
+.pod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .9rem; }
+.pod-card { display: flex; gap: .9rem; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md); padding: .9rem 1rem; text-decoration: none; box-shadow: var(--shadow-sm); transition: border-color .15s ease, transform .12s ease; }
+.pod-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.pod-ico { width: 42px; height: 42px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: 0 0 auto; }
+.pod-card h3 { font-family: var(--sans); font-weight: 600; font-size: .98rem; margin: 0; color: var(--ink); }
+.pod-card p { font-family: var(--sans); font-size: .8rem; color: var(--ink-soft); margin: .1rem 0 0; }
+
+/* Read-aloud (TTS) panel */
+.tts-panel { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm); }
+.tts-panel textarea { width: 100%; min-height: 120px; resize: vertical; font-family: var(--body); font-size: 1rem; line-height: 1.55; color: var(--ink); background: var(--surface-2); border: 1px solid var(--rule); border-radius: var(--r-md); padding: .8rem .9rem; outline: none; }
+.tts-panel textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.tts-controls { display: flex; flex-wrap: wrap; gap: .8rem 1rem; align-items: center; margin-top: .9rem; }
+.tts-controls label { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); display: inline-flex; align-items: center; gap: .45rem; }
+.tts-controls select, .tts-controls input[type=range] { font-family: var(--sans); }
+.tts-controls select { background: var(--surface); color: var(--ink); border: 1.5px solid var(--rule); border-radius: 999px; padding: .4rem .7rem; max-width: 200px; }
+
+/* Now-playing dock */
+#nowPlaying { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: none; align-items: center; gap: 1rem; padding: .7rem clamp(.8rem, 4vw, 2rem); background: var(--header-bg); backdrop-filter: saturate(180%) blur(12px); border-top: 1px solid var(--rule); }
+#nowPlaying.active { display: flex; }
+.np-cover { width: 52px; height: 52px; border-radius: 10px; flex: 0 0 auto; background: linear-gradient(135deg, var(--accent), #0c1130); }
+.np-info { min-width: 0; flex: 0 1 200px; }
+.np-info .t { font-family: var(--serif); font-size: 1.05rem; line-height: 1.1; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-info .a { font-family: var(--sans); font-size: .78rem; color: var(--ink-soft); margin: .1rem 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-transport { display: flex; align-items: center; gap: .4rem; }
+#npViz { width: 96px; height: 38px; flex: 0 0 auto; }
+.np-seekwrap { display: flex; align-items: center; gap: .6rem; flex: 1 1 auto; min-width: 80px; }
+.np-seekwrap input[type=range] { flex: 1; accent-color: var(--accent); }
+.lec-time.np { min-width: 3.2em; }
+.np-rate { display: flex; align-items: center; gap: .4rem; font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); }
+.np-rate input { width: 80px; accent-color: var(--gold); }
+.np-chapters-wrap { margin-top: 1.4rem; }
+.np-chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .4rem; }
+.np-chap { display: flex; gap: .6rem; align-items: center; text-align: left; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-sm); padding: .5rem .7rem; cursor: pointer; font-family: var(--sans); font-size: .85rem; color: var(--ink); transition: border-color .14s ease; }
+.np-chap:hover { border-color: var(--accent); }
+.np-chap.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.np-chap-t { font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); flex: 0 0 auto; }
+.np-chap.on .np-chap-t { color: var(--accent); }
+.np-nochap { color: var(--ink-soft); font-style: italic; font-family: var(--body); }
+
+/* Protected video */
+.video-stage { position: relative; aspect-ratio: 16/9; background: #000; border-radius: var(--r-lg); overflow: hidden; }
+.video-stage video { width: 100%; height: 100%; display: block; }
+.video-stage .wm { position: absolute; left: 12%; top: 16%; font-family: var(--sans); font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.42); pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,.5); transition: left 1.2s ease, top 1.2s ease; user-select: none; }
+.video-poster { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 120% at 50% 0, #283373, #0b1030); color: #fff; text-align: center; padding: 1rem; }
+.protect-note { display: flex; gap: .5rem; align-items: flex-start; font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); margin-top: .8rem; }
+
+/* "Listen to this page" button on notes */
+.read-aloud-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin: 0 0 2rem; padding: .7rem .9rem; background: var(--surface-2); border: 1px solid var(--rule); border-radius: 999px; }
+.read-aloud-bar .ra-btn { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--sans); font-weight: 600; font-size: .85rem; color: #fff; background: var(--accent); border: 0; border-radius: 999px; padding: .45rem .9rem; cursor: pointer; }
+.read-aloud-bar .ra-btn:hover { background: var(--accent-press); }
+.read-aloud-bar .ra-meta { font-family: var(--sans); font-size: .8rem; color: var(--ink-soft); }
+.read-aloud-bar input[type=range] { accent-color: var(--gold); width: 90px; }
+
+/* ============================================================
+   STUDY — flashcards + daily question
+   ============================================================ */
+.study-wrap { padding: 1rem 0 4rem; }
+.ponder-card { background: var(--band-bg); color: var(--band-ink); border-radius: var(--r-xl); padding: 1.8rem 1.9rem; box-shadow: var(--shadow-md); }
+.ponder-card .eyebrow { color: var(--gold); }
+.ponder-card .q { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.22; margin: .3rem 0 0; }
+.ponder-card .sub { font-family: var(--sans); font-size: .82rem; color: color-mix(in srgb, var(--band-ink) 65%, transparent); margin: 1rem 0 0; }
+
+.fc-decks { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.4rem 0 1rem; }
+.fc-decks button { font-family: var(--sans); font-size: .8rem; font-weight: 500; cursor: pointer; padding: .36rem .8rem; border-radius: 999px; border: 1.5px solid var(--rule); background: transparent; color: var(--ink-soft); transition: all .14s ease; }
+.fc-decks button:hover { border-color: var(--accent); color: var(--accent); }
+.fc-decks button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.fc-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: .6rem; }
+.fc-deck-label { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gold-ink); }
+[data-theme="dark"] .fc-deck-label { color: var(--gold); }
+.fc-count { font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); }
+.fc-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-xl); box-shadow: var(--shadow-md); padding: 2.2rem 2rem; min-height: 220px; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+.fc-q { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.25; margin: 0; color: var(--ink); }
+.fc-a { font-family: var(--body); font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; border-top: 1px solid var(--rule); padding-top: 1rem; display: none; }
+.fc-a.show { display: block; }
+.fc-actions { margin-top: 1.1rem; display: flex; flex-direction: column; gap: .7rem; }
+.fc-show { align-self: center; font-family: var(--sans); font-weight: 600; font-size: .95rem; color: #fff; background: var(--accent); border: 0; border-radius: 999px; padding: .7rem 1.6rem; cursor: pointer; }
+.fc-show:hover { background: var(--accent-press); }
+.fc-grades { display: none; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+.fc-grades button { font-family: var(--sans); font-weight: 600; font-size: .85rem; cursor: pointer; padding: .55rem 1rem; border-radius: var(--r-sm); border: 1.5px solid var(--rule); background: var(--surface); color: var(--ink); transition: all .14s ease; }
+.fc-grades button:hover { transform: translateY(-1px); }
+.fc-grades [data-grade="again"]:hover { border-color: #C0473A; color: #C0473A; }
+.fc-grades [data-grade="hard"]:hover { border-color: var(--gold-ink); color: var(--gold-ink); }
+.fc-grades [data-grade="good"]:hover { border-color: var(--accent); color: var(--accent); }
+.fc-grades [data-grade="easy"]:hover { border-color: #2F6E50; color: #2F6E50; }
+.fc-grades .k { font-family: var(--mono); font-size: .64rem; opacity: .6; margin-left: .3rem; }
+.fc-empty { display: none; text-align: center; background: var(--surface); border: 1px dashed var(--rule); border-radius: var(--r-xl); padding: 2.6rem 2rem; }
+.fc-empty h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0 0 .5rem; }
+.fc-empty p { color: var(--ink-soft); margin: 0 0 1.1rem; }
+.fc-hint { font-family: var(--mono); font-size: .7rem; color: var(--ink-soft); text-align: center; margin-top: 1rem; }
+
+@media (max-width: 720px) {
+  #nowPlaying { gap: .6rem; padding: .6rem .7rem; }
+  #npViz, .np-rate { display: none; }
+  .np-info { flex-basis: 120px; }
+}
+
+/* ============================================================
+   MARKET TICKER  +  UPSC QUIZ  +  themeable Envato icons
+   ============================================================ */
+:root { --mkt-up: #16B97A; --mkt-up-soft: rgba(22,185,122,.18); --mkt-down: #E5484D; --mkt-down-soft: rgba(229,72,77,.16); }
+
+/* Market strip — trading-widget look (dark in both themes, like the reference) */
+.market-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: .9rem; margin: 1.3rem 0 .5rem; }
+.tkr { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 122px; background: #0F1330; border: 1px solid #232a55; border-radius: var(--r-lg); padding: .85rem 1rem 1rem; color: #fff; overflow: hidden; box-shadow: var(--shadow-sm); }
+.tkr-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.tkr .sym { font-family: var(--sans); font-weight: 600; font-size: .9rem; color: #fff; display: flex; flex-direction: column; gap: .1rem; }
+.tkr .sym .code { font-family: var(--mono); font-size: .6rem; color: rgba(255,255,255,.5); font-weight: 400; letter-spacing: .04em; }
+.tkr .chg { font-family: var(--sans); font-size: .82rem; font-weight: 600; text-align: right; line-height: 1.25; white-space: nowrap; }
+.tkr.up .chg { color: var(--mkt-up); } .tkr.down .chg { color: var(--mkt-down); }
+.tkr .chg .pct { display: block; font-size: .72rem; opacity: .9; }
+.tkr .spark { width: 100%; height: 36px; display: block; margin: .35rem 0 .15rem; }
+.tkr .val { font-family: var(--mono); font-size: 1.55rem; font-weight: 600; color: #fff; letter-spacing: -.01em; }
+.market-as-of { font-family: var(--mono); font-size: .7rem; color: var(--ink-soft); margin: .2rem 0 0; }
+
+/* Themeable icons from the Envato macro set (CSS mask → takes currentColor) */
+.m-ico { display: inline-block; width: 22px; height: 22px; background: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat; }
+.ico-cpi { --ico: url("/assets/img/icons/cpi.svg"); }
+.ico-interest-rate { --ico: url("/assets/img/icons/interest-rate.svg"); }
+.ico-gdp { --ico: url("/assets/img/icons/gdp.svg"); }
+.ico-bank { --ico: url("/assets/img/icons/bank.svg"); }
+.ico-growth { --ico: url("/assets/img/icons/growth.svg"); }
+.ico-economy { --ico: url("/assets/img/icons/economy.svg"); }
+
+/* UPSC question bank / quiz */
+.qb-wrap { padding: 1rem 0 4rem; }
+.qb-modes { display: flex; gap: .5rem; margin: 1.3rem 0 1rem; }
+.qb-modes button { font-family: var(--sans); font-size: .88rem; font-weight: 600; cursor: pointer; padding: .5rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--rule); background: transparent; color: var(--ink-soft); transition: all .14s ease; }
+.qb-modes button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.qb-filters { display: flex; gap: .7rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.3rem; }
+.qb-filters label { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); display: inline-flex; gap: .4rem; align-items: center; }
+.qb-filters select { font-family: var(--sans); font-size: .9rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--rule); border-radius: 999px; padding: .4rem .8rem; }
+.qb-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-xl); box-shadow: var(--shadow-md); padding: 1.8rem; }
+.qb-num { font-family: var(--mono); font-size: .72rem; color: var(--ink-soft); }
+.qb-meta { font-family: var(--mono); font-size: .7rem; color: var(--gold-ink); text-transform: uppercase; letter-spacing: .05em; margin: .5rem 0 .9rem; }
+[data-theme="dark"] .qb-meta { color: var(--gold); }
+.qb-q { font-family: var(--serif); font-weight: 400; font-size: clamp(1.2rem, 2.2vw, 1.55rem); line-height: 1.3; margin: 0 0 1.2rem; color: var(--ink); }
+.qb-options { display: flex; flex-direction: column; gap: .6rem; }
+.qb-opt { text-align: left; font-family: var(--sans); font-size: .98rem; padding: .8rem 1rem; border: 1.5px solid var(--rule); border-radius: var(--r-md); background: var(--surface); color: var(--ink); cursor: pointer; transition: border-color .12s ease, background .12s ease; }
+.qb-opt:hover { border-color: var(--accent); }
+.qb-options.locked .qb-opt { cursor: default; }
+.qb-key { font-family: var(--mono); font-weight: 600; color: var(--accent); margin-right: .4rem; }
+.qb-opt.correct { border-color: #2F6E50; background: color-mix(in srgb, #2F6E50 13%, transparent); }
+.qb-opt.correct .qb-key { color: #2F6E50; }
+.qb-opt.wrong { border-color: var(--mkt-down); background: color-mix(in srgb, var(--mkt-down) 10%, transparent); }
+.qb-feedback { margin-top: 1.1rem; font-family: var(--sans); font-size: .9rem; min-height: 1.2em; color: var(--ink-soft); }
+.qb-feedback.ok { color: #2F6E50; } .qb-feedback.no { color: var(--mkt-down); }
+.qb-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; }
+.qb-score { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); }
+.qb-next, .qb-restart { font-family: var(--sans); font-weight: 600; font-size: .9rem; color: #fff; background: var(--accent); border: 0; border-radius: 999px; padding: .6rem 1.3rem; cursor: pointer; }
+.qb-next:hover, .qb-restart:hover { background: var(--accent-press); }
+.qb-disc-list { display: flex; flex-direction: column; gap: .8rem; margin-top: 1rem; }
+.qb-disc-card { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: var(--r-md); padding: 1.1rem 1.2rem; box-shadow: var(--shadow-sm); }
+.qb-disc-meta { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); margin-bottom: .4rem; }
+.qb-disc-q { font-family: var(--body); font-size: 1.05rem; line-height: 1.5; margin: 0; color: var(--ink); }
+
+/* UPSC daily card meta */
+.ponder-card .upsc-meta { font-family: var(--mono); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--gold); margin: 0 0 .2rem; }
+
+/* ============================================================
+   COMMENTS · GLOSSARY · DAILY REVEAL · LEARN HUB
+   ============================================================ */
+/* Comments (Firebase) */
+.cmt-shell { border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.1rem 1.2rem; background: var(--surface); margin-top: 1.2rem; }
+.cmt-head { display: flex; align-items: center; gap: .5rem; font-family: var(--sans); font-weight: 600; font-size: .92rem; color: var(--ink); margin-bottom: .8rem; }
+.cmt-note { font-family: var(--sans); font-size: .86rem; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+.cmt-auth { display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin-bottom: .7rem; }
+.cmt-who { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--sans); font-size: .88rem; font-weight: 500; }
+.cmt-av { width: 26px; height: 26px; border-radius: 999px; object-fit: cover; background: var(--surface-2); }
+.cmt-signin, .cmt-signout, .cmt-post { font-family: var(--sans); font-weight: 600; font-size: .85rem; cursor: pointer; border-radius: 999px; border: 1.5px solid var(--rule); background: var(--surface); color: var(--ink); padding: .45rem .9rem; display: inline-flex; align-items: center; gap: .45rem; }
+.cmt-signin:hover, .cmt-signout:hover { border-color: var(--accent); color: var(--accent); }
+.cmt-post { background: var(--accent); color: #fff; border-color: var(--accent); margin-top: .5rem; }
+.cmt-post:hover { background: var(--accent-press); }
+.cmt-input { width: 100%; font-family: var(--body); font-size: .95rem; color: var(--ink); background: var(--surface-2); border: 1px solid var(--rule); border-radius: var(--r-md); padding: .6rem .7rem; resize: vertical; }
+.cmt-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.cmt-list { margin-top: 1rem; display: flex; flex-direction: column; gap: .9rem; }
+.cmt { display: flex; gap: .6rem; }
+.cmt-meta { font-family: var(--sans); font-size: .78rem; color: var(--ink-soft); margin: 0 0 .15rem; }
+.cmt-meta strong { color: var(--ink); }
+.cmt-text { font-family: var(--body); font-size: .96rem; line-height: 1.5; color: var(--ink); margin: 0; }
+
+/* Daily reveal (yesterday's answer) */
+.daily-reveal { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: var(--r-md); padding: 1.1rem 1.3rem; margin-top: 1.1rem; }
+.daily-reveal summary { cursor: pointer; font-family: var(--sans); font-weight: 600; font-size: .92rem; color: var(--ink); list-style: none; display: flex; align-items: center; gap: .5rem; }
+.daily-reveal summary::-webkit-details-marker { display: none; }
+.daily-reveal summary::before { content: "▸"; color: var(--gold-ink); transition: transform .15s ease; }
+[data-theme="dark"] .daily-reveal summary::before { color: var(--gold); }
+.daily-reveal[open] summary::before { transform: rotate(90deg); }
+.daily-reveal .rv-q { font-family: var(--serif); font-size: 1.1rem; line-height: 1.3; margin: .8rem 0 .5rem; color: var(--ink); }
+.daily-reveal .rv-a { font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+/* Glossary */
+.gloss-wrap { padding: 1rem 0 4rem; }
+.gloss-controls { display: flex; flex-wrap: wrap; gap: .7rem .9rem; align-items: center; margin: 1.4rem 0 1.3rem; }
+.gloss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.gloss-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.1rem 1.2rem 1.2rem; box-shadow: var(--shadow-sm); }
+.gloss-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; margin: 0 0 .15rem; color: var(--ink); }
+.gloss-card .cat { font-family: var(--mono); font-size: .64rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gold-ink); }
+[data-theme="dark"] .gloss-card .cat { color: var(--gold); }
+.gloss-card p { font-family: var(--body); font-size: .96rem; line-height: 1.55; color: var(--ink-soft); margin: .5rem 0 0; }
+.gloss-empty { display: none; padding: 2rem 0; color: var(--ink-soft); font-style: italic; }
+
+/* Learn hub */
+.learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 1.6rem; }
+.learn-card { display: flex; flex-direction: column; gap: .5rem; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.3rem 1.35rem 1.4rem; box-shadow: var(--shadow-sm); text-decoration: none; transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease; }
+.learn-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 38%, var(--rule)); }
+.learn-card .lc-ico { width: 42px; height: 42px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.learn-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; margin: 0; color: var(--ink); }
+.learn-card p { font-family: var(--sans); font-size: .88rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+/* ============================================================
+   REDESIGN PASS — accessibility + calm  (Fraunces / Hanken)
+   ============================================================ */
+/* Visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible,
+.post-card-link:focus-visible, .session-thumb:focus-visible, .ab-play:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 5px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important; scroll-behavior: auto !important;
+  }
+  .post-card-link:hover, .session-card:hover, .ab-card:hover, .brief-card.linked:hover,
+  .learn-card:hover, .pod-card:hover, .btn:hover { transform: none !important; }
+}
+
+/* Quieter, more legible micro-labels — raise the smallest sizes (≥ ~12.5px) */
+.tkr .sym .code, .session-thumb .badge, .gloss-card .cat, .qb-disc-meta, .session-meta,
+.market-as-of, .cmt-meta, .post-nav-eyebrow, .brief-cat, .s-tag, .chips li, .qb-num,
+.brief-src, .pod-card p, .lecture-foot .meta { font-size: .76rem; }
+
+/* Calmer cards — soften shadows, one consistent elevation */
+.post-card-link, .session-card, .ab-card, .brief-card, .gloss-card,
+.metric-card, .learn-card, .qb-card, .pod-card, .stat { box-shadow: var(--shadow-sm); }
+
+/* Bigger, easier tap targets on chips/filters */
+.filter-chips button, .fc-decks button, .qb-modes button { min-height: 38px; }
+
+/* Market ticker — theme-aware (no loud dark cards on the light page) */
+.tkr { background: var(--surface); border: 1px solid var(--rule); color: var(--ink); }
+[data-theme="dark"] .tkr { background: var(--surface-2); border-color: var(--rule); }
+.tkr .sym, .tkr .val { color: var(--ink); }
+.tkr .sym .code { color: var(--ink-soft); }
+.tkr.up .chg { color: #15803D; }
+.tkr.down .chg { color: #B42318; }
+[data-theme="dark"] .tkr.up .chg { color: var(--mkt-up); }
+[data-theme="dark"] .tkr.down .chg { color: var(--mkt-down); }
+
+/* Fraunces optical sizing for big display type */
+.display, .post-title-display, .post-title, .session-body h3, .brief-card h3,
+.gloss-card h3, .qb-q, .fc-q, .ponder-card .q { font-optical-sizing: auto; }
+
+/* Cloudflare Stream embed */
+.lecture-stage .stream-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ============================================================
+   UNIFIED CARD COMPONENT — "soft elevated" (single source of truth)
+   One base look for every card; only padding/media vary per use.
+   New cards: use class="card" (add "is-link" when the whole card links).
+   ============================================================ */
+.card,
+.post-card-link, .session-card, .brief-card, .gloss-card,
+.metric-card, .learn-card, .qb-card, .ab-card, .pod-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .14s ease, box-shadow .18s ease, border-color .18s ease;
+}
+/* consistent inner padding for the standard content cards (media cards keep their own) */
+.card,
+.post-card-link, .brief-card, .gloss-card, .metric-card, .learn-card {
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+/* one hover behaviour, only for the interactive (link) cards */
+.card.is-link:hover,
+.post-card-link:hover, .session-card:hover, .learn-card:hover,
+.brief-card.linked:hover, .ab-card:hover, .pod-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+}
+@media (prefers-reduced-motion: reduce) {
+  .card.is-link:hover,
+  .post-card-link:hover, .session-card:hover, .learn-card:hover,
+  .brief-card.linked:hover, .ab-card:hover, .pod-card:hover { transform: none !important; }
+}
+
+/* ── Money history card (home) ─────────────────────────────── */
+.money-hist { padding: 1.5rem 1.7rem; border-left: 4px solid var(--gold); }
+.mh-eyebrow { color: var(--gold-ink); }
+[data-theme="dark"] .mh-eyebrow { color: var(--gold); }
+.mh-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.25; margin: .25rem 0 .5rem; }
+.mh-text { font-family: var(--body); font-size: 1.02rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 .8rem; max-width: 72ch; }
+.mh-src { font-family: var(--mono); font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); margin: 0; }
+.mh-src a { color: var(--gold-ink); text-decoration: none; text-transform: none; letter-spacing: 0; font-family: var(--sans); }
+[data-theme="dark"] .mh-src a { color: var(--gold); }
+
+/* ============================================================
+   WHAT IS CORPORATE FINANCE — longform essay + widgets
+   ============================================================ */
+:root { --w-good: #2E7D4F; --w-bad: #C0392B; --w-neutral: #8A8F9E; }
+[data-theme="dark"] { --w-good: #5BBd85; --w-bad: #E06A5A; }
+
+.essay { max-width: var(--narrow); margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+.essay-hero { text-align: left; padding: 3.5rem 0 1rem; }
+.essay-hero .display { font-size: clamp(2.2rem, 6vw, 3.6rem); }
+.essay-kicker { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: .8rem; }
+[data-theme="dark"] .essay-kicker { color: var(--gold); }
+.essay-meta { font-family: var(--sans); font-size: .85rem; color: var(--ink-soft); margin-top: 1rem; }
+.essay h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.2; margin: 3rem 0 1rem; }
+.essay h2 .ch-no { font-family: var(--mono); font-size: .8rem; color: var(--gold-ink); display: block; margin-bottom: .4rem; letter-spacing: .06em; }
+[data-theme="dark"] .essay h2 .ch-no { color: var(--gold); }
+.essay p { font-family: var(--body); font-size: 1.08rem; line-height: 1.72; margin: 0 0 1.15rem; }
+.essay .pull { font-family: var(--serif); font-size: 1.35rem; line-height: 1.4; border-left: 4px solid var(--gold); padding: .2rem 0 .2rem 1.1rem; margin: 1.8rem 0; color: var(--ink); }
+
+/* widgets */
+.widget { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow-md); padding: 1.4rem 1.5rem 1.5rem; margin: 2rem 0 2.4rem; }
+.widget .w-head { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-ink); margin: 0 0 .9rem; }
+[data-theme="dark"] .widget .w-head { color: var(--gold); }
+.w-row { display: flex; align-items: center; gap: .9rem; margin: .7rem 0; flex-wrap: wrap; }
+.w-row label { font-family: var(--sans); font-size: .86rem; font-weight: 600; min-width: 148px; }
+.w-row output { font-family: var(--mono); font-size: .82rem; color: var(--ink-soft); min-width: 84px; }
+.widget input[type="range"] { flex: 1; min-width: 140px; accent-color: var(--accent); }
+.w-big { font-family: var(--serif); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: .6rem 0 .2rem; }
+.w-note { font-family: var(--sans); font-size: .88rem; line-height: 1.55; color: var(--ink-soft); margin: .5rem 0 0; }
+.w-tick { font: 600 11px var(--mono); fill: var(--ink-soft); }
+.w-tick-val { font-weight: 400; opacity: .75; }
+.w-mixbar { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: .7rem 0; font: 600 11px var(--sans); color: #fff; }
+.w-mix-d { background: var(--accent); display: flex; align-items: center; justify-content: center; transition: width .15s; }
+.w-mix-e { background: var(--gold); color: #3d3005; display: flex; align-items: center; justify-content: center; transition: width .15s; }
+.w-toggle { display: inline-flex; gap: .4rem; margin: .2rem 0 .6rem; }
+.w-toggle button { font-family: var(--sans); font-weight: 600; font-size: .84rem; padding: .4rem .95rem; border-radius: 999px; border: 1.5px solid var(--rule); background: var(--surface); color: var(--ink-soft); cursor: pointer; }
+.w-toggle button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.w-gauge { position: relative; height: 26px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--rule); overflow: hidden; margin: .6rem 0; }
+.w-gauge-zero { position: absolute; left: 40%; top: 0; bottom: 0; width: 2px; background: var(--ink-soft); opacity: .5; }
+.w-gauge-fill { position: absolute; top: 3px; bottom: 3px; border-radius: 999px; transition: all .15s; }
+.w-ccc-row { display: grid; grid-template-columns: 220px 1fr; gap: .7rem; align-items: center; margin: .45rem 0; font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); }
+.w-ccc-bar { height: 18px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.w-ccc-bar div { height: 100%; border-radius: 999px; transition: width .15s; }
+@media (max-width: 560px) { .w-ccc-row { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* soft gate */
+.essay-gate { text-align: center; background: var(--band-bg); color: var(--band-ink); border-radius: var(--r-xl); padding: 2.4rem 1.8rem; margin: 2.5rem 0; box-shadow: var(--shadow-md); }
+.essay-gate h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; margin: 0 0 .6rem; }
+.essay-gate p { font-family: var(--sans); font-size: .95rem; color: color-mix(in srgb, var(--band-ink) 78%, transparent); max-width: 46ch; margin: 0 auto 1.2rem; }
+.gated { display: none; }
+.essay-unlocked .gated { display: block; }
+.essay-unlocked .essay-gate { display: none; }
+
+/* essay data tables (opportunity cost, gamble) */
+.w-table { width: 100%; border-collapse: collapse; margin: .8rem 0 .4rem; font-family: var(--sans); font-size: .88rem; }
+.w-table th { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); text-align: left; padding: .35rem .6rem; border-bottom: 1.5px solid var(--rule); }
+.w-table td { padding: .45rem .6rem; border-bottom: 1px solid var(--rule-soft); color: var(--ink); }
+.w-table tr td:first-child { font-weight: 600; }
+
+/* term lookup */
+dfn.lookup { font-style: normal; cursor: pointer; border-bottom: 1.5px dotted var(--gold-ink); }
+[data-theme="dark"] dfn.lookup { border-bottom-color: var(--gold); }
+dfn.lookup:hover { background: var(--highlight); }
+[data-theme="dark"] dfn.lookup:hover { background: rgba(227,163,16,.18); }
+.lookup-pop { position: absolute; z-index: 300; width: 340px; max-width: calc(100vw - 20px); background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 1rem 1.1rem; }
+.lookup-pop .lp-term { font-family: var(--serif); font-size: 1.15rem; margin: 0; color: var(--ink); }
+.lookup-pop .lp-cat { font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gold-ink); margin: .15rem 0 .45rem; }
+[data-theme="dark"] .lookup-pop .lp-cat { color: var(--gold); }
+.lookup-pop .lp-def { font-family: var(--sans); font-size: .89rem; line-height: 1.55; color: var(--ink-soft); margin: 0 0 .6rem; }
+.lookup-pop .lp-more { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.lookup-pop.is-sheet { position: fixed; left: 10px !important; right: 10px; bottom: 10px; top: auto !important; width: auto; }
+
+/* footnotes */
+.fn-ref { font-family: var(--mono); font-size: .68em; color: var(--accent); cursor: pointer; padding: 0 .15em; }
+.fn { display: none; }
+.fn.fn-open { display: block; font-family: var(--sans); font-size: .86rem; line-height: 1.55; color: var(--ink-soft); background: var(--surface-2); border-left: 3px solid var(--gold); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: .7rem .9rem; margin: .6rem 0; }
+
+/* "From the group" asides — his WhatsApp messages */
+.wa-aside { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: var(--r-md); padding: 1rem 1.2rem; margin: 1.6rem 0; }
+.wa-aside .wa-meta { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); margin: 0 0 .5rem; }
+.wa-aside p { font-family: var(--sans); font-size: .93rem; line-height: 1.6; color: var(--ink); margin: 0 0 .6rem; }
+.wa-aside p:last-child { margin-bottom: 0; }
+
+/* essay figures — diagrams redrawn from the notes */
+.essay-fig { margin: 1.8rem 0; }
+.essay-fig svg { width: 100%; height: auto; display: block; }
+.essay-fig figcaption { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); margin-top: .5rem; }
+.fig-box { fill: var(--surface); stroke: var(--rule); }
+.fig-box-hl { fill: var(--accent-soft); stroke: var(--accent); }
+[data-theme="dark"] .fig-box-hl { fill: rgba(32,48,127,.35); }
+.fig-t { font: 600 12px var(--sans); fill: var(--ink); }
+.fig-ts { font: 500 10.5px var(--sans); fill: var(--ink-soft); }
+.fig-line { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; opacity: .6; }
+.fig-curve { stroke: var(--accent); stroke-width: 2; fill: none; }
+.fig-curve2 { stroke: var(--gold); stroke-width: 2; fill: none; }
+
+/* foreword — the builder's note */
+.foreword { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.4rem 1.6rem; margin: 2rem 0 1.2rem; box-shadow: var(--shadow-sm); }
+.foreword .wa-meta { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gold-ink); }
+[data-theme="dark"] .foreword .wa-meta { color: var(--gold); }
+.foreword p { font-family: var(--sans); font-size: .96rem; line-height: 1.65; color: var(--ink); margin: 0 0 .85rem; }
+.foreword p:last-child { margin-bottom: 0; }
+.foreword .fw-sig { font-family: var(--serif); font-style: italic; color: var(--ink-soft); }
+</style></head>
+<body style="background:var(--paper)">
+
+<article class="essay">
+  <header class="essay-hero">
+    <p class="essay-kicker">A long read · 40 minutes · seven machines to break</p>
+    <h1 class="display">What is corporate finance?</h1>
+    <p class="lede">Ask ten people what finance is and nine will describe the stock market — the spectator sport, not the game. This long read is the game: Prof. Tantri's corporate finance course rebuilt as an essay you can play with. The same examples, the same numbers, the same traps he sets in class — and seven machines to break with your own hands. By the end you will know what a CFO actually decides all day, which, conveniently, is the stuff you can't just Google.</p>
+    <div class="foreword">
+<p class="wa-meta" style="margin:0 0 .6rem">Why this exists</p>
+<p>Two years ago I was 24 and confidently naive. A marketing guy. I could tell you why an ad works; I could not tell you where my own salary should sit. Personal finance — nothing. Corporate finance — a phrase other people used at placements.</p>
+<p>Then this course happened to me. Somewhere between opportunity cost and the IRR trap, business stopped looking like logos and campaigns and started looking like what it is: a machine for turning today's money into more money tomorrow. Marketing, ops, hiring — every function rolls up to one KPI, and the KPI is money. Finance is the science of that KPI. Macro is the art around it — the weather the machine runs in. Once I saw that, I couldn't stop looking, and this site is me making sure you don't need my luck to see it too.</p>
+<p>A month after our course ended, the professor started posting on the class WhatsApp group: <em>"I am starting this series — 50 key takeaways from corporate finance. (There is nothing called FCRV. Please forget it.) My hope is that these will be useful in your future decision-making."</em> Some of those messages appear below, exactly as he sent them. This essay is that promise, kept in one place.</p>
+<p>So — what is corporate finance? Start where he starts.</p>
+<p class="fw-sig">— Harsh, who builds this site</p>
+</div>
+<p class="essay-meta">Built on Prof. Tantri's FCRV lecture notes · genz-economics.com</p>
+  </header>
+
+  <h2><span class="ch-no">Chapter 1</span>What finance actually does</h2>
+  <p>Start with the misconception. "Finance" in most heads means trading screens, red and green, a man on TV shouting a target price. That is a thin slice of a much bigger machine, and not the important slice. Here is the whole machine, as the professor lays it out in Session 1.</p>
+<p>Finance does two big jobs. First, it moves resources from people who have them to people who can use them — from savers to investors. And note the vocabulary, because he is particular about it: an <em>investor</em> here is someone who invests in a real project — a factory, a fleet, a kitchen — not someone passively holding shares. Money itself is just the token that represents the resources. On its own it has no value. You cannot eat a ₹500 note; you can eat what it moves.</p>
+<p>Second, finance distributes risk and reward between those two parties. The menu runs from debt at one end — the saver is promised a fixed return, the investor eats the surprises — to equity at the other, where the saver signs up for the surprises in exchange for the upside. In between sit insurance-like contracts, where an intermediary carries risk for a fee. Every security you will ever meet is some point on this line: who bears how much of the uncertainty, for what compensation.</p>
+<p>Around these two jobs, three supporting functions. <em>Information generation</em>: someone has to collect and process the numbers so decisions aren't made blind — and having one intermediary monitor a borrower instead of a thousand small savers each doing it badly saves an enormous duplication of effort. <em>Valuation</em>: putting a number on an asset — the heart of the professor's course, and of this essay. And <em>liquidity creation</em>, which he flags, in his own words, as in his view the most important function finance performs. It deserves a paragraph, because it is genuinely clever.</p>
+
+<figure class="essay-fig" role="img" aria-label="Functions of finance tree diagram">
+<svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
+  <rect x="255" y="10" width="190" height="34" rx="8" class="fig-box-hl"/>
+  <text x="350" y="31" text-anchor="middle" class="fig-t">Functions of Finance</text>
+  <path d="M350 44 V64 M70 64 H630 M70 64 V84 M210 64 V84 M350 64 V84 M490 64 V84 M630 64 V84" class="fig-line"/>
+  <g>
+    <rect x="10" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="70" y="103" text-anchor="middle" class="fig-t">Movement of</text><text x="70" y="117" text-anchor="middle" class="fig-t">resources</text>
+    <rect x="150" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="210" y="103" text-anchor="middle" class="fig-t">Risk &amp; reward</text><text x="210" y="117" text-anchor="middle" class="fig-ts">debt ↔ equity</text>
+    <rect x="290" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="350" y="103" text-anchor="middle" class="fig-t">Information</text><text x="350" y="117" text-anchor="middle" class="fig-ts">generation &amp; monitoring</text>
+    <rect x="430" y="84" width="120" height="46" rx="8" class="fig-box-hl"/>
+    <text x="490" y="103" text-anchor="middle" class="fig-t">Liquidity creation</text><text x="490" y="117" text-anchor="middle" class="fig-ts">his favourite · expect exam Qs</text>
+    <rect x="570" y="84" width="120" height="46" rx="8" class="fig-box"/>
+    <text x="630" y="103" text-anchor="middle" class="fig-t">Valuation</text><text x="630" y="117" text-anchor="middle" class="fig-ts">the heart of the course</text>
+  </g>
+</svg>
+<figcaption>Fig. 1 — the functions of finance.</figcaption>
+</figure>
+<p>Here is the problem liquidity creation solves. You, a saver, don't know when you will suddenly need your money — a wedding, a hospital, a visa deadline. Projects, meanwhile, are illiquid: half-built factories return nothing if abandoned. If every saver could yank money out of real projects on demand, every panic would force early liquidation and society would burn value for nothing. A bank solves this with actuarial cunning: it estimates what fraction of depositors will actually need cash at any time, keeps that much liquid, and locks the rest into long, illiquid, productive projects. It converts illiquid assets into liquid liabilities. Magic — until the day every depositor shows up at once, which is why bank runs are the recurring nightmare of financial history, and why the daily money-history card on this site keeps returning to them.</p>
+<p>Now narrow the lens. Households manage budgets and retirement — household finance. Governments tax, spend and borrow — public finance. Firms — corporate finance, our subject. And within a firm, the professor's Session 1 list is blunt: the financial manager makes exactly three kinds of decisions. <strong>Investing decisions</strong> — which projects to do; this is capital budgeting, and the test is whether a project clears the hurdle of expected return. <strong>Financing decisions</strong> — what mix of debt and equity pays for it all, at the lowest cost of capital. <strong>Dividend decisions</strong> — how much profit goes back to shareholders versus staying in the business, and the rule is one line: reinvest if the marginal return on investment beats what shareholders could earn elsewhere; pay out if it doesn't.</p>
+<aside class="wa-aside">
+  <p class="wa-meta">He posted this to the group, on why startups aren't LLPs</p>
+  <p>"The books say LLP offers the best of both worlds — taxed once like a partnership, liability limited like a company. If reality were what the book says, we should have seen LLPs everywhere. However, start-ups are rarely incorporated as LLPs. Partners are considered part of the management, so it is easy for courts to lift the veil and make the liability unlimited at the drop of a hat. VCs and other investors dread this possibility."</p>
+  <p>"The point is, there are trade-offs. If you want someone passionate about teaching, the person will have the same passion for setting the exams. Whenever someone says something offers the best of both worlds, treat it with caution and analyse."</p>
+</aside>
+
+
+<figure class="essay-fig" role="img" aria-label="Three decisions of the financial manager">
+<svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="245" y="10" width="210" height="34" rx="8" class="fig-box-hl"/>
+  <text x="350" y="31" text-anchor="middle" class="fig-t">The financial manager</text>
+  <path d="M350 44 V62 M130 62 H570 M130 62 V80 M350 62 V80 M570 62 V80" class="fig-line"/>
+  <rect x="40" y="80" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="130" y="99" text-anchor="middle" class="fig-t">Investing decision</text><text x="130" y="113" text-anchor="middle" class="fig-ts">which projects clear the hurdle</text>
+  <rect x="260" y="80" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="350" y="99" text-anchor="middle" class="fig-t">Financing decision</text><text x="350" y="113" text-anchor="middle" class="fig-ts">the debt–equity mix</text>
+  <rect x="480" y="80" width="180" height="46" rx="8" class="fig-box"/>
+  <text x="570" y="99" text-anchor="middle" class="fig-t">Dividend decision</text><text x="570" y="113" text-anchor="middle" class="fig-ts">reinvest iff MRI &gt; expected return</text>
+</svg>
+<figcaption>Fig. 2 — three decisions, made forever.</figcaption>
+</figure>
+<p>Three decisions. The rest of this essay is those three decisions taken seriously — which mostly means learning to see costs and values that never appear in an accountant's ledger. That is Chapter 2, and it starts with a trap that catches practicing managers, not just students.</p>
+
+  <h2><span class="ch-no">Chapter 2</span>The cost that never appears in the books</h2>
+  <p>Here is a decision that looks trivial and isn't. Two projects on your desk, A and B. Project A: revenue 100, materials 30, wages 50 — profit 20. Project B: revenue 120, materials 30, wages 50 — profit 40. Every accounting system in the world, and most managers, say B. Forty beats twenty.</p>
+<p>One detail. B needs your skilled workers, and they are currently running project C, which earns 50 a year. There is a shortage of skilled labour; nobody else can be hired. So choosing B means shutting C. Now redo the sum. B's true cost includes the 50 of profit that C stops earning — economists call it the <em>opportunity cost</em>, and it appears in no ledger. B's economic profit is 120 − 30 − 50 − 50 = <strong>minus 10</strong>. The "obviously better" project destroys value, and — as the notes put it flatly — the share price will decline if the manager goes with B on accounting logic.</p>
+<p>The principle: the cost of doing anything is not what you pay out of pocket. It is out-of-pocket <em>plus everything you gave up</em>. Sounds obvious said aloud. Now watch how fast it stops being obvious — same projects, three situations:</p>
+
+  <div class="widget" id="w-oppcost">
+    <p class="w-head">Machine №1 — the opportunity-cost table</p>
+    <p class="w-note" style="margin:0 0 .6rem">Two projects on your desk, A and B. Both need the same skilled workers. C is your ongoing project, earning 50. Pick the scenario; the table recomputes the profit that actually matters:</p>
+    <div class="w-toggle" style="flex-wrap:wrap">
+      <button type="button" data-scen="base" aria-pressed="true">C is running</button>
+      <button type="button" data-scen="shut" aria-pressed="false">C shut by the Pollution Board</button>
+      <button type="button" data-scen="stuck" aria-pressed="false">C shut, workers can't be fired</button>
+    </div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Work through the third scenario, because it offends common sense most. C is shut, but company policy or labour law means the workers stay on payroll — their 50 of wages flows out whether they work or not. A new pair of projects arrives. B now shows an accounting <em>loss</em> of 10, and A a profit of 5. Yet B is the right answer: the wages are spent anyway — they are <em>sunk</em> — so B's real out-of-pocket labour cost is zero, and its economic profit is 40 against A's 5 or 20. Choose the project with the negative accounting profit, and the share price rises. If that sentence feels wrong in your stomach, good — that feeling is exactly what this chapter is for.</p>
+<p>The mirror image of opportunity cost is <em>sunk cost</em> — money already spent, recoverable by no decision you can make now. The notes give the manager's version: you bought project A for 120 and project B for 30, years ago. Today you must raise 100 by selling one. A buyer offers 100 for either. Your own internal valuation says A is worth 80 and B is worth 120. Sell which? Obviously A — someone is offering 100 for a thing worth 80, take his money and run. What do managers actually do? They sell B. Selling A would mean "booking a loss" against the 120 they paid — a number that has no bearing on anything except their ego. The purchase price is gone; it is sunk; the only question is what each asset is worth versus what's offered <em>today</em>. Retail investors run the identical bug: clinging to losing stocks waiting to "recover their price," selling winners too early. The literature calls it the disposition effect. The professor calls it, correctly, a bias you should train out of yourself this term, because the market charges tuition forever.<span class="fn">The evidence is fresh: a 2025 Journal of Finance paper (Guenzel, "In Too Deep") shows CEOs' decisions to divest a unit depend heavily on the price paid for it years ago — irrelevant to value now — and the effect vanishes when the divesting CEO is not the one who acquired it. The bias travels with the person, not the asset. The professor's advice to future consultants when he shared it in the group: "look for instances where organizations use sunk costs in decision making. This could be a good area of improvement."</span></p>
+<p>So: the first discipline of finance is that decisions look only forward. Costs are what you give up from here; history is for accountants and sentimentalists. But "what you give up from here" raises the real question. When someone hands a firm money for a year, what exactly do they give up — and what is the fair charge for it? That number has a name — the cost of capital — and building it from scratch is the next chapter. It is behind the login, along with the machines for NPV, the IRR trap, leverage and payouts. Sign in once; it stays open.</p>
+
+  <!-- ───────────── GATE ───────────── -->
+  <div class="essay-gate" id="essayGate">
+    <h3>The next four chapters sit behind the login.</h3>
+    <p>The price of risk, NPV and the IRR trap, capital structure, and where the cash goes. Sign in once — it is a gate, not a fee — and the rest stays open for you.</p>
+    <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+  </div>
+
+  <div class="gated" id="gatedChapters">
+
+  <h2><span class="ch-no">Chapter 3</span>The price of time and risk</h2>
+  <p>Before a firm can judge any project, it needs to know what its money costs. Not roughly — actually. The professor builds this number from the ground up, and the ground floor is a bag of rice.</p>
+
+<aside class="wa-aside">
+  <p class="wa-meta">The first thing he posted after the course ended — on risk and return</p>
+  <p>"You hear this adage that risk and return go together. Not always true — high risk and low return exist too: uninformed investors trading stocks, or playing Russian roulette for ₹10,000. (Did you say taking my course also?)"</p>
+  <p>"You will never get to decide knowing the actual outcomes — except in cooked-up case studies. Evaluate every decision on the risks and expected returns at the time it was taken. From this view, the US government making 7% bailing out banks was no great achievement given the risk of losing everything; Warren Buffett made 39% on the same investments. And judge your future teams this way: just because a division made money does not make it successful — next time they may blow up the organization."</p>
+</aside>
+<p>Imagine a world with no money, no inflation, no risk. You hold 10 kg of rice. I ask to borrow 1 kg today, returned tomorrow. Exactly 1 kg back? You refuse — parting with rice today means postponing consumption you actually value. So I offer 1.2 kg tomorrow, and now you consider it. Ask for your second kg and you will demand still more — say 1.4 — because each further kilo you give up costs you dearer consumption. That schedule — how much extra tomorrow-rice society demands per unit of today-rice — is the <em>real rate of interest</em>. It exists before money, before banks, before Excel. It is the price of impatience, and it is set by savers' preferences, not by any committee in Mumbai. Add expected inflation on top — compensation for the rupee buying fewer dosas next year — and you have the risk-free rate, roughly what a government bond pays.</p>
+
+<figure class="essay-fig" role="img" aria-label="Indifference curve and savings supply curve from the rice example">
+<svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- left: indifference curve -->
+  <path d="M60 20 V200 H320" class="fig-line"/>
+  <path d="M80 40 C 120 130, 200 175, 300 190" class="fig-curve"/>
+  <text x="190" y="228" text-anchor="middle" class="fig-ts">consumption today (kg of rice)</text>
+  <text x="52" y="110" text-anchor="middle" class="fig-ts" transform="rotate(-90 52 110)">consumption tomorrow</text>
+  <text x="150" y="86" class="fig-ts">same happiness all along the curve —</text>
+  <text x="150" y="100" class="fig-ts">each extra kg saved demands more back</text>
+  <!-- right: supply curve -->
+  <path d="M420 20 V200 H680" class="fig-line"/>
+  <path d="M440 185 C 520 170, 600 110, 660 40" class="fig-curve2"/>
+  <text x="550" y="228" text-anchor="middle" class="fig-ts">quantity of savings supplied</text>
+  <text x="412" y="110" text-anchor="middle" class="fig-ts" transform="rotate(-90 412 110)">real return demanded</text>
+  <text x="470" y="60" class="fig-ts">1st kg: 20% · 2nd kg: 40% —</text>
+  <text x="470" y="74" class="fig-ts">the supply curve of patience</text>
+</svg>
+<figcaption>Fig. 3 — the real rate, before money exists: indifference curve → supply of savings.</figcaption>
+</figure>
+<p>Now add the third floor: risk. Follow the notes' example. You can deposit at SBI at 10%, near risk-free. A firm asks you to lend instead. You know that, among firms like this one, about 10% default and pay back nothing. What do you charge? Not 10% — at 10% you lose money in expectation. You need the survivors to cover the corpses. Charge r such that 90% of borrowers paying (1+r) returns what SBI would have paid: r = 22.22%. Check it: lend 100 to each of many such firms, get back 0.9 × 122.22 ≈ 110 — exactly the deposit outcome. That extra 12.22 points is <em>not</em> profit and <em>not</em> a risk premium. It is bookkeeping for the defaults. This is what a perfectly calm, risk-neutral lender must charge merely to break even. Price it yourself:</p>
+
+  <div class="widget" id="w-lender">
+    <p class="w-head">Machine №2 — the lender's arithmetic</p>
+    <p class="w-note" style="margin:0 0 .6rem">You are the lender. Your alternative is a near-risk-free bank deposit. Price the loan:</p>
+    <div class="w-row">
+      <label for="lRf">Deposit rate you gave up</label>
+      <input type="range" id="lRf" data-rf min="3" max="12" step="0.5" value="10">
+      <output data-rf-label></output>
+    </div>
+    <div class="w-row">
+      <label for="lPd">Borrowers who default</label>
+      <input type="range" id="lPd" data-pd min="0" max="40" step="1" value="10">
+      <output data-pd-label></output>
+    </div>
+    <p class="w-big">You must charge: <span data-rate></span></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>Two refinements turn that machine into the real world. First: actual lenders are not calm. The 10% default rate is an average; this year could be 30%. Humans dislike that uncertainty and charge extra for bearing it — <em>that</em> extra, above the arithmetic, is the true risk premium, and it swells with both the uncertainty and the lender's risk-aversion. In a crisis both swell together, which is why credit gets brutally expensive precisely when firms are desperate — the machine above explains spreads on a normal Tuesday, and the premium explains 2008 and IL&FS-autumn 2018.</p>
+<p>Second, a subtlety worth an exam question: whose risk-aversion sets the price? Not the average lender's — the <em>marginal</em> one's. If you must sell two identical bonds and your friendly first buyer accepts 7% while the last buyer you need demands 10%, both bonds pay 10%. You cannot price-discriminate; the reluctant last lender the market still needs sets the price for everyone. Prices live at the margin. Remember this the next time a promoter complains that "the market" misprices his bonds — the market is just the last person he needed to convince.</p>
+<p>Equity works on the same skeleton with a wilder payoff: no promised interest, last claim on everything, so shareholders demand the risk-free rate plus a fatter premium for a bumpier ride. Blend the two — equity's expected return weighted by equity's share of firm value, debt's by debt's — and you get the firm's overall price of money: the weighted average cost of capital, WACC. In practice you'll estimate the debt piece from credit ratings or interest-coverage ratios, and the equity piece from models like CAPM; the course does this properly with betas. For this essay you need only the meaning: <strong>WACC is the return the firm must beat for a project to be worth doing — the hurdle.</strong> Which raises the obvious question: beat it <em>how</em>, measured on what? Chapter 4, and it is the best chapter.</p>
+
+  <h2><span class="ch-no">Chapter 4</span>NPV — the only number the share price obeys</h2>
+  <p>Session 6 of the course opens the toolbox for project selection, and the professor starts with the economically soundest tool: net present value. The formula is one line — the present value of cash inflows minus the present value of outflows — and the example in the notes is deliberately small. A project costs 100 today and pays 12, 11, and 110 at the ends of years one, two and three. The cost of capital is 10%.</p>
+<p>Discount each flow to today: 12/1.1 + 11/1.1² + 110/1.1³ = 102.645. Subtract the 100. <strong>NPV = 2.645.</strong> The rule: with no resource constraints, take every positive-NPV project; if projects are mutually exclusive, take the highest positive one. So far, mechanical. Now the two ideas that make this chapter matter.</p>
+<p>First idea. Why exactly 2.645 — what does the number <em>mean</em>? The notes prove it with what he calls <em>finance profit</em>: each year, charge the project the cost of capital on the invested 100 — that's 10 a year, the opportunity cost of the money — and see what's left. Year one: 12 − 10 = 2, worth 1.818 today. Year two: 11 − 10 = 1, worth 0.826. Year three: 110 pays back the 100 plus its final 10 of rent — nothing left. Total: 2.645. The NPV <em>is</em> the project's entire profit after paying money its full rent. Which is why, in an efficient market, the share price should jump by exactly the NPV the moment the project is announced — investor A holding a 100 stake will not sell to investor B for less than 102.645 once the project is public. The professor is honest about the friction: in practice investors don't fully trust managements' projections, so prices move directionally rather than exactly. But the limiting logic is the point: <strong>NPV is not a score. It is the amount of shareholder wealth the decision creates, and the market reprices it immediately.</strong> (And the new buyer at 102.645 still earns his 10% from there — run the year-one arithmetic and see.)</p>
+<p>Second idea — the hidden assumption, and this is where the machine gets interesting. Baked silently into that 2.645 is the premise that the 12 and 11 arriving in years one and two get <em>reinvested at 10%</em> until the end. Park them in a bank at 6% instead and the true value of the inflows drops to 101.535 — NPV falls to 1.535. The notes push further: tweak year one's flow from 12 to 10 and the project is positive under the 10% reinvestment assumption and <em>negative</em> under 6%. Same project, same headline projections, opposite verdicts — hinging on an assumption nobody states in the board meeting. Break it yourself:</p>
+
+  <div class="widget" id="w-npv">
+    <p class="w-head">Machine №3 — the NPV machine · his exact numbers</p>
+    <p class="w-note" style="margin:0 0 .6rem">The project from the Session 6 notes: pay 100 today; receive 12, 11, and 110 over three years.</p>
+    <div data-bars></div>
+    <div class="w-row">
+      <label for="nRate">Cost of capital</label>
+      <input type="range" id="nRate" data-rate min="4" max="18" step="0.5" value="10">
+      <output data-rate-label></output>
+    </div>
+    <div class="w-row">
+      <label for="nReinv">Interim cash reinvested at</label>
+      <input type="range" id="nReinv" data-reinv min="4" max="18" step="0.5" value="10">
+      <output data-reinv-label></output>
+    </div>
+    <p class="w-big" data-out></p>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>Every valuation you will ever see carries assumptions like that one, stated or not. The course's whole method is to drag them into the light. And nowhere do they hide better than inside finance's most beloved single number: the internal rate of return.</p>
+<p>IRR is the discount rate at which NPV equals zero — "the project's return," as everyone sloppily says. For our cash flows Excel reports 11.07%, and the selection rule mirrors NPV's: take projects whose IRR beats the cost of capital. Being a ratio, it feels comparable and portable, which is why practitioners loved it for decades. But run the analogy from the NPV discussion — the professor sets this as an exercise before revealing it — and you can guess the flaw: IRR silently assumes the interim cash flows are reinvested <em>at the IRR itself</em>. The 12 and the 11 are presumed to compound at 11.07% — a rate that exists nowhere except inside the formula. Park them at a real bank at 6% and the true annualised return is 10.56%, not 11.07%. Now imagine your hurdle is 10.75% — the naive IRR says take it, the truth says it destroys value:</p>
+
+  <div class="widget" id="w-irr">
+    <p class="w-head">Machine №4 — the IRR trap</p>
+    <p class="w-note" style="margin:0 0 .6rem">Same cash flows. Excel's IRR() proudly reports 11.07%. Now tell it where the interim cash actually sits, and set your hurdle:</p>
+    <div class="w-row">
+      <label for="iReinv">Interim cash reinvested at</label>
+      <input type="range" id="iReinv" data-reinv min="4" max="14" step="0.5" value="6">
+      <output data-reinv-label></output>
+    </div>
+    <div class="w-row">
+      <label for="iHurdle">Your hurdle rate</label>
+      <input type="range" id="iHurdle" data-hurdle min="9" max="12" step="0.25" value="10.75">
+      <output data-hurdle-label></output>
+    </div>
+    <p class="w-big" data-eff></p>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>One honest exception, from the notes: if a project has <em>no</em> interim cash flows — one outflow now, one inflow at the end — there is nothing to reinvest, and IRR is exactly what it claims to be. Rare in practice. Everywhere else, treat a quoted IRR the way you treat a matrimonial-ad height: directionally informative, self-reported, and rounded up. When NPV and IRR disagree on mutually exclusive projects, trust NPV — it is denominated in the only unit that matters, rupees of shareholder wealth, and its reinvestment assumption (the cost of capital) is at least a rate that exists. The balance in industry has been shifting to NPV; now you know why.</p>
+
+  
+<p class="w-note" style="margin:-1.4rem 0 2rem"><a href="assets/downloads/fcrv-machines.xlsx" download style="font-weight:600;color:var(--accent)">↓ Download the companion workbook (.xlsx)</a> — the NPV, IRR and capital-structure machines as spreadsheets with live formulas, built the way the course's own Excel models are. Break them there too.</p>
+
+  <h2><span class="ch-no">Chapter 5</span>Capital structure — the pizza does not grow</h2>
+  <p>On to the financing decision: what mix of debt and equity should pay for all this? Here the course sets a trap on purpose. Debt costs 5%, equity costs 15% — so pile on the cheap debt and the average cost falls, no? The Session 8 notes even run the naive calculation for you: a firm earning 150 in a good year and 80 in a bad year, valued all-equity at 100, appears to be worth 104.35 the moment you fund 50 of it with debt. Free value, from a refinancing. If that were true, every CFO's job would be one phone call.</p>
+<p>The flaw: the calculation discounted the equity holder's now-riskier cash flows at the same old 15%. Look at what debt did to the equity: in the good year the shareholder gets 97.5, in the bad year 27.5 — the swings are violently wider than 150/80. Leverage concentrated all the risk onto a smaller equity slice, and risk is never free. Price the levered equity at the return that risk actually commands and the "extra" 4.35 evaporates. Firm value: exactly what it was. This is the Modigliani–Miller theorem, and the professor's one-line version is the right one: <em>debt is cheaper, but having debt makes equity costlier, and the two cancel</em>. Slicing the pizza differently does not create pizza. The value of a firm comes from its projects — the left side of the balance sheet — not from financial origami on the right side.</p>
+<aside class="wa-aside">
+  <p class="wa-meta">One September evening on the group, someone was surprised equity can go negative</p>
+  <p>"Equity can become negative. Why are people surprised? On a serious note — this is where economics and accounting diverge. For an economist, negative equity is nonsense, because liability is limited (you can't touch anyone's kidney): you cannot ask equity investors to bring money from home. An economist records a debt write-down with equity at zero — and fails an accounting exam. An accountant shows negative equity with debt intact — and fails an economics exam."</p>
+  <p>"Negative debt-to-equity? A ratio can't be negative unless debt or equity is. Equity takes the first hit — only after it is entirely wiped out can you start touching debt. So a negative ratio means negative equity."</p>
+</aside>
+
+<p>MM holds under stated assumptions: no taxes, no bankruptcy costs, and individuals able to borrow on the same terms as firms (so any investor could home-brew his own leverage and arbitrage away any premium). The assumptions are the syllabus for the rest of the chapter — relax them one at a time and watch where real value appears and disappears. Relax tax first: interest is deductible in India as nearly everywhere, so every rupee of interest shields profit from tax. In the notes' example the shield is small — the equity holder gets exactly 0.5 more in each state — but it is <em>free and riskless</em>, and it scales with debt. Score one real point for leverage. Then relax bankruptcy — and this is where the machine below earns its place. Borrow enough that a bad year can't cover the repayment, and something subtle happens first: <em>nothing</em>. The lender, seeing default coming in the bad state, simply charges more upfront — in the notes' numbers, 23.75% instead of 5% — so that he still earns 5% in expectation. Default alone just reshuffles who gets paid; the firm is still worth 86.96. Value is destroyed only when bankruptcy has <em>real costs</em> — customers flee a wobbling firm, lawyers bill, assets sell in a hurry — modelled in the notes as the bad-state cash flow dropping from 50 to 40. Flip that switch and watch the lender reprice to 41%, and the loss land where it always lands:</p>
+
+  <div class="widget" id="w-mm">
+    <p class="w-head">Machine №5 — the capital-structure machine</p>
+    <p class="w-note" style="margin:0 0 .6rem">The firm from Sessions 8–10: it earns 150 in a good year, 50 in a bad year (equal odds). Unlevered equity costs 15%, debt costs 5%. Unlevered, the firm is worth Rs 86.96. Now add debt:</p>
+    <div class="w-row">
+      <label for="mmDebt">Borrow</label>
+      <input type="range" id="mmDebt" data-debt min="0" max="70" step="1" value="0">
+      <output data-debt-label></output>
+    </div>
+    <div class="w-toggle">
+      <button type="button" data-bc aria-pressed="false">Bankruptcy cost: OFF</button>
+    </div>
+    <div class="w-row"><label>Lender charges</label><output data-rate style="font-weight:700"></output></div>
+    <div class="w-row"><label>Cost of levered equity</label><output data-ke style="font-weight:700"></output></div>
+    <p class="w-big">Firm value: <span data-ev></span></p>
+    <p class="w-note" data-note></p>
+  </div>
+
+  <p>Assemble the pieces and you get the working formula of modern capital structure: <strong>V<sub>levered</sub> = V<sub>unlevered</sub> + PV(tax shield) − PV(bankruptcy costs)</strong>. The optimal amount of debt is a trade-off between a tax benefit that grows steadily and a distress cost that grows explosively. Steady, predictable businesses — toll roads, utilities — can push far along the curve; volatile ones cannot. India's 2010s corporate-debt hangover, from the power-and-steel promoters to IL&FS, was a decade-long demonstration of firms mispricing the right-hand term. The equity holder bears the bankruptcy cost in advance, through the lender's rate — the notes even make you verify it two ways.</p>
+<p>But debt does one more thing MM never priced: it changes how people <em>behave</em>. Session 10 ends on two behavioural diseases of the indebted, and they explain more Indian corporate news than any valuation model. The first is <em>risk shifting</em> — also answering to gambling for resurrection, overinvestment, asset substitution; the professor warns any of these may appear in the exam. The setup: you owe 100, the cash flow is 90, your equity is worth zero. A terrible bet appears — stake 20 for a 10% chance of doubling. For the firm it is ruinous in expectation. For <em>you</em> it is free money: your downside is already zero, so any lottery ticket bought with the lender's recovery is pure upside. Run it:</p>
+
+  <div class="widget" id="w-gamble">
+    <p class="w-head">Machine №6 — the promoter's gamble</p>
+    <p class="w-note" style="margin:0 0 .6rem">You owe the bank 100. The year's cash flow is 90 — you get nothing. A gamble appears: stake 20, double-or-nothing. Slide the win probability and watch who wants this bet:</p>
+    <div class="w-row">
+      <label for="gWin">Probability the gamble wins</label>
+      <input type="range" id="gWin" data-win min="1" max="60" step="1" value="10">
+      <output data-win-label></output>
+    </div>
+    <div data-table></div>
+    <p class="w-note" data-verdict></p>
+  </div>
+
+  <p>The second disease is the mirror image: <em>debt overhang</em>, or underinvestment. Same firm — debt of 100 due, cash flow of 90 fenced off by covenants. Now a genuinely good opportunity appears: put in 10 fresh, get 15 for sure — riskless 50%. The firm should obviously do it. But the equity holder must supply the 10, and of the extra 15, the first 10 goes to topping up the lender's recovery. The shareholder puts in 10 and gets back 5. So he refuses, and a positive-NPV project dies. Too little debt tempts nobody; too much debt poisons even good ideas. (Two students asked the sharp follow-up — why doesn't the <em>bank</em> fund the sure thing? Because in the real world no project is riskless, and lending fresh money to a defaulting borrower is restructuring, which triggers provisioning. The bank's own accounting stops it.)</p>
+<p>These two diseases matter enough that the professor was still drilling them months after the course ended — announcing one morning on the group, apropos of campus security: "Will turn the main gate into Strait of Hormuz today. Hope you guys remember the difference between risk shifting and debt overhang." You have the machines above; you have no excuse.</p>
+<p>Balance the ledger before moving on: debt also <em>disciplines</em>. A manager with fat free cash and no interest bill is a manager one flattering investment banker away from an empire-building acquisition; a manager with an EMI thinks twice. Covenants, for all their menace, are how lenders bottle that discipline. Debt is neither cheap fuel nor poison — it is a governance instrument with a tax subsidy and a failure mode. Which brings us, finally, to the decision everyone watches and few understand: what to do with the profits.</p>
+
+  <h2><span class="ch-no">Chapter 6</span>The payout — and what firms actually do</h2>
+  <p>The profits are in. Keep them or return them? The rule from Session 1 is a single comparison: reinvest if the <em>marginal return on investment</em> beats the shareholders' expected return; pay out if it doesn't. If the company can compound the rupee better than its owners can elsewhere, keep it working. If it can't, handing it back isn't weakness — it's the only honest move, because retaining cash you can't deploy above the cost of capital destroys value with a straight face. Growth companies with rich project pipelines rightly retain; mature businesses with few high-return openings rightly distribute. The hard part isn't the rule; it's the CEO admitting which kind of company he runs.</p>
+<p>Cash comes back through two pipes. Dividends — money lands in every account, taxed since 2020 as the shareholder's income (an earlier, stranger regime taxed the company instead, and payout fashion bent around the tax code, as it always does). Or buybacks — the company purchases its own shares. Buybacks come bundled with a party trick you should learn to see through: retiring shares shrinks the denominator, so earnings <em>per share</em> rises even when earnings don't. Managements with EPS-linked bonuses adore this. Watch the trick:</p>
+
+  <div class="widget" id="w-buyback">
+    <p class="w-head">Machine №7 — the EPS illusion</p>
+    <p class="w-note" style="margin:0 0 .6rem">A company earns Rs 1,000 crore on 100 crore shares (Rs 10 EPS). The stock trades at Rs 150. Spare cash earns 6% after tax. Now buy back shares:</p>
+    <div class="w-row">
+      <label for="bbSlider">Cash spent on buyback</label>
+      <input type="range" id="bbSlider" data-bb min="0" max="3000" step="100" value="0">
+      <output data-bb-label></output>
+    </div>
+    <p class="w-big">EPS: <span data-eps></span> <span style="font-size:.55em">(<span data-pe></span>)</span></p>
+    <p class="w-note" data-bb-note></p>
+  </div>
+
+  <p>Same instrument, opposite outcomes depending on price: buy back cheap stock and the remaining owners genuinely gain; buy back dear stock and you've transferred wealth to the sellers on the way out. The announcement tells you nothing until you've formed a view on the valuation. Check the denominator before you applaud.</p>
+<p>Now, the closing move the professor makes in the notes, and it may be the most useful thing in the whole course: <em>what do firms actually do?</em> Theory says invest in everything above the cost of capital. Practice keeps a buffer. When Tata Steel's CFO was asked about return hurdles on an earnings call, the answer — quoted in the notes — was that WACC hurdles run above 12% in India and 9–10% in Europe, while the return on invested capital they aim for "is always at about 15%." A three-point cushion, held deliberately. A 2025 study in the American Economic Review (Gormsen and Huber) finds this is the norm: firms' hurdle rates sit stubbornly above their perceived cost of capital, and when the cost of capital falls, hurdle rates barely move — full transmission takes something like twelve years. Pause on what that does to monetary policy: the RBI cuts rates so that cheaper capital spurs investment, banks eventually pass it on — and then firms don't lower their hurdles anyway. The lever moves; the machine barely does. This is over and above the slow bank transmission the RBI already loses sleep about — file that away for the macro sessions.</p>
+
+<figure class="essay-fig" role="img" aria-label="Hurdle rates stay flat while the cost of capital falls">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 20 V180 H660" class="fig-line"/>
+  <path d="M70 60 C 200 62, 480 58, 650 60" class="fig-curve2"/>
+  <path d="M70 95 C 220 100, 450 140, 650 150" class="fig-curve"/>
+  <text x="655" y="52" text-anchor="end" class="fig-t">discount rate firms actually use</text>
+  <text x="655" y="170" text-anchor="end" class="fig-t" style="fill:var(--accent)">perceived cost of capital</text>
+  <text x="360" y="205" text-anchor="middle" class="fig-ts">2001 → 2021</text>
+  <text x="52" y="100" text-anchor="middle" class="fig-ts" transform="rotate(-90 52 100)">%</text>
+  <text x="200" y="135" class="fig-ts">the gap: money got cheaper,</text>
+  <text x="200" y="149" class="fig-ts">hurdles barely moved (~12 yrs to pass through)</text>
+</svg>
+<figcaption>Fig. 4 — hurdle rates vs the cost of capital (after Gormsen &amp; Huber, 2025).</figcaption>
+</figure>
+<p>Financing shows the same theory-practice gap: firms don't run at the textbook-optimal debt mix; they carry less and pay fees for standby credit lines, buying <em>financial flexibility</em> — the ability to move in a bad year — at the cost of a not-quite-minimal WACC. None of this means the theory is wrong; the professor's disclaimer is worth keeping verbatim in spirit: adjustments happen as theory predicts, just slowly, because real equipment, real customers and real fears move slower than spreadsheets. The models tell you where gravity points. Practice tells you about the friction on the way down.</p>
+
+  <p class="pull">So: what is corporate finance? Three decisions, priced honestly.</p>
+<p>Decide what to buy — counting opportunity costs the ledger hides, ignoring costs already sunk, and scoring projects by the one number the share price obeys (Chapters 2 and 4). Decide whose money to use — knowing the lender's arithmetic, why the pizza doesn't grow, and how debt bends behaviour (Chapters 3 and 5). Decide what to return — by the marginal-return rule, seeing through the EPS theatre (Chapter 6). The course's own parting advice compresses it further: whenever anyone shows you a valuation, <em>probe the assumptions</em> — the reinvestment rate hiding in the NPV, the hurdle sitting quietly above the cost of capital, the bad state nobody modelled.</p>
+<p>What can you do with this tomorrow? Read one annual report the way this essay reads projects: find the capex, ask what hurdle it cleared and whether interim cash could really compound there; check whether debt matches the steadiness of the cash flows; and when EPS grows, check how much came from the numerator. Twenty minutes a quarter. It is more than most professionals do.</p>
+<p>And when your brother-in-law from IIM-A quotes a stock's IRR at the next family dinner, ask him — gently — what reinvestment rate it assumes. Then enjoy your dinner in peace.</p>
+
+  </div><!-- /gated -->
+</article>
+<script type="application/json" id="gloss-data">[{"term": "Repo rate", "cat": "Monetary policy", "def": "The interest rate at which the RBI lends short-term money to banks. Raise it to cool the economy, cut it to spur borrowing. It's the headline policy lever."}, {"term": "Reverse repo / SDF", "cat": "Monetary policy", "def": "What banks earn for parking spare cash with the RBI. The Standing Deposit Facility (SDF) is the modern floor of the rate corridor \u2014 no collateral needed."}, {"term": "MSF", "cat": "Monetary policy", "def": "Marginal Standing Facility \u2014 the emergency window where banks borrow from the RBI above the repo rate. It forms the ceiling of the rate corridor."}, {"term": "LAF corridor", "cat": "Monetary policy", "def": "The band the overnight rate moves in: SDF (floor) \u2192 repo \u2192 MSF (ceiling). Currently about 50 basis points wide. The RBI steers the call rate inside it."}, {"term": "CRR", "cat": "Banking", "def": "Cash Reserve Ratio \u2014 the slice of deposits banks must keep as cash with the RBI, earning nothing. Raising it pulls money out of the system."}, {"term": "SLR", "cat": "Banking", "def": "Statutory Liquidity Ratio \u2014 the share of deposits banks must hold in safe assets like government bonds, before lending the rest."}, {"term": "OMO", "cat": "Monetary policy", "def": "Open Market Operations \u2014 the RBI buying or selling government bonds to add or drain durable liquidity (and nudge yields)."}, {"term": "VRR / VRRR", "cat": "Monetary policy", "def": "Variable Rate Repo / Reverse Repo \u2014 flexible auctions the RBI uses to inject (VRR) or absorb (VRRR) cash and fine-tune the overnight rate."}, {"term": "CPI", "cat": "Inflation", "def": "Consumer Price Index \u2014 the cost of a typical household's basket. The year-on-year change is retail inflation, the RBI's main target (4% \u00b12%)."}, {"term": "WPI", "cat": "Inflation", "def": "Wholesale Price Index \u2014 prices at the producer/wholesale stage. It excludes services and moves before CPI; no longer the policy target."}, {"term": "Core inflation", "cat": "Inflation", "def": "Inflation stripped of volatile food and fuel. It shows the underlying trend central banks watch through short-term price spikes."}, {"term": "Base effect", "cat": "Inflation", "def": "When a number looks high or low only because the comparison month a year ago was unusually low or high \u2014 an arithmetic illusion, not a new trend."}, {"term": "GDP", "cat": "Growth", "def": "Gross Domestic Product \u2014 the total value of goods and services an economy produces in a period. The broadest gauge of economic size."}, {"term": "GVA", "cat": "Growth", "def": "Gross Value Added \u2014 output minus input costs, measured by sector. GDP equals GVA plus net taxes on products; GVA shows where growth comes from."}, {"term": "Potential GDP", "cat": "Growth", "def": "What an economy could produce at full, sustainable use of labour and capital. The gap between actual and potential GDP signals slack or overheating."}, {"term": "Fiscal deficit", "cat": "Fiscal policy", "def": "How much more the government spends than it earns in a year \u2014 the gap it must borrow to fill. Watched as a share of GDP."}, {"term": "Revenue deficit", "cat": "Fiscal policy", "def": "When the government's day-to-day (revenue) spending exceeds its revenue receipts \u2014 borrowing to fund consumption, not assets."}, {"term": "Primary deficit", "cat": "Fiscal policy", "def": "The fiscal deficit minus interest payments. It shows the fresh borrowing need, setting aside the cost of past debt."}, {"term": "Crowding out", "cat": "Fiscal policy", "def": "When heavy government borrowing pushes up interest rates and squeezes private investment. The opposite \u2014 'crowding in' \u2014 can happen when spending boosts demand."}, {"term": "Multiplier", "cat": "Keynesian", "def": "How much total output rises from an initial rise in spending. If people spend a fraction c of extra income, the simple multiplier is 1/(1\u2212c)."}, {"term": "Marginal propensity to consume", "cat": "Keynesian", "def": "The share of an extra rupee of income that a household spends rather than saves. Higher MPC means a bigger multiplier."}, {"term": "Paradox of thrift", "cat": "Keynesian", "def": "If everyone saves more at once, demand and incomes fall, so total saving may not rise. Prudent individually, harmful collectively in a slump."}, {"term": "Liquidity trap", "cat": "Macro theory", "def": "When interest rates are so low that extra money is hoarded rather than spent, and rate cuts stop working. Fiscal policy becomes the stronger tool."}, {"term": "IS-LM", "cat": "Macro theory", "def": "A model where the IS curve (goods market) and LM curve (money market) cross to set output and the interest rate in the short run."}, {"term": "IS-MP", "cat": "Macro theory", "def": "A modern update of IS-LM where the central bank sets the interest rate directly (a monetary-policy rule) instead of fixing the money supply."}, {"term": "Phillips curve", "cat": "Inflation", "def": "The short-run trade-off between unemployment and inflation: lower unemployment tends to push inflation up. It flattens or breaks down over the long run."}, {"term": "NEER", "cat": "Exchange rates", "def": "Nominal Effective Exchange Rate \u2014 the rupee's value against a trade-weighted basket of currencies, before adjusting for inflation."}, {"term": "REER", "cat": "Exchange rates", "def": "Real Effective Exchange Rate \u2014 NEER adjusted for relative inflation. It's the truer measure of export competitiveness."}, {"term": "Depreciation", "cat": "Exchange rates", "def": "A fall in a currency's market value against others. It makes imports dearer and exports cheaper; sharp, disorderly falls signal stress."}, {"term": "Current account deficit", "cat": "External sector", "def": "When a country imports more goods, services and income than it exports \u2014 it must attract foreign capital to cover the gap."}, {"term": "Balance of payments", "cat": "External sector", "def": "The full record of a country's transactions with the world: the current account (trade, income) plus the capital and financial account."}, {"term": "Impossible trinity", "cat": "Open economy", "def": "A country can't have all three at once: a fixed exchange rate, free capital flows, and independent monetary policy. Pick two."}, {"term": "G-Sec / bond yield", "cat": "Financial markets", "def": "Government Securities are bonds the state issues to borrow. Their yield is the return to investors and a benchmark for interest rates across the economy."}, {"term": "Quantitative easing", "cat": "Monetary policy", "def": "When a central bank creates money to buy bonds and other assets, lowering long-term rates once short-term rates are already near zero."}, {"term": "Fiscal consolidation", "cat": "Fiscal policy", "def": "Bringing down the deficit and debt over time \u2014 through higher revenue or lower spending \u2014 to put public finances on a sustainable path."}, {"term": "GST", "cat": "Taxation", "def": "Goods and Services Tax \u2014 a single, nationwide indirect tax that replaced a web of central and state levies, taxing value added at each stage."}, {"term": "Present value", "cat": "Corporate finance", "def": "What a future rupee is worth today. Divide by (1+r) once per year of waiting. The discount rate r is the exchange rate between now and later."}, {"term": "NPV", "cat": "Corporate finance", "def": "Net present value \u2014 present value of a project's cash inflows minus outflows. It equals the project's entire profit after paying money its full rent, which is why the share price should rise by the NPV on announcement."}, {"term": "IRR", "cat": "Corporate finance", "def": "Internal rate of return \u2014 the discount rate at which a project's NPV is zero. Quietly assumes interim cash flows are reinvested at the IRR itself; treat quoted IRRs accordingly."}, {"term": "Cost of capital", "cat": "Corporate finance", "def": "What the firm's money costs \u2014 the return its lenders and shareholders could earn elsewhere at similar risk. The hurdle every project must beat."}, {"term": "WACC", "cat": "Corporate finance", "def": "Weighted average cost of capital: cost of equity weighted by equity's share of firm value, plus cost of debt weighted by debt's share."}, {"term": "Opportunity cost", "cat": "Corporate finance", "def": "What you give up by choosing this over the next-best use \u2014 the profit from the project you shut, the deposit rate you forgo. Appears in no ledger; drives every correct decision."}, {"term": "Sunk cost", "cat": "Corporate finance", "def": "Money already spent that no current decision can recover. Irrelevant to what you do next, yet managers anchor on it \u2014 the disposition effect in a suit."}, {"term": "Hurdle rate", "cat": "Corporate finance", "def": "The minimum return a firm demands before approving a project. In practice sits a few points above the cost of capital and moves slowly \u2014 Tata Steel targets ~15% ROIC against a ~12% WACC."}, {"term": "Risk premium", "cat": "Corporate finance", "def": "The extra return demanded above the arithmetic break-even for bearing uncertainty. Set by the risk-aversion of the marginal investor \u2014 the last lender the market needs."}, {"term": "Risk-free rate", "cat": "Corporate finance", "def": "The real rate (society's price of impatience) plus expected inflation. Roughly what a government bond pays; the floor under every other return."}, {"term": "Equity", "cat": "Corporate finance", "def": "The residual claim \u2014 whatever is left after everyone with a promise is paid. No promised return, first hit in a bad year, all the upside in a good one."}, {"term": "Tax shield", "cat": "Corporate finance", "def": "The tax saved because interest is deductible. The genuinely free benefit of debt \u2014 it scales with borrowing, until distress costs outgrow it."}, {"term": "Modigliani-Miller", "cat": "Corporate finance", "def": "With no taxes, no bankruptcy costs and equal access to markets, capital structure doesn't change firm value: debt is cheaper but makes equity dearer, and the two cancel. The pizza doesn't grow when you slice it differently."}, {"term": "Covenant", "cat": "Corporate finance", "def": "A contractual restriction lenders write into loans \u2014 on dividends, new debt, asset sales \u2014 to stop shareholders gambling with the lender's recovery."}, {"term": "Risk shifting", "cat": "Corporate finance", "def": "A near-wiped-out equity holder's incentive to bet the lender's money on long shots: downside is already zero, any win is theirs. Also answers to gambling for resurrection, overinvestment, asset substitution."}, {"term": "Debt overhang", "cat": "Corporate finance", "def": "Too much debt killing good projects: new money's returns go first to topping up the lender's recovery, so shareholders refuse to fund even sure things. Also called underinvestment."}, {"term": "Buyback", "cat": "Corporate finance", "def": "The company purchasing its own shares. Shrinks the share count, so EPS rises even when earnings don't \u2014 check the denominator before applauding."}, {"term": "EPS", "cat": "Corporate finance", "def": "Earnings per share \u2014 profit divided by share count. A ratio with two moving parts; buybacks move the bottom one."}, {"term": "Capital budgeting", "cat": "Corporate finance", "def": "The investing decision: which projects to fund. The test is whether expected return clears the hurdle rate."}, {"term": "Enterprise value", "cat": "Corporate finance", "def": "The value of the whole firm \u2014 equity plus debt (net of cash). What it would cost to own the business outright."}, {"term": "Provisioning", "cat": "Banking", "def": "Money a bank must set aside against loans likely to sour. Why banks resist lending fresh money to defaulting borrowers \u2014 it's restructuring, and it triggers provisions."}, {"term": "DRHP", "cat": "Markets", "def": "Draft Red Herring Prospectus \u2014 the document a company files with SEBI before an IPO: business, risks, financials, everything except the price."}, {"term": "Disposition effect", "cat": "Behavioural", "def": "Retail investors' habit of clinging to losers (waiting to 'recover the price paid') and selling winners early. The sunk-cost bias with a demat account."}, {"term": "Corporate veil", "cat": "Corporate finance", "def": "The legal separation between a company and its owners that makes liability limited. Courts can 'lift' it \u2014 easier against partners in an LLP than against passive shareholders, which is why VCs prefer companies."}, {"term": "Finance profit", "cat": "Corporate finance", "def": "Profit after charging the project the full rent on money \u2014 the cost of capital on every rupee invested, every year. Sums to exactly the NPV; the purest form of profit."}, {"term": "Marginal investor", "cat": "Corporate finance", "def": "The last, most reluctant investor the market still needs to clear. You can't price-discriminate, so their required return sets the price for everyone."}]</script>
+
+<div style="position:fixed;bottom:14px;right:14px;z-index:400"><button onclick="document.body.classList.toggle('essay-unlocked')" style="font:600 12px 'Hanken Grotesk',sans-serif;padding:.5rem .9rem;border-radius:999px;border:1.5px solid #E3A310;background:#fff;cursor:pointer">PREVIEW: toggle sign-in</button></div><script>/* what-is-corporate-finance essay — interactive machines + soft gate.
+   All numbers mirror Prof. Tantri's FCRV notes (Sessions 1-10). Vanilla JS. */
+(function () {
+  "use strict";
+  var f1 = function (n) { return (Math.round(n * 10) / 10).toFixed(1); };
+  var f2 = function (n) { return (Math.round(n * 100) / 100).toFixed(2); };
+  var pct = function (n, d) { return (d == null ? f2(n * 100) : n.toLocaleString("en-IN", { maximumFractionDigits: d, minimumFractionDigits: d })) + "%"; };
+
+  /* ── M1: Opportunity cost — projects A, B and the ongoing C (June-10 notes §2.1) ── */
+  (function () {
+    var root = document.getElementById("w-oppcost"); if (!root) return;
+    var tbl = root.querySelector("[data-table]"), verdict = root.querySelector("[data-verdict]");
+    var btns = root.querySelectorAll("[data-scen]");
+    // scenarios: rev, material, out-of-pocket labour, opportunity cost (B only), note
+    var S = {
+      base: { a: [100, 30, 50, 0], b: [120, 30, 50, 50],
+        v: "Accounting says B (40 > 20). Economics says A: choosing B pulls the skilled workers off C and burns its 50 of profit — B's true profit is −10. Pick B and the share price falls." },
+      shut: { a: [100, 30, 50, 0], b: [120, 30, 50, 0],
+        v: "The Pollution Control Board shut C anyway. The workers were free — opportunity cost zero. Now B's 40 beats A's 20, and this time the accounting answer is also the economic answer." },
+      stuck: { a: [85, 30, 50, 0], b: [70, 30, 0, 0],
+        v: "C is shut but the workers can't be fired — their 50 of wages is sunk either way. B's out-of-pocket labour is zero, so B earns 40 economically while accounting shows −10. Choose B; the share price rises. Accounting profit: 5 vs −10. Economic profit: 20 vs 40." }
+    };
+    function row(name, vals, opp) {
+      var econ = vals[0] - vals[1] - vals[2] - vals[3];
+      return "<tr><td>" + name + "</td><td>" + vals[0] + "</td><td>" + vals[1] + "</td><td>" + vals[2] + "</td><td>" + vals[3] + "</td><td style='font-weight:700;color:" + (econ >= 0 ? "var(--w-good)" : "var(--w-bad)") + "'>" + econ + "</td></tr>";
+    }
+    function draw(key) {
+      var s = S[key];
+      tbl.innerHTML = "<table class='w-table'><thead><tr><th>Project</th><th>Revenue</th><th>Materials</th><th>Wages paid</th><th>Opportunity cost</th><th>Economic profit</th></tr></thead><tbody>" +
+        row("A", s.a) + row("B", s.b) + "</tbody></table>";
+      verdict.textContent = s.v;
+    }
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        draw(b.getAttribute("data-scen"));
+      });
+    });
+    draw("base");
+  })();
+
+  /* ── M2: The lender's arithmetic — risk-neutral pricing (June-10 notes §2.3) ── */
+  (function () {
+    var root = document.getElementById("w-lender"); if (!root) return;
+    var rf = root.querySelector("[data-rf]"), pd = root.querySelector("[data-pd]");
+    var out = root.querySelector("[data-rate]"), note = root.querySelector("[data-note]");
+    function draw() {
+      var r = +rf.value / 100, p = +pd.value / 100;
+      root.querySelector("[data-rf-label]").textContent = pct(+rf.value, 1);
+      root.querySelector("[data-pd-label]").textContent = pct(+pd.value, 0);
+      if (p >= 0.99) { out.textContent = "—"; note.textContent = "Nobody lends into certain default."; return; }
+      var rate = (1 + r) / (1 - p) - 1;
+      out.textContent = pct(rate);
+      note.textContent = "The lender must earn " + pct(r * 100, 1) + " in expectation — the SBI deposit he gave up. With " + pct(p * 100, 0) +
+        " of borrowers defaulting to zero, survivors must pay " + pct(rate) + ". That spread is not profit and not a risk premium — it is arithmetic. A risk-averse lender charges MORE on top, and how much more is set by the most reluctant lender the market still needs: the marginal investor.";
+    }
+    [rf, pd].forEach(function (el) { el.addEventListener("input", draw); }); draw();
+  })();
+
+  /* ── M3: NPV, his exact numbers (Session 6: -100, 12, 11, 110) ── */
+  (function () {
+    var root = document.getElementById("w-npv"); if (!root) return;
+    var CF = [-100, 12, 11, 110];
+    var rate = root.querySelector("[data-rate]"), reinv = root.querySelector("[data-reinv]");
+    var out = root.querySelector("[data-out]"), verdict = root.querySelector("[data-verdict]"), bars = root.querySelector("[data-bars]");
+    function draw() {
+      var r = +rate.value / 100, ri = +reinv.value / 100;
+      root.querySelector("[data-rate-label]").textContent = pct(+rate.value, 1);
+      root.querySelector("[data-reinv-label]").textContent = pct(+reinv.value, 1);
+      // reinvest intermediate CFs at ri to year 3, then discount the pile at r (his Session-6 method)
+      var fv = 0;
+      for (var t = 1; t <= 3; t++) fv += CF[t] * Math.pow(1 + ri, 3 - t);
+      var npv = fv / Math.pow(1 + r, 3) + CF[0];
+      out.textContent = "NPV: " + (npv < 0 ? "−" : "+") + "Rs " + f2(Math.abs(npv));
+      out.style.color = npv >= 0 ? "var(--w-good)" : "var(--w-bad)";
+      var same = Math.abs(r - ri) < 1e-9;
+      verdict.textContent = same
+        ? "Reinvestment at the cost of capital — the textbook assumption. On announcement, the share price should rise by exactly this NPV: it is the project's entire finance profit, priced in at once."
+        : "You broke the hidden assumption. The cash flows now sit at " + pct(+reinv.value, 1) + " instead of " + pct(+rate.value, 1) + ", and the NPV quietly moved. Same project, same projections — a different parking rate for the interim cash changed the answer. This is the assumption nobody states in the board meeting.";
+      // bars
+      var w = 460, h = 140, bw = 70, gap = 28, zero = 55, max = 130;
+      var svg = '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cash flows by year">';
+      svg += '<line x1="0" y1="' + zero + '" x2="' + w + '" y2="' + zero + '" stroke="var(--rule)" stroke-width="1"/>';
+      CF.forEach(function (v, t) {
+        var x = 30 + t * (bw + gap);
+        var bh = Math.min(Math.abs(v) / max * 50, 52);
+        var y = v >= 0 ? zero - bh : zero;
+        svg += '<rect x="' + x + '" y="' + y + '" width="' + bw + '" height="' + Math.max(bh, 2) + '" rx="4" fill="' + (v >= 0 ? "var(--w-good)" : "var(--w-bad)") + '"/>';
+        svg += '<text x="' + (x + bw / 2) + '" y="' + (h - 26) + '" text-anchor="middle" class="w-tick">Year ' + t + '</text>';
+        svg += '<text x="' + (x + bw / 2) + '" y="' + (h - 10) + '" text-anchor="middle" class="w-tick w-tick-val">' + (v < 0 ? "−" : "") + Math.abs(v) + '</text>';
+      });
+      svg += "</svg>";
+      bars.innerHTML = svg;
+    }
+    rate.addEventListener("input", draw); reinv.addEventListener("input", draw); draw();
+  })();
+
+  /* ── M4: The IRR trap (Session 7: IRR 11.07%, bank at 6% → 10.56%) ── */
+  (function () {
+    var root = document.getElementById("w-irr"); if (!root) return;
+    var CF = [-100, 12, 11, 110], IRR = 0.110657; // ~11.07%
+    var reinv = root.querySelector("[data-reinv]"), hurdle = root.querySelector("[data-hurdle]");
+    var out = root.querySelector("[data-eff]"), verdict = root.querySelector("[data-verdict]");
+    function draw() {
+      var ri = +reinv.value / 100, h = +hurdle.value / 100;
+      root.querySelector("[data-reinv-label]").textContent = pct(+reinv.value, 1);
+      root.querySelector("[data-hurdle-label]").textContent = pct(+hurdle.value, 2);
+      var fv = 0;
+      for (var t = 1; t <= 3; t++) fv += CF[t] * Math.pow(1 + ri, 3 - t);
+      var eff = Math.pow(fv / 100, 1 / 3) - 1;
+      out.innerHTML = "Excel says IRR = <strong>11.07%</strong> · true annualised return: <strong>" + pct(eff * 100, 2) + "</strong>";
+      var naiveOK = IRR > h, trueOK = eff > h;
+      verdict.textContent = naiveOK === trueOK
+        ? (trueOK ? "Both the naive IRR and the true return clear the hurdle. Safe — this time." : "Both fail the hurdle. At least the naive number didn't lie to you today.")
+        : "Here is the trap: the naive IRR (11.07%) clears your " + pct(+hurdle.value, 2) + " hurdle, but with interim cash actually parked at " + pct(+reinv.value, 1) + " the true return is " + pct(eff * 100, 2) + " — below it. Excel approved a project that destroys value. The IRR assumed every rupee it throws off gets reinvested at 11.07%; your bank pays " + pct(+reinv.value, 1) + ".";
+      verdict.style.color = naiveOK === trueOK ? "" : "var(--w-bad)";
+    }
+    [reinv, hurdle].forEach(function (el) { el.addEventListener("input", draw); }); draw();
+  })();
+
+  /* ── M5: Capital structure — MM, priced default, bankruptcy cost (Sessions 8-10) ── */
+  (function () {
+    var root = document.getElementById("w-mm"); if (!root) return;
+    var GOOD = 150, KE_U = 0.15, KD = 0.05, VU = (GOOD + 50) / 2 / (1 + KE_U); // 86.96 with bad=50
+    var debt = root.querySelector("[data-debt]"), bc = root.querySelector("[data-bc]");
+    var els = { rate: root.querySelector("[data-rate]"), ke: root.querySelector("[data-ke]"), ev: root.querySelector("[data-ev]"), note: root.querySelector("[data-note]"), dl: root.querySelector("[data-debt-label]") };
+    var bankruptcyCost = false;
+    function draw() {
+      var D = +debt.value;
+      els.dl.textContent = "Rs " + D + " of debt (" + Math.round(D / VU * 100) + "% of firm value)";
+      var badCF = bankruptcyCost && D * (1 + KD) > 50 ? 40 : 50;
+      var vu = (GOOD + 50) / 2 / (1 + KE_U); // unlevered benchmark stays 86.96
+      var due = D * (1 + KD), rate, goodPay, badPay;
+      if (due <= badCF || D === 0) { // no default even in bad state
+        rate = KD; goodPay = due; badPay = due;
+      } else { // lender prices default: expected receipt must equal D*(1+KD)
+        goodPay = 2 * D * (1 + KD) - badCF; badPay = badCF;
+        rate = D > 0 ? goodPay / D - 1 : 0;
+      }
+      // cost of levered equity from MM value weights: keU = ke*E/V + kd*D/V
+      var dv = D / vu, ev_ = 1 - dv;
+      var ke = ev_ > 0 ? (KE_U - KD * dv) / ev_ : 0;
+      var cfeGood = Math.max(GOOD - goodPay, 0), cfeBad = Math.max(badCF - badPay, 0);
+      var eq = (cfeGood / (1 + ke) + cfeBad / (1 + ke)) / 2;
+      var firm = eq + D;
+      els.rate.textContent = pct(rate * 100, 2);
+      els.ke.textContent = pct(ke * 100, 2);
+      els.ev.textContent = "Rs " + f2(firm) + (Math.abs(firm - VU) < 0.02 ? "  (= unlevered value)" : "");
+      els.ev.style.color = firm < VU - 0.02 ? "var(--w-bad)" : "var(--ink)";
+      if (D === 0) els.note.textContent = "No debt: the whole Rs 86.96 is equity earning 15%. Now add debt and watch what does — and does not — change.";
+      else if (due <= badCF) els.note.textContent = "Debt is 'cheap' at 5%, but look at the cost of equity climbing. Leverage made the equity riskier, shareholders charge for it, and the firm is worth... exactly Rs 86.96. Modigliani-Miller: the pizza does not grow when you slice it differently.";
+      else if (!bankruptcyCost) els.note.textContent = "In the bad state the firm cannot pay. So the lender charges " + pct(rate * 100, 2) + " upfront — priced-in default. Everyone charges fairly, nothing is destroyed, firm value is still Rs 86.96. Default alone destroys nothing; it just reshuffles who gets paid.";
+      else els.note.textContent = "Now bankruptcy has a real cost: customers flee, lawyers arrive, the bad-state cash flow drops from 50 to 40. The lender re-prices to " + pct(rate * 100, 2) + " and the missing value lands on the equity holder. Firm value falls below 86.96 — THIS, not default itself, is what you trade against the tax shield.";
+    }
+    debt.addEventListener("input", draw);
+    bc.addEventListener("click", function () {
+      bankruptcyCost = !bankruptcyCost;
+      bc.setAttribute("aria-pressed", bankruptcyCost ? "true" : "false");
+      bc.textContent = bankruptcyCost ? "Bankruptcy cost: ON (bad state 50 → 40)" : "Bankruptcy cost: OFF";
+      draw();
+    });
+    draw();
+  })();
+
+  /* ── M6: Risk shifting — the promoter's gamble (Session 10) ── */
+  (function () {
+    var root = document.getElementById("w-gamble"); if (!root) return;
+    var win = root.querySelector("[data-win]"), tbl = root.querySelector("[data-table]"), verdict = root.querySelector("[data-verdict]");
+    var DEBT = 100, CASH = 90, STAKE = 20;
+    function draw() {
+      var p = +win.value / 100;
+      root.querySelector("[data-win-label]").textContent = pct(+win.value, 0);
+      var firmW = CASH + STAKE, firmL = CASH - STAKE;
+      var eFirm = p * firmW + (1 - p) * firmL;
+      var lendW = Math.min(firmW, DEBT), lendL = Math.min(firmL, DEBT);
+      var eLend = p * lendW + (1 - p) * lendL;
+      var eqW = Math.max(firmW - DEBT, 0), eqL = Math.max(firmL - DEBT, 0);
+      var eEq = p * eqW + (1 - p) * eqL;
+      function row(who, base, exp) {
+        var d = exp - base;
+        return "<tr><td>" + who + "</td><td>" + base + "</td><td>" + f1(exp) + "</td><td style='font-weight:700;color:" + (d >= 0 ? "var(--w-good)" : "var(--w-bad)") + "'>" + (d >= 0 ? "+" : "−") + f1(Math.abs(d)) + "</td></tr>";
+      }
+      tbl.innerHTML = "<table class='w-table'><thead><tr><th></th><th>No gamble</th><th>With gamble (expected)</th><th>Change</th></tr></thead><tbody>" +
+        row("Firm", CASH, eFirm) + row("Lender", Math.min(CASH, DEBT), eLend) + row("Equity (you)", Math.max(CASH - DEBT, 0), eEq) + "</tbody></table>";
+      verdict.textContent = eEq > Math.max(CASH - DEBT, 0)
+        ? "The firm expects to lose " + f1(CASH - eFirm) + ", the lender expects to lose " + f1(Math.min(CASH, DEBT) - eLend) + " — and you, the equity holder, come out ahead. You are gambling with the lender's money: heads you win, tails he loses. This is why loan agreements have covenants, and why lenders want board seats when things go wrong."
+        : "At this win probability the gamble stops paying even for the equity holder. But notice how high the odds had to get — with a 10% chance it was already worth YOUR while, because your downside was zero to begin with.";
+    }
+    win.addEventListener("input", draw); draw();
+  })();
+
+  /* ── M7: Buyback EPS illusion (payout chapter) ── */
+  (function () {
+    var root = document.getElementById("w-buyback"); if (!root) return;
+    var slider = root.querySelector("[data-bb]"), epsEl = root.querySelector("[data-eps]"),
+        peEl = root.querySelector("[data-pe]"), label = root.querySelector("[data-bb-label]"),
+        note = root.querySelector("[data-bb-note]");
+    var PROFIT = 1000, SHARES = 100, CASH_YIELD = 0.06, PRICE = 150;
+    function draw() {
+      var spend = +slider.value;
+      var bought = spend / PRICE;
+      var newProfit = PROFIT - spend * CASH_YIELD;
+      var newShares = SHARES - bought;
+      var eps0 = PROFIT / SHARES, eps1 = newProfit / newShares;
+      label.textContent = "Rs " + spend.toLocaleString("en-IN") + " cr";
+      epsEl.textContent = "Rs " + f2(eps1) + " vs Rs " + f2(eps0);
+      peEl.textContent = "+" + f1(((eps1 - eps0) / eps0) * 100) + "%";
+      note.textContent = spend === 0 ? "Move the slider. Watch EPS rise while the business earns the same." :
+        "Profit fell (that cash was earning 6% in treasury), the share count fell more, so EPS rose. The business did not improve by one rupee. If the stock was cheap, remaining owners gained; if it was dear, the sellers did. EPS growth alone tells you neither — check the denominator before you applaud.";
+    }
+    slider.addEventListener("input", draw); draw();
+  })();
+
+  /* ── Soft gate: unlock gated chapters when signed in ───────── */
+  (function () {
+    var gate = document.getElementById("essayGate"), gated = document.getElementById("gatedChapters");
+    if (!gate || !gated || !window.GZE_FIREBASE) return;
+    var base = "https://www.gstatic.com/firebasejs/10.12.2/";
+    Promise.all([import(base + "firebase-app.js"), import(base + "firebase-auth.js")]).then(function (m) {
+      var app = m[0].initializeApp(window.GZE_FIREBASE, "essay");
+      var auth = m[1].getAuth(app);
+      m[1].onAuthStateChanged(auth, function (user) {
+        document.body.classList.toggle("essay-unlocked", !!user);
+      });
+      var btn = gate.querySelector("[data-gate-signin]");
+      if (btn) btn.addEventListener("click", function () { m[1].signInWithPopup(auth, new m[1].GoogleAuthProvider()); });
+    }).catch(function () {});
+  })();
+})();
+
+/* ── Term lookup — Mac-dictionary-style popover ─────────────────
+   Auto-marks the FIRST occurrence of each glossary term per chapter
+   in the essay prose, then shows a definition card on tap/click.   */
+(function () {
+  "use strict";
+  var data = document.getElementById("gloss-data");
+  var essay = document.querySelector(".essay");
+  if (!data || !essay) return;
+  var list; try { list = JSON.parse(data.textContent); } catch (e) { return; }
+  if (!list || !list.length) return;
+  var terms = {};
+  list.forEach(function (g) { if (g.term) terms[g.term.toLowerCase()] = g; });
+  // aliases → canonical glossary term
+  var alias = { "npv": "NPV", "net present value": "NPV", "irr": "IRR", "internal rate of return": "IRR",
+    "wacc": "WACC", "weighted average cost of capital": "WACC", "cost of capital": "Cost of capital",
+    "opportunity cost": "Opportunity cost", "sunk cost": "Sunk cost", "sunk": "Sunk cost",
+    "hurdle rate": "Hurdle rate", "hurdle": "Hurdle rate", "risk premium": "Risk premium",
+    "risk-free rate": "Risk-free rate", "equity": "Equity", "tax shield": "Tax shield",
+    "modigliani–miller": "Modigliani-Miller", "modigliani-miller": "Modigliani-Miller", "mm": "Modigliani-Miller",
+    "covenants": "Covenant", "covenant": "Covenant", "risk shifting": "Risk shifting",
+    "debt overhang": "Debt overhang", "buyback": "Buyback", "buybacks": "Buyback", "eps": "EPS",
+    "capital budgeting": "Capital budgeting", "enterprise value": "Enterprise value",
+    "provisioning": "Provisioning", "disposition effect": "Disposition effect",
+    "corporate veil": "Corporate veil", "finance profit": "Finance profit",
+    "marginal investor": "Marginal investor", "present value": "Present value", "repo rate": "Repo rate",
+    "cpi": "CPI", "monetary policy committee": "Repo rate" };
+  var names = Object.keys(alias).sort(function (a, b) { return b.length - a.length; });
+  var rx = new RegExp("\\b(" + names.map(function (n) { return n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")\\b", "i");
+
+  // walk chapters: reset seen-set at each h2
+  var seen = {};
+  function markNode(node) {
+    if (node.nodeType === 1) {
+      if (node.tagName === "H2") { seen = {}; return; }
+      if (/^(SCRIPT|STYLE|DFN|A|BUTTON|OUTPUT|LABEL|SVG|INPUT)$/.test(node.tagName)) return;
+      if (node.classList && (node.classList.contains("widget") || node.classList.contains("essay-gate"))) return;
+      Array.prototype.slice.call(node.childNodes).forEach(markNode);
+      return;
+    }
+    if (node.nodeType !== 3) return;
+    var text = node.nodeValue, m = rx.exec(text);
+    if (!m) return;
+    var canon = alias[m[1].toLowerCase()];
+    var g = canon && terms[canon.toLowerCase()];
+    if (!g || seen[canon]) { // skip this hit, keep scanning the remainder
+      var restA = node.splitText(m.index + m[1].length);
+      markNode(restA); return;
+    }
+    seen[canon] = true;
+    var mid = node.splitText(m.index);
+    var rest = mid.splitText(m[1].length);
+    var dfn = document.createElement("dfn");
+    dfn.className = "lookup";
+    dfn.setAttribute("data-term", canon);
+    dfn.setAttribute("role", "button");
+    dfn.setAttribute("tabindex", "0");
+    dfn.textContent = mid.nodeValue;
+    mid.parentNode.replaceChild(dfn, mid);
+    markNode(rest);
+  }
+  Array.prototype.slice.call(essay.children).forEach(markNode);
+
+  // popover
+  var pop = document.createElement("div");
+  pop.className = "lookup-pop"; pop.setAttribute("hidden", "");
+  pop.innerHTML = '<p class="lp-term"></p><p class="lp-cat"></p><p class="lp-def"></p><a class="lp-more" href="/glossary/">full glossary →</a>';
+  document.body.appendChild(pop);
+  function show(dfn) {
+    var g = terms[dfn.getAttribute("data-term").toLowerCase()]; if (!g) return;
+    pop.querySelector(".lp-term").textContent = g.term;
+    pop.querySelector(".lp-cat").textContent = g.cat || "";
+    pop.querySelector(".lp-def").textContent = g.def || "";
+    pop.removeAttribute("hidden");
+    if (window.matchMedia("(max-width: 640px)").matches) { pop.classList.add("is-sheet"); pop.style.left = pop.style.top = ""; return; }
+    pop.classList.remove("is-sheet");
+    var r = dfn.getBoundingClientRect(), pw = 340;
+    var x = Math.min(Math.max(10, r.left + r.width / 2 - pw / 2), window.innerWidth - pw - 10);
+    var y = r.bottom + 10 + window.scrollY;
+    pop.style.left = x + "px"; pop.style.top = y + "px";
+  }
+  function hide() { pop.setAttribute("hidden", ""); }
+  document.addEventListener("click", function (e) {
+    var dfn = e.target.closest && e.target.closest("dfn.lookup");
+    if (dfn) { e.preventDefault(); show(dfn); }
+    else if (!pop.contains(e.target)) hide();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") hide();
+    if (e.key === "Enter" && document.activeElement && document.activeElement.matches && document.activeElement.matches("dfn.lookup")) show(document.activeElement);
+  });
+})();
+
+/* ── Footnotes — his notes have them; so do we ────────────────── */
+(function () {
+  var notes = document.querySelectorAll(".essay .fn");
+  if (!notes.length) return;
+  notes.forEach(function (fn, i) {
+    var sup = document.createElement("sup");
+    sup.className = "fn-ref"; sup.setAttribute("role", "button"); sup.setAttribute("tabindex", "0");
+    sup.textContent = i + 1;
+    fn.parentNode.insertBefore(sup, fn);
+    sup.addEventListener("click", function () { fn.classList.toggle("fn-open"); });
+    sup.addEventListener("keydown", function (e) { if (e.key === "Enter") fn.classList.toggle("fn-open"); });
+  });
+})();
+</script></body></html>

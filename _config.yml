@@ -41,6 +41,11 @@ defaults:
     values:
       layout: post
       comments: true
+  # SEO: default social-share image (per-page `image:` overrides)
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-default.png
 
 # Site metadata
 author:
@@ -61,11 +66,6 @@ issue_base_url: "https://github.com/harsharya7021/genz-economics.com/issues/new/
 # and large-card Twitter/X previews. jekyll-seo-tag reads both.
 twitter:
   card: summary_large_image
-defaults:
-  - scope:
-      path: ""
-    values:
-      image: /assets/img/og-default.png
 
 # Feature flags
 # ─────────────────────────────────────────────────────────────
