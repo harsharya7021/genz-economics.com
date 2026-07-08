@@ -121,31 +121,10 @@
       }, i * seg);
     });
 
-    /* burial, phase one (still pinned): the finished pile starts to give —
-       sinks with the scroll. No opacity change: the cards stay solid so the
-       exit reads as the CTA covering them, not the cards dissolving. */
-    var tEnd = (n - 1) * seg + 1;
-    tl.to(belt, { y: 34, duration: 0.8, ease: "power1.in" }, tEnd + 0.4);
-    tl.to({}, { duration: 0.2 }); // short beat, then unpin
-
-    /* burial, phase two (unpinned): the pile keeps sliding DOWN with the
-       scroll at full opacity while the white CTA fold (higher z, opaque,
-       rounded shoulder) climbs over it — the cards disappear UNDER the
-       CTA's edge, buried, never faded. (.stack-pin's overflow:hidden clips
-       them a hair early, but that seam is hidden beneath the fold's
-       -44px overlap.) */
-    gsap.to([belt, head], {
-      y: function (i, target) { return target === belt ? 260 : 150; },
-      ease: "none",
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: ".cta-band.cta-fold",
-        start: "top 98%",
-        end: "top 30%",
-        scrub: 0.6,
-        invalidateOnRefresh: true
-      }
-    });
+    /* Axiom-style exit (per Harsh's reference video): the finished pile
+       stays perfectly still; the white CTA fold simply rises over it.
+       No sinking, no counter-slide — the stillness is the effect. */
+    tl.to({}, { duration: 0.35 }); // hold the final pile a beat, then unpin
 
     /* Reckless/Inter load after first layout — re-measure once settled */
     if (document.fonts && document.fonts.ready) {

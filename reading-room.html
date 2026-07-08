@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "The Reading Room — Papers, Circulars & Articles He Assigns"
+title: The Reading Room
 permalink: /reading-room/
-description: "The papers, RBI circulars and articles Prof. Tantri sends his cohort — filed with his one-line verdicts, in a retro desktop you can click through."
+description: "Prof. Tantri's reading cabinet — class notes, the articles he sends, and the papers, filed in folders like it's 1997. Sign in with an ISB ID to open the drawers."
 ---
 
 <style>
@@ -12,16 +12,23 @@ description: "The papers, RBI circulars and articles Prof. Tantri sends his coho
     box-shadow: 0 8px 32px rgba(0,0,0,.08) !important; }
   .site-header .site-nav > a, .site-header .nav-drop-btn, .site-header .wordmark span, .site-header .theme-toggle, .site-header .acct-name { color: #17303f !important; }
   .site-header .wordmark-dot { color: #1a6f4e !important; }
-  /* gradient underline that grows from the center on hover, like the reference nav links */
   .site-header .site-nav > a { position: relative; padding-bottom: 2px; }
   .site-header .site-nav > a::after { content: ""; position: absolute; bottom: -2px; left: 50%; width: 0; height: 2px; border-radius: 1px;
     background: linear-gradient(90deg, #2f9e63, #1a6f4e);
     transition: width .3s cubic-bezier(.22,1,.36,1), left .3s cubic-bezier(.22,1,.36,1); }
   .site-header .site-nav > a:hover::after { width: 100%; left: 0; }
-  .site-footer { position: relative; z-index: 1; }
+  /* the footer lives ON the dune — no white box, Bliss all the way down */
+  .site-footer { background: transparent !important; border-top: 0 !important; position: relative; z-index: 2;
+    margin-top: -180px; }
+  .site-footer .footer-tag, .site-footer .footer-credit, .site-footer .copyline, .site-footer .copyline span,
+  .site-footer .wordmark span, .site-footer .footer-feedback { color: #fff !important; text-shadow: 0 1px 4px rgba(0,20,0,.55); }
+  .site-footer .footer-credit a { color: #eaffdd; }
+  .site-footer .footer-feedback { border-color: rgba(255,255,255,.55) !important; }
+  .site-footer .copyline { border-top-color: rgba(255,255,255,.35) !important; }
+  @media (max-width: 720px) { .site-footer { margin-top: -120px; } }
 </style>
 
-<!-- the sky scene: fixed backdrop the page scrolls over -->
+<!-- the sky: fixed backdrop the page scrolls over (the dune arrives in-flow, at the end) -->
 <div class="rr-scene" aria-hidden="true">
   <div class="rr-sun"></div>
   <div class="rr-cloud rr-cloud-1"></div>
@@ -29,27 +36,26 @@ description: "The papers, RBI circulars and articles Prof. Tantri sends his coho
   <div class="rr-cloud rr-cloud-3"></div>
   <div class="rr-cloud rr-cloud-4"></div>
   <div class="rr-cloud rr-cloud-5"></div>
-  <div class="rr-hill"></div>
 </div>
 
 <section class="rr-stage">
   <div class="container">
-    <!-- DOS command-line title, dropped in inside a glass frame -->
-    <div class="rr-glass-frame rr-enter-nav">
-      <div class="rr-dos">
+    <!-- DOS command-line title — types itself when you reach it -->
+    <div class="rr-glass-frame rr-reveal">
+      <div class="rr-dos" id="rrDos">
         <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <b>dir</b></div>
         <div>&nbsp;</div>
         <div><b>THE READING ROOM</b> — an homage to the Stone Age, back when people read things.</div>
         <div>His class notes, the articles he sent, and the papers. Filed in folders, like it's 1997.</div>
         <div>&nbsp;</div>
-        <div>Open a folder. Files open in Notepad — with a link to the real thing.</div>
+        <div>Open a folder. Drag the windows around. Double-click a file to open the real thing.</div>
         <div>&nbsp;</div>
         <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <span class="rr-cur"></span></div>
       </div>
     </div>
 
     <!-- Logged out: the gate -->
-    <div class="essay-gate rr-enter-2" id="essayGate" style="margin-top:1.4rem">
+    <div class="essay-gate rr-reveal" id="essayGate" style="margin-top:1.4rem">
       <h3>Sign in with your ISB ID to open the Reading Room</h3>
       <p>The references — everything he has shared to read, with his framing — are licensed ISB material, kept here for the cohort. Sign in once; it stays open. (The book club and his press are open to all.)</p>
       <button type="button" class="btn btn-primary" data-gate-signin>Sign in with ISB ID</button>
@@ -61,12 +67,63 @@ description: "The papers, RBI circulars and articles Prof. Tantri sends his coho
     <div class="rr-desktop" id="rrDesktop">
       <div class="rr-icons" id="rrIcons"></div>
     </div>
-    <p class="rr-hint rr-enter-3">Click a folder to open it. Click a file to open it in Notepad, then the real document.</p>
+  </div>
+
+  <!-- the grass dune — the real Bliss, arriving last; the footer stands on it -->
+  <div class="rr-dune rr-reveal" aria-hidden="true">
+    <img src="{{ '/assets/img/bliss-dune.jpg' | relative_url }}" alt="" loading="lazy">
   </div>
 </section>
 
 <script>
 (function(){
+  document.body.classList.add("rr-js");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── reveal on scroll: terminal, gate, icons, dune ── */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); } });
+  }, { threshold: .18 });
+  document.querySelectorAll(".rr-reveal").forEach(function(el){ io.observe(el); });
+
+  /* ── the terminal types itself the first time it's seen ── */
+  var dos = document.getElementById("rrDos");
+  if (dos && !reduced) {
+    var lines = Array.prototype.map.call(dos.children, function(d){ return d.innerHTML; });
+    var promptHTML = '<span class="rr-amber">C:\\LRC\\READING&#95;ROOM&gt;</span> ';
+    var typed = false;
+    var tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting || typed) return;
+        typed = true; tio.disconnect();
+        dos.innerHTML = '<div>' + promptHTML + '<b id="rrCmd"></b><span class="rr-cur"></span></div>';
+        var cmd = "dir", ci = 0;
+        var cmdEl = document.getElementById("rrCmd");
+        (function typeCmd(){
+          if (ci < cmd.length) { cmdEl.textContent += cmd[ci++]; setTimeout(typeCmd, 110 + Math.random()*90); }
+          else setTimeout(printLines, 320);
+        })();
+        function printLines(){
+          dos.querySelector(".rr-cur").remove();
+          var i = 1; /* line 0 is the prompt we just typed */
+          (function next(){
+            if (i >= lines.length - 1) { /* last line = fresh prompt with cursor */
+              var p = document.createElement("div");
+              p.innerHTML = promptHTML + '<span class="rr-cur"></span>';
+              dos.appendChild(p); return;
+            }
+            var d = document.createElement("div");
+            d.innerHTML = lines[i++] || "&nbsp;";
+            dos.appendChild(d);
+            setTimeout(next, 120);
+          })();
+        }
+      });
+    }, { threshold: .35 });
+    tio.observe(dos);
+  }
+
+  /* ── the desktop ── */
   var desktop = document.getElementById("rrDesktop"); if(!desktop) return;
   var iconWrap = document.getElementById("rrIcons");
 
@@ -139,73 +196,90 @@ description: "The papers, RBI circulars and articles Prof. Tantri sends his coho
   var LOCK_SVG = '<svg width="40" height="50" viewBox="0 0 40 50" fill="none"><path d="M6 2h19.5L38 14.5V46a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#f4f1e4" stroke="#b8ac86" stroke-width="1.5"/><path d="M25.5 2v12H38" fill="#e9e3cd" stroke="#b8ac86" stroke-width="1.5"/><rect x="13" y="27" width="14" height="11" rx="1.5" fill="#c99a1e"/><path d="M16 27v-2.5a4 4 0 0 1 8 0V27" stroke="#c99a1e" stroke-width="2" fill="none"/></svg>';
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-  function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"").slice(0,16) || "file"; }
 
-  var stack = [], win = null, npWin = null;
-  function currentKids(){ return stack.length ? stack[stack.length-1].children : TREE; }
+  var zTop = 20, openWins = {};
 
   function openIcons(){
     iconWrap.innerHTML = TREE.map(function(f,i){
-      return '<button class="rr-folder" data-i="'+i+'">'+FOLDER_SVG+'<span>'+esc(f.name)+'</span></button>';
+      return '<button class="rr-folder rr-reveal" style="transition-delay:'+(i*90)+'ms" data-i="'+i+'">'+FOLDER_SVG+'<span>'+esc(f.name)+'</span></button>';
     }).join("");
     Array.prototype.forEach.call(iconWrap.querySelectorAll(".rr-folder"), function(b){
-      b.addEventListener("click", function(){ stack=[TREE[+b.getAttribute("data-i")]]; renderWindow(); });
+      io.observe(b);
+      b.addEventListener("click", function(){ openWindow(+b.getAttribute("data-i")); });
     });
   }
 
-  function renderWindow(){
-    if(!win){ win = document.createElement("div"); win.className="rr-window"; desktop.appendChild(win); }
+  /* one window per top-level folder — draggable, closable, front-most on touch */
+  function openWindow(rootIdx){
+    if (openWins[rootIdx]) { bringToFront(openWins[rootIdx]); return; }
+    var win = document.createElement("div");
+    win.className = "rr-window";
+    var count = Object.keys(openWins).length;
+    win.style.left = "calc(8% + " + (count * 42) + "px)";
+    win.style.top = (40 + count * 34) + "px";
+    desktop.appendChild(win);
+    openWins[rootIdx] = win;
+    win._stack = [TREE[rootIdx]];
+    bringToFront(win);
+    renderWindow(win, rootIdx);
+  }
+  function bringToFront(win){ win.style.zIndex = ++zTop; }
+
+  function renderWindow(win, rootIdx){
+    var stack = win._stack;
     var node = stack[stack.length-1];
-    var kids = currentKids();
-    var crumb = ["Reading Room"].concat(stack.map(function(n){return n.name;})).join(" ▸ ");
+    var kids = node.children || [];
+    var crumb = ["Reading Room"].concat(stack.map(function(n){ return n.name; })).join(" ▸ ");
     var grid = kids.map(function(c,i){
       var label = '<span>'+esc(c.name)+'</span>'+(c.meta?'<span class="rr-meta">'+esc(c.meta)+'</span>':'');
       var ico = c.type==="folder" ? FOLDER_SVG : (c.locked ? LOCK_SVG : FILE_SVG);
-      return '<button class="rr-item" data-i="'+i+'">'+ico+label+'</button>';
+      return '<button class="rr-item" data-i="'+i+'" title="'+(c.type==="folder"?"Open folder":(c.locked?"Unpublished — take the course":"Double-click to open"))+'">'+ico+label+'</button>';
     }).join("");
     win.innerHTML =
-      '<div class="rr-titlebar"><span class="rr-tb-title">'+esc(node?node.name:"The Reading Room")+'</span><button class="rr-tb-btn" data-close aria-label="Close">×</button></div>'+
-      '<div class="rr-toolbar"><button class="rr-back"'+(stack.length?"":" disabled")+'>◂ Back</button><span class="rr-crumb">'+esc(crumb)+'</span></div>'+
-      '<div class="rr-window-body"><div class="rr-grid">'+grid+'</div></div>';
-    win.querySelector("[data-close]").addEventListener("click", closeWindow);
-    win.querySelector(".rr-back").addEventListener("click", function(){ if(stack.length){ stack.pop(); if(stack.length) renderWindow(); else closeWindow(); } });
+      '<div class="rr-titlebar"><span class="rr-tb-title">'+esc(node.name)+'</span><button class="rr-tb-btn" data-close aria-label="Close">×</button></div>'+
+      '<div class="rr-toolbar"><button class="rr-back"'+(stack.length>1?"":" disabled")+'>◂ Back</button><span class="rr-crumb">'+esc(crumb)+'</span></div>'+
+      '<div class="rr-window-body"><div class="rr-grid">'+grid+'</div></div>'+
+      '<div class="rr-statusbar"><span>'+kids.length+' object(s)</span><span>double-click opens the real thing</span></div>';
+
+    win.querySelector("[data-close]").addEventListener("click", function(){ win.remove(); delete openWins[rootIdx]; });
+    win.querySelector(".rr-back").addEventListener("click", function(){ if(stack.length>1){ stack.pop(); renderWindow(win, rootIdx); } });
+    win.addEventListener("pointerdown", function(){ bringToFront(win); });
+
+    /* drag by the titlebar */
+    var bar = win.querySelector(".rr-titlebar");
+    bar.addEventListener("pointerdown", function(e){
+      if (e.target.closest(".rr-tb-btn")) return;
+      e.preventDefault();
+      bringToFront(win);
+      var dr = desktop.getBoundingClientRect(), wr = win.getBoundingClientRect();
+      var offX = e.clientX - wr.left, offY = e.clientY - wr.top;
+      function move(ev){
+        var x = ev.clientX - dr.left - offX, y = ev.clientY - dr.top - offY;
+        x = Math.max(-40, Math.min(x, dr.width - 120));
+        y = Math.max(0, y);
+        win.style.left = x + "px"; win.style.top = y + "px";
+      }
+      function up(){ document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); bar.classList.remove("is-grabbing"); }
+      bar.classList.add("is-grabbing");
+      document.addEventListener("pointermove", move);
+      document.addEventListener("pointerup", up);
+    });
+
+    /* items: single click selects, folders open in place, files open on double-click */
     Array.prototype.forEach.call(win.querySelectorAll(".rr-item"), function(b){
+      var c = kids[+b.getAttribute("data-i")];
       b.addEventListener("click", function(){
-        var c = kids[+b.getAttribute("data-i")];
-        if(c.type==="folder"){ stack.push(c); renderWindow(); } else openNotepad(c);
+        win.querySelectorAll(".rr-item.is-sel").forEach(function(x){ x.classList.remove("is-sel"); });
+        b.classList.add("is-sel");
+        if (c.type === "folder") { stack.push(c); renderWindow(win, rootIdx); }
+      });
+      if (c.type !== "folder") b.addEventListener("dblclick", function(){
+        if (c.url) { window.open(c.url, "_blank", "noopener"); }
+        else if (c.locked) { b.classList.remove("rr-shake"); void b.offsetWidth; b.classList.add("rr-shake"); }
+        else { window.open("https://www.google.com/search?q=" + encodeURIComponent(c.name), "_blank", "noopener"); }
       });
     });
   }
-  function closeWindow(){ if(win){ win.remove(); win=null; } stack=[]; closeNotepad(); }
-
-  function openNotepad(file){
-    closeNotepad();
-    npWin = document.createElement("div"); npWin.className = "rr-window rr-notepad";
-    var fname, body, action = "";
-    if(file.locked){
-      fname = "readme.txt";
-      body = "These are his class notes — unpublished.\n\nThe honest way in is to take the course, or ask him.\n\n(You didn't hear it from Notepad.)";
-    } else if(file.url){
-      fname = slug(file.name) + ".txt";
-      body = "Document : " + file.name + "\nType     : " + (file.meta ? file.meta + " · " : "") + "external file\n\nThis one lives off-site. Open it in a new tab:";
-      action = '<a class="rr-open-btn" href="'+esc(file.url)+'" target="_blank" rel="noopener">Open document ↗</a>';
-    } else {
-      fname = slug(file.name) + ".txt";
-      var q = "https://www.google.com/search?q=" + encodeURIComponent(file.name);
-      body = "Document : " + file.name + "\n\nNo direct link on file — print-only, or shared in class. Search for it:";
-      action = '<a class="rr-open-btn" href="'+esc(q)+'" target="_blank" rel="noopener">Search for it ↗</a>';
-    }
-    npWin.innerHTML =
-      '<div class="rr-titlebar"><span class="rr-tb-title">'+esc(fname)+' — Notepad</span><button class="rr-tb-btn" data-close aria-label="Close">×</button></div>'+
-      '<div class="rr-menubar"><span>File</span><span>Edit</span><span>Search</span><span>Help</span></div>'+
-      '<div class="rr-np-body">'+esc(body)+'</div>'+
-      (action ? '<div class="rr-np-foot">'+action+'</div>' : '');
-    desktop.appendChild(npWin);
-    npWin.querySelector("[data-close]").addEventListener("click", closeNotepad);
-  }
-  function closeNotepad(){ if(npWin){ npWin.remove(); npWin=null; } }
-
-  desktop.addEventListener("click", function(e){ if(e.target===desktop){ closeNotepad(); closeWindow(); } });
 
   openIcons();
 })();
