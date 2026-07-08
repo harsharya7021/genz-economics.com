@@ -728,8 +728,11 @@ blockquote {
   .site-nav .acct-menu { position: static; display: none; margin-top: .5rem; }
   .site-nav .acct.open .acct-menu { display: block; }
 
-  /* footer: centred, breathing — was cramped and left-hanging */
+  /* footer: centred, breathing — was cramped and left-hanging.
+     Explicit on every level: the wordmark's box hugged the left otherwise. */
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; padding-bottom: .4rem; }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .site-footer .wordmark { text-align: center; width: auto; margin-inline: auto; }
   .footer-made { align-items: center; text-align: center; gap: .55rem; }
   .footer-tag { max-width: none; margin-inline: auto; }
   .copyline { text-align: center; justify-content: center; display: flex; }
