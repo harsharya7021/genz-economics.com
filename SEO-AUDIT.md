@@ -122,18 +122,18 @@ The wedge is real: nobody owns "Indian macro, explained from a classroom, with t
 
 ## Prioritized action plan
 
-### Quick wins (this week)
+### Quick wins (this week) — ✅ DONE 2026-07-08
 
-| Action | Impact | Effort |
+| Action | Impact | Status |
 |--------|--------|--------|
-| 1. **Verify Search Console (+ Bing), submit sitemap, request indexing** on home, 3 long reads, sessions index, S16 note | **High** — unblocks everything | 30 min (needs Harsh's Google account) |
-| 2. **Professor links the site** from his next LinkedIn post + ask ISB to link it from his faculty page ("Teaching resources") | **High** — first real backlinks, crawl trigger | 15 min ask |
-| 3. Unique titles/descriptions for the 12 key pages (home, 3 reads, sessions, glossary, calendar, book club, press, reading room, discussions, about) | **High** | 1–2 h |
-| 4. Fix multi-H1 in the note layout (body `#` → h2) | Medium | 30 min |
-| 5. Default `og:image` (1200×630 brand card) + `summary_large_image` | Medium — CTR on every share | 1 h |
-| 6. WebP the hero images, WOFF2-subset the two fonts | **High** — LCP ~4s → ~1.5s | 1–2 h |
-| 7. Noindex the `-PREVIEW`/`-v9` variants | Medium | 15 min |
-| 8. Trim the 300+ char note descriptions | Medium | 45 min |
+| 1. **Verify Search Console, submit sitemap, request indexing** | **High** — unblocks everything | ✅ Verified (HTML-file), sitemap.xml submitted, homepage indexing requested — and the site was *already on Google*. Bing + per-page indexing requests: still worth doing |
+| 2. **Professor links the site** from LinkedIn + ISB faculty page | **High** — first real backlinks | ⏳ Harsh's ask (15 min) |
+| 3. Unique titles/descriptions for the key pages | **High** | ✅ 10 pages + all 30 notes (excerpt fallback had been shipping 500-char metas) |
+| 4. Fix multi-H1 in the note layout | Medium | ✅ 82 body headings demoted to h2 across 10 notes |
+| 5. Default `og:image` + `summary_large_image` | Medium | ✅ `og-default.png` brand card + config |
+| 6. WebP heroes, subset WOFF fonts | **High** — LCP | ✅ heroes 1.2MB→350KB; fonts 900KB→116KB (−87%) |
+| 7. Noindex the `-PREVIEW`/`-v9` variants | Medium | ✅ previews `exclude`d from build; v9 `noindex` + `sitemap:false` |
+| 8. Trim the 300+ char note descriptions | Medium | ✅ folded into #3 (all notes now ≤160 char hand/auto descriptions) |
 
 ### Strategic investments (this quarter)
 
