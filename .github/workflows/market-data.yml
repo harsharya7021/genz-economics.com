@@ -9,11 +9,14 @@
 name: Market data (morning refresh)
 
 on:
-  # PARKED: the morning auto-schedule is disabled until FRED_API_KEY is added
-  # and Pages source is "GitHub Actions". Nothing runs on its own. To switch it
-  # on later, restore the two `schedule` lines below and push:
-  #   schedule:
-  #     - cron: "30 3 * * 1-5"   # 03:30 UTC ≈ 09:00 IST, Mon–Fri
+  # LIVE since 2026-07-08: Pages source is "GitHub Actions" and a manual
+  # dispatch ran green end-to-end on the Yahoo fallback (fetch → commit →
+  # deploy). FRED_API_KEY is still worth adding for FRED-quality USD/INR,
+  # Brent and US10Y — one command from any terminal:
+  #   gh secret set FRED_API_KEY -R harsharya7021/genz-economics.com
+  # (free key: https://fredaccount.stlouisfed.org/apikeys)
+  schedule:
+    - cron: "30 3 * * 1-5"   # 03:30 UTC ≈ 09:00 IST, Mon–Fri
   workflow_dispatch:
 
 permissions:

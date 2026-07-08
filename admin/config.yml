@@ -3,16 +3,16 @@
 # Sign in at /admin/ with the GitHub account that owns (or collaborates on) the
 # repo. Auth goes through the Cloudflare OAuth broker below.
 #
-# ONE-TIME SETUP (see cloudflare/decap-oauth/README.md):
-#   1. Create a GitHub OAuth App; note the Client ID + Secret.
-#   2. Deploy the broker Worker with those secrets, then paste its URL into
-#      `base_url` below (replace the placeholder) and commit.
+# Worker deployed 2026-07-08 (fails closed until its two secrets exist).
+# LAST STEP (see cloudflare/decap-oauth/README.md): create the GitHub OAuth
+# App with callback https://gze-decap-oauth.harsharya7021.workers.dev/callback
+# then run ./finish-decap.command and paste the Client ID + Secret.
 
 backend:
   name: github
   repo: harsharya7021/genz-economics.com
   branch: main
-  base_url: https://gze-decap-oauth.REPLACE-SUBDOMAIN.workers.dev   # ← the deployed Worker URL
+  base_url: https://gze-decap-oauth.harsharya7021.workers.dev
   auth_endpoint: /auth
 
 # Uploaded images land here (used by the markdown editor's image button)

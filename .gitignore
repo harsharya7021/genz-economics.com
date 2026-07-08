@@ -24,3 +24,6 @@ assets/img/.wtest
 # Python
 __pycache__/
 *.pyc
+
+# wrangler local state (worker deploys)
+.wrangler/
