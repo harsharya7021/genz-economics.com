@@ -1634,6 +1634,24 @@ dfn.lookup:hover { background: var(--highlight); }
 
 .rr-stage { position: relative; min-height: calc(100vh - 70px); padding: 1.4rem 0 0; }
 
+/* viewport one: sky-only hero — terminal floats mid-air, slightly off-centre */
+.rr-hero { min-height: calc(100svh - 64px); display: flex; flex-direction: column; justify-content: center;
+  position: relative; padding-bottom: 84px; }
+.rr-hero .rr-float { margin-top: -6vh; }
+@media (min-width: 981px) { .rr-hero .rr-float { margin-left: 12%; } }
+@media (max-width: 980px) { .rr-hero .rr-float { margin-inline: auto; } }
+.rr-stage .rr-nudge { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); margin: 0;
+  transition: opacity .35s ease; }
+.rr-stage .rr-nudge.is-gone { opacity: 0; pointer-events: none; }
+.rr-stage .rr-nudge .sn-label { color: #fff; text-shadow: 0 1px 4px rgba(0,30,60,.45); }
+.rr-stage .rr-nudge:hover .sn-label { color: #fff; }
+.rr-stage .rr-nudge .sn-track { background: rgba(255,255,255,.38); }
+.rr-stage .rr-nudge .sn-track i { background: #fff; }
+/* the folders stand on the grass: pull the icon row down onto the dune crest */
+.gated .rr-desktop { min-height: 0; position: relative; z-index: 2; }
+.gated .rr-icons { margin-bottom: -180px; position: relative; }
+@media (max-width: 720px) { .gated .rr-icons { margin-bottom: -120px; } }
+
 /* frosted-glass furniture (reference: bg-white/40 + blur + white hairline
    + inset top highlight + soft 0 4px 24px shadow) */
 .rr-glass-frame { width: fit-content; max-width: 100%; padding: 6px; border-radius: 18px;
@@ -1679,7 +1697,7 @@ body:not(.rr-js) .rr-reveal { opacity: 1; transform: none; }  /* no-JS: everythi
 .rr-cur { display: inline-block; width: .58em; height: 1em; background: #35d651; vertical-align: -2px; animation: rr-blink 1.05s steps(1) infinite; }
 
 /* desktop + icons */
-.rr-desktop { position: relative; min-height: 68vh; overflow: visible; }
+.rr-desktop { position: relative; overflow: visible; }
 .rr-icons { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fill, 94px); gap: 1rem .7rem; padding: 1.4rem 1rem; }
 .rr-folder { width: 94px; display: flex; flex-direction: column; align-items: center; gap: .3rem; cursor: pointer; background: none; border: 0; padding: .4rem .3rem; color: #fff; font: 600 .76rem/1.2 var(--sans); text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
 .rr-folder:hover, .rr-folder:focus-visible { background: rgba(0,40,120,.34); outline: 1px dotted rgba(255,255,255,.85); }

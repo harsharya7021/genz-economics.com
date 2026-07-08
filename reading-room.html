@@ -34,9 +34,12 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
 <div class="rr-scene rr-scene-photo" aria-hidden="true"></div>
 
 <section class="rr-stage">
-  <div class="container">
-    <!-- DOS command-line title -->
-    <div class="rr-glass-frame rr-reveal">
+  <!-- viewport one: just sky and a terminal, floating a little off-centre.
+       Nothing green above the fold — the dune is the reward for scrolling. -->
+  <div class="rr-hero">
+    <div class="container">
+      <!-- DOS command-line title -->
+      <div class="rr-glass-frame rr-reveal rr-float">
       <div class="rr-dos" id="rrDos">
         <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <b>dir</b></div>
         <div>&nbsp;</div>
@@ -47,8 +50,15 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
         <div>&nbsp;</div>
         <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <span class="rr-cur"></span></div>
       </div>
+      </div>
     </div>
+    <a class="scroll-nudge rr-nudge" href="#rrMore" aria-label="Scroll — the room is below">
+      <span class="sn-label">scroll</span>
+      <span class="sn-track" aria-hidden="true"><i></i></span>
+    </a>
+  </div>
 
+  <div class="container" id="rrMore">
     <!-- Logged out: the gate -->
     <div class="essay-gate rr-reveal" id="essayGate" style="margin-top:1.4rem">
       <h3>Sign in with your ISB ID to open the Reading Room</h3>
@@ -80,6 +90,12 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); } });
   }, { threshold: .18 });
   document.querySelectorAll(".rr-reveal").forEach(function(el){ io.observe(el); });
+
+  /* the nudge did its job once you scroll — get it off the grass */
+  var nudge = document.querySelector(".rr-nudge");
+  if (nudge) window.addEventListener("scroll", function(){
+    nudge.classList.toggle("is-gone", window.scrollY > window.innerHeight * .35);
+  }, { passive: true });
 
   /* ── the desktop ── */
   var desktop = document.getElementById("rrDesktop"); if(!desktop) return;
