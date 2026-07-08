@@ -390,6 +390,7 @@ function gzeWeekIndex() {
     m[1].onAuthStateChanged(auth, function (user) {
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       document.body.classList.toggle("site-signed-in", !!user);
+      document.documentElement.classList.remove("gze-auth-pending");
       /* header account chip — always visible; the menu flips between
          "Sign in" (signed out, neutral placeholder avatar) and "Sign out" */
       var acct = document.getElementById("gzeAcct");
@@ -516,3 +517,6 @@ function gzeWeekIndex() {
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && header.classList.contains("nav-open")) setOpen(false); });
   window.addEventListener("resize", function () { if (window.innerWidth > 860) setOpen(false); });
 })();
+
+/* if Firebase never answers (offline, blocked), don't hide the gates forever */
+setTimeout(function () { document.documentElement.classList.remove("gze-auth-pending"); }, 2500);

@@ -7,7 +7,11 @@
     /* set theme before first paint to avoid flash */
     (function(){try{var t=localStorage.getItem('gze-theme');
       if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
-      document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+      document.documentElement.setAttribute('data-theme',t);}catch(e){}
+      /* auth-pending: sign-in gates stay invisible until Firebase says who you
+         are — kills the one-frame "Sign in with ISB ID" flash for signed-in
+         users. site.js lifts it (with a 2.5s failsafe); no-JS never sets it. */
+      document.documentElement.classList.add('gze-auth-pending');})();
   </script>
   <title>{% if page.draft %}[DRAFT] {% endif %}{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   {% if page.draft or page.noindex or page.permalink == "/drafts/" %}<meta name="robots" content="noindex, nofollow">{% endif %}

@@ -52,7 +52,10 @@
       scrollTrigger: {
         trigger: stage,
         start: "top top",
-        end: function () { return "+=" + Math.round(n * window.innerHeight * 0.75); },
+        /* n card-beats of runway + ONE extra viewport: that last viewport is
+           the takeover — the pile stays pinned dead-still while the white fold
+           (margin-top:-100vh in CSS) rides up over it, Axiom-style. */
+        end: function () { return "+=" + Math.round(n * window.innerHeight * 0.75 + window.innerHeight); },
         pin: true,
         scrub: 1,
         anticipatePin: 1,
@@ -63,9 +66,11 @@
         snap: {
           snapTo: function (value) {
             var D = tl.duration();
+            /* past the last card's beat the fold is riding over the stage —
+               snapping there would yank the sheet; leave the scroll alone */
+            if (value > ((n - 1) * seg + 1) / D + 0.02) return value;
             var pts = [0];
             for (var i = 0; i < n; i++) pts.push((i * seg + 1) / D);
-            pts.push(1);
             var best = pts[0];
             for (var j = 1; j < pts.length; j++) if (Math.abs(pts[j] - value) < Math.abs(best - value)) best = pts[j];
             return best;
@@ -121,10 +126,12 @@
       }, i * seg);
     });
 
-    /* Axiom-style exit (per Harsh's reference video): the finished pile
-       stays perfectly still; the white CTA fold simply rises over it.
-       No sinking, no counter-slide — the stillness is the effect. */
-    tl.to({}, { duration: 0.35 }); // hold the final pile a beat, then unpin
+    /* Axiom-style exit, now the real thing: the finished pile holds
+       perfectly still for the pin's final viewport while the white fold
+       (see body.stack-ready .cta-fold in main.css) slides over and buries
+       it. Tail duration 2 ≈ one viewport of the belt's scroll length —
+       card pacing above is untouched. */
+    tl.to({}, { duration: 2 });
 
     /* Reckless/Inter load after first layout — re-measure once settled */
     if (document.fonts && document.fonts.ready) {
