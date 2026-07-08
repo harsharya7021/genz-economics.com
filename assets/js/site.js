@@ -288,35 +288,43 @@
   });
 })();
 
-/* Daily UPSC discussion question — deterministic by date from #upsc-daily-data */
+/* Weekly rotation index — weeks flip on SUNDAY 00:00 UTC (5:30am IST), so a
+   fresh question lands the morning of his Sunday session. Epoch day 0 was a
+   Thursday; +4 shifts the week boundary to Sunday. */
+function gzeWeekIndex() {
+  var now = new Date();
+  var days = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+  return Math.floor((days + 4) / 7);
+}
+
+/* Weekly UPSC discussion question — deterministic by week from #upsc-daily-data */
 (function () {
   var holder = document.getElementById("upscToday");
   var data = document.getElementById("upsc-daily-data");
   if (!holder || !data) return;
   var list; try { list = JSON.parse(data.textContent); } catch (e) { return; }
   if (!list || !list.length) return;
-  var now = new Date();
-  var doy = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 86400000);
-  var item = list[doy % list.length];
+  var item = list[gzeWeekIndex() % list.length];
   holder.textContent = item.q;
   var meta = document.getElementById("upscTodayMeta");
   if (meta) meta.textContent = [item.paper || "UPSC", item.year, item.topic].filter(Boolean).join(" · ");
 })();
 
-/* Daily discussion — today's question + yesterday's revealed answer (by date) */
+/* Weekly discussion — this week's question + last week's revealed answer.
+   One question per week (rotates Sunday); thread id keys by week so the
+   comment room stays open all week. */
 (function () {
   var data = document.getElementById("daily-data"); var today = document.getElementById("upscToday");
   if (!data || !today) return;
   var list; try { list = JSON.parse(data.textContent); } catch (e) { return; }
   if (!list || !list.length) return;
-  var now = new Date();
-  var doy = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 86400000);
-  var n = list.length, cur = list[((doy % n) + n) % n], prev = list[((((doy - 1) % n) + n) % n)];
+  var wk = gzeWeekIndex();
+  var n = list.length, cur = list[((wk % n) + n) % n], prev = list[((((wk - 1) % n) + n) % n)];
   today.textContent = cur.q;
   var m = document.getElementById("upscTodayMeta"); if (m) m.textContent = cur.topic || "";
   var pq = document.getElementById("dailyPrevQ"); if (pq) pq.textContent = prev.q;
   var pa = document.getElementById("dailyPrevA"); if (pa) pa.textContent = prev.model || "";
-  var dc = document.querySelector("[data-comments][data-daily]"); if (dc) dc.setAttribute("data-thread", "daily-" + doy);
+  var dc = document.querySelector("[data-comments][data-daily]"); if (dc) dc.setAttribute("data-thread", "weekly-" + wk);
 })();
 
 /* Glossary — live search + category filter */
@@ -460,4 +468,32 @@
   });
   document.addEventListener("click", function () { closeAll(null); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(null); });
+})();
+
+/* Mobile drawer nav — burger toggles a full-screen menu (≤860px).
+   GSAP staggers the items in when it's around; plain reveal otherwise. */
+(function () {
+  var burger = document.getElementById("navBurger");
+  var header = document.querySelector(".site-header");
+  var nav = document.getElementById("siteNav");
+  if (!burger || !header || !nav) return;
+  function setOpen(open) {
+    header.classList.toggle("nav-open", open);
+    document.body.classList.toggle("nav-locked", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (open && window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.gsap.fromTo(nav.children,
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: .38, stagger: .05, ease: "power2.out", overwrite: true, clearProps: "transform,opacity" });
+    }
+  }
+  burger.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setOpen(!header.classList.contains("nav-open"));
+  });
+  /* close on link tap or Escape; reset if resized past the breakpoint */
+  nav.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && header.classList.contains("nav-open")) setOpen(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 860) setOpen(false); });
 })();

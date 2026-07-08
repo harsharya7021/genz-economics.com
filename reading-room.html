@@ -5,36 +5,53 @@ permalink: /reading-room/
 ---
 
 <style>
-  /* the real Bliss, full-bleed */
-  .rr-bg { background-image: url('{{ '/assets/img/Bliss.png' | relative_url }}'); }
-  /* run the grass under the header, this page only */
-  .site-header { background: linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,0)) !important; border-bottom: 0 !important; box-shadow: none !important; }
-  .site-header .site-nav > a, .site-header .nav-drop-btn, .site-header .wordmark span, .site-header .theme-toggle, .site-header .acct-name { color: #fff !important; }
-  .site-header .wordmark-dot { color: #d6e6ff !important; }
+  /* frosted-glass header over the sky, this page only (emaliz nav treatment) */
+  .site-header { background: rgba(255,255,255,.85) !important; border-bottom: 1px solid rgba(255,255,255,.42) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(160%) !important; backdrop-filter: blur(22px) saturate(160%) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,.08) !important; }
+  .site-header .site-nav > a, .site-header .nav-drop-btn, .site-header .wordmark span, .site-header .theme-toggle, .site-header .acct-name { color: #17303f !important; }
+  .site-header .wordmark-dot { color: #1a6f4e !important; }
+  /* gradient underline that grows from the center on hover, like the reference nav links */
+  .site-header .site-nav > a { position: relative; padding-bottom: 2px; }
+  .site-header .site-nav > a::after { content: ""; position: absolute; bottom: -2px; left: 50%; width: 0; height: 2px; border-radius: 1px;
+    background: linear-gradient(90deg, #2f9e63, #1a6f4e);
+    transition: width .3s cubic-bezier(.22,1,.36,1), left .3s cubic-bezier(.22,1,.36,1); }
+  .site-header .site-nav > a:hover::after { width: 100%; left: 0; }
   .site-footer { position: relative; z-index: 1; }
 </style>
 
-<div class="rr-bg" aria-hidden="true"></div>
+<!-- the sky scene: fixed backdrop the page scrolls over -->
+<div class="rr-scene" aria-hidden="true">
+  <div class="rr-sun"></div>
+  <div class="rr-cloud rr-cloud-1"></div>
+  <div class="rr-cloud rr-cloud-2"></div>
+  <div class="rr-cloud rr-cloud-3"></div>
+  <div class="rr-cloud rr-cloud-4"></div>
+  <div class="rr-cloud rr-cloud-5"></div>
+  <div class="rr-hill"></div>
+</div>
 
 <section class="rr-stage">
   <div class="container">
-    <!-- DOS command-line title -->
-    <div class="rr-dos">
-      <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <b>dir</b></div>
-      <div>&nbsp;</div>
-      <div><b>THE READING ROOM</b> — an homage to the Stone Age, back when people read things.</div>
-      <div>His class notes, the articles he sent, and the papers. Filed in folders, like it's 1997.</div>
-      <div>&nbsp;</div>
-      <div>Open a folder. Files open in Notepad — with a link to the real thing.</div>
-      <div>&nbsp;</div>
-      <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <span class="rr-cur"></span></div>
+    <!-- DOS command-line title, dropped in inside a glass frame -->
+    <div class="rr-glass-frame rr-enter-nav">
+      <div class="rr-dos">
+        <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <b>dir</b></div>
+        <div>&nbsp;</div>
+        <div><b>THE READING ROOM</b> — an homage to the Stone Age, back when people read things.</div>
+        <div>His class notes, the articles he sent, and the papers. Filed in folders, like it's 1997.</div>
+        <div>&nbsp;</div>
+        <div>Open a folder. Files open in Notepad — with a link to the real thing.</div>
+        <div>&nbsp;</div>
+        <div><span class="rr-amber">C:\LRC\READING&#95;ROOM&gt;</span> <span class="rr-cur"></span></div>
+      </div>
     </div>
 
     <!-- Logged out: the gate -->
-    <div class="essay-gate" id="essayGate" style="margin-top:1.4rem">
+    <div class="essay-gate rr-enter-2" id="essayGate" style="margin-top:1.4rem">
       <h3>Sign in with your ISB ID to open the Reading Room</h3>
       <p>The references — everything he has shared to read, with his framing — are licensed ISB material, kept here for the cohort. Sign in once; it stays open. (The book club and his press are open to all.)</p>
-      <button type="button" class="btn btn-primary" data-gate-signin>Sign in with Google</button>
+      <button type="button" class="btn btn-primary" data-gate-signin>Sign in with ISB ID</button>
     </div>
   </div>
 
@@ -43,7 +60,7 @@ permalink: /reading-room/
     <div class="rr-desktop" id="rrDesktop">
       <div class="rr-icons" id="rrIcons"></div>
     </div>
-    <p class="rr-hint">Click a folder to open it. Click a file to open it in Notepad, then the real document.</p>
+    <p class="rr-hint rr-enter-3">Click a folder to open it. Click a file to open it in Notepad, then the real document.</p>
   </div>
 </section>
 

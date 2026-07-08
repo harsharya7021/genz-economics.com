@@ -49,7 +49,7 @@
       <a class="wordmark" href="{{ '/' | relative_url }}">
         <span class="wordmark-g">gen&nbsp;z</span><span class="wordmark-dot">·</span><span class="wordmark-e">economics</span>
       </a>
-      <nav class="site-nav">
+      <nav class="site-nav" id="siteNav">
         <a href="{{ '/' | relative_url }}" title="Atrium — home">Atrium</a>
         <div class="nav-drop" data-nav-drop>
           <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false" title="Lecture Theatre">LT<svg class="nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -87,6 +87,10 @@
           </div>
         </div>
       </nav>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <svg class="nb-open" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="nb-close" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </header>
 
@@ -130,7 +134,7 @@
     btn.addEventListener("click", function(){
       if(!el){
         el = document.createElement("div"); el.className = "lrc-flash"; el.setAttribute("aria-hidden","true");
-        el.innerHTML = '<div class="lrc-flash-card"><p class="lrc-flash-h">Sign in with your ISB ID to open the LRC</p><span class="lrc-flash-btn">Sign in with Google</span></div>';
+        el.innerHTML = '<div class="lrc-flash-card"><p class="lrc-flash-h">Sign in with your ISB ID to open the LRC</p><span class="lrc-flash-btn">Sign in with ISB ID</span></div>';
         document.body.appendChild(el);
       }
       el.classList.add("is-on");

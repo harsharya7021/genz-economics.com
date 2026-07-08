@@ -1,4 +1,4 @@
-# Daily discussion bank. One question surfaces each day (by date); the next day
+# Weekly discussion bank. One question surfaces each week (rotates Sunday); next week
 # its model answer is revealed. Append new {q, model, topic} items anytime.
 - q: "If the RBI holds the repo rate steady but drains liquidity through VRRR, is policy tightening or not?"
   date: "2026-06-23"

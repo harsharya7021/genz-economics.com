@@ -5,9 +5,9 @@ layout: default
 <!-- ── Act 1: masthead — the lecture-hall hero.
      Left: headline + lede + a kinetic GZE collage (OCW-style moving parts:
      bars, a drawing yield curve, ticker chips, marquee type).
-     Right: Prof. Tantri as line art, posing today's question; the card
+     Right: Prof. Tantri as line art, posing this week's question; the card
      flips to the lecture hall — name card up, karma awarded — then flips
-     back. Daily question + money-history fact live HERE now (site.js
+     back. Weekly question + daily money-history fact live HERE now (site.js
      already fills #upscToday / #mhTitle). ── -->
 <section class="hero masthead hero-duo" style="padding-bottom:1.4rem">
   <div class="container duo-grid">
@@ -24,15 +24,15 @@ layout: default
     </div>
 
     <div class="duo-right">
-      <div class="prof-stage" id="profStage" aria-label="Today's question from the professor — activates the lecture hall view">
+      <div class="prof-stage" id="profStage" aria-label="This week's question from the professor — activates the lecture hall view">
         <div class="prof-flip">
 
-          <!-- Face A: the professor, line art (generated from his own footage), posing today's question -->
+          <!-- Face A: the professor, line art (generated from his own footage), posing this week's question -->
           <div class="pf-face pf-front">
             <img class="pf-art" src="{{ '/assets/img/hero/hero-prof.png' | relative_url }}" alt="Prof. Tantri, drawn in a single line, mid-question at the lectern">
             <div class="prof-bubble">
-              <p class="pb-label">Today's question · class participation open</p>
-              <p class="pb-q" id="upscToday">Loading today's question…</p>
+              <p class="pb-label">This week's question · class participation open</p>
+              <p class="pb-q" id="upscToday">Loading this week's question…</p>
               <a class="pb-cta" href="{{ '/discussions/' | relative_url }}">Answer it → collect the karma</a>
             </div>
           </div>
@@ -41,7 +41,7 @@ layout: default
           <div class="pf-face pf-back">
             <img class="pf-art pf-art-hall" src="{{ '/assets/img/hero/hero-hall.png' | relative_url }}" alt="The tiered ISB lecture hall in line art — one name card lit up">
             <span class="hall-karma">+2 karma</span>
-            <p class="hall-caption">Best answer gets read out in class — name card and all. Sign in, answer today's question, and the ledger remembers.</p>
+            <p class="hall-caption">Best answer gets read out in class — name card and all. Sign in, answer this week's question, and the ledger remembers.</p>
           </div>
 
         </div>
@@ -62,10 +62,10 @@ layout: default
      in and joins a centred pile, then the pile rides the scroll down and
      dissolves into the white CTA. home-stack.js drives it. ── -->
 <section class="stack-stage" id="walkthrough">
-  <!-- ambient background: a stilled two-tone candlestick chart (up = green,
-       down = muted steel, kit-style hairline grid), sharp bodies. A gold
-       trend line rides above the wicks and DRAWS ITSELF with the scroll —
-       lit dot on the tip, dashed drop-line under it (home-stack.js). -->
+  <!-- ambient background: the walkthrough progress bar as finance draws it — a
+       two-tone candlestick chart (gains = Future Green, dips = Innovation Blue,
+       ivory hairline grid) under a gold equity curve that DRAWS ITSELF with the
+       scroll — lit dot on the tip, five milestone rings claimed card by card (home-stack.js). -->
   <svg class="stage-candles" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
     <g class="sc-grid">
       <line x1="0" y1="150" x2="1000" y2="150"/>
@@ -192,7 +192,7 @@ layout: default
       <p class="continue-empty" id="continueEmpty">Nothing in progress yet — open a note and it'll wait for you right here, with your spot saved.</p>
     </div>
     <div class="hero-cta signin-only">
-      <a class="btn btn-primary" id="ctaSignIn" href="#latest" data-gate-signin>Sign in with Google</a>
+      <a class="btn btn-primary" id="ctaSignIn" href="#latest" data-gate-signin>Sign in with ISB ID</a>
       <a class="btn btn-ghost" href="#latest">Check out the free notes ↓</a>
     </div>
   </div>

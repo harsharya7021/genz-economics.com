@@ -49,7 +49,7 @@
             .then(function () { ta.value = ""; });
         });
       } else {
-        authEl.innerHTML = '<button type="button" class="cmt-signin"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1H12v2.9h5.35c-.25 1.5-1.7 4.4-5.35 4.4a5.4 5.4 0 1 1 0-10.8c1.55 0 2.6.66 3.2 1.22l2.18-2.1C16.1 5.3 14.25 4.5 12 4.5a7.5 7.5 0 1 0 0 15c4.33 0 7.2-3.04 7.2-7.33 0-.49-.05-.86-.13-1.07z"/></svg> Sign in with Google</button>';
+        authEl.innerHTML = '<button type="button" class="cmt-signin"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1H12v2.9h5.35c-.25 1.5-1.7 4.4-5.35 4.4a5.4 5.4 0 1 1 0-10.8c1.55 0 2.6.66 3.2 1.22l2.18-2.1C16.1 5.3 14.25 4.5 12 4.5a7.5 7.5 0 1 0 0 15c4.33 0 7.2-3.04 7.2-7.33 0-.49-.05-.86-.13-1.07z"/></svg> Sign in with ISB ID</button>';
         formEl.innerHTML = "";
         authEl.querySelector(".cmt-signin").addEventListener("click", function () {
           var p = new authMod.GoogleAuthProvider(); p.setCustomParameters({ prompt: "select_account" });
