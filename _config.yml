@@ -65,10 +65,10 @@ lectures_enabled: true
 # Optional: your Cloudflare Stream customer code (Stream dashboard URL). Blank = use videodelivery.net.
 stream_customer_code: "ymvws9hh7xkt34jv"
 # Phase-2 hard gate: URL of the deployed gze-stream-token Worker (see
-# cloudflare/stream-signed-urls/). Blank = lecture player stays locked for
-# everyone, signed in or not — fails CLOSED, not open. Fill in once the
-# Worker is deployed (README.md in that folder has the steps).
-stream_token_worker: ""
+# cloudflare/stream-signed-urls/). Deployed 2026-07-08. The Worker still
+# fails CLOSED until its two secrets exist — run ./finish-video-gate.command
+# once (creates the Stream signing key, sets STREAM_SIGNING_KEY_ID/PEM).
+stream_token_worker: "https://gze-stream-token.harsharya7021.workers.dev"
 
 # Skip noise — internal docs and tooling must never hit the Jekyll build
 # (GH Pages renders markdown even without front matter, and these contain
