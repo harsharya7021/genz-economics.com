@@ -1,33 +1,66 @@
-# Market snapshot for the ticker widget. Values are a maintained snapshot
-# (refresh manually or via a scheduled task). Sparkline points are indicative
-# of the session's shape, ending at the latest level.
-as_of: "3 Jul 2026"
+# Market snapshot for the ticker widget. LIVE tickers (NIFTY, SENSEX,
+# USD/INR) are refreshed each weekday morning by the market-data workflow;
+# the India 10Y G-Sec line is maintained by hand. Do not hand-edit the
+# live tickers — the job overwrites them.
+as_of: 8 Jul 2026
 tickers:
-  - symbol: "NIFTY 50"
-    code: "^NSEI"
-    value: "24,270.85"
-    change: "+94.35"
-    pct: "+0.39%"
-    dir: "up"
-    spark: [24176, 24149, 24188, 24205, 24234, 24216, 24252, 24271]
-  - symbol: "SENSEX"
-    code: "BSE"
-    value: "77,764.00"
-    change: "+262.00"
-    pct: "+0.34%"
-    dir: "up"
-    spark: [77502, 77445, 77560, 77618, 77690, 77655, 77731, 77764]
-  - symbol: "USD / INR"
-    code: "FX"
-    value: "95.22"
-    change: "-0.14"
-    pct: "-0.15%"
-    dir: "down"
-    spark: [95.36, 95.41, 95.33, 95.29, 95.31, 95.26, 95.24, 95.22]
-  - symbol: "10Y G-Sec"
-    code: "IN10Y"
-    value: "6.72%"
-    change: "-0.03"
-    pct: "-0.44%"
-    dir: "down"
-    spark: [6.78, 6.775, 6.77, 6.765, 6.76, 6.75, 6.735, 6.72]
+- symbol: NIFTY 50
+  code: ^NSEI
+  value: 23,882.05
+  change: −516.65
+  pct: −2.12%
+  dir: down
+  spark:
+  - 23946.25
+  - 23865.75
+  - 24005.85
+  - 24175.699
+  - 24270.85
+  - 24430.35
+  - 24398.699
+  - 23882.051
+- symbol: SENSEX
+  code: BSE
+  value: 76,503.60
+  change: −1,677.12
+  pct: −2.15%
+  dir: down
+  spark:
+  - 76728.367
+  - 76478.672
+  - 76922.641
+  - 77502.117
+  - 77763.906
+  - 78285.07
+  - 78180.719
+  - 76503.602
+- symbol: USD / INR
+  code: FX
+  value: '95.56'
+  change: −0.05
+  pct: −0.05%
+  dir: down
+  spark:
+  - 94.36
+  - 94.79
+  - 94.918
+  - 95.418
+  - 95.527
+  - 95.215
+  - 95.604
+  - 95.555
+- symbol: 10Y G-Sec
+  code: IN10Y
+  value: 6.72%
+  change: '-0.03'
+  pct: -0.44%
+  dir: down
+  spark:
+  - 6.78
+  - 6.775
+  - 6.77
+  - 6.765
+  - 6.76
+  - 6.75
+  - 6.735
+  - 6.72
