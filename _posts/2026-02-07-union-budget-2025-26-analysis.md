@@ -8,9 +8,10 @@ excerpt_override: "A standalone classroom reading of the Union Budget 2025-26 �
 authors:
   - harsh
 editors: []
+description: "Union Budget 2025-26 macro analysis: fiscal stance, the capex shift, tax changes, and the STT/SGB credibility problems — a classroom reading of the numbers."
 ---
 
-# **Positive #1: Government Expenditure Coming Down**
+## **Positive #1: Government Expenditure Coming Down**
 
 ## **The Big Picture — India's Fiscal Discipline**
 
@@ -54,7 +55,7 @@ Countries that grew at 10% (Korea, Taiwan, Singapore, China) had investment rate
 
 > *"You can't have a Viksit Bharat by just government stimulus. That does not happen."*
 
-# **Positive #2: Defense Budget Increase**
+## **Positive #2: Defense Budget Increase**
 
 ## **The Numbers — Context Matters**
 
@@ -82,7 +83,7 @@ He also references Victor Davis Hanson's book *Second World Wars* on the decisiv
 
 The professor adds a caveat: all the positives from the defense increase could get nullified if the Rupee keeps depreciating, since much of defense procurement requires imports.
 
-# **Criticism #1: "Capital Expenditure-ism"**
+## **Criticism #1: "Capital Expenditure-ism"**
 
 ## **The Core Problem: Accounting Drives Decision-Making**
 
@@ -134,7 +135,7 @@ The professor makes a pointed observation about tourism: the single biggest thin
 
 Nal Se Jal (water scheme): allocated 60–70 thousand crore, only 10 thousand crore spent. Appears to be getting wound up.
 
-# **Criticism #2: State Governments Nullifying Federal Progress**
+## **Criticism #2: State Governments Nullifying Federal Progress**
 
 ## **The State Borrowing Problem**
 
@@ -176,7 +177,7 @@ In other words: the government borrows only to pay interest. The country is run 
 
 Historical context: At the end of the Clinton administration, the US Congressional Budget Office projected that by 2010 there would be *no government bonds* because the government was running a surplus. US debt-to-GDP was about 20%. Today it's 120% and growing by billions of dollars daily. Even after World War II, most countries weren't at current debt levels.
 
-# **Criticism #3: The Sovereign Gold Bond Debacle & Trust Erosion**
+## **Criticism #3: The Sovereign Gold Bond Debacle & Trust Erosion**
 
 ## **Correlation vs. Causation**
 
@@ -202,7 +203,7 @@ Having lost massively on the scheme, the government's latest move: tax the gains
 
 The professor's concern is bigger than gold bonds: the government simultaneously offers 25-year tax holidays for data centers. How can anyone trust a 25-year commitment when the government retroactively changes terms on a scheme running for just a few years? This "chindi" (petty) behavior destroys credibility for marginal fiscal gains.
 
-# **The STT (Securities Transaction Tax) Problem**
+## **The STT (Securities Transaction Tax) Problem**
 
 ## **The Insurance Analogy**
 
@@ -224,7 +225,7 @@ The professor references O'Hara et al.'s research on Tobin's Tax (which STT esse
 
 **His recommended solution:** If you want to prevent small uninformed retail traders from gambling on derivatives, **increase the lot size**. Don't tax everyone. Put entry barriers on uninformed participation, don't destroy market microstructure.
 
-# **Q&A Highlights**
+## **Q&A Highlights**
 
 ## **On GIFT City, Dholera & SEZs**
 
@@ -246,7 +247,7 @@ When discussing where budget cuts happened, the professor reveals a contrarian v
 
 His argument: giving laboratories to schools where teachers don't know how to use them is the same capex-ism problem. It's the same logic as building useless airports. Having studied in a government school himself, he says bluntly: it's a total waste of money without teacher accountability reform.
 
-# **Key References & Recommended Reading**
+## **Key References & Recommended Reading**
 
 > • **Valerie R. et al.,** Journal of Economic Perspectives — Survey of fiscal multipliers across government expenditure types
 > 
@@ -264,7 +265,7 @@ His argument: giving laboratories to schools where teachers don't know how to us
 > 
 > • **RBI Document,** State Finances — State government borrowing trends
 
-# **Summary: The Budget Scorecard**
+## **Summary: The Budget Scorecard**
 
 ## **Positives**
 

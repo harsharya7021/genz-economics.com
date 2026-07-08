@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: dd4425ba5997ad1ecd120ae5da33cd91
+description: "Two ideas carry this session: the interest rate that matters is the real one, and the rate you see is a choice the central bank makes, not a market accident."
 ---
 
 Two ideas carry this session: the interest rate that matters is the real one, and the rate you see is a choice the central bank makes, not a market accident. From liquidity preference to the move from IS-LM to IS-MP, this is where the RBI enters the model — including the 2023–25 stretch he flags as a mistake worth studying, not excusing.
 
-# **Recap - The Keynesian Cross Model**
+## **Recap - The Keynesian Cross Model**
 
 This session begins by revisiting the fundamental aggregate demand equation that forms the foundation of Keynesian macroeconomic analysis. Understanding this model is essential for analysing how consumption, investment, and government spending interact to determine income equilibrium in the short run.
 
@@ -89,7 +90,7 @@ The professor discussed a recent case with the Ministry of Finance regarding GST
 </tbody>
 </table>
 
-# **Real Interest Rates vs Nominal Rates**
+## **Real Interest Rates vs Nominal Rates**
 
 A critical distinction in macroeconomics is between the nominal interest rate (what you observe) and the real interest rate (what actually matters for economic decisions). This section explains why central banks often miscalculate real rates and the consequences.
 
@@ -179,7 +180,7 @@ Businesses evaluate investment returns in real terms. Asset prices rise with inf
 
 Scenario B is more attractive despite the lower nominal rate because it offers a real return of 3%.
 
-# **Liquidity Preference Theory - Money Demand**
+## **Liquidity Preference Theory - Money Demand**
 
 Money is demanded not because it generates income, but because it provides liquidity—the ability to make immediate purchases. We now develop the theory of money demand and its crucial relationship with interest rates and income.
 
@@ -280,7 +281,7 @@ When income increases, the entire money demand curve shifts to the right. At any
 
 *money demand curves showing shifts with income changes*
 
-# **Money Supply Systems - Old (IS-LM) vs New (IS-MP)**
+## **Money Supply Systems - Old (IS-LM) vs New (IS-MP)**
 
 Central banks operate under different frameworks. Understanding how money is supplied to the economy and how central banks make their decisions is crucial to understanding modern monetary policy.
 
@@ -353,7 +354,7 @@ This system has a critical vulnerability. When the RBI accommodates persistent g
 
 A central bank targeting the interest rate must maintain credibility that it will not accommodate persistent fiscal deficits indefinitely. If that credibility erodes, inflation expectations rise, real rates increase, and the accommodative policy becomes contractionary.
 
-# **Takeaways**
+## **Takeaways**
 
 ## **The Keynesian Aggregate Demand Model**
 

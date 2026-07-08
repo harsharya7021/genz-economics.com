@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: 09f54f9eab7e396a9b53e9db2aa16364
+description: "Interest rate parity explained: how inflation, nominal depreciation and interest differentials reconcile — three contradictory-looking facts made consistent."
 ---
 
 Three facts that look contradictory — higher inflation here, a weaker rupee every decade, and similar risk-adjusted returns across markets — reconciled by two workhorses: the Fisher equation and uncovered interest parity. Plus the distinction the evening news never makes: anticipated versus unanticipated rate moves, which decides whether a hike strengthens a currency or does nothing at all.
 
-# **The Central Paradox**
+## **The Central Paradox**
 
 Three seemingly contradictory statements that confuse many:
 
@@ -26,7 +27,7 @@ Three seemingly contradictory statements that confuse many:
 
 These three statements are all correct when properly understood through distinguishing anticipated versus unanticipated rate changes. We now develop a systematic 3-step framework to resolve this apparent paradox.
 
-# **Step 1: Inflation and Exchange Rate Depreciation**
+## **Step 1: Inflation and Exchange Rate Depreciation**
 
 **The Goods Market Logic**
 
@@ -54,7 +55,7 @@ After one year with unchanged real rate: 54 × (2.04/110) = 1.0 dosa equivalent
 
 Figure 1: Initial setup showing dosa prices and exchange rate
 
-# **Step 2: Interest Rates and Exchange Rates**
+## **Step 2: Interest Rates and Exchange Rates**
 
 **The Financial Market Logic**
 
@@ -197,7 +198,7 @@ Rather than being a problem or sign of economic weakness, this depreciation is:
 > 
 > • Mechanism for maintaining PPP and competitive balance
 
-# **Class Discussion & Student Questions**
+## **Class Discussion & Student Questions**
 
 Key questions raised during the lecture:
 

@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "That was the line that preceded what came next — a paragraph he'd been working on for a paper on judicial bias and transparency."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. On June 26, 2025, between exam discussions, Tantri dropped the introduction to a second working paper into the group.*

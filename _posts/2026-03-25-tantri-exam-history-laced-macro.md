@@ -10,6 +10,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Tantri's exams are unusual. The questions are not 'compute the inflation rate given X and Y.' They are stories — Nathan Rothschild at the Battle of…"
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. On March 25, 2026, the day of his INFS final, Tantri sent his explanations of the trickier questions into the group. He frames them as exam questions — but each is really a small lecture on monetary economics, dressed up as a story.*

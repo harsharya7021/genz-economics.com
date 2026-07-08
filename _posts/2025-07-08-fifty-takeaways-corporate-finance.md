@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Normally, you hear this adage that risk and return go together in finance. This is not always true."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. In July 2025, after his FCRV course had ended, Tantri began a series of long-form takeaways. Here are the first three.*

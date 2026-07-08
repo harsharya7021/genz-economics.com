@@ -9,11 +9,12 @@ excerpt_override: "Session 16 — the rupee at 89 read properly: current account
 authors:
   - harsh
 editors: []
+description: "Rupee depreciation explained via REER: at 89 the real exchange rate is a discount, not a crisis. Why exports gain, FDI returns while FII stays out, and why RBI's FCNR(B) wasn't needed."
 ---
 
 Everyone read the falling rupee as a crisis. It isn't. The current account is fine — a deficit of about 0.6% of GDP, nothing to lose sleep over. The action was on the *capital* account, and once you separate the two, the whole story changes: a real exchange rate at 89 is not a country failing, it's a country on sale. Today we work out why exports pick up, why FDI turned up exactly when FII stayed out, why the borrower risk that looked like a Southeast-Asian crisis turned out small, and why the one measure the RBI reached for — FCNR(B) — was the one it didn't need.
 
-# The setup: current account is fine, the capital account did the work
+## The setup: current account is fine, the capital account did the work
 
 Start with the number people panic about and set it aside. The current account deficit was about 0.6% of GDP. That's fine. The problem, if you want to call it one, sat on the capital account — the movement of investment.
 
@@ -21,7 +22,7 @@ Here's what happened last year. Net FDI was only about $6bn. Now, the interestin
 
 And what's happened since? The FII outflow keeps going. But FDI has turned surprisingly positive — the whole net FDI we got in all of last year, we've now received in the *first two and a half months*. Hold that split in your head; we'll come back to it, because it's the most useful thing in this session.
 
-# The dosa test, again — real versus nominal
+## The dosa test, again — real versus nominal
 
 You already know the dosa test. One dosa in the US, one dosa in India. If a dosa is ₹50 here and you take it to the US and it fetches half a dollar, the real exchange rate is one-half. Fine — whatever it is, we freeze that basket in 2015-16 and call it 100. From that point, the question is never the nominal ₹/$ number on TV. The question is what happened to that *index*.
 
@@ -43,19 +44,19 @@ Here's the arithmetic that trips people up. In nominal terms the rupee fell abou
 
 That regime is over. Now the real rate has *fallen* to about 89 — a real depreciation of 11%. Our goods are roughly 11% cheaper than before.
 
-# Have we become 11% less efficient?
+## Have we become 11% less efficient?
 
 That's the whole question, and it's an economics question, not a business-school one. If a cheaper rupee only reflected us becoming 11% worse at making things, there's no advantage — it just offsets. But is there any reason to believe India got 11% less efficient? None. If anything, more efficient. So the cheaper rupee is a genuine discount, and you should expect exactly what happened: exports pick up, goods *and* services.
 
 Think of it as a discount from the investor's point of view. An Indian resort that peaked at 108 a year and a half ago is now available at 89 — and nothing about the resort got worse; if anything it improved. It's just cheap. Don't be surprised the buyers show up.
 
-# The real prize isn't the export number — it's the spillover
+## The real prize isn't the export number — it's the spillover
 
 Here's the objection I always get: exports get cheaper, imports get dearer, they cancel — what's the big deal? Fair. If it were only relative prices, it *would* be a wash.
 
 The big deal is what exporting *does* to you. When you produce for outside India — where you're judged purely on quality and willingness to pay — you're forced to innovate, you pick up practices you wouldn't have otherwise, and the best part: you bring at least some of those practices home, because it's the same company. And once you adopt them, your domestic competitors are forced to adopt them too, or lose to you. That's the positive spillover, and it's the actual point of a cheap rupee — not the trade balance line item. (My Business Standard piece this week makes exactly this case: yes, imports get expensive, yes there's some pass-through inflation, but the prize is our firms learning to compete in world markets.)
 
-# The other side of spillover: the borrower's stress test
+## The other side of spillover: the borrower's stress test
 
 Spillovers cut both ways, and I'll be honest about the one that worried me — because I sit on the board of a borrower, so this isn't abstract. Firms that borrowed in foreign currency and didn't hedge well (and hedging long-term is hard, and expensive) get hit when the rupee drops: their effective cost rises. If enough of them were big and unhedged, a financial institution could default, and then you have a crisis — the Southeast-Asian-crisis channel.
 
@@ -73,7 +74,7 @@ The aggregate unhedged exposure is only about $550m, and most of it is long-term
 
 The channel to respect is still the relationship one. Finance is relationship-specific: if a lender goes down, its *healthy* borrowers — who did nothing wrong — often can't just substitute another lender, and they go down too. That's the spillover to watch. It's just not where we are.
 
-# FDI versus FII — who actually responds to a cheap rupee?
+## FDI versus FII — who actually responds to a cheap rupee?
 
 Now the sharpest thing in the session, and it explains the split from the top. FDI and FII do not think alike.
 
@@ -90,7 +91,7 @@ Now the sharpest thing in the session, and it explains the split from the top. F
 
 FDI runs the thought experiment: *if I set up a data centre in India right now, it's 15–20% cheaper than it was a year and a half ago — let me do it.* Someone thought that through and moved the money, which is why FDI is close to +$7bn in two and a half months when the whole of last year was $6.5bn. FII does no such arithmetic. It isn't pricing your data centre; it's chasing the Elon-Musk-types, the AI bet, the "as long as someone will buy from me at a higher price I'll buy" logic — a reason you can't model. So the cheap rupee doesn't pull it back. FDI turned up; FII stayed out. That dichotomy *is* the June data.
 
-# What the RBI did — and why FCNR(B) was a desperate measure it didn't need
+## What the RBI did — and why FCNR(B) was a desperate measure it didn't need
 
 <div class="wa-aside">
   <p class="wa-meta">Prof. Tantri, in class</p>
@@ -99,23 +100,23 @@ FDI runs the thought experiment: *if I set up a data centre in India right now, 
 
 So here's the verdict. For plain volatility, the RBI already has the right tool — forex reserves — and nothing about that changes. What it should *not* do is chase hot money. FCNR(B) — relaxing terms to pull in foreign-currency deposits — is exactly that: a desperate reach for hot money, and it wasn't needed. If the goal was genuinely to attract capital, the clean move is to exempt capital gains for FDI and equity. They did use the exemption tool — but for *debt*, not equity. That's the inconsistency worth flagging.
 
-# On volatility, and the Plaza lesson
+## On volatility, and the Plaza lesson
 
 Let me be careful about my own earlier worry, because it was about *speed*, not level. The level right now is fine. I'm not saying that when we reach 95–96 we should drag it back to 93–94; from here, let it drift 1.5–2% a year with the inflation differential — 96 to 97 to 98, slowly. What I feared was the *jolt* — going from 108 to 89 fast, because a sudden move is two prices at once, and that's what breaks unhedged balance sheets. A smooth path to the same place is harmless.
 
 And do not treat the exchange rate as a prestige issue — read the Plaza Accord. Japan held the yen near 300 to the dollar at its peak and exported like crazy. The US got mad, pulled Japan, West Germany and the UK into a room at the Plaza Hotel in New York in 1985, and they agreed to cut the dollar by about 30% in one shot. Those currencies appreciated — and from there Japan's slide began. It limped on two or three more years, and then the whole thing collapsed. Volatility and vanity, not the level, did the damage.
 
-# Should we crack down on LRS and retail outflows?
+## Should we crack down on LRS and retail outflows?
 
 *Pranav asked:* retail investors are pouring into US and China markets — every other LinkedIn post is about it — will the government crack down on LRS soon?
 
 My answer: no, and I hope not. We are not at the stage where we need to restrict outflows. Ease of doing business includes *ease of exit*, and one big reason the world keeps putting money into the US, however much people resent it, is liquidity — you can get out. We already have plenty of capital-account restrictions; tightening LRS further is problematic. China cracked down on money leaving via Hong Kong; that's their choice, not the one to copy. Can the government still do it? Yes, if FCNR(B) fails they might. Should they? No — and someone should write the article on why not. Five years from now, an FII may realise this is a market where it could enter *and* exit cleanly, and that ease of exit becomes a reason to bring money in. Don't block the exit to defend the rupee.
 
-# The signal to watch next — the phase is changing
+## The signal to watch next — the phase is changing
 
 Here's the new thing, and it's the reason the export edge won't last forever. We had a rare window where essentially only India (and Indonesia) was depreciating. That window is closing. The Korean won has depreciated; the yen is now around 162; the dollar index is back to about 101, from 97. So even if the rupee keeps drifting *down* in nominal terms, the *real* rate can start to *appreciate* — because everyone else is getting cheaper too. When everybody depreciates, nobody has a discount, and the export benefit fades. That's the number to watch: not the daily ₹/$ headline, but the REER print relative to our trading partners.
 
-# What you can now do
+## What you can now do
 
 Read the next rupee headline properly. First, separate the current account (fine) from the capital account (where the story is). Second, translate the nominal number into the real rate — a fall to 89 is a discount, not a disaster, unless you truly believe we got 11% worse at making things. Third, watch the split that actually matters: FDI following cost back in, FII chasing AI back out. And fourth, remember the edge is relative — once Korea, Japan and the dollar move, our discount narrows. When the RBI reaches for hot money to prop the rupee, you'll know it's the one tool it didn't need. Onions setting the repo rate, a cheap rupee mistaken for a crisis — same reflex, and now you see past it.
 

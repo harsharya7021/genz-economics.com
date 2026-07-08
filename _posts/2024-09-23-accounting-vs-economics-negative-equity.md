@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "A classmate had shared a screenshot of a company showing a negative debt-to-equity ratio and asked the group what it meant."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. Some of the best stuff in the chat is short.*

@@ -10,6 +10,7 @@ authors:
   - harsh
 editors: []
 stream_id: 8fddc8169b689e8c1eb0a9b5c2029525
+description: "India's balance of payments explained row by row — current account, capital account, forex reserves — and why the rupee's fall is an RBI choice, not a crisis."
 ---
 
 "Diagnosis should be based on data, and not what newspaper says." That's the whole session in one sentence, and Tantri says it about fifteen minutes in, right after telling the group he's tired of doing "textbook macroeconomics" for its own sake. So instead of a model, he pulls up the RBI website — live, on screen, fumbling for the right menu for a solid two minutes before a student finds it for him — and reads out a real table: India's balance of payments, 2025–26. No slides. Just the numbers, row by row, and the running question underneath all of them: does India actually have a current account problem right now, or are we borrowing a crisis from 1991 because it's a comfortable story to tell?

@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Early April 2025. Newspapers were carrying headlines about treasury heads urging the RBI to cut the CRR and ensure surplus liquidity. Tantri, in the group:"
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. This post stitches together a week of his commentary in early April 2025 in the INFS Co25 group, all of which orbited around a single RBI draft circular he wanted his students to *actually read*.*

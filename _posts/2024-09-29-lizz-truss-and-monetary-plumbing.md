@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Tantri sent this as a four-step summary, hoping students would internalise it before the exam."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. The night before the September 2024 INFS final exam, Tantri stayed up answering plumbing questions in the Co25 group. The thread doubles as a complete review of the RBI's liquidity toolkit and a real-world case study (the September 2022 UK gilt-market collapse).*

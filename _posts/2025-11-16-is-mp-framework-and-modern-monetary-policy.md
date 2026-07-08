@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: 17f8a109d81ce28cf9367ce0aae9397c
+description: "This is the session where the course becomes a usable machine: the IS curve from the goods market, the MP curve from the RBI's reaction function, and…"
 ---
 
 This is the session where the course becomes a usable machine: the IS curve from the goods market, the MP curve from the RBI's reaction function, and every stimulus debate reduced to one question — does the central bank accommodate, or not? India's fiscal trilemma gets named here too, and it does not flatter anyone.
 
-# **Review of Previous Material**
+## **Review of Previous Material**
 
 ![](/assets/img/notes/image29.png)
 
@@ -50,7 +51,7 @@ Where C₁ is the marginal propensity to consume. A higher MPC leads to a larger
 
 **Professor Tantri emphasizes:** Most Indian macroeconomic discourse incorrectly applies the multiplier model as a long-term framework. This model is fundamentally SHORT-TERM and is rendered invalid once prices become flexible.
 
-# **The IS-MP Framework: Integrating Interest Rates**
+## **The IS-MP Framework: Integrating Interest Rates**
 
 ## **Investment as a Function of Interest Rates**
 
@@ -186,7 +187,7 @@ In 2024, the US Federal Reserve cut rates by 100 basis points. Yet the 10-year T
 
 Printing money does not create real savings. It merely changes prices. With inadequate savings, capital formation is constrained, limiting investment and growth. No policy manipulation can overcome a structural savings deficit.
 
-# **The IS-MP Framework**
+## **The IS-MP Framework**
 
 ## **The IS Curve**
 
@@ -220,7 +221,7 @@ So, "Who determines next quarter's GDP? The RBI(at least in the short term)—be
 
 Long-run growth is determined by supply-side factors: productivity, innovation, capital accumulation, and institutional quality. The RBI can boost demand in the short term, but cannot increase long-run potential output.
 
-# **Policy Applications**
+## **Policy Applications**
 
 ## **Tax Cuts and Stimulus Analysis**
 
@@ -256,7 +257,7 @@ Monitor the RBI's Liquidity Adjustment Facility (LAF) operations and excess rese
 > 
 > • If RBI is draining liquidity → not accommodating
 
-# **India's Macroeconomic Constraints**
+## **India's Macroeconomic Constraints**
 
 ## **The Fiscal Trilemma**
 
@@ -288,7 +289,7 @@ To address India's structural constraints:
 > 
 > • **Regulatory simplification:** Remove barriers to business formation and operation
 
-# **Takeaways**
+## **Takeaways**
 
 > 1\. Investment depends on BOTH income and interest rates—this is the critical evolution from the Keynesian Cross to the IS-MP framework.
 > 
@@ -316,7 +317,7 @@ To address India's structural constraints:
 > 
 > How would you expect the IS-MP equilibrium to shift in response to a sudden increase in global interest rates?
 
-# **Supplementary Notes/Revision (From My Handwritten Notes)**
+## **Supplementary Notes/Revision (From My Handwritten Notes)**
 
 ## **Concept of Aggregate Demand & Recession**
 

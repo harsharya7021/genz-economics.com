@@ -10,17 +10,18 @@ authors:
   - harsh
 editors: []
 stream_id: 004b24e6f61e3a54286e550470d1ba37
+description: "Medium-term macro begins: tradables against non-tradables, why the same dentist earns differently in Hyderabad and New York, Balassa-Samuelson without the…"
 ---
 
 Medium-term macro begins: tradables against non-tradables, why the same dentist earns differently in Hyderabad and New York, Balassa-Samuelson without the hand-waving — and the one exchange-rate number he insists you track. It is the REER, not the headline rupee, and the RBI publishes it every month for free.
 
-# **Medium-Term Macroeconomics Introduction**
+## **Medium-Term Macroeconomics Introduction**
 
 This session marks the transition from short-term to medium-term framework analysis. The fundamental shift involves understanding how inflation expectations become a critical variable in macroeconomic behavior.
 
 ***The big difference in the medium term is inflation expectation.***
 
-# **Tradable vs Non-Tradable Sectors**
+## **Tradable vs Non-Tradable Sectors**
 
 ## **The Tradable Sector**
 
@@ -48,7 +49,7 @@ Indian dentists are younger, better trained, and equipped with superior technolo
 
 ![Title: Tradable vs Non-Tradable Sectors - Description: Lecture diagram](/assets/img/notes/image23.jpg)
 
-# **Real Exchange Rate Appreciation & India's Crisis**
+## **Real Exchange Rate Appreciation & India's Crisis**
 
 The critical question at the heart of India's situation:
 
@@ -92,7 +93,7 @@ The Real Effective Exchange Rate (REER) is constructed using a basket of 40 curr
 | October 2024         | 94-97 (Sharp drop begins)   |
 | **Late 2024 (Est.)** | **90-92 (Very sharp drop)** |
 
-# **PPP & Samuelson-Balassa Theorem**
+## **PPP & Samuelson-Balassa Theorem**
 
 Purchasing Power Parity (PPP) exchange rates differ from real exchange rates because non-tradable sector wages are substantially lower in poorer countries. This seemingly paradoxical relationship reveals something critical about economic development.
 
@@ -100,7 +101,7 @@ Purchasing Power Parity (PPP) exchange rates differ from real exchange rates bec
 
 Higher PPP figures often reflect lower tradable sector productivity. Richer countries have higher real wages even in non-tradable sectors because their tradable sectors are so productive that they can support higher overall wage levels.
 
-# **Nominal vs Real Depreciation**
+## **Nominal vs Real Depreciation**
 
 *"People saying the rupee reaches all-time low - it SHOULD reach all-time low every day vs dollar."*
 
@@ -124,7 +125,7 @@ The inflation differential between India and the US has narrowed to near zero. Y
 
 ***Sharp real depreciation with minimal inflation differential = something fundamental is changing in India's competitive position.***
 
-# **RBI Data Deep Dive**
+## **RBI Data Deep Dive**
 
 The Reserve Bank of India publishes official data on both nominal and real effective exchange rates. This data provides empirical grounding for understanding India's exchange rate trajectory.
 
@@ -151,7 +152,7 @@ The Reserve Bank of India publishes official data on both nominal and real effec
 
 *"If it is a fundamental issue, RBI will end up fighting a losing battle."*
 
-# **The Big Question**
+## **The Big Question**
 
 Beneath all the technical analysis lies a fundamental question about India's economic trajectory and future prosperity.
 
@@ -173,7 +174,7 @@ Beneath all the technical analysis lies a fundamental question about India's eco
 
 Interestingly, FIIs who pulled out weren't wrong in absolute rupee terms - they actually outperformed by being elsewhere. This suggests that even if rupee has appreciated, other markets provided better returns. This is a nuanced point about opportunity cost and relative performance.
 
-# **Information Advantage Framework**
+## **Information Advantage Framework**
 
 ***The best economic indicator is observation accumulation AKA Smell Test***
 
@@ -199,7 +200,7 @@ The professor shared a personal experience visiting a paint dealer. This dealer 
 > 
 > • This is particularly valuable for identifying risks and structural shifts early
 
-# **Takeaways**
+## **Takeaways**
 
 ## **1. The Critical Exchange Rate Question**
 

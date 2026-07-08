@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: a3feaa9e95e125c5fe8d7607597b444e
+description: "Fiscal policy gets its full hearing: the GST tax-cut case worked end-to-end, crowding out in both its textbook form and its modern RBI-accommodates form,…"
 ---
 
 Fiscal policy gets its full hearing: the GST tax-cut case worked end-to-end, crowding out in both its textbook form and its modern RBI-accommodates form, and a five-step transmission chain you can test against data instead of asserting at dinner. The session ends somewhere unexpected — AI, human capital, and what India's constraint actually is.
 
-# **GST Tax Cut Analysis** 
+## **GST Tax Cut Analysis** 
 
 Professor Prasanna Tantri begins by analyzing recent GST rate cuts in India and their limited macroeconomic impact:
 
@@ -28,7 +29,7 @@ Professor Prasanna Tantri begins by analyzing recent GST rate cuts in India and 
 
 Whoever would have benefited from government expenditure will not now spend, and their people who earn from them will also not spend.
 
-# **The Three Essential Tools of Short-Term Macro**
+## **The Three Essential Tools of Short-Term Macro**
 
 The 'whole endgame of short-term macro' requires bringing together three essential tools:
 
@@ -52,7 +53,7 @@ Investment I is now a function of both income (Y) and real interest rate (R).
 
   - > Closed economy (no international trade)
 
-# **Fiscal and Monetary Policy Interaction**
+## **Fiscal and Monetary Policy Interaction**
 
 intricate interaction between fiscal and monetary authorities:
 
@@ -80,7 +81,7 @@ Fiscal and monetary policy interaction quadrants
 
   - > Fiscal multiplier is smaller
 
-# **Government Borrowing and Crowding Out**
+## **Government Borrowing and Crowding Out**
 
 ## **Traditional Crowding Out:** When government borrows, money demand rises and interest rates increase, reducing private investment
 
@@ -92,7 +93,7 @@ Fiscal and monetary policy interaction quadrants
 
   - > Result: Both higher income AND same interest rate
 
-# **Five-Step Tax Cut Transmission Mechanism**
+## **Five-Step Tax Cut Transmission Mechanism**
 
   - > **Direct Consumption Effect:** Tax cut increases disposable income, leading to higher consumption and aggregate demand
 
@@ -132,7 +133,7 @@ Growth eventually is innovation. There is nothing else.
 
 The professor expresses cautious optimism about labor law reforms as potential structural improvements.
 
-# **AI, Human Capital, and India's Future**
+## **AI, Human Capital, and India's Future**
 
 India's cognitive capital advantage is eroding with AI outsourcing:
 
@@ -164,7 +165,7 @@ Figure 4: Comprehensive diagram with complete annotations
 > 
 > • AI widens gap on complex tasks: India needs world-class human capital
 
-# **Supplementary Notes (From Student's Handwritten Notes)**
+## **Supplementary Notes (From Student's Handwritten Notes)**
 
 ## **From Keynesian Cross to IS-LM**
 

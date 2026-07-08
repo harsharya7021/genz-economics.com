@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "The Finance Minister read the FY 2025–26 Union Budget on the afternoon of February 1, 2025."
 ---
 
 *This post is the first in a new series — **The Tantri Files** — pulling Prof. Tantri's verbatim commentary from the Finance Enthusiasts WhatsApp group into long-form pieces, with his blessing. Student questions are paraphrased and anonymised; his words are not edited.*

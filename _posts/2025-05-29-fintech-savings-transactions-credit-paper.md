@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "He attached the PDF. The next message, sent immediately after, was the abstract."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. On May 29, 2025, he announced the start of a new fintech series and led with his own working paper.*

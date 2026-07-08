@@ -10,15 +10,16 @@ authors:
   - harsh
 editors: []
 stream_id: 4414e5f39cc203bb5799cb6cbf82eb9f
+description: "The Keynesian cross explained: consumption function, the 45-degree diagram, the multiplier, and the paradox of thrift — with worked examples from class."
 ---
 
 The clock changes in this session. Session 1 was decades — growth, ponds, patience. Now the horizon shrinks to quarters, prices stop moving, and demand runs the show. This is the machinery behind every stimulus debate you have ever watched — the multiplier, the 45-degree line, the paradox of thrift — built from one equation and pushed until it squeaks, including on GST cuts, tariffs, and Sri Lanka.
 
-# **Opening & Research Context**
+## **Opening & Research Context**
 
 Professor Prasanna Tantri opens with research on street vendor financing in emerging markets, presenting data from 1000 treatment and 1000 control groups. This empirical work motivates the shift from long-run growth theory to short-term demand analysis. He references Joel Mokyr's seminal idea: *"ideas create the world."* This philosophical foundation underpins the session's focus on how expectations and shocks drive output in the short run.
 
-# **Critical Foundation: Long-Term vs Short-Term**
+## **Critical Foundation: Long-Term vs Short-Term**
 
 Always distinguish between claims about growth and actual growth drivers.
 
@@ -26,7 +27,7 @@ When someone claims GDP will grow, Professor Tantri emphasizes that we must ask:
 
 This distinction is crucial because in the short run (which this session addresses), increases in aggregate demand can raise output even without changes to productive capacity. In the long run, only supply-side improvements matter.
 
-# **Aggregate Demand vs GDP**
+## **Aggregate Demand vs GDP**
 
 ## **Core Distinction**
 
@@ -56,7 +57,7 @@ These two need NOT be equal in the short term. If demand exceeds supply, invento
 
 India's consumption share has actually GROWN over recent decades. What has fallen is investment as a percentage of GDP, contributing to slower growth despite higher consumption.
 
-# **Modelling Consumption**
+## **Modelling Consumption**
 
 ## **The Consumption Function**
 
@@ -84,7 +85,7 @@ Income after taxes. Y = national income, T = total taxes.
 
 The Keynesian framework assumes prices are rigid in the extreme short run. This is a foundational assumption that makes demand changes translate into output changes rather than pure price movements. As we move further out, prices become more flexible and the classical model's predictions dominate.
 
-# **5. GST Cuts & Stimulus: Real-World Application**
+## **5. GST Cuts & Stimulus: Real-World Application**
 
 Professor Tantri uses GST cuts as a concrete case study to illustrate the model's implications and limitations.
 
@@ -126,7 +127,7 @@ If government cuts spending proportionally to maintain budget balance:
 
 **Sri Lanka provides a cautionary tale.** The government cut taxes without corresponding expenditure reductions. The result: larger deficits, inflation expectations rose, and the stimulus collapsed into a severe debt crisis. This demonstrates why the assumption that "any assumption breaks → inflation expectations rise → stimulus collapses" is not merely theoretical but empirically relevant.
 
-# **Tariff Analysis**
+## **Tariff Analysis**
 
 Professor Tantri offers a brief but insightful digression on tariffs and pricing:
 
@@ -138,7 +139,7 @@ In oligopolistic markets (few large suppliers), firms have pricing power and may
 
 When tariffs are imposed and prices DON'T rise proportionally, this reveals important information: the market is NOT competitive. High-margin oligopolists are absorbing the cost. This can be valuable intelligence for business strategy and competitive analysis.
 
-# **7. The Keynesian Cross Equation**
+## **7. The Keynesian Cross Equation**
 
 This section derives the fundamental equation of the Keynesian model.
 
@@ -204,7 +205,7 @@ This means: when government increases spending by 1 rupee:
 
 The multiplier reflects a dynamic process: initial government spending creates income, recipients spend a fraction (the MPC), creating additional income, which is partially spent again, and so on. The cumulative effect amplifies the initial stimulus.
 
-# **Comparative Statics**
+## **Comparative Statics**
 
 Comparative statics examines how equilibrium output changes when parameters shift. Each change is amplified by the multiplier.
 
@@ -234,7 +235,7 @@ Output multiplier: **ΔY = Multiplier x ΔC0**
 
 In the Keynesian framework, any change in autonomous spending (whether fiscal, investment-driven, or confidence-driven) is amplified through the multiplier mechanism. The MPC is the critical parameter determining multiplier magnitude.
 
-# **The Keynesian Cross Diagram**
+## **The Keynesian Cross Diagram**
 
 ## **Diagram Structure**
 
@@ -288,7 +289,7 @@ When animal spirits are bullish, C0 rises (consumers borrow and spend more). Thi
 
 If the economy is near full capacity, an increase in demand will simply raise prices rather than output. The model's prediction - that demand drives output - breaks down when supply is constrained.
 
-# **The Paradox of Thrift**
+## **The Paradox of Thrift**
 
 ## **10.1 The Paradox**
 
@@ -308,7 +309,7 @@ If households increase their savings rate, they reduce their consumption (lower 
 
 The paradox is resolved in the long run if lower savings leads to lower interest rates, which stimulates investment. When investment rises enough to offset consumption's decline, output returns to trend. However, during the transition (which is what Keynesian analysis focuses on), higher savings can be contractionary.
 
-# **11. Credit & Delinquency Discussion**
+## **11. Credit & Delinquency Discussion**
 
 **Timeline:** [46:40 - 50:50]
 
@@ -336,7 +337,7 @@ Professor Tantri notes that unsecured lending in India currently (~4-5 lakh cror
 
 *Figure 4: Slide from Session 1 on Investment foundations (for structural context)*
 
-# **Key Takeaways**
+## **Key Takeaways**
 
 ## **1. Aggregate Demand Framework**
 
@@ -370,7 +371,7 @@ Professor Tantri notes that unsecured lending in India currently (~4-5 lakh cror
 
 > 13\. The model assumes slack in the economy (unemployment, excess capacity). If the economy is near full capacity, demand increases drive prices, not output. Policy effectiveness depends critically on the economic slack available.
 
-# **Session References**
+## **Session References**
 
 Joel Mokyr's concept that ideas create the world provides the philosophical underpinning. In the Keynesian framework, ideas (expectations, animal spirits) have real economic consequences.
 
@@ -378,7 +379,7 @@ Sri Lanka's fiscal crisis demonstrates the real costs of violating model assumpt
 
 The observation that tariff incidence (whether prices rise proportionally) reveals market structure is a valuable tool for business analysis of competitive dynamics.
 
-# **Supplementary Notes (From Student's Handwritten Notes)**
+## **Supplementary Notes (From Student's Handwritten Notes)**
 
 ## **Keynesian Way of Consumption**
 

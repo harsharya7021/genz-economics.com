@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "A few of the smaller messages from the same week, clipped without his even meaning them as advice:"
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. Two short notes — one to Hyderabad on April 5, 2025, one to Mohali the next day — sent on the day each batch was wrapping up.*

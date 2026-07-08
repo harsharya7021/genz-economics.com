@@ -1,8 +1,9 @@
 ---
 layout: page
-title: About
+title: "About Gen Z Economics — Why This Room Exists"
 dek: ISB made macro optional. This is macro anyway — for people who want the real thing.
 permalink: /about/
+description: "A student-built home for Prof. Prasanna Tantri's ISB macroeconomics teaching — the notes, the models, and the mechanism behind India's economy."
 ---
 
 ## What this is

@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "A common misconception in the public debate on GST rate reductions is that their economic impact can be judged without distinguishing short-run Keynesian…"
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. This piece arrived on September 5, 2025, a few hours after the GST rate cuts were announced, and was followed by a brief clarifying exchange with classmates.*

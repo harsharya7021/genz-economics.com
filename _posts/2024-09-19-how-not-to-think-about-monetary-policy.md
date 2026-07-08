@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "On September 18, 2024, the US Federal Reserve cut rates by 50 basis points — its first cut of the cycle."
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing.*

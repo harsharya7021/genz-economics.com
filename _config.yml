@@ -57,6 +57,16 @@ edit_base_url: "https://github.com/harsharya7021/genz-economics.com/edit/main"
 issue_base_url: "https://github.com/harsharya7021/genz-economics.com/issues/new/choose"
 
 # ─────────────────────────────────────────────────────────────
+# SEO: default social-share image (per-page `image:` front matter overrides)
+# and large-card Twitter/X previews. jekyll-seo-tag reads both.
+twitter:
+  card: summary_large_image
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-default.png
+
 # Feature flags
 # ─────────────────────────────────────────────────────────────
 # Recordings stay private until Prof. Tantri approves publishing them.
@@ -79,6 +89,12 @@ exclude:
   - vendor
   - node_modules
   - _backup_pre-reskin*
+  - landing-v2-PREVIEW.html          # throwaway local previews — never publish
+  - corporate-finance-v9-PREVIEW.html
+  - SEO-AUDIT.md
+  - "Preview Site.command"
+  - finish-video-gate.command
+  - finish-decap.command
   - README.md
   - CONTRIBUTING.md
   - MODERATORS.md

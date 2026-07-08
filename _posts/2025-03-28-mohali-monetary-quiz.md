@@ -12,6 +12,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Tantri sent the answer key into the group the day after the exam — partly because he was proud of it, partly because Mohali had performed well and he…"
 ---
 
 *From **The Tantri Files** — verbatim writing from Prof. Tantri's WhatsApp messages, with his blessing. The Mohali March 2025 INFS final ran heavier on operational plumbing than the [Hyderabad final the next year](/2026/03/tantri-s-exam-history-laced-macro-questions/). Here are the questions Tantri walked the group through, with his answer keys.*

@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: 496015c69069e0f44a91ada4253f66a2
+description: "Long-run economic growth explained: pre-industrial stagnation, the leisure-work trade-off, and the island economy model — Session 1 of the Sunday macro series."
 ---
 
 Session one, and he starts with a warning, not a formula: almost everything you believe about growth — that consumption drives it, that events create it, that government spending buys it — is going to fail an audit in the next hour. The tools are simple (an island, five workers, ten kilos of rice), but every later session stands on what the island proves. Take this one slowly; the course builds.
 
-# **Course Structure**
+## **Course Structure**
 
 ## **Course Overview**
 
@@ -52,7 +53,7 @@ Highly-skilled taxi drivers in Darjeeling earn 7,700 rupees/month, while unskill
 
 Despite superior infrastructure, Hyderabad's FDI advantage over Bangalore is declining. Hyderabad's economy is controlled by few families with high entry barriers and rent-seeking.
 
-# **Historical Growth Context and Modern Exceptionalism**
+## **Historical Growth Context and Modern Exceptionalism**
 
 ## **Pre-Industrial Growth Patterns**
 
@@ -90,7 +91,7 @@ The example that we took of a person choosing to travel to Ahmedabad because of 
 
 Correct: Government transfers redistribute but don't create productive capacity. Spending may reduce growth through crowding-out.
 
-# **The Leisure-Work Trade-off: Foundation of Growth**
+## **The Leisure-Work Trade-off: Foundation of Growth**
 
 ## **Core Principle**
 
@@ -110,7 +111,7 @@ Fundamental Framework: Agents trade leisure for work. Growth occurs when the rel
 
 The causal chain: Increased Work Supply → Higher Income → Increased Consumption
 
-# **The Island Economy Model**
+## **The Island Economy Model**
 
 ## **Model Setup**
 
@@ -130,7 +131,7 @@ The causal chain: Increased Work Supply → Higher Income → Increased Consumpt
 > 
 > GDP: 10 kg rice
 
-# **Scenario 1: Government Expenditure and Deadweight Loss**
+## **Scenario 1: Government Expenditure and Deadweight Loss**
 
 ## **Setup and Effects**
 
@@ -162,7 +163,7 @@ Government is justified only when services increase productivity enough to offse
 
 Note what just happened: measured GDP barely moved, but half a kilo of rice simply vanished from the island. That gap between what the accounts say and what people actually eat is the whole point of the scenario — and it's why "government spending creates growth" fails the audit above.
 
-# **Scenario 2: Investment and Capital Formation**
+## **Scenario 2: Investment and Capital Formation**
 
 ## **Setup: Building a Productive Asset**
 
@@ -192,7 +193,7 @@ The real interest rate is the expected percentage return on investment. If the p
 
 ![](/assets/img/notes/image1.png)
 
-# **Key Takeaways and Conclusions**
+## **Key Takeaways and Conclusions**
 
 > Growth Requires Increased Labor or Capital Productivity, Not Spending
 > 

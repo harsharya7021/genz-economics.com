@@ -10,6 +10,7 @@ authors:
 editors:
   - harsh
 series: tantri-files
+description: "Real effective exchange rate (REER) explained with RBI and BIS data: why the rupee's depreciation is within historical norms — from Prof. Tantri's Mint essay."
 ---
 
 *From **The Tantri Files**. This essay was published in Mint in early April 2026 and shared in the WhatsApp group with the note: "Article writing has been easy this year: just send parts of INFS notes." It is reproduced here in full, in the order in which it appeared.*

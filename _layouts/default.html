@@ -10,7 +10,7 @@
       document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
   <title>{% if page.draft %}[DRAFT] {% endif %}{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  {% if page.draft or page.permalink == "/drafts/" %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  {% if page.draft or page.noindex or page.permalink == "/drafts/" %}<meta name="robots" content="noindex, nofollow">{% endif %}
   {% seo title=false %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
@@ -21,8 +21,8 @@
        "changes type" a beat later when Reckless/Inter swap in (the FOUT
        Harsh reported). Discovered here in <head>, they fetch in parallel
        with the CSS instead of only after the @font-face rules parse. -->
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="{{ '/assets/fonts/recklessgx.ttf' | relative_url }}">
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="{{ '/assets/fonts/inter-v-1.ttf' | relative_url }}">
+  <link rel="preload" as="font" type="font/woff" crossorigin href="{{ '/assets/fonts/recklessgx.woff' | relative_url }}">
+  <link rel="preload" as="font" type="font/woff" crossorigin href="{{ '/assets/fonts/inter-v-1.woff' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">

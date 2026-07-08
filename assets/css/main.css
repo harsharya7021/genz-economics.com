@@ -6,7 +6,7 @@
 /* ── Brand fonts — self-hosted variable files ─────────────── */
 @font-face {
   font-family: "Reckless";
-  src: url("../fonts/recklessgx.ttf") format("truetype-variations");
+  src: url("../fonts/recklessgx.woff") format("woff-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -15,21 +15,21 @@
    this, italic <em>s inside Reckless text can fall back mid-sentence. */
 @font-face {
   font-family: "Reckless";
-  src: url("../fonts/recklessgx.ttf") format("truetype-variations");
+  src: url("../fonts/recklessgx.woff") format("woff-variations");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter-v-1.ttf") format("truetype-variations");
+  src: url("../fonts/inter-v-1.woff") format("woff-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter-v-1.ttf") format("truetype-variations");
+  src: url("../fonts/inter-v-1.woff") format("woff-variations");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -2019,8 +2019,8 @@ a.book-cover:hover { transform: translateY(-5px); box-shadow: 0 22px 40px -14px 
    never quite brings it home). Now we swap in pre-baked -dark.png
    variants: same invert+hue-rotate math baked per-pixel, EXCEPT yellows,
    which are masked out and kept true gold (scripted; see HANDOFF). */
-[data-theme="dark"] .mast-art-img { content: url("/assets/img/hero/hero-collage-dark.png"); }
-[data-theme="dark"] .pf-art.pf-art-hall { content: url("/assets/img/hero/hero-hall-dark.png"); }
+[data-theme="dark"] .mast-art-img { content: url("/assets/img/hero/hero-collage-dark.webp"); }
+[data-theme="dark"] .pf-art.pf-art-hall { content: url("/assets/img/hero/hero-hall-dark.webp"); }
 /* The professor stays the BLACK-line figure in dark mode too — it sits on
    a light "paper" front face (below) so the ink reads; only the hall (back)
    swaps to its light-on-dark variant. The flip is the lights-down moment. */

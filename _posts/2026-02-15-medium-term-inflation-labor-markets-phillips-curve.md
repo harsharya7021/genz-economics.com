@@ -10,11 +10,12 @@ authors:
   - harsh
 editors: []
 stream_id: 8063b82d0e773efd99b46b357b4be90e
+description: "Wage-setting, price-setting and the natural rate of unemployment — the Phillips curve foundation of medium-term macro, from an ISB classroom."
 ---
 
 The medium-term machinery arrives: wage-setting, price-setting, the natural rate of unemployment, and the z variable — the institutional residual where India hides most of its labour-market story. This is the session that turns 'inflation is high' from a complaint into a diagnosis.
 
-# **Opening: Kevin Warsh on Inflation as a Choice**
+## **Opening: Kevin Warsh on Inflation as a Choice**
 
 ## **Context and Relevance**
 
@@ -38,7 +39,7 @@ Warsh draws a crucial distinction that many commentators miss. A one-time price 
 
 Professor Tantri emphasizes that Warsh's views are directly relevant because he is likely to shape future Federal Reserve policy. Understanding his intellectual framework helps anticipate where monetary policy is headed and its downstream effects on global markets and the Indian economy.
 
-# **The Production Function**
+## **The Production Function**
 
 ## **Setup: Y = AN**
 
@@ -56,7 +57,7 @@ For simplicity, Professor Tantri assumes A = 1, so Y = N. This means each worker
 
 > *"I can make it A-squared and bring all kinds of stuff. But let's keep it very simple. Y = AN. We are just trying to derive simple insights."*
 
-# **The Wage Setting Equation**
+## **The Wage Setting Equation**
 
 ## **Derivation**
 
@@ -98,7 +99,7 @@ This tells us what workers expect to receive in terms of actual purchasing power
 
 **Important caveat:** This expected real wage is what workers demand. It is not necessarily what will prevail in the market. Equilibrium is determined when both sides (workers and employers) agree. As Professor Tantri emphasizes: *"The guy on the other side is hallucinating. It's okay. Does not mean you have to give it."*
 
-# **The Price Setting Equation**
+## **The Price Setting Equation**
 
 ## **Derivation**
 
@@ -138,7 +139,7 @@ Suppose a worker produces 1 kg of rice (since Y = N and A = 1). The price of ric
 
   - The employer pays the worker 75% of their output and retains 25% as markup/profit.
 
-# **Natural Rate of Unemployment and Potential GDP**
+## **Natural Rate of Unemployment and Potential GDP**
 
 ## **Definition**
 
@@ -160,7 +161,7 @@ The intersection of these two lines determines the natural rate of unemployment.
 
 > *"The way the market will clear is some of the people who are asking this much wage will not get a job. It will keep them down. Like any other price clearing mechanism, it will settle."*
 
-# **The z Variable: Institutional Framework and Real-World Applications**
+## **The z Variable: Institutional Framework and Real-World Applications**
 
 ## **What z Represents**
 
@@ -198,7 +199,7 @@ Classical economists would argue that if costs increase, employers simply reduce
 
 > *"If it turns out to be pro-worker, at least get political credit for it. If it turns out to be pro-worker, then economically, it's gonna be bad. But you will also not get political credit because in the polity, you go to Economic Times and claim it's a reform. It may not be a reform."*
 
-# **AI and the Macroeconomy: An Open-Ended Discussion**
+## **AI and the Macroeconomy: An Open-Ended Discussion**
 
 ## **AI's Effect on the Model**
 
@@ -244,7 +245,7 @@ Wearing a finance hat, Professor Tantri notes that projected AI investment (tril
 
 As of the lecture date, AI has not yet appeared in aggregate productivity statistics. This echoes Robert Solow's famous 1987 observation about computers: "You can see the computer age everywhere but in the productivity statistics." By the late 1990s, the internet did show up as roughly a 1 percentage point productivity gain. AI may follow a similar pattern.
 
-# **Looking Forward: The Phillips Curve**
+## **Looking Forward: The Phillips Curve**
 
 Professor Tantri concludes by previewing the next session's topic: the formal derivation of the Phillips curve from the wage setting and price setting equations developed in this lecture.
 
@@ -252,7 +253,7 @@ Professor Tantri concludes by previewing the next session's topic: the formal de
 
 The Phillips curve will connect the natural rate framework to inflation dynamics, revisit real interest rates, and bring the analysis full circle back to monetary policy, completing the medium-term economics toolkit.
 
-# **Key Takeaways**
+## **Key Takeaways**
 
 1.  **Inflation is a central bank choice.** One-time price changes (from supply shocks, geopolitics, or pandemics) are not inflation. Inflation occurs when those changes become self-fulfilling in expectations. The Federal Reserve can hit any inflation target it wants.
 
