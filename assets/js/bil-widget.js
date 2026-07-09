@@ -45,30 +45,23 @@
     return d;
   }
 
-  /* Triumphant citations — when two or more notes agree with him, the source
-     line itself gloats. The answer above stays clean; the receipts do the
-     showing off. {s} = the joined source names. */
+  /* Triumphant gloats — spoken from the portrait's speech bubble when two or
+     more notes back him. They brag about the COUNT; the chat lists the actual
+     titles plainly (stuffing four long note titles into a sentence read like
+     a ransom letter — Harsh, 2026-07-10). */
   var TRIUMPHS = [
-    "Sources, plural: {s}. Try to keep up.",
-    "That's {s} agreeing with me. Even the notes form a queue.",
-    "{s} — cross-referenced before you finished blinking.",
-    "Straight from {s}. I read them so this would hurt you less.",
-    "Backed by {s}. The syllabus and I are on excellent terms.",
-    "Per {s} — yes, I checked all of them. Simultaneously.",
-    "{s} concur. As does Ahmedabad, historically.",
-    "This answer ships with receipts: {s}.",
-    "Confirmed across {s}. Peer review, BIL edition.",
-    "{s} — quoted from memory, verified out of politeness.",
-    "The notes said it first: {s}. I said it better.",
-    "Cross-checked against {s}. Unanimous, obviously.",
-    "Filed under {s}. Memorised the week you were deciding your specialisation.",
-    "{s} in agreement — a consensus I assembled personally."
+    "{n} notes agree with me. Even the syllabus forms a queue.",
+    "{n} sources concur. As does Ahmedabad, historically.",
+    "Cross-checked {n} ways. Unanimous, obviously.",
+    "{n} notes, one me. The consensus assembled itself.",
+    "Receipts, {n} of them. Try to keep up.",
+    "{n} separate notes and not one disagreement. I checked twice out of politeness."
   ];
-  /* the pre-chat memes — he shows you his phone before you say a word */
-
-  function triumphLine(sources) {
+  var NUMS = ["zero", "one", "Two", "Three", "Four", "Five", "Six"];
+  function triumphGloat(count) {
     var t = TRIUMPHS[Math.floor(Math.random() * TRIUMPHS.length)];
-    return "— " + t.replace("{s}", sources.join(", "));
+    var n = NUMS[count] || count;
+    return t.replace("{n}", n);
   }
   /* Thinking beats — one shown (and rotated) while BIL "reasons". The full set
      of 365 lives in bil-beats.js (window.BIL_BEATS); this is a small fallback. */
@@ -111,8 +104,10 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       stop();
       var win = !j.error && !j.degraded && j.sources && j.sources.length > 1;
-      mood((j.error || j.degraded) ? "sighing" : win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
-      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources, win ? triumphLine(j.sources) : undefined);
+      if (j.error || j.degraded) mood("sighing");
+      else if (win && window.BIL_setMood) window.BIL_setMood("triumphant", triumphGloat(j.sources.length));
+      else mood(win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
+      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
     }).catch(function () { stop(); mood("sighing"); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });
 })();
