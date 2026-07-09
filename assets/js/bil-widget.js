@@ -68,12 +68,13 @@
     "{s} in agreement — a consensus I assembled personally."
   ];
   /* the pre-chat memes — he shows you his phone before you say a word */
+  /* only the dedicated memes here — iima/cat live in the daily rotation up
+     top, and showing the same photo twice on one page looked like a bug
+     (because it was one, 2026-07-10) */
   var MEMES = [
     { img: "meme-grad",       line: "Convocation, 2011. The gown was rented. The institute is permanent." },
     { img: "meme-priorities", line: "Today's priorities. All items evergreen." },
-    { img: "meme-wedding",    line: "Even wedding cards understand personal branding. Rajesh gets it." },
-    { img: "iima",            line: "You keep photos of family in your phone. So do I." },
-    { img: "cat",             line: "The only other CAT I acknowledge." }
+    { img: "meme-wedding",    line: "Even wedding cards understand personal branding. Rajesh gets it." }
   ];
   function showMeme() {
     var m = MEMES[Math.floor(Math.random() * MEMES.length)];
@@ -131,8 +132,8 @@
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
     }).then(function (r) { return r.json(); }).then(function (j) {
       stop();
-      var win = !j.error && j.sources && j.sources.length > 1;
-      mood(j.error ? "sighing" : win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
+      var win = !j.error && !j.degraded && j.sources && j.sources.length > 1;
+      mood((j.error || j.degraded) ? "sighing" : win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
       add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources, win ? triumphLine(j.sources) : undefined);
     }).catch(function () { stop(); mood("sighing"); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });

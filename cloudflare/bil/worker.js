@@ -19,6 +19,7 @@
  */
 const EMBED_MODEL = "@cf/baai/bge-base-en-v1.5";
 const GEN_MODEL = "@cf/google/gemma-4-26b-a4b-it"; // current, cheap ($0.10/$0.30 per M), messages API
+const BACKUP_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"; // different family — for gemma's empty spells
 const TOP_K = 8;
 const MIN_SCORE = 0.34; // bge cosine — below this, we don't have it in the notes
 const ALLOW_ORIGIN = [
@@ -158,9 +159,23 @@ export default {
         });
         return ((g && (g.response ?? g.choices?.[0]?.message?.content)) || "").trim();
       };
+      /* Workers AI occasionally returns empty completions in a bad patch
+         (2026-07-10: every request for a stretch). Retry gemma once, then
+         fall back to a different model family before admitting defeat. */
+      const runBackup = async () => {
+        try {
+          const g = await env.AI.run(BACKUP_MODEL, { messages: msgs, max_tokens: 1024, temperature: 0.4 });
+          return ((g && (g.response ?? g.choices?.[0]?.message?.content)) || "").trim();
+        } catch { return ""; }
+      };
+      let degraded = false;
       let answer = await runGen();
-      if (!answer) answer = await runGen();   // rare empty return — one retry
-      if (!answer) answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
+      if (!answer) answer = await runGen();
+      if (!answer) answer = await runBackup();
+      if (!answer) {
+        degraded = true;
+        answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
+      }
 
       // 6) sources actually used (unique, in order)
       const sources = [];
@@ -168,7 +183,7 @@ export default {
         const s = (m.metadata && m.metadata.source) || null;
         if (s && !sources.includes(s)) sources.push(s);
       }
-      return json({ answer, sources: sources.slice(0, 4) }, 200, origin);
+      return json({ answer, sources: degraded ? [] : sources.slice(0, 4), degraded }, 200, origin);
     } catch (err) {
       return json({ error: "BIL tripped over a wire. Try again in a moment." }, 500, origin);
     }

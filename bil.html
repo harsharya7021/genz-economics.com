@@ -52,7 +52,7 @@ description: "A course-grounded AI that answers only from Prof. Tantri's notes â
         i++;
       };
       tick();
-      thinkIv = setInterval(tick, 1700);
+      thinkIv = setInterval(tick, 3200);   /* slower turn â€” each pose gets a beat */
     };
     var keys = Object.keys(MOODS);
     window.BIL_setMood(keys[Math.floor(Date.now() / 864e5) % keys.length]);
