@@ -32,17 +32,41 @@
   }).catch(function (err) { console.error("[gze] auth module failed to load:", err); });
   }); /* end GZE_onFirebaseReady */
 
-  function add(who, text, sources) {
+  function add(who, text, sources, srcLine) {
     var d = document.createElement("div");
     d.className = "bil-msg bil-" + who;
     d.textContent = text;
     if (sources && sources.length) {
       var s = document.createElement("div"); s.className = "bil-src";
-      s.textContent = "— source: " + sources.join(", ");
+      s.textContent = srcLine || ("— source: " + sources.join(", "));
       d.appendChild(s);
     }
     log.appendChild(d); log.scrollTop = log.scrollHeight;
     return d;
+  }
+
+  /* Triumphant citations — when two or more notes agree with him, the source
+     line itself gloats. The answer above stays clean; the receipts do the
+     showing off. {s} = the joined source names. */
+  var TRIUMPHS = [
+    "Sources, plural: {s}. Try to keep up.",
+    "That's {s} agreeing with me. Even the notes form a queue.",
+    "{s} — cross-referenced before you finished blinking.",
+    "Straight from {s}. I read them so this would hurt you less.",
+    "Backed by {s}. The syllabus and I are on excellent terms.",
+    "Per {s} — yes, I checked all of them. Simultaneously.",
+    "{s} concur. As does Ahmedabad, historically.",
+    "This answer ships with receipts: {s}.",
+    "Confirmed across {s}. Peer review, BIL edition.",
+    "{s} — quoted from memory, verified out of politeness.",
+    "The notes said it first: {s}. I said it better.",
+    "Cross-checked against {s}. Unanimous, obviously.",
+    "Filed under {s}. Memorised the week you were deciding your specialisation.",
+    "{s} in agreement — a consensus I assembled personally."
+  ];
+  function triumphLine(sources) {
+    var t = TRIUMPHS[Math.floor(Math.random() * TRIUMPHS.length)];
+    return "— " + t.replace("{s}", sources.join(", "));
   }
   /* Thinking beats — one shown (and rotated) while BIL "reasons". The full set
      of 365 lives in bil-beats.js (window.BIL_BEATS); this is a small fallback. */
@@ -85,8 +109,9 @@
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
     }).then(function (r) { return r.json(); }).then(function (j) {
       stop();
-      mood(j.error ? "sighing" : (j.sources && j.sources.length > 1) ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
-      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
+      var win = !j.error && j.sources && j.sources.length > 1;
+      mood(j.error ? "sighing" : win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
+      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources, win ? triumphLine(j.sources) : undefined);
     }).catch(function () { stop(); mood("sighing"); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });
 })();
