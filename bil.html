@@ -17,18 +17,29 @@ description: "A course-grounded AI that answers only from Prof. Tantri's notes �
   </figure>
   <script>
   (function(){
-    /* one mood a day, everyone sees the same one — flat day counter, no timezone drama */
-    var MOODS = [
-      { img: "cunning", line: "Ask. I solved it mentally in 2011, at a small school in Ahmedabad you may have heard of." },
-      { img: "mocking", line: "“I read it on WhatsApp.” Wah. Truly the peer-reviewed journal of our times." },
-      { img: "sly",     line: "Answered, cited, done — before you finished typing. IIM-A teaches speed. The charm is my own." },
-      { img: "iima",    line: "You keep photos of family in your phone. So do I." },
-      { img: "cat",     line: "CAT? 99.9th percentile, since you ask. This is the only other CAT I acknowledge." }
-    ];
-    var m = MOODS[Math.floor(Date.now() / 864e5) % MOODS.length];
-    var img = document.getElementById("bilDailyImg");
-    img.src = "{{ '/assets/img/bil/' | relative_url }}" + m.img + ".webp";
-    document.getElementById("bilDailyLine").textContent = m.line;
+    /* ten moods. One fronts the page per day; the chat widget grabs the face
+       live (window.BIL_setMood) while he thinks, cites, refuses, gloats. */
+    var BASE = "{{ '/assets/img/bil/' | relative_url }}";
+    var MOODS = {
+      cunning:    "Ask. I solved it mentally in 2011, at a small school in Ahmedabad you may have heard of.",
+      mocking:    "\u201cI read it on WhatsApp.\u201d Wah. Truly the peer-reviewed journal of our times.",
+      sly:        "Answered, cited, done \u2014 before you finished typing. IIM-A teaches speed. The charm is my own.",
+      iima:       "You keep photos of family in your phone. So do I.",
+      cat:        "CAT? 99.9th percentile, since you ask. This is the only other CAT I acknowledge.",
+      thinking:   "Don\u2019t rush me. Precision is a love language. We minored in it at IIM-A.",
+      citing:     "Notes, page, section. I don\u2019t do vibes.",
+      sighing:    "We covered this in term one. We covered everything in term one.",
+      refusing:   "No stock tips. This face is the full answer.",
+      triumphant: "Correct again. You\u2019ll stop being surprised eventually. IIM-A never was."
+    };
+    var img = document.getElementById("bilDailyImg"), line = document.getElementById("bilDailyLine");
+    window.BIL_setMood = function(name, text){
+      if (!MOODS.hasOwnProperty(name)) return;
+      img.src = BASE + name + ".webp";
+      line.textContent = (text !== undefined) ? text : MOODS[name];
+    };
+    var keys = Object.keys(MOODS);
+    window.BIL_setMood(keys[Math.floor(Date.now() / 864e5) % keys.length]);
   })();
   </script>
 

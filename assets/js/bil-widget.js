@@ -59,10 +59,14 @@
     lastBeat = i; return BEATS[i];
   }
 
+  /* the portrait above the chat is his face — swap it with his state */
+  function mood(n) { if (window.BIL_setMood) window.BIL_setMood(n); }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var q = input.value.trim(); if (!q || !currentUser) return;
     input.value = ""; add("me", q);
+    mood("thinking");
     var thinking = add("bil", nextBeat());
     thinking.classList.add("bil-thinking");
     var iv = setInterval(function () { thinking.textContent = nextBeat(); }, 1700);
@@ -70,7 +74,9 @@
     currentUser.getIdToken().then(function (tok) {
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
     }).then(function (r) { return r.json(); }).then(function (j) {
-      stop(); add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
-    }).catch(function () { stop(); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
+      stop();
+      mood(j.error ? "sighing" : (j.sources && j.sources.length > 1) ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
+      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
+    }).catch(function () { stop(); mood("sighing"); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });
 })();

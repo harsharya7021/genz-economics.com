@@ -2318,14 +2318,21 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
   --gold:#FFD866; --gold-ink:#8A6A12; --accent-2:#8A6A12; --highlight:#FFE9A4;
   --shadow-md: 0 14px 30px -16px rgba(20,27,79,.20);
   color: var(--ink);
-  background: #FFFFFF;
-  border: 1px solid rgba(36,49,58,.08);
-  border-radius: 22px;
-  padding: 1.5rem 1.6rem 1.45rem;
-  box-shadow: 0 34px 80px -26px rgba(4,8,32,.65);
+  /* Axiom card anatomy (measured on their mobile DOM): flat #f2f2f2 frame,
+     zero-ish radius, thin 12px frame padding, WHITE media panel inside,
+     mono uppercase header row. Ours keeps the serif headline — the frame
+     goes editorial, the voice stays ours. */
+  background: #F2F2F2;
+  border: 0;
+  border-radius: 2px;
+  padding: 12px 12px 1.05rem;
+  box-shadow: 0 24px 56px -26px rgba(4,8,32,.6);
 }
-.stack-card .scene-visual { box-shadow: none; }
+.stack-card .scene-visual { box-shadow: none; border-radius: 1px; border: 0; }
 .stack-card h3 { font-size: clamp(1.18rem, 1.7vw, 1.5rem); }
+.stack-card .signal-num { margin: .2rem .55rem 1rem; border-bottom-color: rgba(36,49,58,.16); letter-spacing: .13em; }
+.stack-card h3, .stack-card .scene-copy { margin-left: .55rem; margin-right: .55rem; }
+.stack-card .scene-link { margin-left: .55rem; display: inline-block; margin-bottom: .1rem; }
 
 /* Default layout (mobile / no JS / reduced motion): a sticky pile — each
    card climbs over the one before it as you scroll. Pure CSS. */
