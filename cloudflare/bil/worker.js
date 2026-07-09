@@ -171,9 +171,13 @@ export default {
           return ((g && (g.response ?? g.choices?.[0]?.message?.content)) || "").trim();
         } catch { return ""; }
       };
+      /* Workers AI sometimes doesn't just answer empty — it hangs. Nobody
+         waits a minute for a brother-in-law. Cap each model's time; a bounded
+         "ask again" beats an infinite thinking face. */
+      const withTimeout = (pr, ms) => Promise.race([pr, new Promise((res) => setTimeout(() => res(""), ms))]);
       let degraded = false;
-      let answer = await runGen();
-      if (!answer) answer = await runBackup();   /* no second gemma try — when it's slow, it's SLOW; fail over fast */
+      let answer = await withTimeout(runGen(), 20000);
+      if (!answer) answer = await withTimeout(runBackup(), 15000);
       if (!answer) {
         degraded = true;
         answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
