@@ -67,9 +67,19 @@
     var q = input.value.trim(); if (!q || !currentUser) return;
     input.value = ""; add("me", q);
     mood("thinking");
-    var thinking = add("bil", nextBeat());
-    thinking.classList.add("bil-thinking");
-    var iv = setInterval(function () { thinking.textContent = nextBeat(); }, 1700);
+    /* the thinking bubble gets his face right where the beats play out —
+       sticker on the left, rotating beat text beside it */
+    var thinking = document.createElement("div");
+    thinking.className = "bil-msg bil-bil bil-thinking";
+    var face = document.createElement("img");
+    face.className = "bil-msg-face";
+    face.src = (chat.getAttribute("data-img-base") || "/assets/img/bil/") + "thinking.webp";
+    face.alt = "";
+    var beat = document.createElement("span");
+    beat.textContent = nextBeat();
+    thinking.appendChild(face); thinking.appendChild(beat);
+    log.appendChild(thinking); log.scrollTop = log.scrollHeight;
+    var iv = setInterval(function () { beat.textContent = nextBeat(); }, 1700);
     function stop() { clearInterval(iv); thinking.remove(); }
     currentUser.getIdToken().then(function (tok) {
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
