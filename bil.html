@@ -8,6 +8,31 @@ description: "A course-grounded AI that answers only from Prof. Tantri's notes �
 <div class="bil-page">
   <p class="lede" style="max-width:60ch">Every family has one. Ours went to IIM-A, has opinions, and — this is the humiliating part — has actually read all of Prof. Tantri's notes. Ask him anything from the course and he will sigh, mention his alma mater, and then give you the correct answer with the source.</p>
 
+  <!-- BIL du jour: five moods, one per day, headlines his own. -->
+  <figure class="bil-daily" id="bilDaily">
+    <img id="bilDailyImg" src="{{ '/assets/img/bil/cunning.webp' | relative_url }}" alt="BIL, today's mood" decoding="async">
+    <figcaption>
+      <blockquote class="bil-daily-line" id="bilDailyLine">Ask. I solved it mentally in 2011, at a small school in Ahmedabad you may have heard of.</blockquote>
+      <span class="bil-daily-note">BIL du jour — the mood changes daily. The IIM-A thing is permanent.</span>
+    </figcaption>
+  </figure>
+  <script>
+  (function(){
+    /* one mood a day, everyone sees the same one — flat day counter, no timezone drama */
+    var MOODS = [
+      { img: "cunning", line: "Ask. I solved it mentally in 2011, at a small school in Ahmedabad you may have heard of." },
+      { img: "mocking", line: "“I read it on WhatsApp.” Wah. Truly the peer-reviewed journal of our times." },
+      { img: "sly",     line: "Answered, cited, done — before you finished typing. IIM-A teaches speed. The charm is my own." },
+      { img: "iima",    line: "You keep photos of family in your phone. So do I." },
+      { img: "cat",     line: "CAT? 99.9th percentile, since you ask. This is the only other CAT I acknowledge." }
+    ];
+    var m = MOODS[Math.floor(Date.now() / 864e5) % MOODS.length];
+    var img = document.getElementById("bilDailyImg");
+    img.src = "{{ '/assets/img/bil/' | relative_url }}" + m.img + ".webp";
+    document.getElementById("bilDailyLine").textContent = m.line;
+  })();
+  </script>
+
   <!-- Signed-out: the gate -->
   <div class="soon-panel" id="bilGate">
     <h3 style="color:#F4F8FA">Sign in with your ISB ID to talk to BIL</h3>

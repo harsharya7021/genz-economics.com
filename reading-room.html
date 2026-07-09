@@ -6,6 +6,9 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
 ---
 
 <style>
+  /* no rubber-band on this page: the bounce slides the grass up and shows the
+     fixed sky "under" the ground */
+  html, body { overscroll-behavior-y: none; }
   /* frosted-glass header over the sky, this page only (emaliz nav treatment) */
   .site-header { background: rgba(255,255,255,.85) !important; border-bottom: 1px solid rgba(255,255,255,.42) !important;
     -webkit-backdrop-filter: blur(22px) saturate(160%) !important; backdrop-filter: blur(22px) saturate(160%) !important;
@@ -74,9 +77,11 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
     </div>
   </div>
 
-  <!-- the grass dune — the real Bliss, arriving last; the footer stands on it -->
-  <div class="rr-dune rr-reveal" aria-hidden="true">
-    <img src="{{ '/assets/img/rr-dune.webp' | relative_url }}" alt="" loading="lazy">
+  <!-- the grass dune — the real Bliss; the footer stands on it. NOT a reveal
+       and NOT lazy: when the ground fades or loads late, the footer floats on
+       sky (Harsh's recording, 2026-07-09). The hill is just there. -->
+  <div class="rr-dune" aria-hidden="true">
+    <img src="{{ '/assets/img/rr-dune.webp' | relative_url }}" alt="" loading="eager" decoding="async">
   </div>
 </section>
 
@@ -220,11 +225,13 @@ description: "Prof. Tantri's reading cabinet — class notes, the articles he se
       e.preventDefault();
       bringToFront(win);
       var dr = desktop.getBoundingClientRect(), wr = win.getBoundingClientRect();
+      var stage = document.querySelector(".rr-stage").getBoundingClientRect();
+      var minY = stage.top - dr.top + 12; /* negative: up past the icons, into the sky */
       var offX = e.clientX - wr.left, offY = e.clientY - wr.top;
       function move(ev){
         var x = ev.clientX - dr.left - offX, y = ev.clientY - dr.top - offY;
         x = Math.max(-40, Math.min(x, dr.width - 120));
-        y = Math.max(0, y);
+        y = Math.max(minY, y);
         win.style.left = x + "px"; win.style.top = y + "px";
       }
       function up(){ document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); bar.classList.remove("is-grabbing"); }

@@ -66,9 +66,10 @@
         snap: {
           snapTo: function (value) {
             var D = tl.duration();
-            /* past the last card's beat the fold is riding over the stage —
-               snapping there would yank the sheet; leave the scroll alone */
-            if (value > ((n - 1) * seg + 1) / D + 0.02) return value;
+            /* the sheet starts rising AT the last card's beat — any snap from
+               there on yanks it (Harsh's 2026-07-09 recording). Dead zone
+               begins just before the final landing; the pile is still anyway. */
+            if (value >= ((n - 1) * seg + 1) / D - 0.01) return value;
             var pts = [0];
             for (var i = 0; i < n; i++) pts.push((i * seg + 1) / D);
             var best = pts[0];
