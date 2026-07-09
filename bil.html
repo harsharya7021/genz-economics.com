@@ -33,10 +33,26 @@ description: "A course-grounded AI that answers only from Prof. Tantri's notes â
       triumphant: "Correct again. You\u2019ll stop being surprised eventually. IIM-A never was."
     };
     var img = document.getElementById("bilDailyImg"), line = document.getElementById("bilDailyLine");
+    var thinkIv = null;
     window.BIL_setMood = function(name, text){
       if (!MOODS.hasOwnProperty(name)) return;
+      clearInterval(thinkIv); thinkIv = null;
       img.src = BASE + name + ".webp";
       line.textContent = (text !== undefined) ? text : MOODS[name];
+    };
+    /* while he reasons: the portrait cycles through his pondering poses and
+       the speech bubble plays the thinking beats. Any BIL_setMood stops it. */
+    var PONDER = ["thinking", "sighing", "cunning", "mocking"];
+    window.BIL_think = function(beatFn){
+      clearInterval(thinkIv);
+      var i = 0;
+      var tick = function(){
+        img.src = BASE + PONDER[i % PONDER.length] + ".webp";
+        if (beatFn) line.textContent = beatFn();
+        i++;
+      };
+      tick();
+      thinkIv = setInterval(tick, 1700);
     };
     var keys = Object.keys(MOODS);
     window.BIL_setMood(keys[Math.floor(Date.now() / 864e5) % keys.length]);

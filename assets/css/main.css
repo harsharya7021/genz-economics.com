@@ -1621,11 +1621,10 @@ dfn.lookup:hover { background: var(--highlight); }
 .bil-src { font-family: var(--mono); font-size: .7rem; color: var(--ink-soft); margin-top: .45rem; }
 .bil-form { display: flex; gap: .5rem; margin-top: .8rem; }
 .bil-form input { flex: 1; font: inherit; padding: .6rem .9rem; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); }
-.bil-thinking { font-style: italic; opacity: .78; display: flex; align-items: center; gap: .75rem; }
-.bil-msg-face { width: 54px; height: auto; flex: 0 0 auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,.22)); }
+.bil-thinking { font-style: italic; opacity: .78; }
 @media (prefers-reduced-motion: no-preference) {
-  .bil-msg-face { animation: bilPonder 1.8s ease-in-out infinite; }
-  @keyframes bilPonder { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-3px) rotate(1.5deg); } }
+  .bil-thinking { animation: bilBreathe 1.6s ease-in-out infinite; }
+  @keyframes bilBreathe { 0%, 100% { opacity: .78; } 50% { opacity: .4; } }
 }
 
 
