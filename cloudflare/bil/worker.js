@@ -170,8 +170,7 @@ export default {
       };
       let degraded = false;
       let answer = await runGen();
-      if (!answer) answer = await runGen();
-      if (!answer) answer = await runBackup();
+      if (!answer) answer = await runBackup();   /* no second gemma try — when it's slow, it's SLOW; fail over fast */
       if (!answer) {
         degraded = true;
         answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
