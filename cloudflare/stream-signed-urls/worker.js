@@ -42,7 +42,10 @@ function emailAllowed(email) {
   email = (email || "").toLowerCase();
   if (ALLOWED_EMAILS.includes(email)) return true;
   const at = email.lastIndexOf("@");
-  return at !== -1 && ALLOWED_DOMAINS.includes(email.slice(at + 1));
+  if (at === -1) return false;
+  const domain = email.slice(at + 1);
+  /* subdomains pass too — pgp.isb.edu, fpm.isb.edu etc., same as the site */
+  return ALLOWED_DOMAINS.some((d) => domain === d || domain.endsWith("." + d));
 }
 
 function corsHeaders(origin) {
@@ -65,11 +68,15 @@ function corsHeaders(origin) {
 async function verifyIdToken(idToken) {
   const r = await fetch(
     `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${FIREBASE_API_KEY}`,
-    { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ idToken }) }
+    /* The web apiKey is HTTP-referrer-restricted (correct for the site) —
+       Google blocks refererless server calls. Workers, unlike browsers, may
+       set Referer on subrequests, so we present the site's own referer. */
+    { method: "POST", headers: { "content-type": "application/json", "Referer": "https://genz-economics.com/" }, body: JSON.stringify({ idToken }) }
   );
-  if (!r.ok) return null;
+  if (!r.ok) { console.log("verify !ok", r.status, (await r.text()).slice(0, 300)); return null; }
   const j = await r.json();
   const user = j.users && j.users[0];
+  if (!user) console.log("verify ok but no user", JSON.stringify(j).slice(0, 200));
   return user ? { email: user.email || "" } : null;
 }
 
@@ -85,11 +92,29 @@ function pemToArrayBuffer(pem) {
   return buf.buffer;
 }
 
+/* Cloudflare returns the signing key as base64-of-PEM, and the PEM inside is
+   PKCS#1 ("BEGIN RSA PRIVATE KEY") — Web Crypto only imports PKCS#8. Unwrap
+   the base64 if needed, then wrap the PKCS#1 DER in a PKCS#8 envelope
+   (SEQUENCE { version 0, rsaEncryption AlgorithmIdentifier, OCTET STRING }). */
+function derLen(n) { if (n < 128) return [n]; const b = []; while (n > 0) { b.unshift(n & 0xff); n >>= 8; } return [0x80 | b.length, ...b]; }
+function derWrap(tag, bytes) { return new Uint8Array([tag, ...derLen(bytes.length), ...bytes]); }
+function pkcs1ToPkcs8(pkcs1) {
+  const version = new Uint8Array([0x02, 0x01, 0x00]);
+  const algId = new Uint8Array([0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00]);
+  const octet = derWrap(0x04, new Uint8Array(pkcs1));
+  const body = new Uint8Array(version.length + algId.length + octet.length);
+  body.set(version, 0); body.set(algId, version.length); body.set(octet, version.length + algId.length);
+  return derWrap(0x30, body).buffer;
+}
+
 let cachedKey = null;
 async function getSigningKey(pem) {
   if (cachedKey) return cachedKey;
+  if (!pem.includes("-----BEGIN")) pem = atob(pem.replace(/\s+/g, ""));  /* base64-of-PEM → PEM */
+  let der = pemToArrayBuffer(pem);
+  if (/BEGIN RSA PRIVATE KEY/.test(pem)) der = pkcs1ToPkcs8(der);         /* PKCS#1 → PKCS#8 */
   cachedKey = await crypto.subtle.importKey(
-    "pkcs8", pemToArrayBuffer(pem),
+    "pkcs8", der,
     { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
     false, ["sign"]
   );
