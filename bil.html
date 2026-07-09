@@ -54,6 +54,31 @@ description: "A course-grounded AI that answers only from Prof. Tantri's notes �
       tick();
       thinkIv = setInterval(tick, 3200);   /* slower turn — each pose gets a beat */
     };
+    /* the triumphant announcement: sources land IN the bubble, clickable,
+       under a line of pure self-congratulation */
+    var GLOATS2 = [
+      "{n} notes agree with me. They had little choice:",
+      "Backed by {n} of his notes — I assembled the consensus personally:",
+      "Correct, cited, effortless. The receipts:",
+      "The syllabus concurs, {n} times over. Naturally:"
+    ];
+    var GLOATS1 = [
+      "One note was enough. It usually is:",
+      "Straight from the source — I'd know, I've memorised it:"
+    ];
+    function esc(t){ var d=document.createElement("span"); d.textContent=t; return d.innerHTML; }
+    window.BIL_gloat = function(sources){
+      clearInterval(thinkIv); thinkIv = null;
+      var n = sources.length;
+      img.src = BASE + (n > 1 ? "triumphant" : "citing") + ".webp";
+      var pool = n > 1 ? GLOATS2 : GLOATS1;
+      var g = pool[Math.floor(Math.random() * pool.length)].replace("{n}", n === 2 ? "Two" : n === 3 ? "Three" : n === 4 ? "Four" : n);
+      var items = sources.map(function(s){
+        var t = esc(s.title);
+        return s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + t + "</a>" : "<span>" + t + "</span>";
+      }).join("");
+      line.innerHTML = esc(g) + '<span class="bil-srcs">' + items + "</span>";
+    };
     var keys = Object.keys(MOODS);
     window.BIL_setMood(keys[Math.floor(Date.now() / 864e5) % keys.length]);
   })();

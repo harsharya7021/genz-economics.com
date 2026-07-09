@@ -58,11 +58,6 @@
     "{n} separate notes and not one disagreement. I checked twice out of politeness."
   ];
   var NUMS = ["zero", "one", "Two", "Three", "Four", "Five", "Six"];
-  function triumphGloat(count) {
-    var t = TRIUMPHS[Math.floor(Math.random() * TRIUMPHS.length)];
-    var n = NUMS[count] || count;
-    return t.replace("{n}", n);
-  }
   /* Thinking beats — one shown (and rotated) while BIL "reasons". The full set
      of 365 lives in bil-beats.js (window.BIL_BEATS); this is a small fallback. */
   var BEATS = (window.BIL_BEATS && window.BIL_BEATS.length) ? window.BIL_BEATS : [
@@ -103,11 +98,24 @@
       return fetch(FN_URL, { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + tok }, body: JSON.stringify({ question: q }) });
     }).then(function (r) { return r.json(); }).then(function (j) {
       stop();
-      var win = !j.error && !j.degraded && j.sources && j.sources.length > 1;
-      if (j.error || j.degraded) mood("sighing");
-      else if (win && window.BIL_setMood) window.BIL_setMood("triumphant", triumphGloat(j.sources.length));
-      else mood(win ? "triumphant" : (j.sources && j.sources.length) ? "citing" : "refusing");
-      add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.", j.sources);
+      /* sources arrive as {title,url} (older shape: plain strings) */
+      var srcs = (j.sources || []).map(function (s) { return typeof s === "string" ? { title: s, url: null } : s; });
+      if (j.error || j.degraded) {
+        mood("sighing");
+        add("bil", j.answer || j.error || "…he walked off mid-sentence. Try again.");
+      } else if (j.scorn) {
+        /* keyboard debris gets the face it deserves */
+        if (window.BIL_setMood) window.BIL_setMood("mocking", "I don’t cite gibberish.");
+        else mood("mocking");
+        add("bil", j.answer);
+      } else if (srcs.length && window.BIL_gloat) {
+        /* the notes land in HIS bubble, clickable — the chat stays clean */
+        window.BIL_gloat(srcs);
+        add("bil", j.answer);
+      } else {
+        mood(srcs.length ? "citing" : "refusing");
+        add("bil", j.answer || "…he walked off mid-sentence. Try again.", srcs.map(function (s) { return s.title; }));
+      }
     }).catch(function () { stop(); mood("sighing"); add("bil", "Network dropped. Even at IIM-A the wifi was better."); });
   });
 })();

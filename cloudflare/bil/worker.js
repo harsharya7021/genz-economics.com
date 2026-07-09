@@ -133,11 +133,14 @@ export default {
       const res = await env.VECTORIZE.query(vector, { topK: TOP_K, returnMetadata: "all" });
       const hits = (res.matches || []).filter((m) => (m.score || 0) >= MIN_SCORE);
 
-      // 4) nothing close — refuse in character, don't call the model to freestyle
-      if (!hits.length) {
+      // 4) nothing close, or nothing CONVINCING — react strongly, cite nothing,
+      //    and never let keyboard debris walk away with a source list.
+      const best = hits.length ? (hits[0].score || 0) : 0;
+      if (!hits.length || best < 0.52) {
         return json({
-          answer: "That's not in his notes — and unlike the internet, I don't make things up to sound busy. Ask me something he actually covered.",
+          answer: "That's not a question, that's keyboard debris. I have standards — they were set in Ahmedabad. Ask me something the course actually covers.",
           sources: [],
+          scorn: true,
         }, 200, origin);
       }
 
@@ -176,11 +179,14 @@ export default {
         answer = "I've got the notes in front of me but the words aren't coming — ask that again.";
       }
 
-      // 6) sources actually used (unique, in order)
+      // 6) sources actually used (unique, in order) — with links to the files,
+      //    so the gloat can be clicked and verified
       const sources = [];
+      const seen = new Set();
       for (const m of hits) {
-        const s = (m.metadata && m.metadata.source) || null;
-        if (s && !sources.includes(s)) sources.push(s);
+        const md = m.metadata || {};
+        const t = md.source || null;
+        if (t && !seen.has(t)) { seen.add(t); sources.push({ title: t, url: md.url || null }); }
       }
       return json({ answer, sources: degraded ? [] : sources.slice(0, 4), degraded }, 200, origin);
     } catch (err) {
