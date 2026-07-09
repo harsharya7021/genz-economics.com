@@ -61,14 +61,19 @@ export default {
 <p>${ok ? "Signed in. You can close this window." : "Sign-in failed."}</p>
 <script>
 (function () {
-  function send() {
-    if (!window.opener) return;
-    window.opener.postMessage(${JSON.stringify(message)}, "*");
+  /* Decap's handshake, in the right order: the POPUP announces itself
+     ("authorizing:github"), the CMS echoes the same string back, and only
+     then does the popup deliver the token. Sending the token unprompted
+     lands before the CMS is listening — the bug that left this window
+     hanging on 2026-07-10. */
+  function receive(e) {
+    if (e.data === "authorizing:github") {
+      window.opener.postMessage(${JSON.stringify(message)}, e.origin);
+      setTimeout(function () { window.close(); }, 150);
+    }
   }
-  window.addEventListener("message", function (e) {
-    if (e.data === "authorizing:github") send();
-  }, false);
-  send();
+  window.addEventListener("message", receive, false);
+  if (window.opener) window.opener.postMessage("authorizing:github", "*");
 })();
 </script></body></html>`;
       return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8" } });
