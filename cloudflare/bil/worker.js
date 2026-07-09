@@ -126,6 +126,18 @@ export default {
     q = String(q).trim().slice(0, 800);
     if (!q) return json({ error: "Ask me something." }, 400, origin);
 
+    // 2.5) keyboard debris never deserves an embedding, let alone citations
+    const words = (q.toLowerCase().match(/[a-z]+/g) || []);
+    const mush = words.some((w) => w.length >= 8 && !/[aeiou]/.test(w)) ||
+      (words.length === 1 && words[0].length >= 10 && (words[0].match(/[aeiou]/g) || []).length <= 1);
+    if (mush) {
+      return json({
+        answer: "That's not a question, that's keyboard debris. I have standards — they were set in Ahmedabad. Ask about something the course covers.",
+        sources: [],
+        scorn: true,
+      }, 200, origin);
+    }
+
     try {
       // 3) embed + retrieve
       const emb = await env.AI.run(EMBED_MODEL, { text: [q] });
@@ -192,6 +204,10 @@ export default {
         const t = md.source || null;
         if (t && !seen.has(t)) { seen.add(t); sources.push({ title: t, url: md.url || null }); }
       }
+      /* the model refusing in character = there's nothing to cite; a refusal
+         wearing four citations looked ridiculous (2026-07-10) */
+      const refused = /\bnot in his notes\b|\bnot a valid question\b|\bnot going to invent\b|\bnothing in the notes\b/i.test(answer);
+      if (refused) return json({ answer, sources: [], scorn: true }, 200, origin);
       return json({ answer, sources: degraded ? [] : sources.slice(0, 4), degraded }, 200, origin);
     } catch (err) {
       return json({ error: "BIL tripped over a wire. Try again in a moment." }, 500, origin);
