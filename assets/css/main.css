@@ -395,7 +395,9 @@ body.stack-ready .cta-fold { margin-top: -100vh; z-index: 10; min-height: 100svh
 .share-btn svg { width: 15px; height: 15px; }
 .share-btn.copied { color: #2f9e6e; border-color: #2f9e6e; }
 @media (min-width: 1080px){
-  .share-rail { position: fixed; top: auto; bottom: 4rem; z-index: 5; left: max(1rem, calc((100vw - var(--narrow)) / 2 - 4.75rem)); flex-direction: column; margin: 0; }
+  .share-rail { position: fixed; top: auto; bottom: 4rem; z-index: 5; left: max(1rem, calc((100vw - var(--narrow)) / 2 - 4.75rem)); flex-direction: column; margin: 0;
+    transition: opacity .25s ease, transform .25s ease; }
+  .share-rail.rail-hide { opacity: 0; transform: translateY(8px); pointer-events: none; }
   .share-rail-label { writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: .2em; margin-bottom: .25rem; }
 }
 

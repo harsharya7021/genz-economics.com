@@ -71,6 +71,15 @@ layout: default
       rail.querySelectorAll("a[data-share]").forEach(function(a){var k=a.getAttribute("data-share");if(map[k]){a.href=map[k];a.target="_blank";a.rel="noopener";}});
       var c=rail.querySelector('[data-share="copy"]');
       if(c)c.addEventListener("click",function(){if(navigator.clipboard)navigator.clipboard.writeText(location.href.split("#")[0]).then(function(){c.classList.add("copied");setTimeout(function(){c.classList.remove("copied");},1400);});});
+      /* the rail is fixed in the left gutter — when the footer (or anything
+         after the essay) scrolls up under it, it bows out instead of sitting
+         on top of the text (Harsh, 2026-07-10) */
+      var ftr=document.querySelector(".site-footer");
+      if(ftr && "IntersectionObserver" in window){
+        new IntersectionObserver(function(es){
+          rail.classList.toggle("rail-hide", es[0].isIntersecting);
+        }, { rootMargin: "0px 0px -5% 0px" }).observe(ftr);
+      }
     })();
     </script>
 

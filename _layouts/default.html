@@ -73,7 +73,13 @@
             <a href="{{ '/reading-room/' | relative_url }}"><strong>The Reading Room</strong><span class="ndm-sub">where the reading gets done</span></a>
           </div>
         </div>
-        <a href="{{ '/macro-watch/' | relative_url }}" title="Bloomburger Terminal — the macro vitals">Bloomburger</a>
+        <div class="nav-drop" data-nav-drop>
+          <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false" title="Bloomburger Terminal">Bloomburger<svg class="nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="nav-drop-menu">
+            <a href="{{ '/macro-watch/' | relative_url }}"><strong>The Tape</strong><span class="ndm-sub">the day's vitals, self-refreshing</span></a>
+            <a href="{{ '/calendar/' | relative_url }}"><strong>The Timetable</strong><span class="ndm-sub">every print, dated — subscribe once</span></a>
+          </div>
+        </div>
         <a href="{{ '/discussions/' | relative_url }}" title="Class participation — the discussion">CP</a>
         <a href="{{ '/bil/' | relative_url }}">BIL</a>
         <a href="{{ '/about/' | relative_url }}">About</a>
