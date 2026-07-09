@@ -1605,8 +1605,6 @@ dfn.lookup:hover { background: var(--highlight); }
 .bil-daily-line::before { content: ""; position: absolute; left: -7px; bottom: 22px;
   width: 12px; height: 12px; background: var(--surface); border-left: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule); transform: rotate(45deg); }
-.bil-daily-note { display: block; margin-top: .55rem; font: 500 .72rem var(--mono);
-  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
 @media (max-width: 640px) {
   .bil-daily { flex-direction: column; align-items: center; text-align: center; }
   .bil-daily img { max-width: 62vw; max-height: 200px; }
@@ -2589,6 +2587,11 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .tt-deskgrid .tt-story:first-child { padding-left: 0; }
 .tt-deskgrid .tt-story:last-child { border-right: 0; padding-right: 0; }
 /* the footnote wall */
+/* the columnist's mug — his face on every column, the way a one-man paper would */
+.tt-mug { float: right; width: 46px; height: 46px; object-fit: cover;
+  border: 1px solid #211d15; margin: .1rem 0 .35rem .55rem;
+  filter: grayscale(1) contrast(1.06); }
+.tt-mug-lg { width: 62px; height: 62px; }
 .tt-fn-year { margin: 1.6rem 0 .7rem; display: flex; align-items: center; gap: .8rem;
   font: 700 1.05rem/1 var(--serif); letter-spacing: .08em; }
 .tt-fn-year:first-of-type { margin-top: .2rem; }
