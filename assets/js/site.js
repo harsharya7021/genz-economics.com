@@ -520,3 +520,31 @@ function gzeWeekIndex() {
 
 /* if Firebase never answers (offline, blocked), don't hide the gates forever */
 setTimeout(function () { document.documentElement.classList.remove("gze-auth-pending"); }, 2500);
+
+/* ── Lenis, site-wide: the glide Harsh liked on the walkthrough, everywhere.
+   Touch stays native (Lenis default). Nested scrollers (the newspaper sheets,
+   BIL's log, XP windows, TOC, modals, transcripts) keep their own wheel. ── */
+(function () {
+  if (!window.Lenis) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.style.scrollBehavior = "auto";
+  var lenis = new Lenis({
+    duration: 1.05,
+    prevent: function (node) {
+      return !!(node.closest && node.closest("[data-lenis-prevent],.tt-page,.bil-log,.rr-window,.fb-card,.toc,.transcript,.site-nav,.lookup-pop"));
+    }
+  });
+  window.GZE_lenis = lenis;
+  function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  /* in-page anchors ride the glide; hash still lands in the URL bar */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute("href").length < 2) return;
+    var el = document.querySelector(a.getAttribute("href"));
+    if (!el) return;
+    e.preventDefault();
+    history.pushState(null, "", a.getAttribute("href"));
+    lenis.scrollTo(el, { offset: -64, duration: 1.1 });
+  });
+})();

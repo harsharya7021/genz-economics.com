@@ -27,26 +27,12 @@
     var prevScrollBehavior = document.documentElement.style.scrollBehavior;
     document.documentElement.style.scrollBehavior = "auto";
 
-    /* Lenis — the Axiom glide. Inertia-smoothed native scroll, driven by
-       GSAP's ticker so ScrollTrigger and the belt read the same clock.
-       Desktop + motion-ok only (we're inside that matchMedia). */
-    var lenis = null, lenisRaf = null, anchorGlide = null;
-    if (window.Lenis) {
-      lenis = new Lenis({ duration: 1.05 });
+    /* Lenis is site-wide now (site.js owns the instance + anchor glide);
+       here we just keep ScrollTrigger fed from its scroll events. */
+    var lenis = window.GZE_lenis || null;
+    if (lenis) {
       lenis.on("scroll", ScrollTrigger.update);
-      lenisRaf = function (t) { lenis.raf(t * 1000); };
-      gsap.ticker.add(lenisRaf);
       gsap.ticker.lagSmoothing(0);
-      /* in-page anchors ride the same glide (the fold's "Find the latest notes") */
-      anchorGlide = function (e) {
-        var a = e.target.closest && e.target.closest('a[href^="#"]');
-        if (!a || a.getAttribute("href") === "#") return;
-        var el = document.querySelector(a.getAttribute("href"));
-        if (!el) return;
-        e.preventDefault();
-        lenis.scrollTo(el, { offset: -64, duration: 1.2 });
-      };
-      document.addEventListener("click", anchorGlide);
     }
 
     var belt = stage.querySelector(".stack-belt");
@@ -165,11 +151,7 @@
       document.body.classList.remove("stack-ready");
       document.documentElement.style.scrollBehavior = prevScrollBehavior;
       candles.forEach(function (c) { c.style.opacity = ""; });
-      if (lenis) {
-        document.removeEventListener("click", anchorGlide);
-        gsap.ticker.remove(lenisRaf);
-        lenis.destroy();
-      }
+      if (lenis) lenis.off("scroll", ScrollTrigger.update);
     };
   });
 })();

@@ -17,7 +17,10 @@
       if (user && window.GZE_emailAllowed && !window.GZE_emailAllowed(user.email)) { m[1].signOut(auth); return; }
       currentUser = user;
       gate.hidden = !!user; chat.hidden = !user;
-      if (user && !log.childElementCount) add("bil", "You found the chat. Fine. Ask — but ask something the course covers; I read the notes so you clearly didn't have to.");
+      if (user && !log.childElementCount) {
+        add("bil", "You found the chat. Fine. Ask — but ask something the course covers; I read the notes so you clearly didn't have to.");
+        showMeme();
+      }
     });
     var btn = gate.querySelector("[data-gate-signin]");
     if (btn) btn.addEventListener("click", function () {
@@ -64,6 +67,26 @@
     "Filed under {s}. Memorised the week you were deciding your specialisation.",
     "{s} in agreement — a consensus I assembled personally."
   ];
+  /* the pre-chat memes — he shows you his phone before you say a word */
+  var MEMES = [
+    { img: "meme-grad",       line: "Convocation, 2011. The gown was rented. The institute is permanent." },
+    { img: "meme-priorities", line: "Today's priorities. All items evergreen." },
+    { img: "meme-wedding",    line: "Even wedding cards understand personal branding. Rajesh gets it." },
+    { img: "iima",            line: "You keep photos of family in your phone. So do I." },
+    { img: "cat",             line: "The only other CAT I acknowledge." }
+  ];
+  function showMeme() {
+    var m = MEMES[Math.floor(Math.random() * MEMES.length)];
+    var d = document.createElement("div");
+    d.className = "bil-msg bil-bil bil-meme";
+    var im = document.createElement("img");
+    im.src = (chat.getAttribute("data-img-base") || "/assets/img/bil/") + m.img + ".webp";
+    im.alt = "BIL shows you his phone"; im.loading = "lazy";
+    var cap = document.createElement("div"); cap.className = "bil-src"; cap.textContent = m.line;
+    d.appendChild(im); d.appendChild(cap);
+    log.appendChild(d); log.scrollTop = log.scrollHeight;
+  }
+
   function triumphLine(sources) {
     var t = TRIUMPHS[Math.floor(Math.random() * TRIUMPHS.length)];
     return "— " + t.replace("{s}", sources.join(", "));
