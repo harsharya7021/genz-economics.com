@@ -2739,3 +2739,22 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
   .tt-classifieds .tt-ads { column-count: 1; }
   .tt-clip-comic { max-width: 280px; margin-inline: auto; }
 }
+
+/* ── Editor's notes (s17+) — the editor's voice, set apart from Tantri's asides ── */
+.ednote { position: relative; background: color-mix(in srgb, var(--gold, #c9a227) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--gold, #c9a227) 26%, var(--rule)); border-left: 4px solid var(--gold-ink, #8a6d1d); border-radius: var(--r-lg, 14px); padding: 1.3rem 1.4rem 1.2rem; margin: 2rem 0; }
+.ednote .ed-meta { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; color: var(--gold-ink, #8a6d1d); margin: 0 0 .55rem; }
+[data-theme="dark"] .ednote .ed-meta { color: var(--gold, #d9b64a); }
+.ednote p { font-family: var(--sans); font-size: .92rem; line-height: 1.62; color: var(--ink); margin: 0 0 .5rem; }
+.ednote p:last-child { margin-bottom: 0; }
+.ednote a { color: inherit; }
+
+/* ── Widget bar meters (s17 machines) ── */
+.w-bars { margin: .9rem 0 .3rem; display: grid; gap: .45rem; }
+.w-bar-row { display: grid; grid-template-columns: 148px 1fr 56px; align-items: center; gap: .7rem; }
+.w-bar-label { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: var(--ink-soft); }
+.w-bar { height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--ink, #15151A) 8%, transparent); overflow: hidden; }
+.w-bar-fill { height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width .35s cubic-bezier(.22,.61,.36,1); }
+.w-bar-fill.is-warn { background: var(--gold, #c9a227); }
+.w-bar-fill.is-danger { background: #c0392b; }
+.w-bar-row output { font-family: var(--mono); font-size: .78rem; color: var(--ink-soft); text-align: right; }
+@media (max-width: 560px) { .w-bar-row { grid-template-columns: 108px 1fr 44px; } .w-bar-label { font-size: .72rem; } }
