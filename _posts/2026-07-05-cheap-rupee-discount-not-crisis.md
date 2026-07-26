@@ -9,6 +9,7 @@ excerpt_override: "Session 16 — the rupee at 89 read properly: current account
 authors:
   - harsh
 editors: []
+stream_id: 98dd7b431ed0cb67be709780e7db3d0e
 description: "The rupee at 89 in real terms is a discount, not a crisis. The capital-account story, the FDI–FII split, and why RBI's FCNR(B) grab wasn't needed."
 ---
 

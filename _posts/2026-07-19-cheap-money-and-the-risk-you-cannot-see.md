@@ -9,6 +9,7 @@ excerpt_override: "Session 17 — the swap-window carry trade, the zero real rat
 authors:
   - harsh
 editors: []
+stream_id: 0e0bf25821927b19742ba145d3cd63b3
 description: "The RBI's 1.5% depreciation guarantee, India's near-zero real rate, and the risk-taking channel of monetary policy — Jiménez et al.'s 23 million Spanish loans, as taught by Prof. Tantri, with interactive models."
 ---
 

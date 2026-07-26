@@ -94,6 +94,8 @@ exclude:
   - SEO-AUDIT.md
   - "Preview Site.command"
   - finish-video-gate.command
+  - finish-lock-videos.command
+  - lock-july-videos.command
   - finish-decap.command
   - README.md
   - CONTRIBUTING.md
