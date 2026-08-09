@@ -21,7 +21,8 @@
     });
     var btn = gate.querySelector("[data-gate-signin]");
     if (btn) btn.addEventListener("click", function () {
-      var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+      /* no `hd` — it hides *.isb.edu alumni accounts in the picker; the worker + GZE_emailAllowed are the real gate */
+      var provider = new m[1].GoogleAuthProvider(); provider.setCustomParameters({ prompt: "select_account" });
       m[1].signInWithPopup(auth, provider).catch(function (err) {
         console.error("[gze] sign-in failed:", err && err.code, err);
         if (err && (err.code === "auth/popup-blocked" || err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request")) {

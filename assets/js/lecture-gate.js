@@ -149,7 +149,11 @@
     if (btn) btn.addEventListener("click", function () {
       if (auth.currentUser) return; /* already signed in — onAuthStateChanged above is already unlocking */
       var provider = new m[1].GoogleAuthProvider();
-      provider.setCustomParameters({ hd: "isb.edu", prompt: "select_account" });
+      /* no `hd` here — it filters Google's account picker to the exact
+         isb.edu hosted domain, hiding pgp.isb.edu (etc.) alumni accounts.
+         The real gate is GZE_emailAllowed below, which allows *.isb.edu.
+         (site.js dropped hd in 15b2e85; this file was missed.) */
+      provider.setCustomParameters({ prompt: "select_account" });
       setStatus("Opening sign-in…");
       m[1].signInWithPopup(auth, provider).then(function (res) {
         if (window.GZE_emailAllowed && !window.GZE_emailAllowed(res.user && res.user.email)) {
