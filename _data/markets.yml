@@ -2,38 +2,38 @@
 # USD/INR) are refreshed each weekday morning by the market-data workflow;
 # the India 10Y G-Sec line is maintained by hand. Do not hand-edit the
 # live tickers — the job overwrites them.
-as_of: 7 Aug 2026
+as_of: 10 Aug 2026
 tickers:
 - symbol: NIFTY 50
   code: ^NSEI
-  value: 24,569.80
-  change: −66.20
-  pct: −0.27%
-  dir: down
+  value: 24,588.35
+  change: '+17.70'
+  pct: +0.07%
+  dir: up
   spark:
-  - 24250.199
   - 24317.15
   - 24383.6
   - 24774.301
   - 24614.9
   - 24624.65
   - 24636.0
-  - 24569.801
+  - 24570.65
+  - 24588.35
 - symbol: SENSEX
   code: BSE
-  value: 78,567.22
-  change: −387.54
-  pct: −0.49%
-  dir: down
+  value: 78,526.58
+  change: '+27.41'
+  pct: +0.03%
+  dir: up
   spark:
-  - 77654.602
   - 77928.148
   - 78094.641
   - 78639.031
   - 78428.953
   - 78581.0
   - 78954.758
-  - 78567.219
+  - 78499.172
+  - 78526.578
 - symbol: USD / INR
   code: FX
   value: '95.38'
