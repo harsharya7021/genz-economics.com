@@ -189,6 +189,9 @@
         var want = vidBase + era.press;
         if (pressEl.getAttribute("data-src-now") !== want) {
           pressEl.setAttribute("data-src-now", want);
+          /* poster first: the stage paints instantly even while (or if ever) the
+             media pipeline dawdles — same basename, .jpg */
+          pressEl.poster = want.replace(/\.mp4$/, ".jpg");
           pressEl.src = want;
         }
         pressEl.playbackRate = era.press_speed || 1;
