@@ -1,0 +1,111 @@
+---
+layout: default
+title: The Wage Watch
+permalink: /wage-watch/
+---
+
+<section class="hero" style="padding-bottom:.5rem">
+  <div class="container">
+    <p class="eyebrow">The Wage Watch</p>
+    <h1 class="display">The missing <em>variable</em>.</h1>
+    <p class="hero-byline">₹41 lakh crore of new money either becomes GDP or becomes prices — and the professor's deciding variable is <strong>wage pressure at the lower end</strong>, which no agency measures in time to matter. You, however, are in the real world: you hire, you set salaries, you negotiate with vendors. Report what you see. Two minutes. Anonymous — no name, no email, no account id stored, ever.</p>
+  </div>
+</section>
+
+<section class="macro-wrap">
+  <div class="container">
+    <div class="ww-media">
+      <video class="ww-media-video" src="{{ '/assets/video/rupee-closeup.mp4' | relative_url }}" poster="{{ '/assets/video/rupee-poster.jpg' | relative_url }}" muted loop autoplay playsinline preload="metadata" aria-hidden="true" data-ww-video></video>
+      <p class="ww-media-cap">Exhibit A — the note whose purchasing power this survey is tracking.</p>
+    </div>
+
+    <div class="mp-panel" id="wage-watch" style="max-width:760px;margin:0 auto">
+      <p class="mp-panel-k">What are you seeing on the ground?</p>
+
+      <form class="ww-form" data-ww-form>
+        <div class="ww-q">
+          <p class="ww-label">Your vantage point</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Vantage" data-ww="vantage">
+            <button type="button" data-v="hiring">I hire / set salaries</button>
+            <button type="button" data-v="business">I run a business</button>
+            <button type="button" data-v="salaried">Salaried, watching my own market</button>
+            <button type="button" data-v="freelance">Freelancer / consultant</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Sector you see most closely</p>
+          <select class="ww-select" data-ww="sector">
+            <option value="">— pick one —</option>
+            <option>Manufacturing</option><option>Construction / real estate</option>
+            <option>IT / software services</option><option>BFSI</option>
+            <option>Retail / e-commerce</option><option>Logistics / transport</option>
+            <option>Hospitality / food</option><option>Healthcare</option>
+            <option>Agriculture / rural</option><option>Domestic & informal work</option>
+            <option>Education</option><option>Other</option>
+          </select>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Where</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Location" data-ww="tier">
+            <button type="button" data-v="metro">Metro</button>
+            <button type="button" data-v="tier2">Tier-2 city</button>
+            <button type="button" data-v="tier3">Tier-3 / town</button>
+            <button type="button" data-v="rural">Rural</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Wages at the lower end — helpers, drivers, guards, entry-level, contract staff — over the last 6 months</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Wage direction" data-ww="wages">
+            <button type="button" data-v="falling">Falling</button>
+            <button type="button" data-v="flat">Flat</button>
+            <button type="button" data-v="up5">Up a little (&lt;5%)</button>
+            <button type="button" data-v="up10">Up 5–10%</button>
+            <button type="button" data-v="up10plus">Up &gt;10%</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Vendors / contractors quoting higher than last year?</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Vendor quotes" data-ww="vendors">
+            <button type="button" data-v="no">No</button>
+            <button type="button" data-v="some">Some</button>
+            <button type="button" data-v="broadly">Broadly, yes</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Everyday prices you personally pay — groceries, rent, eating out, help at home</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Price feel" data-ww="prices">
+            <button type="button" data-v="flat">Flat</button>
+            <button type="button" data-v="mild">Creeping up</button>
+            <button type="button" data-v="fast">Rising fast</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">One concrete observation, if you have it <span class="ww-opt">(optional — a number beats an adjective: "cook's salary up ₹2,000 since March")</span></p>
+          <textarea class="ww-text" data-ww="note" rows="3" maxlength="500" placeholder="What did you see, where, since when?"></textarea>
+        </div>
+
+        <p class="ww-anon">Nothing identifying is stored — not your name, email, sign-in or account id. One report per month per browser is the honour system.</p>
+        <button type="submit" class="btn btn-primary ww-submit">File the report</button>
+        <p class="ww-status" data-ww-status aria-live="polite"></p>
+      </form>
+
+      <div class="ww-done" data-ww-done hidden>
+        <p class="ww-done-big">Filed. Useful knowledge.</p>
+        <p class="ww-done-sub">The kind no terminal sells — it exists only because people on the ground write it down. The aggregate goes to class once the sample is worth discussing, and feeds <a href="{{ '/macro-watch/#money-printer' | relative_url }}">the Money Printer</a>. Come back next month; this is a series, not a poll.</p>
+      </div>
+    </div>
+
+    <div class="ww-why">
+      <p><strong>Why this exists.</strong> Session 19's fork: if the past year's money-supply surge meets idle capacity, it becomes output; if it meets wage pressure, it becomes 6–7% inflation for two or three years. The professor, on record: <em>"Where you can add to what I know is whether there is wage pressure building up. If not — forget it, we will be fine. If you see it building, this is not temporary."</em> <a href="{{ '/2026/08/the-quiet-print-crisis-money-without-a-crisis/' | relative_url }}">The full session notes</a> have the argument; this page is the sensor.</p>
+      <p class="ww-count" data-ww-count></p>
+    </div>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/wage-watch.js' | relative_url }}" defer></script>

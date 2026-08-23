@@ -96,6 +96,7 @@ exclude:
   - finish-video-gate.command
   - finish-lock-videos.command
   - lock-july-videos.command
+  - upload-class4-stream.command
   - finish-decap.command
   - README.md
   - CONTRIBUTING.md

@@ -17,6 +17,9 @@ node_modules/
 *.mp4
 *.vtt
 
+# …except the site's own compressed video loops (small, publishable)
+!assets/video/*.mp4
+
 # local pre-reskin backup (do not publish)
 _backup_pre-reskin*/
 assets/img/.wtest

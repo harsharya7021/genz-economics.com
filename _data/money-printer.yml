@@ -1,0 +1,255 @@
+# ── The Money Printer · data spine ────────────────────────────────────────────
+# Feeds the "Money Printer" panel on the Bloomburger Terminal (macro-watch.html,
+# rendered by assets/js/money-printer.js).
+#
+# Provenance rules:
+#   - Anchor values are the numbers read out in class from the 31 Jul 2026 WSS /
+#     Section 42 return (Session 19, 23 Aug 2026), cross-checked against RBI data.
+#   - Every ledger event carries a src URL. approx: true = order-of-magnitude,
+#     awaiting reconciliation (see next line).
+#   - HARSH TODO: your April 2026 deep-research note (≈8–9 L cr printed in the six
+#     months to April, ≈5–6 L cr absorbed via the 3-yr dollar swaps) lives in the
+#     old Claude account. When retrieved, replace the approx entries below and
+#     drop the flag. The professor's assignment, verbatim, 23 Aug: "Why don't you
+#     keep a track of it, Harsh — how much they're bringing in and how much
+#     they're absorbing."
+#   - Counters extrapolate: value = anchor + per-second run-rate × elapsed time.
+#     That is a national-debt-clock convention, not a live feed. The line between
+#     chart dots is interpolation; only dots are data.
+
+as_of: "31 Jul 2026 (WSS as read in class, 23 Aug 2026)"
+anchor_iso: "2026-07-31"
+
+# ── Live odometers (₹ lakh crore at anchor; yoy = change over year to anchor) ──
+counters:
+  - id: total
+    label: "Total money in the system"
+    sub: "bank deposits + currency with the public — the professor's ₹316 lakh crore"
+    v_lcr: 316.0
+    yoy_lcr: 41.0
+  - id: deposits
+    label: "Deposits with banks"
+    sub: "all scheduled banks, WSS item 2A — ₹238 L cr a year ago"
+    v_lcr: 274.0
+    yoy_lcr: 36.0
+  - id: cash
+    label: "Currency with the public"
+    sub: "back to 12% of GDP — pre-demonetisation territory"
+    v_lcr: 42.0
+    yoy_lcr: 5.0
+  - id: credit
+    label: "Bank credit"
+    sub: "WSS row 8 — loans create deposits; both sides moved together"
+    v_lcr: 225.0
+    yoy_lcr: 40.0
+
+gdp:
+  fy26_lcr: 350.0        # class working number ("roughly 350")
+  fy25_lcr: 325.0        # class working number for 2024-25
+  note: "Nominal GDP, class rounding. MoSPI's FY25 print is ₹330.7 L cr; using it moves the ratio by <1 point."
+
+# ── The 90% dial ──
+ratio:
+  now: 90.3              # 316 / 350
+  year_ago: 81.5         # ≈268 M3 / ≈329 GDP, Jul 2025 vicinity
+  markers:
+    - { v: 78.0, label: "10-yr pre-COVID norm" }
+    - { v: 84.0, label: "Mar 2024" }
+    - { v: 81.0, label: "Mar 2025" }
+    - { v: 92.0, label: "COVID peak, FY21*" }
+  footnote: "*COVID peak measures 90–95% depending on whether you take year-end M3 over full-year GDP (the arithmetic says ~94) or the professor's rounder ~90. Either way: we are back at it, without the pandemic."
+
+# ── Eras: presets for the date filter and the printer throttle ──
+# rate_lps = ₹ lakh per second added (negative = the machine ran in reverse).
+eras:
+  - id: quiet
+    name: "The Quiet Print"
+    span: "Jul 2025 – Jul 2026"
+    from: "2025-07-25"
+    to: "2026-07-31"
+    operator: "Sanjay Malhotra · RBI"
+    plate: "RBI · MINT STREET"
+    screen: "+₹13.0 LAKH / SEC"
+    currency: "₹"
+    rate_lps: 13.0        # +41 L cr / year ≈ ₹13 lakh per second
+    line: "Crisis-level money growth, no crisis. +8–9 points of GDP in one year — while growing at 7%."
+    default: true
+  - id: covid
+    name: "COVID QE"
+    span: "Mar 2020 – Mar 2021"
+    from: "2020-03-01"
+    to: "2021-03-31"
+    operator: "Shaktikanta Das · RBI"
+    plate: "RBI · MINT STREET"
+    screen: "+₹6.5 LAKH / SEC"
+    currency: "₹"
+    rate_lps: 6.5         # M3 ≈167.9 → ≈188.4 L cr in FY21
+    line: "The understandable one: pandemic, collapsing GDP, pump first and ask later. M3-to-GDP touched the low-90s."
+  - id: demon
+    name: "Demonetisation"
+    span: "Nov 2016 – Jan 2017"
+    from: "2016-11-08"
+    to: "2017-01-31"
+    operator: "Urjit Patel · RBI"
+    plate: "RBI · REVERSE GEAR"
+    screen: "−₹18.9 LAKH / SEC"
+    currency: "₹"
+    rate_lps: -18.9       # currency with public ≈17.97 → ≈9.0 L cr in ~55 days
+    line: "The only time the machine ran in reverse — and it ran backwards faster than it has ever run forwards."
+  - id: fed2020
+    name: "Powell's Printer"
+    span: "Mar – Jun 2020 · USA"
+    from: "2020-02-26"
+    to: "2020-06-10"
+    operator: "Jerome Powell · Federal Reserve"
+    plate: "US FEDERAL RESERVE"
+    screen: "+$315,000 / SEC"
+    currency: "$"
+    rate_lps: 236.0       # Fed balance sheet +$2.86T in 105 days ≈ $315,000/sec ≈ ₹2.36 crore/sec at ₹75
+    line: "The meme was arithmetic: +$2.86 trillion in 105 days is $315,000 every second. In rupees of the day, ₹2.4 crore a second. Brrr."
+
+# ── The Tap and the Sponge · ledger of injections (+) and absorptions (−) ──
+# amt_lcr in ₹ lakh crore of primary/durable liquidity. approx: true ⇒ shown with ≈.
+events:
+  - date: "2016-11-08"
+    era: demon
+    kind: sponge
+    label: "Demonetisation — ₹500/₹1,000 invalidated overnight"
+    amt_lcr: -15.4
+    note: "86% of currency in circulation withdrawn; ₹9 L cr of public cash vanished inside two months. 99.3% eventually came back."
+    src: "https://vajiramandravi.com/current-affairs/nine-years-after-demonetisation-why-cash-in-circulation-remains-high/"
+  - date: "2017-09-30"
+    era: demon
+    kind: tap
+    label: "Remonetisation — the notes come back"
+    amt_lcr: 15.0
+    note: "By March 2018 currency with the public was back to ₹17.6 L cr. The sponge was temporary; the reprint was not. Net effect of the whole episode on money: ≈ zero. On velocity and trust: another matter."
+    approx: true
+    src: "https://vajiramandravi.com/current-affairs/nine-years-after-demonetisation-why-cash-in-circulation-remains-high/"
+  - date: "2020-03-27"
+    era: covid
+    kind: tap
+    label: "CRR cut 4% → 3% (COVID package)"
+    amt_lcr: 1.37
+    note: "One point of CRR ≈ ₹1.37 L cr of reserves freed — and the multiplier ceiling lifts from 25× to 33×."
+    src: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=49582"
+  - date: "2020-03-27"
+    era: covid
+    kind: tap
+    label: "TLTRO 1.0 + 2.0 — targeted long-term repos"
+    amt_lcr: 1.13
+    note: "Cheap 3-yr central-bank money for banks, earmarked for corporate bonds. Announced in the same 27 Mar statement as the CRR cut — ₹3.74 L cr of liquidity in one press release."
+    approx: true
+    src: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=49582"
+  - date: "2021-03-31"
+    era: covid
+    kind: tap
+    label: "OMO purchases through FY21 (incl. Operation Twist)"
+    amt_lcr: 3.1
+    note: "The RBI bought G-secs all year to cap yields while the government borrowed a record ₹13.7 L cr."
+    approx: true
+    src: "https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx"
+  - date: "2021-05-22"
+    era: covid
+    kind: sponge
+    label: "CRR restored 3% → 4% (two steps, Mar & May 2021)"
+    amt_lcr: -1.4
+    note: "The COVID tap, closed — announced in the Feb 2021 policy. Note the asymmetry with 2025: this time it was put back."
+    src: "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx"
+  - date: "2024-12-14"
+    era: quiet
+    kind: tap
+    label: "CRR cut 4.5% → 4% (two tranches, 14 & 28 Dec 2024)"
+    amt_lcr: 1.16
+    note: "The opening move of this easing cycle — the first CRR cut in over four years, partly to offset the rupee squeezed out by dollar sales."
+    src: "https://www.business-standard.com/markets/capital-market-news/crr-cut-to-release-primary-liquidity-of-about-rs-1-16-lakh-crore-to-the-banking-system-says-rbi-124120600386_1.html"
+  - date: "2025-03-24"
+    era: quiet
+    kind: tap
+    label: "USD/INR buy-sell swaps — $25bn across Jan–Mar 2025"
+    amt_lcr: 2.17
+    note: "Rupees out today, dollars back in 2026–28. The sponge is pre-booked: these swaps mature and reverse — this is the mechanism in Harsh's April note."
+    src: "https://www.business-standard.com/economy/news/rbi-to-conduct-10-billion-buy-sell-swap-to-infuse-durable-liquidity-125022101273_1.html"
+  - date: "2025-06-30"
+    era: quiet
+    kind: tap
+    label: "OMO purchases, Jan–Jun 2025"
+    amt_lcr: 5.2
+    note: "Bond-buying to move the system to surplus while the centre and states borrowed — the 'financing state borrowing' channel from class."
+    approx: true
+    src: "https://www.business-standard.com/markets/capital-market-news/rbi-announces-omo-purchase-of-government-of-india-securities-for-rs-50000-crore-125043000547_1.html"
+  - date: "2025-11-29"
+    era: quiet
+    kind: tap
+    label: "CRR cut 4% → 3% — four tranches, Sep 6 / Oct 4 / Nov 1 / Nov 29"
+    amt_lcr: 2.5
+    note: "Announced 6 Jun 2025. ₹2.5 L cr of primary liquidity by December — and the deposit-creation ceiling moves from 25× to 33× per rupee of reserves."
+    src: "https://www.deccanherald.com/business/rbi-cuts-crr-by-a-steep-1-to-unlock-rs-25-lakh-crore-to-bank-funds-by-december-3574139"
+  - date: "2026-01-22"
+    era: quiet
+    kind: tap
+    label: "OMO purchases ₹2 L cr — four tranches, 29 Dec–22 Jan"
+    amt_lcr: 2.0
+    note: "₹50,000 cr each on Dec 29, Jan 5, Jan 12, Jan 22 — announced alongside the swap below as a ₹3-trillion package."
+    src: "https://ddnews.gov.in/en/rbi-announces-%E2%82%B93-trillion-liquidity-injection-through-omos-and-forex-swap/"
+  - date: "2026-01-13"
+    era: quiet
+    kind: tap
+    label: "USD/INR buy-sell swap — $10bn, 3-year tenor"
+    amt_lcr: 0.88
+    note: "Injects now; the reversal is due January 2029. Add it to the pre-booked sponge."
+    src: "https://upstox.com/news/business-news/financial-regulations/rbi-to-inject-liquidity-via-2-lakh-crore-omo-purchases-10-billion-forex-swap/article-186668/"
+  - date: "2026-04-15"
+    era: quiet
+    kind: sponge
+    label: "Dollar sales in defence of the rupee, H1 2026"
+    amt_lcr: null
+    note: "Selling dollars buys back rupees — a squeeze, not a print. Size unquantified in class ('that would have actually squeezed more money'). Reconcile with the April deep-research note."
+    approx: true
+    src: "https://website.rbi.org.in/web/rbi/publications/weekly-statistical-supplement"
+  - date: "2026-08-14"
+    era: quiet
+    kind: tap
+    label: "Rebuilding forex reserves — now ~$720bn"
+    amt_lcr: null
+    note: "Buying dollars releases rupees. 'Last few days, yes — they are building forex reserves now.' Among the largest reserve piles in the world."
+    approx: true
+    src: "https://website.rbi.org.in/web/rbi/publications/weekly-statistical-supplement"
+
+# ── Chart series ──
+# Dots are dated anchors (sourced); the JS interpolates between them for the line.
+# cwp = currency with the public, dep = deposits with banks (₹ lakh crore),
+# ratio = money-to-GDP checkpoints (%).
+series:
+  cwp:
+    - { d: "2016-11-04", v: 17.97, s: "RBI, eve of demonetisation" }
+    - { d: "2017-01-06", v: 9.0,  s: "trough — ₹9 L cr of cash gone in 8 weeks" }
+    - { d: "2018-03-31", v: 17.6, s: "fully re-cashed within 16 months" }
+    - { d: "2020-03-27", v: 23.3, s: "pre-COVID" }
+    - { d: "2021-03-31", v: 27.5, s: "COVID cash hoarding" }
+    - { d: "2023-03-31", v: 32.2, s: "₹2000-note withdrawal begins May 2023" }
+    - { d: "2025-06-27", v: 37.2, s: "RBI WSS" }
+    - { d: "2026-07-31", v: 42.0, s: "WSS as read in class — 12% of GDP again" }
+  dep:
+    - { d: "2020-03-27", v: 135.7, s: "RBI, fortnightly Section 42" }
+    - { d: "2021-03-31", v: 151.1, s: "+11.4% — the COVID deposit surge" }
+    - { d: "2023-03-31", v: 180.4, s: "RBI" }
+    - { d: "2024-03-31", v: 204.8, s: "incl. HDFC merger effect" }
+    - { d: "2025-07-25", v: 238.0, s: "class, WSS 25 Jul 2025 (all scheduled banks)" }
+    - { d: "2026-07-31", v: 274.0, s: "class, WSS 31 Jul 2026 — +₹36 L cr in a year" }
+  ratio:
+    - { d: "2019-03-31", v: 79.0, s: "pre-COVID normal (M3/GDP)" }
+    - { d: "2020-03-31", v: 84.0, s: "FY20" }
+    - { d: "2021-03-31", v: 92.0, s: "COVID peak — see dial footnote" }
+    - { d: "2023-03-31", v: 83.0, s: "normalising, as it did worldwide" }
+    - { d: "2024-03-31", v: 84.0, s: "FY24" }
+    - { d: "2025-03-31", v: 81.0, s: "M3 ≈268 / GDP ≈330.7" }
+    - { d: "2026-07-31", v: 90.3, s: "the class's arithmetic: 316 / 350" }
+
+# ── Links panel (the professor's 'look at these numbers once a month') ──
+links:
+  - { label: "WSS — Weekly Statistical Supplement", url: "https://website.rbi.org.in/web/rbi/publications/weekly-statistical-supplement", note: "cash, reserves, forex — drops every Friday evening" }
+  - { label: "Scheduled banks' statement of position (Section 42)", url: "https://website.rbi.org.in/web/rbi/statistics/data-releases", note: "the fortnightly PDF the professor walked through — deposits item 2A, credit row 8" }
+  - { label: "DBIE — the RBI's database", url: "https://data.rbi.org.in", note: "every series above, downloadable" }
+  - { label: "MPC minutes", url: "https://website.rbi.org.in/web/rbi/press-releases", note: "read what they discuss — and notice what they don't" }
+  - { label: "Money market operations (daily)", url: "https://website.rbi.org.in/web/rbi/press-releases", note: "the daily tap-and-sponge, one press release at a time" }
