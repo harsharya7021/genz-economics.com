@@ -29,7 +29,7 @@ Which produced the spectacle of the year. In late July–early August, Japan and
 
 And the tell to watch is the one this class has repeated since INFS: **not the Fed, the US 10-year.** When the professor first said it, the 10-year was at ~3.9%. The Fed has *cut* since. The 10-year today: **[~4.7%](https://tradingeconomics.com/united-states/government-bond-yield)**. Policy rates are what central banks want; long yields are what the world's savers charge. The cheap Japanese funding that used to flow out and compress everyone's long rates is going home — [uncovered parity]({% post_url 2026-01-11-exchange-rates-inflation-and-interest-rate-parity %}) collecting its debts, a decade late.
 
-So much for the country that printed into dead inflation expectations. Now the uncomfortable part: what is *our* central bank doing?
+So much for the country that printed into dead inflation expectations. Now the uncomfortable part: what is **our** central bank doing?
 
 ## Open the RBI's own PDF
 
@@ -87,7 +87,7 @@ Sit with the toggle for a second. In rupee terms everything grew, which is norma
   <p class="w-note" data-note></p>
 </div>
 
-(Why does "life" run at ~5× rather than 33×? Banks hold buffers above the minimum, some money leaks into cash under mattresses, SLR locks a slice into G-secs. The ceiling is theory; the direction of the ceiling is policy — and in 2025 policy pointed it up. This is also why the professor said restoring money-supply discipline needs *more* absorption than the original injection once you have touched the CRR: you shrank the sponge and widened the pipe in the same move.)
+(Why does "life" run at ~5× rather than 33×? Banks hold buffers above the minimum, some money leaks into cash under mattresses, SLR locks a slice into G-secs. The ceiling is theory; the direction of the ceiling is policy — and in 2025 policy pointed it up. This is also why the professor said restoring money-supply discipline needs **more** absorption than the original injection once you have touched the CRR: you shrank the sponge and widened the pipe in the same move.)
 
 **Lever two: OMOs — the RBI buying bonds with new reserve money.** Through late 2025 and January 2026 the RBI ran ₹50,000-crore purchase auctions four times over — [₹2 lakh crore of OMOs announced alongside a $10 billion three-year dollar-rupee swap, a ₹3-trillion package](https://ddnews.gov.in/en/rbi-announces-%E2%82%B93-trillion-liquidity-injection-through-omos-and-forex-swap/) — on top of [~$25 billion of similar swaps through early 2025](https://www.business-standard.com/economy/news/rbi-to-conduct-10-billion-buy-sell-swap-to-infuse-durable-liquidity-125022101273_1.html). In class the professor's emphasis was the *destination*: when states borrow heavily and the RBI buys bonds to keep the market orderly, it is **financing government borrowing with reserve money** — and banks lend that reserve money on, creating loans and deposits (row 8 and item 2A, both of which you just watched jump).
 
