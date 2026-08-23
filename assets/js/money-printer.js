@@ -90,7 +90,7 @@
      economy has no business visiting. */
   (function () {
     var host = root.querySelector("[data-mp-dial]"); if (!host || !D.ratio) return;
-    var MIN = 60, MAX = 100, W = 340, H = 236, cx = W / 2, cy = 132, R = 100;
+    var MIN = 60, MAX = 100, W = 340, H = 244, cx = W / 2, cy = 136, R = 100;
     function ang(v) { return (210 - 240 * (v - MIN) / (MAX - MIN)) * Math.PI / 180; }
     function pt(v, r) { var a = ang(v); return [(cx + r * Math.cos(a)).toFixed(1), (cy - r * Math.sin(a)).toFixed(1)]; }
     function arc(v0, v1, r, cls, extra) {
@@ -99,34 +99,41 @@
     }
     var now = D.ratio.now, was = D.ratio.year_ago;
     var s2 = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Money supply as a share of GDP: ' + now + ' per cent">';
+    /* the band */
     s2 += arc(MIN, MAX, R, "mp-g-ring mp-g-glow", 'stroke-width="8"') + arc(MIN, MAX, R, "mp-g-ring", 'stroke-width="1.6"');
     s2 += arc(88, MAX, R, "mp-g-danger mp-g-glow", 'stroke-width="8"') + arc(88, MAX, R, "mp-g-danger", 'stroke-width="2.6"');
-    s2 += arc(was, now, R - 14, "mp-g-travel", 'stroke-width="4"');
+    /* ticks INSIDE the band; numerals OUTSIDE it (the cluster convention) —
+       so the needle can never collide with a numeral */
     for (var t = MIN; t <= MAX + 1e-9; t += 2) {
-      var major = Math.abs(t % 10) < 1e-9, len = major ? 13 : 6;
-      var q1 = pt(t, R - len), q2 = pt(t, R - 1);
+      var major = Math.abs(t % 10) < 1e-9;
+      var q1 = pt(t, R - (major ? 16 : 8)), q2 = pt(t, R - 2);
       s2 += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick' + (major ? " is-major" : "") + (t >= 88 ? " is-danger" : "") + '" stroke-width="' + (major ? 2.6 : 1.1) + '"/>';
-      if (major) { var ql = pt(t, R - 27); s2 += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4) + '" class="mp-g-num' + (t >= 88 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>"; }
+      if (major) { var ql = pt(t, R + 19); s2 += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4.5) + '" class="mp-g-num' + (t >= 88 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>"; }
     }
+    /* where we have been — small pips inside the band, named in the legend below */
     (D.ratio.markers || []).forEach(function (m) {
       if (m.v < MIN || m.v > MAX) return;
-      var m1 = pt(m.v, R + 3), m2 = pt(m.v, R + 12), ml = pt(m.v, R + 22);
+      var m1 = pt(m.v, R - 30), m2 = pt(m.v, R - 21);
       s2 += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark"><title>' + m.label + " · " + m.v + '%</title></line>';
-      s2 += '<text x="' + ml[0] + '" y="' + (parseFloat(ml[1]) + 3) + '" class="mp-g-pip" text-anchor="middle">' + m.v + "</text>";
     });
-    var n = pt(now, R + 2), tail = pt(now - 14, 16);
+    /* the year travelled — its own inner ring, clear of ticks and numerals */
+    s2 += arc(was, now, R - 40, "mp-g-travel", 'stroke-width="4"');
+    /* needle stops short of the tick ring */
+    var n = pt(now, R - 18), tail = pt(now - 14, 15);
     s2 += '<line x1="' + tail[0] + '" y1="' + tail[1] + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
     s2 += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/><circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
     s2 += '<rect x="' + (cx - 46) + '" y="' + (cy + 26) + '" width="92" height="28" rx="6" class="mp-g-odo"/>';
     s2 += '<text x="' + cx + '" y="' + (cy + 46) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + '%</text>';
-    s2 += '<text x="' + cx + '" y="' + (cy + 68) + '" class="mp-g-unit" text-anchor="middle">MONEY ÷ GDP</text>';
-    s2 += '<text x="' + cx + '" y="' + (cy + 84) + '" class="mp-g-sub2" text-anchor="middle">' + was.toFixed(0) + '% a year ago · +' + (now - was).toFixed(1) + ' points</text>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 68) + '" class="mp-g-unit" text-anchor="middle">MONEY \u00F7 GDP</text>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 84) + '" class="mp-g-sub2" text-anchor="middle">' + was.toFixed(1) + '% a year ago \u00B7 +' + (now - was).toFixed(1) + ' points</text>';
     s2 += "</svg>";
     host.innerHTML = s2;
     var fn = root.querySelector("[data-mp-dial-note]");
     if (fn) fn.textContent = (D.ratio.footnote || "").replace(/^\*/, "");
     var legend = root.querySelector("[data-mp-dial-legend]");
-    if (legend) legend.innerHTML = (D.ratio.markers || []).map(function (m) {
+    if (legend) legend.innerHTML = (D.ratio.markers || []).slice().sort(function (a, b) {
+      return a.v - b.v;   /* numeric order = left-to-right order on the dial */
+    }).map(function (m) {
       return "<span><b>" + m.v + "</b> " + m.label + "</span>";
     }).join("");
   })();
