@@ -24,28 +24,10 @@
   (function () {
     var wrap = root.querySelector("[data-mp-counters]"); if (!wrap) return;
     var cards = [];
-    var vsrc = wrap.getAttribute("data-mp-video");
-    var vposter = wrap.getAttribute("data-mp-poster");
-    var motionOK = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     (D.counters || []).forEach(function (c) {
       var card = el("div", "mp-card");
       var perSecLakh = c.yoy_lcr * 1e7 / YEAR_S;           /* ₹ lakh per second */
       var perDayCr = c.yoy_lcr * 1e5 / 365.25;             /* ₹ crore per day  */
-      /* the flagship card gets the real thing behind the odometer:
-         a currency counter machine, counting (Harsh's footage) */
-      if (c.id === "total" && vsrc && motionOK) {
-        var vid = document.createElement("video");
-        vid.className = "mp-card-video";
-        vid.src = vsrc; if (vposter) vid.poster = vposter;
-        vid.muted = true; vid.loop = true; vid.autoplay = true;
-        vid.setAttribute("playsinline", ""); vid.playsInline = true;
-        vid.preload = "metadata"; vid.setAttribute("aria-hidden", "true");
-        vid.addEventListener("error", function () { vid.remove(); card.classList.remove("mp-card--video"); });
-        card.classList.add("mp-card--video");
-        card.appendChild(vid);
-        card.appendChild(el("div", "mp-card-scrim"));
-        var p = vid.play(); if (p && p.catch) p.catch(function () {});
-      }
       card.appendChild(el("p", "mp-k", c.label));
       var big = el("p", "mp-v", "—"); card.appendChild(big);
       card.appendChild(el("p", "mp-rate",
@@ -55,19 +37,60 @@
       wrap.appendChild(card);
       cards.push({ c: c, big: big });
     });
-    var since = root.querySelector("[data-mp-since]");
+    /* ── the session odometer: the card beside the GIF ── */
+    var sinceV = document.querySelector("[data-mp-since-v]");
+    var sessRate = document.querySelector("[data-mp-session-rate]");
     var total = (D.counters || []).filter(function (c) { return c.id === "total"; })[0];
+    if (sessRate && total) {
+      sessRate.textContent = "+₹" + (total.yoy_lcr * 1e7 / YEAR_S).toFixed(1) + " lakh / second · ₹" +
+        fmtIN(total.yoy_lcr * 1e5 / 365.25) + " cr a day";
+    }
+    /* the speedometer: today's printing speed against the historical dial.
+       Range 0–20 ₹ lakh/sec; ₹-era markers from the data; needle = today. */
+    (function () {
+      var host = document.querySelector("[data-mp-gauge]"); if (!host || !total) return;
+      var MIN = 0, MAX = 20, W = 320, H = 168, cx = W / 2, cy = 150, R = 122;
+      var A0 = Math.PI * 1.16, A1 = -Math.PI * 0.16; /* ~210° sweep */
+      function ang(v) { var f = (v - MIN) / (MAX - MIN); return A0 + (A1 - A0) * f; }
+      function pt(v, r) { var a = ang(v); return [(cx + r * Math.cos(a)).toFixed(1), (cy - r * Math.sin(a)).toFixed(1)]; }
+      function arc(v0, v1, r, cls) {
+        var p0 = pt(v0, r), p1 = pt(v1, r);
+        return '<path class="' + cls + '" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + ' 0 0 1 ' + p1[0] + " " + p1[1] + '"/>';
+      }
+      var now = total.yoy_lcr * 1e7 / YEAR_S; /* 13.0 */
+      var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Printing speed, ₹ lakh per second">';
+      s += arc(MIN, MAX, R, "mp-g-track");
+      s += arc(MIN, 8, R, "mp-g-seg is-cool") + arc(8, 15, R, "mp-g-seg is-warm") + arc(15, MAX, R, "mp-g-seg is-hot");
+      for (var t = MIN; t <= MAX; t += 2.5) {
+        var q1 = pt(t, R - 7), q2 = pt(t, R + 6);
+        s += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick"/>';
+        if (t % 5 === 0) { var ql = pt(t, R + 17); s += '<text x="' + ql[0] + '" y="' + ql[1] + '" class="mp-g-lbl" text-anchor="middle">' + t + "</text>"; }
+      }
+      (D.eras || []).forEach(function (e) {
+        if (e.currency !== "₹") return;
+        var v = Math.abs(e.rate_lps); if (v > MAX) return;
+        var m1 = pt(v, R - 16), m2 = pt(v, R - 4);
+        s += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark' + (e.rate_lps < 0 ? " is-rev" : "") + '"><title>' + e.name + " · " + (e.rate_lps < 0 ? "−" : "+") + v + " lakh/sec</title></line>";
+      });
+      var n = pt(now, R - 26);
+      s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="6" class="mp-g-hub"/>';
+      s += '<text x="' + cx + '" y="' + (cy - 22) + '" class="mp-g-big" text-anchor="middle">' + now.toFixed(1) + "</text>";
+      s += '<text x="' + cx + '" y="' + (cy - 8) + '" class="mp-g-unit" text-anchor="middle">₹ LAKH / SEC</text>';
+      s += "</svg>";
+      host.innerHTML = s;
+    })();
     function tick() {
       var eYr = (Date.now() - anchorT) / 1000 / YEAR_S;
       cards.forEach(function (o) {
         var vCr = (o.c.v_lcr + o.c.yoy_lcr * eYr) * 1e5;   /* ₹ crore */
         o.big.textContent = "₹" + fmtIN(vCr) + " crore";
       });
-      if (since && total) {
+      if (sinceV && total) {
         var addCr = total.yoy_lcr * 1e5 * ((Date.now() - openedT) / 1000 / YEAR_S);
-        since.textContent = "Money created while this page has been open: ₹" +
-          (addCr >= 1 ? fmtIN(addCr) + " crore" : (addCr * 100).toFixed(0) + " lakh") +
-          " — and counting.";
+        sinceV.textContent = addCr >= 1
+          ? "₹" + (addCr < 100 ? addCr.toFixed(2) : fmtIN(addCr)) + " crore"
+          : "₹" + (addCr * 100).toFixed(1) + " lakh";
       }
     }
     tick(); setInterval(tick, 1000);
@@ -122,6 +145,15 @@
        the slot), $100s for the Fed. Plate + screen text come from the era. */
     var plateEl = stage.querySelector("[data-mp-plate]");
     var screenEl = stage.querySelector("[data-mp-screen]");
+    /* the press: real printing/counting footage per era (Harsh's clips),
+       playbackRate = the era's pace relative to today */
+    var pressEl = stage.querySelector("[data-mp-press]");
+    var pressTag = stage.querySelector("[data-mp-press-tag]");
+    var pressSpeed = stage.querySelector("[data-mp-press-speed]");
+    var vidBase = stage.getAttribute("data-mp-video-base") || "/assets/video/";
+    if (pressEl) pressEl.addEventListener("loadeddata", function () {
+      if (cur && cur.press_speed) pressEl.playbackRate = cur.press_speed;
+    });
     function noteSpec(era) {
       if (era.currency === "$") return { cls: "mp-note--usd", den: "100", face: "$100" };
       if (era.rate_lps < 0) {
@@ -153,6 +185,17 @@
       if (lineEl) lineEl.textContent = era.line;
       if (plateEl) plateEl.textContent = era.plate || era.operator;
       if (screenEl) screenEl.textContent = era.screen || "BRRR";
+      if (pressEl && era.press) {
+        var want = vidBase + era.press;
+        if (pressEl.getAttribute("data-src-now") !== want) {
+          pressEl.setAttribute("data-src-now", want);
+          pressEl.src = want;
+        }
+        pressEl.playbackRate = era.press_speed || 1;
+        var pp = pressEl.play(); if (pp && pp.catch) pp.catch(function () {});
+      }
+      if (pressTag) pressTag.textContent = era.press_tag || "";
+      if (pressSpeed) pressSpeed.textContent = era.screen || "";
       var abs = Math.abs(era.rate_lps);
       if (rateEl) rateEl.innerHTML = (era.rate_lps < 0 ? "−" : "+") +
         (era.currency === "$"
@@ -174,8 +217,12 @@
     if (def) setEra(def.id);
     /* be polite to batteries when the tab is hidden */
     document.addEventListener("visibilitychange", function () {
-      if (document.hidden && timer) { clearInterval(timer); timer = null; }
-      else if (!document.hidden && cur && !timer) setEra(cur.id);
+      if (document.hidden) {
+        if (timer) { clearInterval(timer); timer = null; }
+        if (pressEl) pressEl.pause();
+      } else if (cur) {
+        setEra(cur.id); /* restarts the press (and the tray rig, if one exists) */
+      }
     });
   })();
 

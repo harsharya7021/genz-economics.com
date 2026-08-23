@@ -58,13 +58,21 @@ permalink: /macro-watch/
         <div class="section-head" style="margin-top:2.4rem"><h2>The Money Printer</h2></div>
         <p class="mp-lede">How much they're bringing in, how much they're absorbing</p>
 
-        <div class="mp-hero">
-          <img class="mp-hero-img" src="https://media.tenor.com/aWcyWL5BsY0AAAAC/money-printer-go-brr-jerome-powell.gif" alt="The money printer goes brrr — the Jerome Powell meme" loading="lazy" onerror="this.closest('.mp-hero').style.display='none'">
-          <p class="mp-hero-cap"><a href="https://tenor.com/view/money-printer-go-brr-jerome-powell-cash-money-printing-money-gif-17266014" target="_blank" rel="noopener">the technical term is "brrr" · via Tenor</a></p>
+        <div class="mp-hero-row">
+          <div class="mp-hero">
+            <img class="mp-hero-img" src="https://media.tenor.com/aWcyWL5BsY0AAAAC/money-printer-go-brr-jerome-powell.gif" alt="The money printer goes brrr — the Jerome Powell meme" loading="lazy" onerror="this.closest('.mp-hero').style.display='none'">
+            <p class="mp-hero-cap"><a href="https://tenor.com/view/money-printer-go-brr-jerome-powell-cash-money-printing-money-gif-17266014" target="_blank" rel="noopener">the technical term is "brrr" · via Tenor</a></p>
+          </div>
+          <div class="mp-card mp-session">
+            <p class="mp-k">Money created while this page has been open</p>
+            <p class="mp-v mp-session-v" data-mp-since-v>—</p>
+            <p class="mp-rate" data-mp-session-rate></p>
+            <div class="mp-gauge" data-mp-gauge></div>
+            <p class="mp-sub">The country's run-rate, ticking under you. Close the tab — it keeps going.</p>
+          </div>
         </div>
 
-        <div class="mp-cards" data-mp-counters data-mp-video="{{ '/assets/video/counter-loop.mp4' | relative_url }}" data-mp-poster="{{ '/assets/video/counter-poster.jpg' | relative_url }}"></div>
-        <p class="mp-since" data-mp-since></p>
+        <div class="mp-cards" data-mp-counters></div>
         <p class="mp-method">Anchored to the WSS the class read out ({{ site.data['money-printer'].as_of }}), ticking at the year's run-rate — the debt-clock convention. A metronome, not a feed; the anchors move every Friday. <a href="{{ '/2026/08/the-quiet-print-crisis-money-without-a-crisis/' | relative_url }}">The session notes</a> walk through every number.</p>
 
         <div class="mp-duo">
@@ -79,16 +87,10 @@ permalink: /macro-watch/
             <div class="mp-erachips">
               {% for e in site.data['money-printer'].eras %}<button type="button" data-mp-era="{{ e.id }}" aria-pressed="false">{{ e.name }}</button>{% endfor %}
             </div>
-            <div class="mp-stage" data-mp-stage>
-              <div class="mp-printer" aria-hidden="true">
-                <div class="mp-printer-body">
-                  <span class="mp-printer-plate" data-mp-plate>RBI · MINT STREET</span>
-                  <span class="mp-printer-screen" data-mp-screen>BRRR</span>
-                  <span class="mp-printer-light"></span>
-                  <div class="mp-printer-slot"><span class="mp-printer-paper"></span></div>
-                </div>
-              </div>
-              <div class="mp-tray" aria-hidden="true"></div>
+            <div class="mp-stage mp-stage-press" data-mp-stage data-mp-video-base="{{ '/assets/video/' | relative_url }}">
+              <video class="mp-press" data-mp-press muted loop playsinline preload="metadata" aria-hidden="true"></video>
+              <span class="mp-press-speed" data-mp-press-speed></span>
+              <span class="mp-press-tag" data-mp-press-tag></span>
             </div>
             <p class="mp-operator" data-mp-operator>—</p>
             <p class="mp-erarate" data-mp-erarate></p>
