@@ -45,38 +45,58 @@
       sessRate.textContent = "+₹" + (total.yoy_lcr * 1e7 / YEAR_S).toFixed(1) + " lakh / second · ₹" +
         fmtIN(total.yoy_lcr * 1e5 / 365.25) + " cr a day";
     }
-    /* the speedometer: today's printing speed against the historical dial.
-       Range 0–20 ₹ lakh/sec; ₹-era markers from the data; needle = today. */
+    /* the speedometer — drawn in the language of Harsh's dial assets: the neon
+       car-cluster set (dark ground, glowing numerals, digital odometer window
+       under the hub) with the classic twin-scale trick from the flat speedo
+       (outer = ₹ lakh/sec, inner gold dashes = ₹ crore/day). Needle = today. */
     (function () {
       var host = document.querySelector("[data-mp-gauge]"); if (!host || !total) return;
-      var MIN = 0, MAX = 20, W = 320, H = 168, cx = W / 2, cy = 150, R = 122;
-      var A0 = Math.PI * 1.16, A1 = -Math.PI * 0.16; /* ~210° sweep */
-      function ang(v) { var f = (v - MIN) / (MAX - MIN); return A0 + (A1 - A0) * f; }
+      var MIN = 0, MAX = 20, W = 320, H = 196, cx = W / 2, cy = 112, R = 84;
+      function ang(v) { return (210 - 240 * (v - MIN) / (MAX - MIN)) * Math.PI / 180; }
       function pt(v, r) { var a = ang(v); return [(cx + r * Math.cos(a)).toFixed(1), (cy - r * Math.sin(a)).toFixed(1)]; }
-      function arc(v0, v1, r, cls) {
-        var p0 = pt(v0, r), p1 = pt(v1, r);
-        return '<path class="' + cls + '" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + ' 0 0 1 ' + p1[0] + " " + p1[1] + '"/>';
+      function arc(v0, v1, r, cls, extra) {
+        var p0 = pt(v0, r), p1 = pt(v1, r), large = (v1 - v0) / (MAX - MIN) * 240 > 180 ? 1 : 0;
+        return '<path class="' + cls + '" ' + (extra || "") + ' fill="none" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + " 0 " + large + ' 1 ' + p1[0] + " " + p1[1] + '"/>';
       }
       var now = total.yoy_lcr * 1e7 / YEAR_S; /* 13.0 */
-      var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Printing speed, ₹ lakh per second">';
-      s += arc(MIN, MAX, R, "mp-g-track");
-      s += arc(MIN, 8, R, "mp-g-seg is-cool") + arc(8, 15, R, "mp-g-seg is-warm") + arc(15, MAX, R, "mp-g-seg is-hot");
-      for (var t = MIN; t <= MAX; t += 2.5) {
-        var q1 = pt(t, R - 7), q2 = pt(t, R + 6);
-        s += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick"/>';
-        if (t % 5 === 0) { var ql = pt(t, R + 17); s += '<text x="' + ql[0] + '" y="' + ql[1] + '" class="mp-g-lbl" text-anchor="middle">' + t + "</text>"; }
+      var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Printing speed dial: ' + now.toFixed(1) + ' lakh rupees per second">';
+      /* base ring + neon glow pass, danger zone 15–20 */
+      s += arc(MIN, MAX, R, "mp-g-ring mp-g-glow", 'stroke-width="7"') + arc(MIN, MAX, R, "mp-g-ring", 'stroke-width="1.6"');
+      s += arc(15, MAX, R, "mp-g-danger mp-g-glow", 'stroke-width="7"') + arc(15, MAX, R, "mp-g-danger", 'stroke-width="2.4"');
+      /* ticks: dense minors, bold majors with glowing numerals */
+      for (var t = MIN; t <= MAX + 1e-9; t += 0.5) {
+        var major = Math.abs(t % 5) < 1e-9, len = major ? 12 : 6;
+        var q1 = pt(t, R - len), q2 = pt(t, R - 1);
+        s += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick' + (major ? " is-major" : "") + (t >= 15 ? " is-danger" : "") + '" stroke-width="' + (major ? 2.6 : 1.1) + '"/>';
+        if (major) {
+          var ql = pt(t, R - 24);
+          s += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4) + '" class="mp-g-num' + (t >= 15 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>";
+        }
       }
+      /* inner gold dashed scale — ₹ crore/day (the twin-scale from the flat dial) */
+      s += arc(MIN, MAX, 46, "mp-g-inner", 'stroke-width="2" stroke-dasharray="3 5"');
+      [[0, "0"], [10, "8.6k"], [20, "17.3k"]].forEach(function (m) {
+        var qi = pt(m[0], 34);
+        s += '<text x="' + qi[0] + '" y="' + (parseFloat(qi[1]) + 2.5) + '" class="mp-g-inlbl" text-anchor="middle">' + m[1] + "</text>";
+      });
+      var qc = pt(10, 20);
+      s += '<text x="' + qc[0] + '" y="' + qc[1] + '" class="mp-g-inlbl" text-anchor="middle">₹ CR / DAY</text>';
+      /* era pips outside the ring */
       (D.eras || []).forEach(function (e) {
         if (e.currency !== "₹") return;
         var v = Math.abs(e.rate_lps); if (v > MAX) return;
-        var m1 = pt(v, R - 16), m2 = pt(v, R - 4);
+        var m1 = pt(v, R + 3), m2 = pt(v, R + 11);
         s += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark' + (e.rate_lps < 0 ? " is-rev" : "") + '"><title>' + e.name + " · " + (e.rate_lps < 0 ? "−" : "+") + v + " lakh/sec</title></line>";
       });
-      var n = pt(now, R - 26);
-      s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
-      s += '<circle cx="' + cx + '" cy="' + cy + '" r="6" class="mp-g-hub"/>';
-      s += '<text x="' + cx + '" y="' + (cy - 22) + '" class="mp-g-big" text-anchor="middle">' + now.toFixed(1) + "</text>";
-      s += '<text x="' + cx + '" y="' + (cy - 8) + '" class="mp-g-unit" text-anchor="middle">₹ LAKH / SEC</text>';
+      /* needle with tail, ringed hub (glow) */
+      var n = pt(now, R + 2), tail = pt(now > 10 ? now - 10 : now + 10, 14);
+      s += '<line x1="' + tail[0] + '" y1="' + tail[1] + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
+      /* digital odometer window under the hub — from the cluster set */
+      s += '<rect x="' + (cx - 34) + '" y="' + (cy + 26) + '" width="68" height="24" rx="5" class="mp-g-odo"/>';
+      s += '<text x="' + cx + '" y="' + (cy + 43) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + "</text>";
+      s += '<text x="' + cx + '" y="' + (cy + 64) + '" class="mp-g-unit" text-anchor="middle">₹ LAKH / SEC</text>';
       s += "</svg>";
       host.innerHTML = s;
     })();

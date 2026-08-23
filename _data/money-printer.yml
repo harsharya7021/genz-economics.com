@@ -99,9 +99,9 @@ eras:
     operator: "Urjit Patel · RBI"
     plate: "RBI · REVERSE GEAR"
     screen: "−₹18.9 LAKH / SEC"
-    press: "press-500-rev.mp4"
-    press_speed: 1.4
-    press_tag: "₹500 — un-printed. Backwards, faster than it ever ran forwards"
+    press: "press-wash.mp4"
+    press_speed: 1.0
+    press_tag: "the wash cycle — ₹15.4 L cr went in; 99.3% came back freshly laundered"
     currency: "₹"
     rate_lps: -18.9       # currency with public ≈17.97 → ≈9.0 L cr in ~55 days
     line: "The only time the machine ran in reverse — and it ran backwards faster than it has ever run forwards."
@@ -113,9 +113,9 @@ eras:
     operator: "Jerome Powell · Federal Reserve"
     plate: "US FEDERAL RESERVE"
     screen: "+$315,000 / SEC"
-    press: "press-rain.mp4"
-    press_speed: 1.6
-    press_tag: "the machine stopped counting — it just rains"
+    press: "press-usd.mp4"
+    press_speed: 1.5
+    press_tag: "$100s, up close — ₹2.4 crore-equivalent every second"
     currency: "$"
     rate_lps: 236.0       # Fed balance sheet +$2.86T in 105 days ≈ $315,000/sec ≈ ₹2.36 crore/sec at ₹75
     line: "The meme was arithmetic: +$2.86 trillion in 105 days is $315,000 every second. In rupees of the day, ₹2.4 crore a second. Brrr."
