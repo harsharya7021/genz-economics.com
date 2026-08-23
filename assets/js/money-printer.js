@@ -118,9 +118,14 @@
     });
     /* the year travelled — its own inner ring, clear of ticks and numerals */
     s2 += arc(was, now, R - 40, "mp-g-travel", 'stroke-width="4"');
-    /* needle stops short of the tick ring */
-    var n = pt(now, R - 18), tail = pt(now - 14, 15);
-    s2 += '<line x1="' + tail[0] + '" y1="' + tail[1] + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
+    /* The needle must be a TRUE RADIUS: tip and counterweight on one angle
+       through the hub. (Placing the tail at another scale value — pt(now-14)
+       — makes the line a chord that misses the centre entirely, which is
+       exactly what it looked like: a needle floating past its own pivot.) */
+    var na = ang(now), ux = Math.cos(na), uy = -Math.sin(na);
+    var tipR = R - 18, tailR = 16;
+    s2 += '<line x1="' + (cx - tailR * ux).toFixed(1) + '" y1="' + (cy - tailR * uy).toFixed(1) +
+          '" x2="' + (cx + tipR * ux).toFixed(1) + '" y2="' + (cy + tipR * uy).toFixed(1) + '" class="mp-g-needle"/>';
     s2 += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/><circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
     s2 += '<rect x="' + (cx - 46) + '" y="' + (cy + 26) + '" width="92" height="28" rx="6" class="mp-g-odo"/>';
     s2 += '<text x="' + cx + '" y="' + (cy + 46) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + '%</text>';
