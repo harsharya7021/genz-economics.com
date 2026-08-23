@@ -2886,10 +2886,25 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .mp-hero-cap a { font-family: var(--mono); font-size: .66rem; letter-spacing: .05em; color: #95A9B4; text-decoration: none; }
 .mp-hero-cap a:hover { color: #F4F8FA; }
 
-/* the session odometer — same card language as the counters, sized as a hero */
+/* the "already printed" display — same card language, sized as a hero */
 .mp-session { display: flex; flex-direction: column; padding: 1.2rem 1.3rem 1.1rem; }
 .mp-session .mp-session-v { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
 .mp-session .mp-sub { margin-top: auto; }
+.mp-printed-split { margin: .75rem 0 .6rem; display: grid; gap: .3rem; }
+.mp-psplit-row { display: grid; grid-template-columns: minmax(96px, auto) 1fr; gap: .55rem; align-items: baseline; }
+.mp-psplit-v { font-family: var(--mono); font-size: .76rem; font-weight: 700; color: #9fe8d5; text-align: right; }
+.mp-psplit-l { font-family: var(--sans); font-size: .74rem; line-height: 1.4; color: rgba(244,241,233,.72); }
+.mp-asof { font-family: var(--mono); font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; color: rgba(201,210,255,.72); margin: .1rem 0 .35rem; }
+
+/* dark panel — so the neon dial reads the way the cluster assets do */
+.mp-panel--dark { background: linear-gradient(150deg, #24309A 0%, #141B4F 70%, #17204a 100%); border-color: transparent; color: #F4F1E9; }
+.mp-panel--dark .mp-panel-k { color: var(--gold); }
+.mp-panel--dark .mp-fn { color: rgba(244,241,233,.62); }
+.mp-panel--dark .mp-dial-legend { color: rgba(244,241,233,.72); }
+.mp-panel--dark .mp-dial-legend b { color: #F4F8FA; }
+.mp-g-travel { stroke: #FFD866; stroke-linecap: round; opacity: .85; filter: drop-shadow(0 0 5px rgba(255,216,102,.55)); }
+.mp-g-pip { font: 600 7.5px var(--mono); fill: rgba(244,241,233,.62); }
+.mp-g-sub2 { font: 600 8px var(--mono); fill: rgba(201,210,255,.75); letter-spacing: .06em; }
 /* the dial — neon cluster style (Harsh's speedometer assets): glowing ring +
    numerals, danger zone, twin gold inner scale, digital odometer window */
 .mp-gauge { margin: .45rem auto .25rem; width: 100%; max-width: 310px; }

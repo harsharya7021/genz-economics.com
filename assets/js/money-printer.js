@@ -1,8 +1,11 @@
 /* The Money Printer — Bloomburger Terminal panel.
    Reads its data from #mp-data (JSON, emitted by Liquid from _data/money-printer.yml).
-   Counters are anchored extrapolations (debt-clock convention), not a live feed:
-   value(t) = WSS anchor + run-rate × elapsed. Chart lines interpolate between
-   sourced dots. Session 19 (23 Aug 2026) is the source of the anchors.
+   Honesty rules for this panel: the board shows DATED STOCKS as the RBI printed
+   them — no per-second ticking, because money is not created per second; it
+   arrives in lumps and is observed fortnightly. The hero figure is what was
+   already printed over the year (past tense), revealed once on load. Chart
+   lines interpolate between sourced dots; only dots are data.
+   Session 19 (23 Aug 2026) is the source of the anchors.
    No dependencies; inert if the panel is absent. */
 (function () {
   "use strict";
@@ -23,122 +26,103 @@
   /* ── 1 · Odometers ─────────────────────────────────────────── */
   (function () {
     var wrap = root.querySelector("[data-mp-counters]"); if (!wrap) return;
-    var cards = [];
+    var motionOK = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    /* The board is DATED STOCKS, not a live feed. The earlier version ticked
+       every second at the year's average pace — a debt-clock convention that
+       quietly asserted something false: that money is being created per second
+       as you watch. It isn't. It was created, past tense, in lumps (a CRR
+       tranche, an OMO auction, loans booked and reported fortnightly). So the
+       big number is the RBI's printed figure on the anchor date, and the only
+       arithmetic on this page is subtraction. */
     (D.counters || []).forEach(function (c) {
       var card = el("div", "mp-card");
-      var perSecLakh = c.yoy_lcr * 1e7 / YEAR_S;           /* ₹ lakh per second */
-      var perDayCr = c.yoy_lcr * 1e5 / 365.25;             /* ₹ crore per day  */
       card.appendChild(el("p", "mp-k", c.label));
-      var big = el("p", "mp-v", "—"); card.appendChild(big);
+      card.appendChild(el("p", "mp-v", "₹" + fmtIN(c.v_lcr * 1e5) + " crore"));
+      card.appendChild(el("p", "mp-asof", "as printed · 31 Jul 2026"));
       card.appendChild(el("p", "mp-rate",
-        (c.yoy_lcr >= 0 ? "+" : "−") + "₹" + Math.abs(perSecLakh).toFixed(1) + " lakh / second · ₹" +
-        fmtIN(Math.abs(perDayCr)) + " cr a day"));
+        (c.yoy_lcr >= 0 ? "+" : "−") + "₹" + fmtIN(Math.abs(c.yoy_lcr) * 1e5) + " crore over the year"));
       card.appendChild(el("p", "mp-sub", c.sub));
       wrap.appendChild(card);
-      cards.push({ c: c, big: big });
     });
-    /* ── the session odometer: the card beside the GIF ── */
-    var sinceV = document.querySelector("[data-mp-since-v]");
-    var sessRate = document.querySelector("[data-mp-session-rate]");
+
+    /* ── the hero display: what was already printed ──────────────
+       A one-shot reveal on load — an animation of a fixed, finished number,
+       not a claim that anything is being printed now. Then it stops. */
     var total = (D.counters || []).filter(function (c) { return c.id === "total"; })[0];
-    if (sessRate && total) {
-      sessRate.textContent = "+₹" + (total.yoy_lcr * 1e7 / YEAR_S).toFixed(1) + " lakh / second · ₹" +
-        fmtIN(total.yoy_lcr * 1e5 / 365.25) + " cr a day";
-    }
-    /* the speedometer — drawn in the language of Harsh's dial assets: the neon
-       car-cluster set (dark ground, glowing numerals, digital odometer window
-       under the hub) with the classic twin-scale trick from the flat speedo
-       (outer = ₹ lakh/sec, inner gold dashes = ₹ crore/day). Needle = today. */
-    (function () {
-      var host = document.querySelector("[data-mp-gauge]"); if (!host || !total) return;
-      var MIN = 0, MAX = 20, W = 320, H = 196, cx = W / 2, cy = 112, R = 84;
-      function ang(v) { return (210 - 240 * (v - MIN) / (MAX - MIN)) * Math.PI / 180; }
-      function pt(v, r) { var a = ang(v); return [(cx + r * Math.cos(a)).toFixed(1), (cy - r * Math.sin(a)).toFixed(1)]; }
-      function arc(v0, v1, r, cls, extra) {
-        var p0 = pt(v0, r), p1 = pt(v1, r), large = (v1 - v0) / (MAX - MIN) * 240 > 180 ? 1 : 0;
-        return '<path class="' + cls + '" ' + (extra || "") + ' fill="none" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + " 0 " + large + ' 1 ' + p1[0] + " " + p1[1] + '"/>';
+    var printedEl = document.querySelector("[data-mp-printed]");
+    var printedSub = document.querySelector("[data-mp-printed-sub]");
+    var printedSplit = document.querySelector("[data-mp-printed-split]");
+    if (total && printedEl) {
+      var finalCr = total.yoy_lcr * 1e5;                    /* ₹41,00,000 crore */
+      var byId = {}; (D.counters || []).forEach(function (c) { byId[c.id] = c; });
+      if (printedSub) printedSub.textContent = "deposits + currency with the public, over twelve months";
+      if (printedSplit) {
+        [["₹" + fmtIN((byId.deposits || {}).yoy_lcr * 1e5) + " cr", "new bank deposits"],
+         ["₹" + fmtIN((byId.cash || {}).yoy_lcr * 1e5) + " cr", "new cash with the public"],
+         ["≈₹" + fmtIN(finalCr / 26.09) + " cr", "a fortnight — the cadence it is actually observed at"],
+         ["≈₹" + fmtIN(finalCr / 365.25) + " cr", "a day, if you flatten the lumps — nobody prints this way"]
+        ].forEach(function (r) {
+          var row = el("div", "mp-psplit-row");
+          row.appendChild(el("span", "mp-psplit-v", r[0]));
+          row.appendChild(el("span", "mp-psplit-l", r[1]));
+          printedSplit.appendChild(row);
+        });
       }
-      var now = total.yoy_lcr * 1e7 / YEAR_S; /* 13.0 */
-      var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Printing speed dial: ' + now.toFixed(1) + ' lakh rupees per second">';
-      /* base ring + neon glow pass, danger zone 15–20 */
-      s += arc(MIN, MAX, R, "mp-g-ring mp-g-glow", 'stroke-width="7"') + arc(MIN, MAX, R, "mp-g-ring", 'stroke-width="1.6"');
-      s += arc(15, MAX, R, "mp-g-danger mp-g-glow", 'stroke-width="7"') + arc(15, MAX, R, "mp-g-danger", 'stroke-width="2.4"');
-      /* ticks: dense minors, bold majors with glowing numerals */
-      for (var t = MIN; t <= MAX + 1e-9; t += 0.5) {
-        var major = Math.abs(t % 5) < 1e-9, len = major ? 12 : 6;
-        var q1 = pt(t, R - len), q2 = pt(t, R - 1);
-        s += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick' + (major ? " is-major" : "") + (t >= 15 ? " is-danger" : "") + '" stroke-width="' + (major ? 2.6 : 1.1) + '"/>';
-        if (major) {
-          var ql = pt(t, R - 24);
-          s += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4) + '" class="mp-g-num' + (t >= 15 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>";
-        }
-      }
-      /* inner gold dashed scale — ₹ crore/day (the twin-scale from the flat dial) */
-      s += arc(MIN, MAX, 46, "mp-g-inner", 'stroke-width="2" stroke-dasharray="3 5"');
-      [[0, "0"], [10, "8.6k"], [20, "17.3k"]].forEach(function (m) {
-        var qi = pt(m[0], 34);
-        s += '<text x="' + qi[0] + '" y="' + (parseFloat(qi[1]) + 2.5) + '" class="mp-g-inlbl" text-anchor="middle">' + m[1] + "</text>";
-      });
-      var qc = pt(10, 20);
-      s += '<text x="' + qc[0] + '" y="' + qc[1] + '" class="mp-g-inlbl" text-anchor="middle">₹ CR / DAY</text>';
-      /* era pips outside the ring */
-      (D.eras || []).forEach(function (e) {
-        if (e.currency !== "₹") return;
-        var v = Math.abs(e.rate_lps); if (v > MAX) return;
-        var m1 = pt(v, R + 3), m2 = pt(v, R + 11);
-        s += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark' + (e.rate_lps < 0 ? " is-rev" : "") + '"><title>' + e.name + " · " + (e.rate_lps < 0 ? "−" : "+") + v + " lakh/sec</title></line>";
-      });
-      /* needle with tail, ringed hub (glow) */
-      var n = pt(now, R + 2), tail = pt(now > 10 ? now - 10 : now + 10, 14);
-      s += '<line x1="' + tail[0] + '" y1="' + tail[1] + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
-      s += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/>';
-      s += '<circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
-      /* digital odometer window under the hub — from the cluster set */
-      s += '<rect x="' + (cx - 34) + '" y="' + (cy + 26) + '" width="68" height="24" rx="5" class="mp-g-odo"/>';
-      s += '<text x="' + cx + '" y="' + (cy + 43) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + "</text>";
-      s += '<text x="' + cx + '" y="' + (cy + 64) + '" class="mp-g-unit" text-anchor="middle">₹ LAKH / SEC</text>';
-      s += "</svg>";
-      host.innerHTML = s;
-    })();
-    function tick() {
-      var eYr = (Date.now() - anchorT) / 1000 / YEAR_S;
-      cards.forEach(function (o) {
-        var vCr = (o.c.v_lcr + o.c.yoy_lcr * eYr) * 1e5;   /* ₹ crore */
-        o.big.textContent = "₹" + fmtIN(vCr) + " crore";
-      });
-      if (sinceV && total) {
-        var addCr = total.yoy_lcr * 1e5 * ((Date.now() - openedT) / 1000 / YEAR_S);
-        sinceV.textContent = addCr >= 1
-          ? "₹" + (addCr < 100 ? addCr.toFixed(2) : fmtIN(addCr)) + " crore"
-          : "₹" + (addCr * 100).toFixed(1) + " lakh";
+      if (!motionOK) {
+        printedEl.textContent = "₹" + fmtIN(finalCr) + " crore";
+      } else {
+        var t0 = null, DUR = 1700;
+        var roll = function (ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR);
+          printedEl.textContent = "₹" + fmtIN(finalCr * (1 - Math.pow(1 - p, 3))) + " crore";
+          if (p < 1) requestAnimationFrame(roll);
+        };
+        requestAnimationFrame(roll);
       }
     }
-    tick(); setInterval(tick, 1000);
   })();
 
-  /* ── 2 · The 90% dial ──────────────────────────────────────── */
+  /* ── 2 · The dial — money ÷ GDP, in the neon-cluster language ──
+     The page's ONLY gauge now. Scale 60–100% of GDP: the needle is where we
+     are (90.3), the pips are where we have been, the bright sweep is the
+     distance travelled in one year. Red past 88 — territory a 7%-growth
+     economy has no business visiting. */
   (function () {
     var host = root.querySelector("[data-mp-dial]"); if (!host || !D.ratio) return;
-    var MIN = 60, MAX = 100, W = 340, H = 200, cx = W / 2, cy = 178, R = 148;
-    function ang(v) { return Math.PI * (1 - (v - MIN) / (MAX - MIN)); }
-    function pt(v, r) { var a = ang(v); return [cx + r * Math.cos(a), cy - r * Math.sin(a)]; }
-    var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Money to GDP dial">';
-    var a0 = pt(MIN, R), a1 = pt(MAX, R);
-    s += '<path d="M ' + a0[0] + " " + a0[1] + " A " + R + " " + R + ' 0 0 1 ' + a1[0] + " " + a1[1] + '" class="mp-dial-track"/>';
-    var n0 = pt(D.ratio.year_ago, R), n1 = pt(D.ratio.now, R);
-    s += '<path d="M ' + n0[0] + " " + n0[1] + " A " + R + " " + R + ' 0 0 1 ' + n1[0] + " " + n1[1] + '" class="mp-dial-hot"/>';
+    var MIN = 60, MAX = 100, W = 340, H = 236, cx = W / 2, cy = 132, R = 100;
+    function ang(v) { return (210 - 240 * (v - MIN) / (MAX - MIN)) * Math.PI / 180; }
+    function pt(v, r) { var a = ang(v); return [(cx + r * Math.cos(a)).toFixed(1), (cy - r * Math.sin(a)).toFixed(1)]; }
+    function arc(v0, v1, r, cls, extra) {
+      var p0 = pt(v0, r), p1 = pt(v1, r), large = (v1 - v0) / (MAX - MIN) * 240 > 180 ? 1 : 0;
+      return '<path class="' + cls + '" ' + (extra || "") + ' fill="none" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + " 0 " + large + ' 1 ' + p1[0] + " " + p1[1] + '"/>';
+    }
+    var now = D.ratio.now, was = D.ratio.year_ago;
+    var s2 = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Money supply as a share of GDP: ' + now + ' per cent">';
+    s2 += arc(MIN, MAX, R, "mp-g-ring mp-g-glow", 'stroke-width="8"') + arc(MIN, MAX, R, "mp-g-ring", 'stroke-width="1.6"');
+    s2 += arc(88, MAX, R, "mp-g-danger mp-g-glow", 'stroke-width="8"') + arc(88, MAX, R, "mp-g-danger", 'stroke-width="2.6"');
+    s2 += arc(was, now, R - 14, "mp-g-travel", 'stroke-width="4"');
+    for (var t = MIN; t <= MAX + 1e-9; t += 2) {
+      var major = Math.abs(t % 10) < 1e-9, len = major ? 13 : 6;
+      var q1 = pt(t, R - len), q2 = pt(t, R - 1);
+      s2 += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick' + (major ? " is-major" : "") + (t >= 88 ? " is-danger" : "") + '" stroke-width="' + (major ? 2.6 : 1.1) + '"/>';
+      if (major) { var ql = pt(t, R - 27); s2 += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4) + '" class="mp-g-num' + (t >= 88 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>"; }
+    }
     (D.ratio.markers || []).forEach(function (m) {
-      var p1 = pt(m.v, R - 8), p2 = pt(m.v, R + 8), pl = pt(m.v, R + 24);
-      s += '<line x1="' + p1[0] + '" y1="' + p1[1] + '" x2="' + p2[0] + '" y2="' + p2[1] + '" class="mp-dial-tick"/>';
-      s += '<text x="' + pl[0] + '" y="' + pl[1] + '" class="mp-dial-lbl" text-anchor="middle">' + m.v + "</text>";
+      if (m.v < MIN || m.v > MAX) return;
+      var m1 = pt(m.v, R + 3), m2 = pt(m.v, R + 12), ml = pt(m.v, R + 22);
+      s2 += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark"><title>' + m.label + " · " + m.v + '%</title></line>';
+      s2 += '<text x="' + ml[0] + '" y="' + (parseFloat(ml[1]) + 3) + '" class="mp-g-pip" text-anchor="middle">' + m.v + "</text>";
     });
-    var np = pt(D.ratio.now, R - 22);
-    s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + np[0] + '" y2="' + np[1] + '" class="mp-dial-needle"/>';
-    s += '<circle cx="' + cx + '" cy="' + cy + '" r="7" class="mp-dial-hub"/>';
-    s += '<text x="' + cx + '" y="' + (cy - 44) + '" class="mp-dial-big" text-anchor="middle">' + D.ratio.now.toFixed(1) + "%</text>";
-    s += '<text x="' + cx + '" y="' + (cy - 24) + '" class="mp-dial-cap" text-anchor="middle">money ÷ GDP · was ' + D.ratio.year_ago.toFixed(0) + "% a year ago</text>";
-    s += "</svg>";
-    host.innerHTML = s;
+    var n = pt(now, R + 2), tail = pt(now - 14, 16);
+    s2 += '<line x1="' + tail[0] + '" y1="' + tail[1] + '" x2="' + n[0] + '" y2="' + n[1] + '" class="mp-g-needle"/>';
+    s2 += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/><circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
+    s2 += '<rect x="' + (cx - 46) + '" y="' + (cy + 26) + '" width="92" height="28" rx="6" class="mp-g-odo"/>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 46) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + '%</text>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 68) + '" class="mp-g-unit" text-anchor="middle">MONEY ÷ GDP</text>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 84) + '" class="mp-g-sub2" text-anchor="middle">' + was.toFixed(0) + '% a year ago · +' + (now - was).toFixed(1) + ' points</text>';
+    s2 += "</svg>";
+    host.innerHTML = s2;
     var fn = root.querySelector("[data-mp-dial-note]");
     if (fn) fn.textContent = (D.ratio.footnote || "").replace(/^\*/, "");
     var legend = root.querySelector("[data-mp-dial-legend]");
