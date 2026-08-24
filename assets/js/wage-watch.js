@@ -9,7 +9,7 @@
 
      match /wage_watch/{doc} {
        allow create: if request.resource.data.keys().hasOnly(
-           ['vantage','sector','tier','wages','vendors','prices','note','month','ts'])
+           ['vantage','sector','tier','wages','reservation','threshold','productivity','attrition','vendors','prices','note','month','ts'])
          && request.resource.data.month is string
          && request.resource.data.note is string
          && request.resource.data.note.size() <= 600;
@@ -30,7 +30,7 @@
   var statusEl = document.querySelector("[data-ww-status]");
   var doneEl = document.querySelector("[data-ww-done]");
   var countEl = document.querySelector("[data-ww-count]");
-  var answers = { vantage: "", sector: "", tier: "", wages: "", vendors: "", prices: "", note: "" };
+  var answers = { vantage: "", sector: "", tier: "", wages: "", reservation: "", threshold: "", productivity: "", attrition: "", vendors: "", prices: "", note: "" };
 
   /* chip groups */
   form.querySelectorAll(".ww-chips").forEach(function (group) {
@@ -57,7 +57,7 @@
     ev.preventDefault();
     answers.sector = sel ? sel.value : "";
     answers.note = note ? note.value.trim().slice(0, 500) : "";
-    var required = ["vantage", "tier", "wages", "vendors", "prices"];
+    var required = ["vantage", "tier", "wages", "reservation", "threshold", "productivity", "attrition", "vendors", "prices"];
     var missing = required.filter(function (k) { return !answers[k]; });
     if (!answers.sector) missing.push("sector");
     if (missing.length) {
@@ -85,7 +85,9 @@
         var db = fs.getFirestore(app);
         return fs.addDoc(fs.collection(db, "wage_watch"), {
           vantage: answers.vantage, sector: answers.sector, tier: answers.tier,
-          wages: answers.wages, vendors: answers.vendors, prices: answers.prices,
+          wages: answers.wages, reservation: answers.reservation, threshold: answers.threshold,
+          productivity: answers.productivity, attrition: answers.attrition,
+          vendors: answers.vendors, prices: answers.prices,
           note: answers.note, month: month, ts: fs.serverTimestamp()
         });
       })

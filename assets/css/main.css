@@ -2971,6 +2971,9 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .ww-q { margin: 0 0 1.15rem; }
 .ww-label { font-family: var(--sans); font-size: .92rem; font-weight: 650; color: var(--ink); margin: 0 0 .45rem; }
 .ww-opt { font-weight: 400; color: var(--ink-soft); font-size: .8rem; }
+.ww-sublabel { font-family: var(--sans); font-size: .78rem; line-height: 1.5; color: var(--ink-soft); margin: -.25rem 0 .5rem; }
+.ww-q--key { padding: .85rem .95rem; margin-left: -.95rem; margin-right: -.95rem; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 8%, transparent); border-radius: 0 12px 12px 0; }
+.ww-q--key .ww-label { color: var(--ink); }
 .ww-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 .ww-chips button { font-family: var(--sans); font-size: .84rem; padding: .5rem .85rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface-2); color: var(--ink); cursor: pointer; transition: background .15s, border-color .15s; }
 .ww-chips button:hover { border-color: var(--accent); }

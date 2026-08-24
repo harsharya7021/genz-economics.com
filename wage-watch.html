@@ -8,7 +8,7 @@ permalink: /wage-watch/
   <div class="container">
     <p class="eyebrow">The Wage Watch</p>
     <h1 class="display">The missing <em>variable</em>.</h1>
-    <p class="hero-byline">₹41 lakh crore of new money either becomes GDP or becomes prices — and the professor's deciding variable is <strong>wage pressure at the lower end</strong>, which no agency measures in time to matter. You, however, are in the real world: you hire, you set salaries, you negotiate with vendors. Report what you see. Two minutes. Anonymous — no name, no email, no account id stored, ever.</p>
+    <p class="hero-byline">₹41 lakh crore of new money either becomes GDP or becomes prices, and the tell is not "are wages rising." It is the <strong>reservation wage</strong> — the raise below which your people start sending out CVs, adjusted for productivity. Nobody measures it. The RBI surveys households who don't follow the question; IIM-Ahmedabad asks informed people for a <em>forecast</em>, and informed people just repeat the current print. You are the only ones who actually know. Two minutes. Anonymous — no name, no email, no account id stored, ever.</p>
   </div>
 </section>
 
@@ -67,6 +67,51 @@ permalink: /wage-watch/
           </div>
         </div>
 
+        <div class="ww-q ww-q--key">
+          <p class="ww-label">The one that matters — the walk-away number</p>
+          <p class="ww-sublabel">Below what annual raise do your people start looking elsewhere? Not what they ask for. The floor at which they actually go.</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Reservation wage" data-ww="reservation">
+            <button type="button" data-v="lt5">Under 5%</button>
+            <button type="button" data-v="5to8">5–8%</button>
+            <button type="button" data-v="8to12">8–12%</button>
+            <button type="button" data-v="12to20">12–20%</button>
+            <button type="button" data-v="gt20">Over 20%</button>
+            <button type="button" data-v="unknown">Can't tell yet</button>
+          </div>
+        </div>
+
+        <div class="ww-q ww-q--key">
+          <p class="ww-label">Is that threshold higher than it was a year ago?</p>
+          <p class="ww-sublabel">A rising floor is the start of the chain — expectations first, then prices.</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Threshold direction" data-ww="threshold">
+            <button type="button" data-v="lower">Lower</button>
+            <button type="button" data-v="same">About the same</button>
+            <button type="button" data-v="higher">Higher</button>
+            <button type="button" data-v="muchhigher">Much higher</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Last hike vs productivity</p>
+          <p class="ww-sublabel">Did output per person rise enough to pay for it? A raise earned by productivity is not inflation — the same raise without it is.</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Productivity" data-ww="productivity">
+            <button type="button" data-v="ahead">Productivity ran ahead of pay</button>
+            <button type="button" data-v="matched">Roughly matched</button>
+            <button type="button" data-v="behind">Pay ran ahead of productivity</button>
+            <button type="button" data-v="na">Not measurable here</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">Where a hike was skipped or thin, did attrition follow?</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Attrition" data-ww="attrition">
+            <button type="button" data-v="none">No</button>
+            <button type="button" data-v="some">Some</button>
+            <button type="button" data-v="clear">Clearly, yes</button>
+            <button type="button" data-v="na">Doesn't apply</button>
+          </div>
+        </div>
+
         <div class="ww-q">
           <p class="ww-label">Vendors / contractors quoting higher than last year?</p>
           <div class="ww-chips" role="radiogroup" aria-label="Vendor quotes" data-ww="vendors">
@@ -86,7 +131,7 @@ permalink: /wage-watch/
         </div>
 
         <div class="ww-q">
-          <p class="ww-label">One concrete observation, if you have it <span class="ww-opt">(optional — a number beats an adjective: "cook's salary up ₹2,000 since March")</span></p>
+          <p class="ww-label">One concrete observation, if you have it <span class="ww-opt">(optional — a number beats an adjective: "site PM on ₹25–30k walked over a 6% offer")</span></p>
           <textarea class="ww-text" data-ww="note" rows="3" maxlength="500" placeholder="What did you see, where, since when?"></textarea>
         </div>
 
@@ -102,7 +147,8 @@ permalink: /wage-watch/
     </div>
 
     <div class="ww-why">
-      <p><strong>Why this exists.</strong> Session 19's fork: if the past year's money-supply surge meets idle capacity, it becomes output; if it meets wage pressure, it becomes 6–7% inflation for two or three years. The professor, on record: <em>"Where you can add to what I know is whether there is wage pressure building up. If not — forget it, we will be fine. If you see it building, this is not temporary."</em> <a href="{{ '/2026/08/the-quiet-print-crisis-money-without-a-crisis/' | relative_url }}">The full session notes</a> have the argument; this page is the sensor.</p>
+      <p><strong>Why this exists.</strong> Session 19's fork: if the past year's money growth meets idle capacity it becomes output; if it meets a rising wage floor it becomes inflation, durably, because expectations move and then prices follow. The professor spent the last fifteen minutes of that class designing this measurement — and rejecting the versions that already exist. <em>"I want to understand whether your reservation wage has gone up without any increase in productivity… If you can identify it before it starts, you will be doing great service to the policymakers, your companies, and your clients."</em> And on what it could become: <em>"If you can create a group and launch something, this will be tracked by markets. Imagine if it starts influencing bond prices tomorrow."</em> <a href="{{ '/2026/08/the-quiet-print-crisis-money-without-a-crisis/' | relative_url }}">The full session notes</a> carry the argument; this page is the instrument.</p>
+      <p><strong>One known limitation, raised in class.</strong> Inflation is not one number — above ₹10 lakh a 5–7% hike is judged against school fees rising 12%; below it, the same arithmetic bites harder. So the vantage and sector questions above are not decoration: they let the aggregate be cut by band rather than flattened into a single misleading average.</p>
       <p class="ww-count" data-ww-count></p>
     </div>
   </div>

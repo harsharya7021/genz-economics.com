@@ -31,6 +31,25 @@ And the tell to watch is the one this class has repeated since INFS: **not the F
 
 So much for the country that printed into dead inflation expectations. Now the uncomfortable part: what is **our** central bank doing?
 
+## Before the data: a policy win, and a bill nobody explains
+
+Two things opened the class that belong in your notes even though neither is on the syllabus.
+
+**First, the professor took a small victory lap, carefully.** He had criticised the FCNR window loudly and in public — the argument being that it raised some $50–60 billion of foreign-currency debt to pile into forex reserves that were already in good shape, while quietly exposing India to a sudden capital outflow two or three years out. Then, on 7 August, the RBI said it had no plan to discontinue the scheme; days later it pulled the deadline in from 30 September to 31 August. His framing was exact and worth copying: *"I don't want to claim causality, but at least there was an appreciation that this was not required."* Note the discipline in that sentence. He will not claim a causal effect he cannot identify — the same standard he applies to the Spanish credit register, applied to his own influence.
+
+**Second, a genuinely open puzzle, handed to the room.** India's general-government debt is about **82% of GDP** — respectable, better than most rich countries, and the number every official comparison leads with. But India's **interest cost is among the highest in the world at ~5% of GDP**, against Japan's **~1%** on debt of 130–140%. Put it in rupees and it stops being abstract: the centre pays about **₹15 lakh crore** in interest against total tax revenue of **₹34 lakh crore** — nearly one rupee in three — and the states add roughly ₹6 lakh crore more.
+
+And he closed off the lazy answer before anyone could reach for it:
+
+<div class="wa-aside">
+  <p class="wa-meta">Prof. Tantri, in class</p>
+  <p>"It's not inflation. You know, inflation is a cheap answer — this class should not say inflation, because I'm dividing it by nominal GDP, so inflation is factored in."</p>
+</div>
+
+His hypothesis is the one [Session 18]({% post_url 2026-08-09-japans-debt-puzzle-the-sovereign-carry-trade %}) built the machinery for: **the balance sheet is more stretched than the headline says.** Entities classified as private in the national accounts are not private — when LIC borrows, when SBI borrows, when the petroleum companies borrow, that is sovereign borrowing in all but name, because none of them can be allowed to default. Consolidate them and the ratios stop looking flattering, and the interest bill starts to make sense.
+
+Which is why the standing homework from last session now has a deadline and a destination. Lakshit has a first pass at the consolidated balance sheet of the Indian state; the professor's offer, on the record: *"I can set up a meeting with RBI or someone, because I don't think anyone has that kind of data in a consolidated manner."* Followed by the line that explains why this room exists at all — that the output of these Sunday sessions should be people writing in newspapers and presenting to policymakers, and he will make the introductions. A reminder, if one is needed, that the assignments handed out here are not exercises.
+
 ## Open the RBI's own PDF
 
 No leaks required here. Go to the RBI's site → Statistics → [Data Releases](https://website.rbi.org.in/web/rbi/statistics/data-releases) → the fortnightly **"Scheduled banks' statement of position in India"** — the Section 42 return, a consolidated balance sheet of every bank in the country. The professor put it on screen and made us find the rows ourselves. Follow along; this is the *useful knowledge* part:
@@ -41,7 +60,7 @@ No leaks required here. Go to the RBI's site → Statistics → [Data Releases](
 
 Then cash, from the [Weekly Statistical Supplement](https://website.rbi.org.in/web/rbi/publications/weekly-statistical-supplement): **currency with the public is ₹42 lakh crore — 12% of GDP, back to pre-demonetisation territory.** A year ago it was ~₹37 lakh crore. *"We have no idea where this money is or what it is doing — but we are back to that level."*
 
-Now do what the professor did — one addition and one division. Deposits ₹274 + cash ₹42 ≈ **₹316 lakh crore of money in the system**, against nominal GDP of roughly **₹350 lakh crore** (FY26; last year ~₹325) — his working numbers, and the first thing here that does not survive checking. MoSPI rebased the national accounts to a 2022-23 base in February 2026: FY26 nominal GDP prints at **₹346.36 lakh crore**, FY25 at **₹318.07**. Money added in one year, on the RBI's own M3 for the same fortnight: **₹41.4 lakh crore** — the professor's ₹41 was right. The numerator is beating the denominator — by less than the class arithmetic suggests, but it is beating it:
+Now do what the professor did — one addition and one division. Deposits ₹274 + cash ₹42 ≈ **₹316 lakh crore of money in the system**, against nominal GDP of — his words on the tape — "around **325 lakh crore** last year, now **345**." Checked: MoSPI rebased the national accounts to a 2022-23 base in February 2026, printing FY26 at **₹346.36 lakh crore** and FY25 at **₹318.07**. His FY26 figure was very nearly exact; his FY25 sits about seven lakh crore high. (Earlier versions of these notes quoted him at ₹350 for FY26. That was our rounding, not his — corrected against the recording.) Money added in one year, on the RBI's own M3 for the same fortnight: **₹41.4 lakh crore** — the professor's ₹41 was right. The numerator is beating the denominator — by less than the class arithmetic suggests, but it is beating it:
 
 <div class="widget" id="s19-wss">
   <p class="w-head">Model №1 — one year on the WSS: the race</p>
@@ -178,13 +197,30 @@ Two live refinements from the Q&A, both worth keeping. Shorya, who raises debt f
 
 ## What you can now do
 
-**Be the sensor.** The one variable that decides between the two endings is **wage pressure at the lower end** — and no timely official series measures it. You, however, are setting salaries, hiring contractors, negotiating with vendors. *"Where you can add to what I know is whether there is wage pressure building up. If not — forget it, we will be fine. If you see it building, this is not temporary."* That is a standing request, and it now has a letterbox: **[the Wage Watch]({{ '/wage-watch/' | relative_url }})** — a two-minute anonymous report (no name, no email, no account id) on what wages and prices look like from where you stand. Monthly; the aggregate comes back to class once the sample is worth discussing.
+**Be the sensor — and ask the right question.** The last fifteen minutes of the class were spent designing a measurement, and the design matters more than the enthusiasm. The variable that decides between the two endings is not "are wages rising." It is the **reservation wage**: the raise below which your people start sending out CVs.
+
+<div class="wa-aside">
+  <p class="wa-meta">Prof. Tantri, in class</p>
+  <p>"I want to understand whether your reservation wage has gone up without any increase in productivity. Are you saying that if you do not give me 5% more, on the margin I will withdraw from the labour force? Then you have to give me 5% more, and then you will increase your prices, and so on. That's the chain. If you can identify it before it starts, you will be doing great service to the policymakers, your companies, and your clients."</p>
+</div>
+
+Two refinements he was insistent about. **Adjust for productivity** — if your revenue per employee is up because people learned to do more, their raise is not inflation; the same raise without the productivity is the problem. And **ask crude, personal questions**, because the sophisticated ones fail. His critique of the existing surveys is the sharpest thing in the session: IIM-Ahmedabad's inflation-expectations tracker asks informed people what they *forecast*, and informed people just tell you the current print. *"I'm not interested in his forecast."* The RBI, meanwhile, surveys people who often don't follow the question at all. What nobody asks is the one thing that predicts the chain: **at what number do you walk?** Attrition at firms that skipped the hike is the same signal, observed from the outside.
+
+Drashti Shah, already running this inside her own organisation, brought the complication: above ₹10 lakh, people judge a 5–7% hike against school fees rising 12% and call it a pay cut; below ₹10 lakh the same arithmetic bites harder. Inflation is not one number, it is a different number per household. The professor's answer — build the median profile, or three or four bands with their own baskets, since a representative consumer is exactly what policy already assumes. And when she mentioned she had been interviewing women and found they think about prices differently, he stopped the class: if that holds up rigorously, it is *"a new discovery"* and a top-journal paper. (There is established work showing people import the inflation of the country they grew up in; whether gender does something similar appears to be open.)
+
+So **[the Wage Watch]({{ '/wage-watch/' | relative_url }})** now asks his question, not the obvious one: the walk-away threshold, whether the last hike beat productivity, and whether attrition followed where it didn't. Two minutes, anonymous — no name, no email, no account id. His ambition for it, said out loud: *"If you can create a group and launch something, this will be tracked by markets. Imagine if it starts influencing bond prices tomorrow. That will be amazing."*
 
 **Advise like you mean it.** If money-supply growth converts to inflation, rates go up, not down. The professor's advice to Shorya's clients is above, on the record.
 
 **Make the monthly habit mechanical.** Once a month: [Section 42](https://website.rbi.org.in/web/rbi/statistics/data-releases) for deposits and credit, the [WSS](https://website.rbi.org.in/web/rbi/publications/weekly-statistical-supplement) for cash and reserves, [DBIE](https://data.rbi.org.in) when you want the series. Or open the **[Money Printer]({{ '/macro-watch/#money-printer' | relative_url }})**, where the counters, the dial, and the tap-and-sponge ledger now run continuously — that page *is* this session, automated.
 
-**Come prepared for China.** Next class: *"China is having the completely opposite situation"* — the mirror image of everything above. The professor is also sending around a Gita Gopinath piece ([her recent commentary on the RBI's bind](https://www.businesstoday.in/latest/economy/story/rbi-mpc-june-2026-gita-gopinath-sees-rate-pause-amid-inflation-and-growth-risks-534789-2026-06-03) is the likely vicinity) — and still owes Harsh an answer on the wage-setting equation's Z-variable in Japan, [a question with history here]({% post_url 2026-01-25-the-z-variable-and-japan %}).
+**Read the two China articles before next class.** With four minutes left he opened the next argument rather than trailing it, and set the reading as a pair — a **Gita Gopinath** piece and a **reply from India's Chief Economic Advisor**, both in *The Economist*. Read them against each other; that is the format.
+
+The setup: two things have collapsed in China — **domestic consumption and domestic investment** — and the only engine still running is exports, on a trade surplus of about **a trillion dollars**, now aimed largely at Europe as the US market stagnates. Hence German carmakers in trouble and, as he noted, more anti-China rhetoric today from Europeans than from Americans. The imbalance — China holding its currency down and exporting employment away, the US absorbing it with deficits and debt — is the same imbalance the world faced in the 1980s.
+
+Which is why the **Plaza Accord** is back in the conversation: in 1985 five countries sat in a New York hotel and agreed to push the dollar down, and the yen went from ~260 to ~150 in short order. Repeat that with the renminbi, and the imbalance corrects — that is roughly the CEA's side. **Gopinath's objection is the one to understand**, because it turns on a mechanism this course has drilled: China's problem right now is **deflation**. Make the renminbi dearer and dollar prices don't move, so exports collapse; domestic prices fall further; imports get cheaper and deepen the deflation. You intended a nominal appreciation and you engineer a **real appreciation** instead — the disease made worse by its own cure.
+
+Then, next: **growth**, finally, for a class or two. Four sessions running, the news has bumped it.
 
 <div class="ednote">
   <p class="ed-meta">Editor's note · the numbers, audited</p>
