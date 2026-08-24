@@ -2987,7 +2987,6 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .ww-done-big { font-family: var(--serif); font-size: 1.5rem; margin: .4rem 0 .4rem; }
 .ww-done-sub { font-family: var(--sans); font-size: .92rem; color: var(--ink-soft); line-height: 1.6; }
 .ww-why { margin: 1.6rem 0 0; font-family: var(--sans); font-size: .88rem; color: var(--ink-soft); line-height: 1.65; }
-.ww-why p { max-width: 82ch; }   /* full-bleed block, readable measure */
 .ww-why strong { color: var(--ink); }
 .ww-count { font-family: var(--mono); font-size: .74rem; color: var(--gold-ink); margin-top: .6rem; }
 [data-theme="dark"] .ww-count { color: var(--gold); }
