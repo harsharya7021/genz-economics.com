@@ -83,11 +83,32 @@
     }
   })();
 
-  /* ── 2 · The dial — money ÷ GDP, in the neon-cluster language ──
-     The page's ONLY gauge now. Scale 60–100% of GDP: the needle is where we
-     are (90.3), the pips are where we have been, the bright sweep is the
-     distance travelled in one year. Red past 88 — territory a 7%-growth
-     economy has no business visiting. */
+  /* ── 1b · Who actually created it (M0 vs M3) ───────────────────
+     The review's sharpest structural point: calling the whole M3 delta
+     "printed" attributes to the RBI a quantity it did not issue. */
+  (function () {
+    var host = root.querySelector("[data-mp-layers]"); if (!host || !D.layers) return;
+    var rows = D.layers.rows || [];
+    var tot = rows.reduce(function (a, r) { return a + r.v_lcr; }, 0) || 1;
+    var h = '<p class="mp-layers-cap">' + (D.layers.caption || "") + "</p>";
+    rows.forEach(function (r, i) {
+      h += '<div class="mp-layer' + (i === 0 ? " is-cb" : "") + '">' +
+           '<div class="mp-layer-head"><span class="mp-layer-l">' + r.label + '</span>' +
+           '<span class="mp-layer-v">' + (r.approx ? "\u2248" : "") + "\u20B9" + r.v_lcr.toFixed(0) + ' lakh crore</span></div>' +
+           '<div class="mp-layer-bar"><span style="width:' + (r.v_lcr / tot * 100).toFixed(1) + '%"></span></div>' +
+           '<p class="mp-layer-n">' + r.note + "</p></div>";
+    });
+    h += '<p class="mp-fn">' + (D.layers.fn || "") + "</p>";
+    host.innerHTML = h;
+  })();
+
+  /* ── 2 · The dial — money ÷ GDP, one basis, with its uncertainty shown ──
+     Rebuilt 24 Aug 2026 after external review found the old reading mixed
+     bases, mixed dates and used an unofficial GDP vintage (see the header of
+     _data/money-printer.yml). This version: RBI M3 over trailing-four-quarter
+     nominal GDP for BOTH dates, an explicit uncertainty band instead of a
+     false-precision point, and no history pips — the older levels available
+     sit on other vintages and were never comparable to this needle. */
   (function () {
     var host = root.querySelector("[data-mp-dial]"); if (!host || !D.ratio) return;
     var MIN = 60, MAX = 100, W = 340, H = 244, cx = W / 2, cy = 136, R = 100;
@@ -98,49 +119,39 @@
       return '<path class="' + cls + '" ' + (extra || "") + ' fill="none" d="M ' + p0[0] + " " + p0[1] + " A " + r + " " + r + " 0 " + large + ' 1 ' + p1[0] + " " + p1[1] + '"/>';
     }
     var now = D.ratio.now, was = D.ratio.year_ago;
-    var s2 = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Money supply as a share of GDP: ' + now + ' per cent">';
-    /* the band */
+    var lo = D.ratio.band_low, hi = D.ratio.band_high;
+    var s2 = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Money supply as a share of GDP: about ' + now + ' per cent, range ' + lo + ' to ' + hi + '">';
     s2 += arc(MIN, MAX, R, "mp-g-ring mp-g-glow", 'stroke-width="8"') + arc(MIN, MAX, R, "mp-g-ring", 'stroke-width="1.6"');
     s2 += arc(88, MAX, R, "mp-g-danger mp-g-glow", 'stroke-width="8"') + arc(88, MAX, R, "mp-g-danger", 'stroke-width="2.6"');
-    /* ticks INSIDE the band; numerals OUTSIDE it (the cluster convention) —
-       so the needle can never collide with a numeral */
+    /* ticks inside, numerals outside — the needle can never cross a numeral */
     for (var t = MIN; t <= MAX + 1e-9; t += 2) {
       var major = Math.abs(t % 10) < 1e-9;
       var q1 = pt(t, R - (major ? 16 : 8)), q2 = pt(t, R - 2);
       s2 += '<line x1="' + q1[0] + '" y1="' + q1[1] + '" x2="' + q2[0] + '" y2="' + q2[1] + '" class="mp-g-tick' + (major ? " is-major" : "") + (t >= 88 ? " is-danger" : "") + '" stroke-width="' + (major ? 2.6 : 1.1) + '"/>';
       if (major) { var ql = pt(t, R + 19); s2 += '<text x="' + ql[0] + '" y="' + (parseFloat(ql[1]) + 4.5) + '" class="mp-g-num' + (t >= 88 ? " is-danger" : "") + '" text-anchor="middle">' + t + "</text>"; }
     }
-    /* where we have been — small pips inside the band, named in the legend below */
-    (D.ratio.markers || []).forEach(function (m) {
-      if (m.v < MIN || m.v > MAX) return;
-      var m1 = pt(m.v, R - 30), m2 = pt(m.v, R - 21);
-      s2 += '<line x1="' + m1[0] + '" y1="' + m1[1] + '" x2="' + m2[0] + '" y2="' + m2[1] + '" class="mp-g-mark"><title>' + m.label + " · " + m.v + '%</title></line>';
-    });
-    /* the year travelled — its own inner ring, clear of ticks and numerals */
-    s2 += arc(was, now, R - 40, "mp-g-travel", 'stroke-width="4"');
-    /* The needle must be a TRUE RADIUS: tip and counterweight on one angle
-       through the hub. (Placing the tail at another scale value — pt(now-14)
-       — makes the line a chord that misses the centre entirely, which is
-       exactly what it looked like: a needle floating past its own pivot.) */
+    /* the uncertainty band — the reading is a range, so the dial shows one */
+    s2 += arc(lo, hi, R - 26, "mp-g-band", 'stroke-width="9"');
+    /* the year travelled, on its own inner ring */
+    s2 += arc(was, now, R - 42, "mp-g-travel", 'stroke-width="4"');
+    var wp = pt(was, R - 42);
+    s2 += '<circle cx="' + wp[0] + '" cy="' + wp[1] + '" r="3" class="mp-g-from"><title>' + was.toFixed(1) + '% — a year earlier, same basis</title></circle>';
+    /* needle: a true radius through the hub */
     var na = ang(now), ux = Math.cos(na), uy = -Math.sin(na);
     var tipR = R - 18, tailR = 16;
     s2 += '<line x1="' + (cx - tailR * ux).toFixed(1) + '" y1="' + (cy - tailR * uy).toFixed(1) +
           '" x2="' + (cx + tipR * ux).toFixed(1) + '" y2="' + (cy + tipR * uy).toFixed(1) + '" class="mp-g-needle"/>';
     s2 += '<circle cx="' + cx + '" cy="' + cy + '" r="9" class="mp-g-hubring"/><circle cx="' + cx + '" cy="' + cy + '" r="3.6" class="mp-g-hub"/>';
-    s2 += '<rect x="' + (cx - 46) + '" y="' + (cy + 26) + '" width="92" height="28" rx="6" class="mp-g-odo"/>';
-    s2 += '<text x="' + cx + '" y="' + (cy + 46) + '" class="mp-g-odo-t" text-anchor="middle">' + now.toFixed(1) + '%</text>';
-    s2 += '<text x="' + cx + '" y="' + (cy + 68) + '" class="mp-g-unit" text-anchor="middle">MONEY \u00F7 GDP</text>';
+    s2 += '<rect x="' + (cx - 52) + '" y="' + (cy + 26) + '" width="104" height="28" rx="6" class="mp-g-odo"/>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 46) + '" class="mp-g-odo-t" text-anchor="middle">\u2248' + now.toFixed(1) + '%</text>';
+    s2 += '<text x="' + cx + '" y="' + (cy + 68) + '" class="mp-g-unit" text-anchor="middle">M3 \u00F7 GDP \u00B7 RANGE ' + lo.toFixed(1) + '\u2013' + hi.toFixed(1) + '</text>';
     s2 += '<text x="' + cx + '" y="' + (cy + 84) + '" class="mp-g-sub2" text-anchor="middle">' + was.toFixed(1) + '% a year ago \u00B7 +' + (now - was).toFixed(1) + ' points</text>';
     s2 += "</svg>";
     host.innerHTML = s2;
     var fn = root.querySelector("[data-mp-dial-note]");
-    if (fn) fn.textContent = (D.ratio.footnote || "").replace(/^\*/, "");
+    if (fn) fn.textContent = D.ratio.footnote || "";
     var legend = root.querySelector("[data-mp-dial-legend]");
-    if (legend) legend.innerHTML = (D.ratio.markers || []).slice().sort(function (a, b) {
-      return a.v - b.v;   /* numeric order = left-to-right order on the dial */
-    }).map(function (m) {
-      return "<span><b>" + m.v + "</b> " + m.label + "</span>";
-    }).join("");
+    if (legend) legend.innerHTML = "<span><b>Basis</b> " + (D.ratio.basis || "") + "</span>";
   })();
 
   /* ── 3 · The printer (brrr) ────────────────────────────────── */

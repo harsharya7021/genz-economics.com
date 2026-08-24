@@ -2903,8 +2903,24 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .mp-panel--dark .mp-dial-legend { color: rgba(244,241,233,.72); }
 .mp-panel--dark .mp-dial-legend b { color: #F4F8FA; }
 .mp-g-travel { stroke: #FFD866; stroke-linecap: round; opacity: .85; filter: drop-shadow(0 0 5px rgba(255,216,102,.55)); }
+.mp-g-from { fill: #FFD866; opacity: .9; }
+.mp-g-band { stroke: rgba(244,248,250,.26); stroke-linecap: round; }
 .mp-g-pip { font: 600 7.5px var(--mono); fill: rgba(244,241,233,.62); }
 .mp-g-sub2 { font: 600 8px var(--mono); fill: rgba(201,210,255,.75); letter-spacing: .06em; }
+
+/* who actually created the money — M0 vs M3 layering */
+.mp-layers { margin: 1rem 0 1.2rem; padding: 1rem 1.2rem 1.1rem; background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: var(--r-lg, 16px); box-shadow: var(--shadow-md); }
+.mp-layers-cap { font-family: var(--sans); font-size: .92rem; font-weight: 650; color: var(--ink); margin: 0 0 .8rem; }
+.mp-layer { margin: 0 0 .75rem; }
+.mp-layer-head { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; }
+.mp-layer-l { font-family: var(--sans); font-size: .86rem; font-weight: 600; color: var(--ink); }
+.mp-layer-v { font-family: var(--mono); font-size: .82rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.mp-layer-bar { height: 10px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 8%, transparent); overflow: hidden; margin: .3rem 0 .25rem; }
+.mp-layer-bar span { display: block; height: 100%; border-radius: 999px; background: var(--gold); }
+.mp-layer.is-cb .mp-layer-bar span { background: var(--accent); }
+.mp-layer.is-cb .mp-layer-v { color: var(--accent); }
+.mp-layer-n { font-family: var(--sans); font-size: .78rem; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+.mp-layers .mp-fn { font-family: var(--sans); font-size: .76rem; color: var(--ink-soft); margin: .7rem 0 0; }
 /* the dial — neon cluster style (Harsh's speedometer assets): glowing ring +
    numerals, danger zone, twin gold inner scale, digital odometer window */
 .mp-gauge { margin: .45rem auto .25rem; width: 100%; max-width: 310px; }

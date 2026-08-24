@@ -43,21 +43,46 @@ counters:
     v_lcr: 225.0
     yoy_lcr: 40.0
 
+# ── Nominal GDP · OFFICIAL, new 2022-23 base series (MoSPI, 27 Feb 2026) ──
+# The class worked with ₹350 (FY26) and ₹325 (FY25). Neither matches any
+# published vintage: the old 2011-12 series implies ~₹360 for FY26, the new
+# series prints ₹346.36. Using official numbers, on one series, throughout.
 gdp:
-  fy26_lcr: 350.0        # class working number ("roughly 350")
-  fy25_lcr: 325.0        # class working number for 2024-25
-  note: "Nominal GDP, class rounding. MoSPI's FY25 print is ₹330.7 L cr; using it moves the ratio by <1 point."
+  fy26_lcr: 346.36       # PE, June 2026 · new 2022-23 base
+  fy25_lcr: 318.07       # new 2022-23 base
+  fy27_est_lcr: 377.0    # ASSUMPTION: ~8.8% nominal on FY26. Not an official print.
+  src: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2269286&reg=48&lang=1"
+  note: "Nominal GDP at current prices, 2022-23 base. FY27 is an extrapolation used only for the trailing-four-quarter denominator; it is flagged wherever it moves a number."
 
-# ── The 90% dial ──
+# ── The dial · money ÷ GDP ──────────────────────────────────────────────────
+# REBUILT 24 Aug 2026 after external review. The previous reading — 90.3% now,
+# 81.5% a year ago, "+8.8 points" — was wrong three ways at once, and every
+# error ran in the direction of drama:
+#   1. MIXED BASIS. "Now" used the class aggregate (deposits + cash); "year ago"
+#      used RBI's M3. Different definitions.
+#   2. MIXED DATES. The ₹268 L cr behind 81.5% is M3 at MARCH 2025, not July.
+#   3. UNOFFICIAL DENOMINATOR. Neither GDP figure matched a published series.
+# Now: RBI M3 over TRAILING-FOUR-QUARTER nominal GDP, both dates, one basis.
+# Trailing GDP matters — a point-in-time stock over a fiscal-year flow jumps
+# by ~3 points every April for no economic reason at all.
 ratio:
-  now: 90.3              # 316 / 350
-  year_ago: 81.5         # ≈268 M3 / ≈329 GDP, Jul 2025 vicinity
-  markers:
-    - { v: 78.0, label: "10-yr pre-COVID norm" }
-    - { v: 84.0, label: "Mar 2024" }
-    - { v: 81.0, label: "Mar 2025" }
-    - { v: 92.0, label: "COVID peak, FY21*" }
-  footnote: "*COVID peak measures 90–95% depending on whether you take year-end M3 over full-year GDP (the arithmetic says ~94) or the professor's rounder ~90. Either way: we are back at it, without the pandemic."
+  now: 88.8              # M3 ≈316.5 / TTM GDP ≈356.6 (Jul 2026)
+  band_low: 86.5         # M3 at the low July print, TTM GDP at the high end
+  band_high: 90.5        # M3 at the 31-Jul print (~322.8), TTM GDP at the low end
+  year_ago: 85.9         # M3 ≈281.4 / TTM GDP ≈327.5 (Jul 2025)
+  basis: "RBI M3 ÷ trailing-four-quarter nominal GDP (MoSPI 2022-23 series)"
+  footnote: "One basis, both dates. The band is real uncertainty, not decoration: July 2026 M3 prints between ~₹316 and ~₹323 L cr depending on the fortnight, and the trailing denominator borrows an unpublished FY27 quarter. The honest reading is a rise of roughly 3 to 4.5 points — not the 8.8 this dial claimed until 24 August 2026. History pips were removed: the levels available for earlier years sit on other vintages and were not comparable to this needle."
+
+# ── Who actually created the money ──────────────────────────────────────────
+# The section is called The Money Printer, so it has to say plainly which layer
+# the RBI printed and which layer the banks created. Roughly ₹6 of every ₹35
+# is central-bank money; the rest is deposit money created by banks lending.
+layers:
+  caption: "Of the money added over the year, the central bank issued the smaller part. Banks created the rest by lending — the multiplier, not the press."
+  rows:
+    - { label: "The RBI issued", v_lcr: 6.0, approx: true, note: "reserve money (M0) — OMO purchases and FX operations; the CRR cut freed existing reserves rather than creating new ones" }
+    - { label: "Banks created", v_lcr: 29.0, approx: true, note: "deposit money, against credit growth — every loan booked is a deposit somewhere" }
+  fn: "Approximate, and the split is the point rather than the decimals: M0 grew ~12% over the year while M3 grew ~13%. The RBI's own balance sheet grew ₹15.7 L cr (+20.6%), but a large share of that is gold revaluation — an accounting mark, not money creation."
 
 # ── Eras: presets for the date filter and the printer throttle ──
 # rate_lps = ₹ lakh per second added (negative = the machine ran in reverse).

@@ -14,7 +14,7 @@
     var root = document.getElementById("s19-wss"); if (!root) return;
     var D = {
       dep:  { was: 238, now: 274 }, cr: { was: 185, now: 225 },
-      cash: { was: 37,  now: 42 },  gdp: { was: 325, now: 350 }
+      cash: { was: 37,  now: 42 },  gdp: { was: 318.07, now: 346.36 }   /* MoSPI, 2022-23 base */
     };
     var bars = {};
     ["dep", "cr", "cash", "gdp"].forEach(function (k) {
@@ -39,8 +39,8 @@
         verdict.textContent = "Money added: ~₹41 lakh crore. GDP added: ~₹25 lakh crore.";
         note.innerHTML = "Everything grows in rupee terms — that tells you nothing. Flip to % of GDP: ratios are where the story lives. (WSS item 2A, row 8; all scheduled banks; class figures, 31 Jul 2026 vs 25 Jul 2025.)";
       } else {
-        verdict.textContent = "Money ÷ GDP: ~81% → 90.3% — in fifteen months.";
-        note.innerHTML = "In a Keynesian world the denominator keeps up and ratios stay flat. When only the numerator moves, the professor's worry starts: the money is not creating output — so what will it create?";
+        verdict.textContent = "This proxy: ~86% → ~91%. On RBI M3: ~86% → ~89%.";
+        note.innerHTML = "Class aggregate (deposits + cash) over <b>official</b> GDP — MoSPI's 2022-23 base, not the class's rounded ₹350/₹325. On RBI's own M3 over trailing-four-quarter GDP, the cleaner basis, the move is ~86% → ~89%: about three points, not the eight the class arithmetic implied. The direction holds; the size did not survive checking. See the editor's note above.";
       }
     }
     btns.forEach(function (b) {
@@ -132,15 +132,19 @@
   (function () {
     var root = document.getElementById("s19-path"); if (!root) return;
     var host = root.querySelector("[data-path]"), verdict = root.querySelector("[data-verdict]");
+    /* Pre-2025 readings sit on the old 2011-12 GDP series and older money
+       vintages; the last two are on the corrected M3 ÷ trailing-GDP basis.
+       Shown together for SHAPE only — the levels are not strictly comparable,
+       which is the very error the outside review caught on the dial. */
     var P = [
       ["FY19", 79, ""], ["FY20", 84, ""], ["FY21 · COVID", 92, "warn"],
-      ["FY23", 83, ""], ["FY24", 84, ""], ["FY25", 81, ""], ["Jul 2026", 90.3, "danger"]
+      ["FY23", 83, ""], ["FY24", 84, ""], ["Jul 2025", 85.9, ""], ["Jul 2026", 88.8, "danger"]
     ];
     host.innerHTML = P.map(function (p) {
       var cls = p[2] ? " is-" + p[2] : "";
       return '<div class="w-bar-row"><span class="w-bar-label">' + p[0] + '</span><div class="w-bar"><div class="w-bar-fill' + cls + '" style="width:' + ((p[1] - 60) / 35 * 100) + '%"></div></div><output>' + p[1] + "%</output></div>";
     }).join("");
-    verdict.textContent = "Two years of drifting down from COVID — then +9 points in fifteen months. A crisis ratio, minus the crisis.";
+    verdict.textContent = "A pandemic step-up that never came back down — then about +3 more points.";
   })();
 
   /* ── M5: the Keynes–Friedman switchboard ── */
