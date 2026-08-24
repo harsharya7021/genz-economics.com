@@ -10,7 +10,20 @@ on a session once you give it that video's ID. `lectures_enabled` is already `tr
    customer code (the `customer-XXXX` part of your Stream dashboard URLs). Leave blank
    to use the legacy `videodelivery.net` embed.
 
-## Per video
+## The easy path — one script
+
+**Double-click `upload-lecture-stream.command`.** It lists whichever recordings are not
+yet on Stream, asks which one, and does the rest: creates the upload with
+`requireSignedURLs` set *at creation*, uploads in resumable 50 MiB chunks (re-run it
+after a dropped connection and it continues from the server's byte offset), waits for
+transcoding, attaches captions, **verifies the HLS manifest returns 401 and aborts if it
+doesn't**, then writes `stream_id` into the post and pushes. Your API token is prompted
+hidden, never written to disk, and unset on exit.
+
+The per-session scripts it replaces (`upload-class4-stream.command`) are kept only for
+reference. Adding a new session = adding one line to the `ROWS` catalogue at the top.
+
+## Per video (the manual path, if you ever need it)
 1. **Upload** the recording in the Stream dashboard (drag-and-drop the `.mp4`), or via
    the API/`wrangler`. Large uploads run from your machine — that part is yours.
 2. **Lock it.** On the video's Settings tab, tick **Require Signed URLs** and click
