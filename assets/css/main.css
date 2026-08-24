@@ -2781,7 +2781,7 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 @media (prefers-reduced-motion: reduce) { .mp-card-video { display: none; } .mp-card-scrim { display: none; } }
 .mp-since { font-family: var(--mono); font-size: .78rem; color: var(--gold-ink); margin: .7rem 0 0; }
 [data-theme="dark"] .mp-since { color: var(--gold); }
-.mp-method { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); margin: .35rem 0 1.3rem; max-width: 78ch; }
+.mp-method { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); margin: .35rem 0 1.3rem; }
 
 .mp-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; align-items: stretch; }
 @media (max-width: 760px) { .mp-duo { grid-template-columns: 1fr; } }
