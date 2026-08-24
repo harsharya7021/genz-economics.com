@@ -13,9 +13,13 @@
 #     drop the flag. The professor's assignment, verbatim, 23 Aug: "Why don't you
 #     keep a track of it, Harsh — how much they're bringing in and how much
 #     they're absorbing."
-#   - Counters extrapolate: value = anchor + per-second run-rate × elapsed time.
-#     That is a national-debt-clock convention, not a live feed. The line between
-#     chart dots is interpolation; only dots are data.
+#   - The board shows DATED STOCKS, not a live feed. It used to tick every
+#     second at the year's average pace — a debt-clock convention that asserted
+#     something false (money is not created per second; it arrives in lumps and
+#     is observed fortnightly). Removed 23 Aug 2026.
+#   - Headline money figures are RBI's official M3 from the WSS. The Section 42
+#     decomposition (deposits, credit) stays for the components view, where the
+#     proxy's small bias is immaterial next to the component moves.
 
 as_of: "31 Jul 2026 (WSS as read in class, 23 Aug 2026)"
 anchor_iso: "2026-07-31"
@@ -23,10 +27,11 @@ anchor_iso: "2026-07-31"
 # ── Live odometers (₹ lakh crore at anchor; yoy = change over year to anchor) ──
 counters:
   - id: total
-    label: "Total money in the system"
-    sub: "bank deposits + currency with the public — the professor's ₹316 lakh crore"
-    v_lcr: 316.0
-    yoy_lcr: 41.0
+    label: "Money supply (M3)"
+    sub: "RBI's own aggregate for the fortnight ended 31 Jul 2026 — +14.7% on the year. This replaces the class's deposits-plus-cash proxy, which under-read the year-ago level."
+    v_lcr: 322.81
+    yoy_lcr: 41.4
+    src: "https://www.rbi.org.in/Scripts/BS_ViewWss.aspx"
   - id: deposits
     label: "Deposits with banks"
     sub: "all scheduled banks, WSS item 2A — ₹238 L cr a year ago"
@@ -34,9 +39,9 @@ counters:
     yoy_lcr: 36.0
   - id: cash
     label: "Currency with the public"
-    sub: "back to 12% of GDP — pre-demonetisation territory"
-    v_lcr: 42.0
-    yoy_lcr: 5.0
+    sub: "₹41.85 L cr on the RBI's print, +12.9% — back to ~12% of GDP, pre-demonetisation territory"
+    v_lcr: 41.85
+    yoy_lcr: 4.78
   - id: credit
     label: "Bank credit"
     sub: "WSS row 8 — loans create deposits; both sides moved together"
@@ -66,23 +71,23 @@ gdp:
 # Trailing GDP matters — a point-in-time stock over a fiscal-year flow jumps
 # by ~3 points every April for no economic reason at all.
 ratio:
-  now: 88.8              # M3 ≈316.5 / TTM GDP ≈356.6 (Jul 2026)
-  band_low: 86.5         # M3 at the low July print, TTM GDP at the high end
-  band_high: 90.5        # M3 at the 31-Jul print (~322.8), TTM GDP at the low end
-  year_ago: 85.9         # M3 ≈281.4 / TTM GDP ≈327.5 (Jul 2025)
+  now: 90.5              # M3 322.81 / TTM GDP 356.6 (fortnight ended 31 Jul 2026)
+  band_low: 89.7         # same M3 over old-series FY26 GDP (~₹360 L cr)
+  band_high: 93.2        # same M3 over new-series FY26 GDP (₹346.36) — above the COVID peak
+  year_ago: 85.9         # M3 281.4 / TTM GDP 327.5 (Jul 2025)
   basis: "RBI M3 ÷ trailing-four-quarter nominal GDP (MoSPI 2022-23 series)"
-  footnote: "One basis, both dates. The band is real uncertainty, not decoration: July 2026 M3 prints between ~₹316 and ~₹323 L cr depending on the fortnight, and the trailing denominator borrows an unpublished FY27 quarter. The honest reading is a rise of roughly 3 to 4.5 points — not the 8.8 this dial claimed until 24 August 2026. History pips were removed: the levels available for earlier years sit on other vintages and were not comparable to this needle."
+  footnote: "Settled against the RBI's own print for the fortnight ended 31 July 2026: M3 ₹3,22,81,302 crore, +14.7% on the year — which confirms the class's ₹41 lakh crore and its ~90% level, and corrects this dial's earlier ₹316/₹350 arithmetic in both directions. The band is the denominator convention, not noise: trailing-four-quarter GDP gives 90.5%, the new-series fiscal-year print gives 93.2% (above the pandemic peak), the old series 89.7%. The rise on one basis is about 4.6 points — not the 8.8 this dial claimed until 24 August 2026, and not the 2.9 the first correction over-shot to. History pips removed: earlier levels sit on other vintages and were never comparable to this needle."
 
 # ── Who actually created the money ──────────────────────────────────────────
 # The section is called The Money Printer, so it has to say plainly which layer
 # the RBI printed and which layer the banks created. Roughly ₹6 of every ₹35
 # is central-bank money; the rest is deposit money created by banks lending.
 layers:
-  caption: "Of the money added over the year, the central bank issued the smaller part. Banks created the rest by lending — the multiplier, not the press."
+  caption: "Of the ₹41.4 lakh crore added over the year, the central bank issued the smaller part. Banks created the rest by lending — the multiplier, not the press."
   rows:
-    - { label: "The RBI issued", v_lcr: 6.0, approx: true, note: "reserve money (M0) — OMO purchases and FX operations; the CRR cut freed existing reserves rather than creating new ones" }
-    - { label: "Banks created", v_lcr: 29.0, approx: true, note: "deposit money, against credit growth — every loan booked is a deposit somewhere" }
-  fn: "Approximate, and the split is the point rather than the decimals: M0 grew ~12% over the year while M3 grew ~13%. The RBI's own balance sheet grew ₹15.7 L cr (+20.6%), but a large share of that is gold revaluation — an accounting mark, not money creation."
+    - { label: "The RBI issued", v_lcr: 6.0, approx: true, note: "reserve money — OMO purchases and FX operations. The CRR cut freed reserves that already existed rather than creating new ones." }
+    - { label: "Banks created", v_lcr: 35.4, approx: true, note: "deposit money, against credit growth — every loan a bank books is a deposit somewhere. This is the part the printer metaphor does not cover." }
+  fn: "Approximate, and the split is the point rather than the decimals: M3 grew 14.7% over the year, reserve money by roughly 12%. The RBI's own balance sheet grew ₹15.7 L cr (+20.6%), but a large share of that is gold revaluation — an accounting mark, not money creation. UNVERIFIED: the revaluation share needs computing from the WSS revaluation-account lines before it is ever quoted as a number."
 
 # ── Eras: presets for the date filter and the printer throttle ──
 # rate_lps = ₹ lakh per second added (negative = the machine ran in reverse).
@@ -100,7 +105,7 @@ eras:
     press_tag: "₹500 — the workhorse note, at today's pace"
     currency: "₹"
     rate_lps: 13.0        # +41 L cr / year ≈ ₹13 lakh per second
-    line: "Crisis-level money growth, no crisis. +8–9 points of GDP in one year — while growing at 7%."
+    line: "M3 +14.7% against ~9% nominal GDP, and money-to-GDP up ~4.6 points to ~90%. The growth rate is high, not unprecedented — India ran 17–21% in 2005–08. What is unprecedented is the toolkit: a CRR cut, ₹2 L cr of OMOs and a $10bn swap, in a year with no crisis."
     default: true
   - id: covid
     name: "COVID QE"

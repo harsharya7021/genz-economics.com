@@ -2890,10 +2890,22 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .mp-session { display: flex; flex-direction: column; padding: 1.2rem 1.3rem 1.1rem; }
 .mp-session .mp-session-v { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
 .mp-session .mp-sub { margin-top: auto; }
-.mp-printed-split { margin: .75rem 0 .6rem; display: grid; gap: .3rem; }
+.mp-printed-split { margin: .7rem 0 .6rem; display: grid; gap: .4rem; }
 .mp-psplit-row { display: grid; grid-template-columns: minmax(96px, auto) 1fr; gap: .55rem; align-items: baseline; }
 .mp-psplit-v { font-family: var(--mono); font-size: .76rem; font-weight: 700; color: #9fe8d5; text-align: right; }
 .mp-psplit-l { font-family: var(--sans); font-size: .74rem; line-height: 1.4; color: rgba(244,241,233,.72); }
+/* the hero resolving into its layers — the printer metaphor, corrected in place */
+.mp-psplit-head { font-family: var(--mono); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(201,210,255,.8); margin: .15rem 0 .1rem; }
+.mp-psplit-row.is-layer { align-items: center; animation: mp-layer-in .45s cubic-bezier(.22,.61,.36,1) both; }
+.mp-psplit-row.is-layer .mp-psplit-v { color: var(--gold); font-size: .8rem; }
+.mp-psplit-row.is-layer.is-cb .mp-psplit-v { color: #9fe8d5; }
+.mp-psplit-body { min-width: 0; }
+.mp-psplit-bar { height: 7px; border-radius: 999px; background: rgba(244,241,233,.14); overflow: hidden; margin-top: .22rem; }
+.mp-psplit-bar span { display: block; height: 100%; border-radius: 999px; background: var(--gold); width: 0; transition: width .75s cubic-bezier(.22,.61,.36,1); }
+.mp-psplit-row.is-cb .mp-psplit-bar span { background: #80EDD9; }
+.mp-psplit-fn { font-family: var(--sans); font-size: .72rem; line-height: 1.5; color: rgba(244,241,233,.62); margin: .45rem 0 0; animation: mp-layer-in .45s .25s cubic-bezier(.22,.61,.36,1) both; }
+@keyframes mp-layer-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mp-psplit-row.is-layer, .mp-psplit-fn { animation: none; } .mp-psplit-bar span { transition: none; } }
 .mp-asof { font-family: var(--mono); font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; color: rgba(201,210,255,.72); margin: .1rem 0 .35rem; }
 
 /* dark panel — so the neon dial reads the way the cluster assets do */

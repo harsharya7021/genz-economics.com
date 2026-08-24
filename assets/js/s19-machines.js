@@ -39,8 +39,8 @@
         verdict.textContent = "Money added: ~₹41 lakh crore. GDP added: ~₹25 lakh crore.";
         note.innerHTML = "Everything grows in rupee terms — that tells you nothing. Flip to % of GDP: ratios are where the story lives. (WSS item 2A, row 8; all scheduled banks; class figures, 31 Jul 2026 vs 25 Jul 2025.)";
       } else {
-        verdict.textContent = "This proxy: ~86% → ~91%. On RBI M3: ~86% → ~89%.";
-        note.innerHTML = "Class aggregate (deposits + cash) over <b>official</b> GDP — MoSPI's 2022-23 base, not the class's rounded ₹350/₹325. On RBI's own M3 over trailing-four-quarter GDP, the cleaner basis, the move is ~86% → ~89%: about three points, not the eight the class arithmetic implied. The direction holds; the size did not survive checking. See the editor's note above.";
+        verdict.textContent = "This proxy: ~86% → ~91%. On RBI M3: 85.9% → 90.5%.";
+        note.innerHTML = "Class aggregate (deposits + cash) over <b>official</b> GDP — MoSPI's 2022-23 base, not the class's rounded ₹350/₹325. On RBI's own M3 over trailing-four-quarter GDP — the cleaner basis, settled against the 31 July print — the move is <b>85.9% → 90.5%: about 4.6 points</b>. Less than the eight claimed in class; more than the three an over-eager first correction of these notes reported. The 90% level was right; the jump was not. See the editor's note above.";
       }
     }
     btns.forEach(function (b) {
@@ -138,13 +138,13 @@
        which is the very error the outside review caught on the dial. */
     var P = [
       ["FY19", 79, ""], ["FY20", 84, ""], ["FY21 · COVID", 92, "warn"],
-      ["FY23", 83, ""], ["FY24", 84, ""], ["Jul 2025", 85.9, ""], ["Jul 2026", 88.8, "danger"]
+      ["FY23", 83, ""], ["FY24", 84, ""], ["Jul 2025", 85.9, ""], ["Jul 2026", 90.5, "danger"]
     ];
     host.innerHTML = P.map(function (p) {
       var cls = p[2] ? " is-" + p[2] : "";
       return '<div class="w-bar-row"><span class="w-bar-label">' + p[0] + '</span><div class="w-bar"><div class="w-bar-fill' + cls + '" style="width:' + ((p[1] - 60) / 35 * 100) + '%"></div></div><output>' + p[1] + "%</output></div>";
     }).join("");
-    verdict.textContent = "A pandemic step-up that never came back down — then about +3 more points.";
+    verdict.textContent = "A pandemic step-up that never came back down — then +4.6 more points, to ~90.5%.";
   })();
 
   /* ── M5: the Keynes–Friedman switchboard ── */

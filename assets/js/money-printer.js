@@ -45,38 +45,54 @@
       wrap.appendChild(card);
     });
 
-    /* ── the hero display: what was already printed ──────────────
-       A one-shot reveal on load — an animation of a fixed, finished number,
-       not a claim that anything is being printed now. Then it stops. */
+    /* ── the hero: what was already printed, and by whom ─────────
+       A one-shot reveal of a finished number — not a claim that anything is
+       being printed now. Then, per the external review's condition, the total
+       RESOLVES INTO ITS LAYERS: the printer made ~₹6 L cr of it; banks made
+       the rest by lending. The metaphor gets corrected inside three seconds,
+       by the page itself, so the title is never load-bearing. */
     var total = (D.counters || []).filter(function (c) { return c.id === "total"; })[0];
     var printedEl = document.querySelector("[data-mp-printed]");
     var printedSub = document.querySelector("[data-mp-printed-sub]");
     var printedSplit = document.querySelector("[data-mp-printed-split]");
     if (total && printedEl) {
-      var finalCr = total.yoy_lcr * 1e5;                    /* ₹41,00,000 crore */
-      var byId = {}; (D.counters || []).forEach(function (c) { byId[c.id] = c; });
-      if (printedSub) printedSub.textContent = "deposits + currency with the public, over twelve months";
-      if (printedSplit) {
-        [["₹" + fmtIN((byId.deposits || {}).yoy_lcr * 1e5) + " cr", "new bank deposits"],
-         ["₹" + fmtIN((byId.cash || {}).yoy_lcr * 1e5) + " cr", "new cash with the public"],
-         ["≈₹" + fmtIN(finalCr / 26.09) + " cr", "a fortnight — the cadence it is actually observed at"],
-         ["≈₹" + fmtIN(finalCr / 365.25) + " cr", "a day, if you flatten the lumps — nobody prints this way"]
-        ].forEach(function (r) {
-          var row = el("div", "mp-psplit-row");
-          row.appendChild(el("span", "mp-psplit-v", r[0]));
-          row.appendChild(el("span", "mp-psplit-l", r[1]));
+      var finalCr = total.yoy_lcr * 1e5;                    /* ₹41,40,000 crore */
+      var L = (D.layers && D.layers.rows) || [];
+      var lTot = L.reduce(function (a, r) { return a + r.v_lcr; }, 0) || 1;
+      if (printedSub) printedSub.textContent = "M3, the year to 31 July 2026 — the money supply grew 14.7%";
+
+      function revealLayers() {
+        if (!printedSplit || printedSplit.childElementCount) return;
+        printedSplit.appendChild(el("p", "mp-psplit-head", "and the printer made the smaller half of it \u2014"));
+        L.forEach(function (r, i) {
+          var row = el("div", "mp-psplit-row is-layer" + (i === 0 ? " is-cb" : ""));
+          row.appendChild(el("span", "mp-psplit-v", (r.approx ? "\u2248" : "") + "\u20B9" + fmtIN(r.v_lcr * 1e5) + " cr"));
+          var body = el("div", "mp-psplit-body");
+          body.appendChild(el("span", "mp-psplit-l", r.label));
+          var bar = el("div", "mp-psplit-bar");
+          var fill = el("span"); fill.style.width = "0%";
+          bar.appendChild(fill); body.appendChild(bar);
+          row.appendChild(body);
           printedSplit.appendChild(row);
+          requestAnimationFrame(function () {
+            setTimeout(function () { fill.style.width = (r.v_lcr / lTot * 100).toFixed(1) + "%"; }, 60 + i * 130);
+          });
         });
+        printedSplit.appendChild(el("p", "mp-psplit-fn",
+          "Reserve money is what a central bank can actually issue. The rest is deposit money \u2014 created by banks lending, which is the multiplier, not the press."));
       }
+
       if (!motionOK) {
-        printedEl.textContent = "₹" + fmtIN(finalCr) + " crore";
+        printedEl.textContent = "\u20B9" + fmtIN(finalCr) + " crore";
+        revealLayers();
       } else {
         var t0 = null, DUR = 1700;
         var roll = function (ts) {
           if (t0 === null) t0 = ts;
           var p = Math.min(1, (ts - t0) / DUR);
-          printedEl.textContent = "₹" + fmtIN(finalCr * (1 - Math.pow(1 - p, 3))) + " crore";
+          printedEl.textContent = "\u20B9" + fmtIN(finalCr * (1 - Math.pow(1 - p, 3))) + " crore";
           if (p < 1) requestAnimationFrame(roll);
+          else setTimeout(revealLayers, 420);   /* a beat, then the correction */
         };
         requestAnimationFrame(roll);
       }
