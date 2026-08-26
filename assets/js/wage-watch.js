@@ -1,23 +1,15 @@
 /* The Wage Watch — anonymous ground-level wage/price-pressure reports.
    Writes ONE document per submission to Firestore collection "wage_watch",
-   containing only the answers + a month stamp. Deliberately NO uid, name,
-   email, or auth of any kind — anonymity is the point (the site's login gate
-   already keeps the room to the cohort).
+   containing only the answers + a month stamp. Deliberately NO uid, name or
+   email in the stored document — anonymity is the point. A signed-in session
+   is required to write it, but nothing about who wrote it is kept.
 
-   Firestore rules needed (Harsh — one paste in the console; until then this
-   page degrades to a friendly "not open yet" message):
-
-     match /wage_watch/{doc} {
-       allow create: if request.resource.data.keys().hasOnly(
-           ['vantage','sector','tier','wages','reservation','threshold','productivity','attrition','vendors','prices','note','month','ts'])
-         && request.resource.data.month is string
-         && request.resource.data.note is string
-         && request.resource.data.note.size() <= 600;
-       allow read, update, delete: if false;   // write-only letterbox
-     }
-
-   (Optional: allow read for your own admin export, or run it from the
-   Firebase console. Count on the page needs `allow list` — off by default.) */
+   Rules live in ../firestore.rules (deploy with ./deploy-firestore-rules.command).
+   They require a signed-in user to CREATE — the apiKey and project id are public,
+   so an open create rule would let the whole internet write here — but the stored
+   document carries no identity at all: the rules' hasOnly() allow-list has no uid,
+   name or email on it, so an identifying submission is rejected by the database
+   itself. Sign-in gates the write; it does not label the answer. */
 (function () {
   "use strict";
   /* respect reduced-motion: freeze the hero footage on its poster */
@@ -78,17 +70,48 @@
 
     say("Filing…");
     form.querySelector(".ww-submit").disabled = true;
-    Promise.all([import(base + "firebase-app.js"), import(base + "firebase-firestore.js")])
+    Promise.all([
+      import(base + "firebase-app.js"),
+      import(base + "firebase-auth.js"),
+      import(base + "firebase-firestore.js")
+    ])
       .then(function (m) {
-        var appMod = m[0], fs = m[1];
+        var appMod = m[0], authMod = m[1], fs = m[2];
         var app; try { app = appMod.getApp(); } catch (e) { app = appMod.initializeApp(cfg); }
+        var auth = authMod.getAuth(app);
         var db = fs.getFirestore(app);
-        return fs.addDoc(fs.collection(db, "wage_watch"), {
+
+        /* The rules require a signed-in user. Wait for any existing session to
+           resolve; only prompt if there genuinely isn't one. The uid is used to
+           satisfy the rule and then discarded — it is never part of the document. */
+        function ensureUser() {
+          return new Promise(function (resolve, reject) {
+            var done = false;
+            var stop = authMod.onAuthStateChanged(auth, function (u) {
+              if (done) return; done = true; stop();
+              if (u && (!window.GZE_emailAllowed || window.GZE_emailAllowed(u.email))) return resolve(u);
+              say("One step first — sign in with your ISB email. Nothing about you is stored with the report.");
+              var p = new authMod.GoogleAuthProvider();
+              p.setCustomParameters({ prompt: "select_account" });
+              authMod.signInWithPopup(auth, p).then(function (res) {
+                var email = res.user && res.user.email;
+                if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
+                  authMod.signOut(auth);
+                  reject(new Error("not-isb"));
+                } else { say("Filing…"); resolve(res.user); }
+              }).catch(reject);
+            });
+          });
+        }
+
+        return ensureUser().then(function () {
+          return fs.addDoc(fs.collection(db, "wage_watch"), {
           vantage: answers.vantage, sector: answers.sector, tier: answers.tier,
           wages: answers.wages, reservation: answers.reservation, threshold: answers.threshold,
           productivity: answers.productivity, attrition: answers.attrition,
           vendors: answers.vendors, prices: answers.prices,
-          note: answers.note, month: month, ts: fs.serverTimestamp()
+            note: answers.note, month: month, ts: fs.serverTimestamp()
+          });
         });
       })
       .then(function () {
@@ -98,12 +121,17 @@
       })
       .catch(function (err) {
         form.querySelector(".ww-submit").disabled = false;
-        if (err && /permission|insufficient/i.test(String(err))) {
-          say("The letterbox isn't open yet — the wage_watch rules are pending a one-line update. Nothing was recorded; please try again after the next deploy.", true);
+        var e = String((err && (err.code || err.message)) || err);
+        if (/not-isb/.test(e)) {
+          say("This room is ISB-only — sign in with your @isb.edu address to file a report.", true);
+        } else if (/popup-closed|cancelled-popup|popup-blocked/i.test(e)) {
+          say("Sign-in was closed before it finished. Your answers are still here — hit the button again.", true);
+        } else if (/permission|insufficient/i.test(e)) {
+          say("The database refused the write. If you are signed in, the wage_watch rules need deploying — nothing was recorded.", true);
         } else {
           say("Couldn't file — network or config hiccup. Your answers are still on this page; try once more.", true);
         }
-        console.error("[gze] wage-watch:", err && (err.code || err.message));
+        console.error("[gze] wage-watch:", e);
       });
   });
 

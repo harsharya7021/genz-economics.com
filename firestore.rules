@@ -1,0 +1,65 @@
+rules_version = '2';
+
+// ── Firestore security rules · genz-economics ────────────────────────────────
+// THIS FILE IS THE WHOLE RULESET. Firestore replaces everything on deploy, so
+// every collection the site uses has to appear here — adding one block in the
+// console and forgetting the rest is how comments get silently switched off.
+// Deploy with ./deploy-firestore-rules.command (or `firebase deploy --only
+// firestore:rules`). Keep this file as the source of truth, not the console.
+
+service cloud.firestore {
+  match /databases/{db}/documents {
+
+    // ── Comments & daily-question threads (unchanged behaviour) ─────────────
+    // Anyone may read; only signed-in users may post, and only as themselves;
+    // authors may delete their own. Mirrors COMMENTS-SETUP.md.
+    match /comments/{id} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() < 2000;
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
+    // ── The Wage Watch · a write-only letterbox ─────────────────────────────
+    // Two properties, and the second is the interesting one:
+    //
+    //   1. SIGNED-IN TO WRITE. The web apiKey and project id are public by
+    //      design, so an unauthenticated `create` rule would let anyone on the
+    //      internet write to this collection — spam, or a bill. Requiring auth
+    //      keeps the dataset to people who got through the site's own gate.
+    //
+    //   2. ANONYMOUS ONCE WRITTEN. hasOnly() is an allow-list of fields, and
+    //      uid / name / email are not on it. So a submission carrying identity
+    //      is REJECTED BY THE DATABASE. The page promises "no name, no email,
+    //      no account id stored, ever" — this is the line that makes that
+    //      promise enforceable rather than merely stated. Even a bug in
+    //      wage-watch.js could not write an identifier here.
+    //
+    // Nobody reads it back from the client — exports run from the console or
+    // the Admin SDK, so read/update/delete stay closed.
+    match /wage_watch/{doc} {
+      allow read, update, delete: if false;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly([
+             'vantage', 'sector', 'tier', 'wages', 'reservation', 'threshold',
+             'productivity', 'attrition', 'vendors', 'prices', 'note', 'month', 'ts'
+           ])
+        && request.resource.data.keys().hasAll([
+             'vantage', 'sector', 'tier', 'wages', 'reservation', 'threshold',
+             'productivity', 'attrition', 'vendors', 'prices', 'month', 'ts'
+           ])
+        && request.resource.data.month is string
+        && request.resource.data.month.size() <= 7
+        && request.resource.data.note is string
+        && request.resource.data.note.size() <= 600
+        && request.resource.data.ts == request.time;
+    }
+
+    // ── Everything else stays closed ───────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

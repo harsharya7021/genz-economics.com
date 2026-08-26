@@ -31,3 +31,33 @@ site shows a friendly placeholder; everything else works. ~10 minutes:
 
 That's it — sign-in, threaded comments, and the daily-question discussions go live.
 Each day's question is its own thread, so the archive keeps every past discussion.
+
+---
+
+## Rules now live in the repo, not the console
+
+The block above is kept for history. **`firestore.rules` in this repo is the source
+of truth**, and it holds every collection the site uses — `comments` *and*
+`wage_watch`. This matters because **Firestore replaces the entire ruleset on each
+deploy**: pasting one collection's block into the console silently deletes the
+others, which is how comments would quietly stop accepting posts.
+
+Edit `firestore.rules`, then **double-click `deploy-firestore-rules.command`**. It
+lists the collections it is about to cover, asks for confirmation, and deploys. No
+CLI? The script prints the console URL — paste the file's whole contents there.
+
+### The Wage Watch collection
+
+`wage_watch` is a **write-only letterbox**: create is allowed, read/update/delete
+are all denied to clients. Two deliberate properties:
+
+- **Signed-in to write.** The web apiKey and project id are public by design, so an
+  unauthenticated create rule would let anyone on the internet write to the
+  collection. Auth keeps it to people already through the site's gate.
+- **Anonymous once written.** The rule's `hasOnly()` allow-list contains no `uid`,
+  `name` or `email` — so a submission carrying identity is *rejected by the
+  database*. The page promises "no name, no email, no account id stored, ever";
+  this is what makes that promise enforceable rather than merely stated. Even a bug
+  in `wage-watch.js` could not write an identifier.
+
+Exports run from the Firebase console or the Admin SDK, never from the browser.
