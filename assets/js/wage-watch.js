@@ -179,11 +179,29 @@
         } else if (/popup-closed|cancelled-popup|popup-blocked/i.test(e)) {
           say("Sign-in was closed before it finished. Your answers are still here — hit the button again.", true);
         } else if (/permission|insufficient/i.test(e)) {
-          say("The database refused the write even though you are signed in — the wage_watch rules need deploying. Nothing was recorded.", true);
+          /* Signed in and still refused: the ruleset in the project does not
+             match this collection. Probe a neighbouring collection to tell the
+             two causes apart, and say which one it is rather than guessing. */
+          say("The database refused the write. Checking why…", true);
+          loadFirebase().then(function (F) {
+            return F.fs.getDocs(F.fs.query(F.fs.collection(F.db, "comments"), F.fs.limit(1)))
+              .then(function () {
+                say("Refused by the rules: you are signed in and the project is reachable, so the wage_watch block is not live. Deploy firestore.rules (deploy-firestore-rules.command), or check the Rules Playground for the failing line. Nothing was recorded.", true);
+              })
+              .catch(function () {
+                say("Refused, and the comments collection is unreachable too — so this is the whole ruleset, not just wage_watch. Check that the deploy went to the genz-economics project. Nothing was recorded.", true);
+              });
+          }).catch(function () {
+            say("The database refused the write and could not be re-probed — check your connection. Nothing was recorded.", true);
+          });
         } else {
           say("Couldn't file — network or config hiccup. Your answers are still on this page; try once more.", true);
         }
-        console.error("[gze] wage-watch:", e);
+        console.error("[gze] wage-watch submit failed:", e, err);
+        console.info("[gze] diagnostics — signed in:", !!currentUser,
+          "| fields sent:", Object.keys(answers).length + 2,
+          "| month:", month,
+          "| note length:", answers.note.length);
       });
   });
 

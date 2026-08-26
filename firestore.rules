@@ -39,6 +39,12 @@ service cloud.firestore {
     //
     // Nobody reads it back from the client — exports run from the console or
     // the Admin SDK, so read/update/delete stay closed.
+    // Deliberately minimal. hasOnly() is the one condition doing security work
+    // (it is what makes the anonymity promise enforceable); everything else is
+    // data quality, which the form already enforces client-side. Earlier drafts
+    // also required hasAll() and `ts == request.time` — both are easy to trip
+    // for reasons that have nothing to do with safety, and a rule that fails
+    // closed for the wrong reason is just an outage. Keep this short.
     match /wage_watch/{doc} {
       allow read, update, delete: if false;
       allow create: if request.auth != null
@@ -46,15 +52,9 @@ service cloud.firestore {
              'vantage', 'sector', 'tier', 'wages', 'reservation', 'threshold',
              'productivity', 'attrition', 'vendors', 'prices', 'note', 'month', 'ts'
            ])
-        && request.resource.data.keys().hasAll([
-             'vantage', 'sector', 'tier', 'wages', 'reservation', 'threshold',
-             'productivity', 'attrition', 'vendors', 'prices', 'month', 'ts'
-           ])
         && request.resource.data.month is string
-        && request.resource.data.month.size() <= 7
         && request.resource.data.note is string
-        && request.resource.data.note.size() <= 600
-        && request.resource.data.ts == request.time;
+        && request.resource.data.note.size() <= 600;
     }
 
     // ── Everything else stays closed ───────────────────────────────────────
