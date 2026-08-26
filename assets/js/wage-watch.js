@@ -45,6 +45,81 @@
 
   var V = "12.15.0", base = "https://www.gstatic.com/firebasejs/" + V + "/";
 
+  /* ── auth, resolved on load ──────────────────────────────────────────────
+     The rules require a signed-in user. The first version called
+     signInWithPopup() from inside the submit promise chain — after three
+     dynamic imports had been awaited — by which point the browser no longer
+     considers it a user gesture and blocks the popup. So: settle auth state
+     when the page loads, and put a real button in front of the reader that
+     opens the popup on a direct click. Filling a long form only to be told
+     about sign-in at the end was the wrong shape anyway. */
+  var authBox = document.querySelector("[data-ww-auth]");
+  var authCopy = document.querySelector("[data-ww-auth-copy]");
+  var signinBtn = document.querySelector("[data-ww-signin]");
+  var FB = null, currentUser = null;
+
+  function loadFirebase() {
+    if (FB) return FB;
+    var cfg = window.GZE_FIREBASE || {};
+    if (!cfg.apiKey) return null;
+    FB = Promise.all([
+      import(base + "firebase-app.js"),
+      import(base + "firebase-auth.js"),
+      import(base + "firebase-firestore.js")
+    ]).then(function (m) {
+      var appMod = m[0], authMod = m[1], fs = m[2];
+      var app; try { app = appMod.getApp(); } catch (e) { app = appMod.initializeApp(cfg); }
+      return { authMod: authMod, fs: fs, auth: authMod.getAuth(app), db: fs.getFirestore(app) };
+    });
+    return FB;
+  }
+
+  function paintAuth() {
+    if (!authBox) return;
+    authBox.hidden = false;
+    if (currentUser) {
+      authCopy.textContent = "Signed in — you can file. Your answers are stored without your name, email or account id.";
+      authBox.classList.add("is-ok");
+      if (signinBtn) signinBtn.hidden = true;
+    } else {
+      authCopy.textContent = "One step before you file: sign in with your ISB email. It gates the write so the internet can't fill this dataset — it is never stored with your answers.";
+      authBox.classList.remove("is-ok");
+      if (signinBtn) signinBtn.hidden = false;
+    }
+  }
+
+  (function initAuth() {
+    var p = loadFirebase(); if (!p) return;
+    p.then(function (F) {
+      F.authMod.onAuthStateChanged(F.auth, function (u) {
+        currentUser = (u && (!window.GZE_emailAllowed || window.GZE_emailAllowed(u.email))) ? u : null;
+        paintAuth();
+      });
+    }).catch(function () { /* offline — submit will report it */ });
+  })();
+
+  if (signinBtn) signinBtn.addEventListener("click", function () {
+    var p = loadFirebase(); if (!p) return;
+    signinBtn.disabled = true;
+    say("Opening sign-in…");
+    p.then(function (F) {
+      var prov = new F.authMod.GoogleAuthProvider();
+      prov.setCustomParameters({ prompt: "select_account" });
+      return F.authMod.signInWithPopup(F.auth, prov).then(function (res) {
+        var email = res.user && res.user.email;
+        if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
+          F.authMod.signOut(F.auth);
+          say("This room is ISB-only — sign in with your @isb.edu address.", true);
+        } else { say("Signed in. Fill the form and file your report."); }
+      });
+    }).catch(function (err) {
+      var e = String((err && (err.code || err.message)) || err);
+      if (/popup-blocked/i.test(e)) say("Your browser blocked the sign-in window — allow popups for this site and try again.", true);
+      else if (/popup-closed|cancelled/i.test(e)) say("Sign-in was closed before it finished.", true);
+      else say("Sign-in failed: " + e, true);
+    }).then(function () { signinBtn.disabled = false; });
+  });
+
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
     answers.sector = sel ? sel.value : "";
@@ -68,50 +143,27 @@
     var cfg = window.GZE_FIREBASE || {};
     if (!cfg.apiKey) { say("Submissions aren't wired up in this preview. On the live site this files straight to the database.", true); return; }
 
+    if (!currentUser) {
+      say("Sign in just above first — the button by the padlock. Your answers stay on this page meanwhile.", true);
+      if (authBox) {
+        authBox.hidden = false;
+        try { authBox.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) {}
+        if (signinBtn && !signinBtn.hidden) { try { signinBtn.focus(); } catch (e) {} }
+      }
+      return;
+    }
+
     say("Filing…");
     form.querySelector(".ww-submit").disabled = true;
-    Promise.all([
-      import(base + "firebase-app.js"),
-      import(base + "firebase-auth.js"),
-      import(base + "firebase-firestore.js")
-    ])
-      .then(function (m) {
-        var appMod = m[0], authMod = m[1], fs = m[2];
-        var app; try { app = appMod.getApp(); } catch (e) { app = appMod.initializeApp(cfg); }
-        var auth = authMod.getAuth(app);
-        var db = fs.getFirestore(app);
-
-        /* The rules require a signed-in user. Wait for any existing session to
-           resolve; only prompt if there genuinely isn't one. The uid is used to
-           satisfy the rule and then discarded — it is never part of the document. */
-        function ensureUser() {
-          return new Promise(function (resolve, reject) {
-            var done = false;
-            var stop = authMod.onAuthStateChanged(auth, function (u) {
-              if (done) return; done = true; stop();
-              if (u && (!window.GZE_emailAllowed || window.GZE_emailAllowed(u.email))) return resolve(u);
-              say("One step first — sign in with your ISB email. Nothing about you is stored with the report.");
-              var p = new authMod.GoogleAuthProvider();
-              p.setCustomParameters({ prompt: "select_account" });
-              authMod.signInWithPopup(auth, p).then(function (res) {
-                var email = res.user && res.user.email;
-                if (window.GZE_emailAllowed && !window.GZE_emailAllowed(email)) {
-                  authMod.signOut(auth);
-                  reject(new Error("not-isb"));
-                } else { say("Filing…"); resolve(res.user); }
-              }).catch(reject);
-            });
-          });
-        }
-
-        return ensureUser().then(function () {
-          return fs.addDoc(fs.collection(db, "wage_watch"), {
+    loadFirebase()
+      .then(function (F) {
+        /* The uid satisfies the rule; it is never written into the document. */
+        return F.fs.addDoc(F.fs.collection(F.db, "wage_watch"), {
           vantage: answers.vantage, sector: answers.sector, tier: answers.tier,
           wages: answers.wages, reservation: answers.reservation, threshold: answers.threshold,
           productivity: answers.productivity, attrition: answers.attrition,
           vendors: answers.vendors, prices: answers.prices,
-            note: answers.note, month: month, ts: fs.serverTimestamp()
-          });
+          note: answers.note, month: month, ts: F.fs.serverTimestamp()
         });
       })
       .then(function () {
@@ -127,7 +179,7 @@
         } else if (/popup-closed|cancelled-popup|popup-blocked/i.test(e)) {
           say("Sign-in was closed before it finished. Your answers are still here — hit the button again.", true);
         } else if (/permission|insufficient/i.test(e)) {
-          say("The database refused the write. If you are signed in, the wage_watch rules need deploying — nothing was recorded.", true);
+          say("The database refused the write even though you are signed in — the wage_watch rules need deploying. Nothing was recorded.", true);
         } else {
           say("Couldn't file — network or config hiccup. Your answers are still on this page; try once more.", true);
         }
