@@ -4,6 +4,7 @@ title: "The Quiet Print: Crisis-Money Without a Crisis"
 dek: "In the year to 31 July 2026 India's money supply grew 14.7% while nominal GDP grew about 9% — and the RBI cut the CRR, bought ₹2 lakh crore of bonds and ran a $10bn swap to help it along, in a year with no crisis to justify any of it. The alibi for the inflation that may follow — Trump, oil, fertiliser — is being written in advance. This session teaches you to read the two RBI tables where the argument has to be settled."
 date: 2026-08-23
 session: 19
+stream_id: 7449fff83a648c9af7bf3ccaf8a68ff5
 tags: [money-supply, rbi, crr, liquidity, inflation, india, japan]
 excerpt_override: "Session 19 — open the RBI's own PDF and count: deposits 238 → 274 lakh crore in a year, cash back to 12% of GDP, M3 up 14.7% to ₹322.81 lakh crore and money-to-GDP at ~90.5%. Five machines — the WSS race, the multiplier machine, the tap and the sponge, the 90% path, the Keynes–Friedman switchboard — plus the week Japan's carry unwind went from theory to a photographed to-do list."
 authors:
