@@ -4,6 +4,7 @@ title: "Japan's Debt Puzzle: The Government That Ran a Carry Trade"
 dek: "Japan owes twice its GDP and never blew up. The answer is not discipline — it is a $2 trillion carry trade run by the state itself: borrow at 0% from your own printing press, buy the world's risky assets, and pray the market never asks to be paid for the risk. For fifteen years, it didn't ask. It is asking now."
 date: 2026-08-09
 session: 18
+stream_id: 53ccf2cbd51df82a1101178476d529f1
 tags: [japan, carry-trade, sovereign-debt, debt-sustainability, international-finance]
 excerpt_override: "Session 18 — the 200% debt puzzle solved on one consolidated balance sheet: print at zero, buy foreign equities, earn ~6% of GDP a year, and let the winnings hide every deficit. Five machines to play with — the balance sheet, the sovereign carry, the Modigliani–Miller world-switch, the duration seesaw, the deficit doctor — plus editor's notes on the July 31 joint yen intervention."
 authors:
