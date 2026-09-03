@@ -57,6 +57,17 @@ permalink: /wage-watch/
         </div>
 
         <div class="ww-q">
+          <p class="ww-label">Pay band of the people you are describing</p>
+          <p class="ww-sublabel">The floor behaves differently by band — above ₹10 lakh a 6% hike reads as a pay cut against school fees; below it, it bites harder. Pick the band your answers below are about.</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Pay band" data-ww="band">
+            <button type="button" data-v="lt3">Under ₹3 L / yr</button>
+            <button type="button" data-v="3to10">₹3–10 L</button>
+            <button type="button" data-v="10to25">₹10–25 L</button>
+            <button type="button" data-v="gt25">Over ₹25 L</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
           <p class="ww-label">Wages at the lower end — helpers, drivers, guards, entry-level, contract staff — over the last 6 months</p>
           <div class="ww-chips" role="radiogroup" aria-label="Wage direction" data-ww="wages">
             <button type="button" data-v="falling">Falling</button>
@@ -64,6 +75,19 @@ permalink: /wage-watch/
             <button type="button" data-v="up5">Up a little (&lt;5%)</button>
             <button type="button" data-v="up10">Up 5–10%</button>
             <button type="button" data-v="up10plus">Up &gt;10%</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">The last actual hike those people got</p>
+          <p class="ww-sublabel">What was paid, not what was asked. The gap between this and the walk-away number below is the pressure reading.</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Actual hike" data-ww="hike">
+            <button type="button" data-v="none">None / cut</button>
+            <button type="button" data-v="lt5">Under 5%</button>
+            <button type="button" data-v="5to8">5–8%</button>
+            <button type="button" data-v="8to12">8–12%</button>
+            <button type="button" data-v="12to20">12–20%</button>
+            <button type="button" data-v="gt20">Over 20%</button>
           </div>
         </div>
 
@@ -131,11 +155,39 @@ permalink: /wage-watch/
         </div>
 
         <div class="ww-q">
+          <p class="ww-label">The line item that bites hardest right now</p>
+          <p class="ww-sublabel">The walk-away number is priced against a basket — and the basket is not the CPI's. Which item is doing the pushing?</p>
+          <div class="ww-chips" role="radiogroup" aria-label="Basket item" data-ww="basket">
+            <button type="button" data-v="rent">Rent / housing</button>
+            <button type="button" data-v="school">School fees</button>
+            <button type="button" data-v="food">Food / groceries</button>
+            <button type="button" data-v="fuel">Fuel / transport</button>
+            <button type="button" data-v="health">Health / insurance</button>
+            <button type="button" data-v="help">Domestic help / services</button>
+            <button type="button" data-v="none">Nothing in particular</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
+          <p class="ww-label">You are <span class="ww-opt">(optional — there is early evidence that women read inflation differently; we want to test it, not assume it)</span></p>
+          <div class="ww-chips" role="radiogroup" aria-label="Gender" data-ww="gender">
+            <button type="button" data-v="f">Woman</button>
+            <button type="button" data-v="m">Man</button>
+            <button type="button" data-v="x">Other / skip</button>
+          </div>
+        </div>
+
+        <div class="ww-q">
           <p class="ww-label">One concrete observation, if you have it <span class="ww-opt">(optional — a number beats an adjective: "site PM on ₹25–30k walked over a 6% offer")</span></p>
           <textarea class="ww-text" data-ww="note" rows="3" maxlength="500" placeholder="What did you see, where, since when?"></textarea>
         </div>
 
         <p class="ww-anon">Nothing identifying is stored — not your name, email, sign-in or account id. One report per month per browser is the honour system.</p>
+
+        <label class="ww-findings" data-ww-findings-row>
+          <input type="checkbox" data-ww="findings">
+          <span><strong>Send me the findings.</strong> Ticking this puts your sign-in email on a separate mailing list that is stored on its own — it is never written next to your answers, and cannot be joined back to them. Untick and nothing about you is kept at all.</span>
+        </label>
 
         <div class="ww-auth" data-ww-auth hidden>
           <p class="ww-auth-copy" data-ww-auth-copy></p>
@@ -148,7 +200,7 @@ permalink: /wage-watch/
 
       <div class="ww-done" data-ww-done hidden>
         <p class="ww-done-big">Filed. Useful knowledge.</p>
-        <p class="ww-done-sub">The kind no terminal sells — it exists only because people on the ground write it down. The aggregate goes to class once the sample is worth discussing, and feeds <a href="{{ '/macro-watch/#money-printer' | relative_url }}">the Money Printer</a>. Come back next month; this is a series, not a poll.</p>
+        <p class="ww-done-sub">The kind no terminal sells — it exists only because people on the ground write it down. The aggregate goes to class once the sample is worth discussing, is mailed to everyone who ticked "send me the findings", and feeds <a href="{{ '/macro-watch/#money-printer' | relative_url }}">the Money Printer</a>. Come back next month; this is a series, not a poll.</p>
       </div>
     </div>
 

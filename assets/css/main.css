@@ -2981,6 +2981,10 @@ body:not(.stack-ready) .stage-candles .sc-candle > g { opacity: .55; }
 .ww-select, .ww-text { width: 100%; font-family: var(--sans); font-size: .9rem; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: .55rem .7rem; }
 .ww-text { resize: vertical; line-height: 1.5; }
 .ww-anon { font-family: var(--mono); font-size: .7rem; color: var(--ink-soft); margin: 1.1rem 0 .8rem; }
+/* "send me the findings" opt-in — stored apart from the answers */
+.ww-findings { display: flex; gap: .65rem; align-items: flex-start; padding: .75rem .95rem; margin: 0 0 .9rem; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--gold) 55%, var(--rule)); background: color-mix(in srgb, var(--gold) 6%, transparent); font-family: var(--sans); font-size: .8rem; line-height: 1.5; color: var(--ink-soft); cursor: pointer; }
+.ww-findings input { margin: .2rem 0 0; accent-color: var(--accent); flex: 0 0 auto; }
+.ww-findings strong { color: var(--ink); }
 /* sign-in gate — resolved on load, so the popup fires from a real click */
 .ww-auth { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem; padding: .8rem .95rem; margin: 0 0 .9rem; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--rule)); background: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
 .ww-auth.is-ok { border-color: color-mix(in srgb, #1d6b38 34%, var(--rule)); background: color-mix(in srgb, #1d6b38 6%, var(--surface)); }

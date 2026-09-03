@@ -22,7 +22,8 @@
   var statusEl = document.querySelector("[data-ww-status]");
   var doneEl = document.querySelector("[data-ww-done]");
   var countEl = document.querySelector("[data-ww-count]");
-  var answers = { vantage: "", sector: "", tier: "", wages: "", reservation: "", threshold: "", productivity: "", attrition: "", vendors: "", prices: "", note: "" };
+  var answers = { vantage: "", sector: "", tier: "", band: "", wages: "", hike: "", reservation: "", threshold: "", productivity: "", attrition: "", vendors: "", prices: "", basket: "", gender: "", note: "" };
+  var findingsBox = form.querySelector('[data-ww="findings"]');
 
   /* chip groups */
   form.querySelectorAll(".ww-chips").forEach(function (group) {
@@ -124,7 +125,7 @@
     ev.preventDefault();
     answers.sector = sel ? sel.value : "";
     answers.note = note ? note.value.trim().slice(0, 500) : "";
-    var required = ["vantage", "tier", "wages", "reservation", "threshold", "productivity", "attrition", "vendors", "prices"];
+    var required = ["vantage", "tier", "band", "wages", "hike", "reservation", "threshold", "productivity", "attrition", "vendors", "prices", "basket"];
     var missing = required.filter(function (k) { return !answers[k]; });
     if (!answers.sector) missing.push("sector");
     if (missing.length) {
@@ -159,11 +160,21 @@
       .then(function (F) {
         /* The uid satisfies the rule; it is never written into the document. */
         return F.fs.addDoc(F.fs.collection(F.db, "wage_watch"), {
-          vantage: answers.vantage, sector: answers.sector, tier: answers.tier,
-          wages: answers.wages, reservation: answers.reservation, threshold: answers.threshold,
+          vantage: answers.vantage, sector: answers.sector, tier: answers.tier, band: answers.band,
+          wages: answers.wages, hike: answers.hike, reservation: answers.reservation, threshold: answers.threshold,
           productivity: answers.productivity, attrition: answers.attrition,
-          vendors: answers.vendors, prices: answers.prices,
+          vendors: answers.vendors, prices: answers.prices, basket: answers.basket, gender: answers.gender,
           note: answers.note, month: month, ts: F.fs.serverTimestamp()
+        }).then(function () {
+          /* "Send me the findings" — a SEPARATE collection, written after the
+             answers, keyed by nothing the answers doc carries. The email is the
+             signed-in address (rules enforce that), so nothing is typed. If this
+             second write fails the report still stands; the person can re-tick
+             next month. */
+          if (!findingsBox || !findingsBox.checked || !currentUser || !currentUser.email) return;
+          return F.fs.setDoc(F.fs.doc(F.db, "wage_watch_findings_list", currentUser.uid), {
+            email: currentUser.email, month: month, ts: F.fs.serverTimestamp()
+          }).catch(function (e) { console.warn("[gze] findings opt-in not saved:", e); });
         });
       })
       .then(function () {

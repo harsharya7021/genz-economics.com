@@ -49,12 +49,27 @@ service cloud.firestore {
       allow read, update, delete: if false;
       allow create: if request.auth != null
         && request.resource.data.keys().hasOnly([
-             'vantage', 'sector', 'tier', 'wages', 'reservation', 'threshold',
-             'productivity', 'attrition', 'vendors', 'prices', 'note', 'month', 'ts'
+             'vantage', 'sector', 'tier', 'band', 'wages', 'hike', 'reservation', 'threshold',
+             'productivity', 'attrition', 'vendors', 'prices', 'basket', 'gender',
+             'note', 'month', 'ts'
            ])
         && request.resource.data.month is string
         && request.resource.data.note is string
         && request.resource.data.note.size() <= 600;
+    }
+
+    // ── "Send me the findings" · a separate, self-owned mailing list ────────
+    // One doc per signed-in user, keyed by uid, holding ONLY their own email.
+    // It lives apart from wage_watch on purpose: the answers doc carries no uid
+    // and this doc carries no answers, so the two cannot be joined. The email
+    // must equal the token's email — nobody can subscribe someone else. Reads
+    // stay closed; export the list from the console when the findings go out.
+    match /wage_watch_findings_list/{uid} {
+      allow read, delete: if false;
+      allow create, update: if request.auth != null
+        && uid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['email', 'month', 'ts'])
+        && request.resource.data.email == request.auth.token.email;
     }
 
     // ── Everything else stays closed ───────────────────────────────────────
