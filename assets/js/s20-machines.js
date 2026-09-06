@@ -182,8 +182,10 @@
       /* costs in ₹ crore per year */
       var bankCost, govCost;
       if (door === "crr") {
-        /* reserves earn 0 instead of SDF's 5.00% — banks eat the lot */
-        bankCost = A * 1e5 * SDF / 100;
+        /* CRR pays nothing, so the bank still owes its depositor the full rate
+           on money now earning zero — the professor's framing, not the narrower
+           "spread versus SDF" one. */
+        bankCost = A * 1e5 * DEP / 100;
         govCost = 0;
       } else if (door === "mss") {
         bankCost = 0;
@@ -207,7 +209,7 @@
         note.innerHTML = "Roll the auctions and wait. Cost to the exchequer today: zero. The professor's fear is that this is not a policy but a staring contest — bankers tire of earning 5.00% on money costing ~6.25%, and start lending. <i>\"That is where the problem will start.\"</i> Year one looks excellent; the bill arrives as the 2008→2018 sequence, which cost about ₹3.1 lakh crore of recapitalisation and a decade of growth.";
       } else if (door === "crr") {
         verdict.textContent = "Banks carry it: " + kcr(bankCost) + " a year, straight off equity.";
-        note.innerHTML = "Reserves earn 5.00% in the SDF and <b>nothing</b> as CRR, so the whole spread lands on bank capital. It must be targeted at the banks that actually took the inflow — a bank that took none should not lose lending capacity for someone else's deposits — and it can be, because these reserves are traceable. The objection is fairness and signal: these banks, mostly public-sector, were leaned on to raise the money in the first place. Set the slider to full absorption and you get the professor's ~₹90,000 crore figure.";
+        note.innerHTML = "Reserves earn 5.00% in the standing deposit facility and <b>nothing</b> as CRR — while the bank still owes its depositor ~6.25%. So the full deposit cost lands on bank capital. It must be targeted at the banks that actually took the inflow — a bank that took none should not lose lending capacity for someone else's deposits — and it can be, because these reserves are traceable. The objection is fairness and signal: these banks, mostly public-sector, were leaned on to raise the money in the first place. <b>Reconciling with the class:</b> absorb all ₹10.3 L cr and this reads ~₹64,000 crore; the professor's ~₹90,000 crore applies ~7% to the entire $136bn of <i>deposits</i> rather than to the reserves currently parked at the RBI. Same mechanism, wider base — his is the fuller measure of what the banks are carrying.";
       } else {
         verdict.textContent = "The budget carries it: " + kcr(govCost) + " a year — about " +
           r1d(govCost / 5350000 * 100) + "% of the Union Budget.";
