@@ -1,0 +1,685 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Gen Z Economics × CAF, ISB — a working plan for Prof. Tantri and the CAF team</title>
+<style>
+@font-face{font-family:"Reckless";src:url("../../assets/fonts/recklessgx.woff") format("woff-variations");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Reckless";src:url("../../assets/fonts/recklessgx.woff") format("woff-variations");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url("../../assets/fonts/inter-v-1.woff") format("woff-variations");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("../../assets/fonts/inter-v-1.woff") format("woff-variations");font-weight:100 900;font-style:italic;font-display:swap}
+
+/* ── GenZ-Economics design tokens (ISB palette) ── */
+:root{
+  --isb-innovation:#245BFF; --isb-legacy:#192890; --isb-green:#80EDD9;
+  --isb-yellow:#FFD866; --isb-state:#2E3B42;
+  --ink:#24313A; --ink-soft:#5D6F7A; --paper:#F4F8FA; --paper-2:#E6EBEE;
+  --surface:#FFFFFF; --rule:#D8E1E7; --rule-soft:#E6EBEE;
+  --accent:#192890; --accent-press:#245BFF; --accent-soft:#E7EDFE;
+  --gold:#FFD866; --gold-ink:#8A6A12; --highlight:#FFE9A4;
+  --band-bg:#192890; --band-ink:#F4F8FA;
+  --serif:"Reckless","Iowan Old Style",Charter,Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r-sm:8px; --r-md:14px; --r-lg:22px;
+  --shadow-md:0 14px 30px -16px rgba(21,24,40,.20);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden}
+
+/* ── Deck chrome ── */
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent-press);width:0%;z-index:50;transition:width .35s ease}
+#counter{position:fixed;top:14px;right:20px;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);z-index:50;letter-spacing:.06em}
+#brandtag{position:fixed;top:12px;left:20px;z-index:50;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+#brandtag b{color:var(--accent)}
+.navbtns{position:fixed;bottom:18px;right:20px;z-index:50;display:flex;gap:8px}
+.navbtns button{width:42px;height:42px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);color:var(--ink);font-size:1rem;cursor:pointer;box-shadow:var(--shadow-md);transition:all .15s ease;line-height:1}
+.navbtns button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+#hint{position:fixed;bottom:22px;left:20px;z-index:50;font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);opacity:.8}
+@media(max-width:640px){#hint{display:none}}
+
+/* ── Slides ── */
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:64px clamp(20px,6vw,84px);opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease,visibility .45s;overflow-y:auto}
+.slide.active{opacity:1;visibility:visible;transform:translateY(0)}
+.wrap{width:100%;max-width:1080px;margin:auto}
+.slide .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.slide.active .reveal{opacity:1;transform:none}
+.slide.active .reveal:nth-child(2){transition-delay:.08s}
+.slide.active .reveal:nth-child(3){transition-delay:.16s}
+.slide.active .reveal:nth-child(4){transition-delay:.24s}
+.slide.active .reveal:nth-child(5){transition-delay:.32s}
+.slide.active .reveal:nth-child(6){transition-delay:.4s}
+
+/* ── Typography ── */
+.eyebrow{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--gold-ink);margin:0 0 1.1rem;font-family:var(--sans)}
+.eyebrow .num{font-family:var(--mono);color:var(--accent);margin-right:.6em}
+h1.display{font-family:var(--serif);font-weight:560;letter-spacing:-.02em;line-height:1.06;font-size:clamp(2rem,4.8vw,3.8rem);margin:0 0 1.4rem;color:var(--ink)}
+h1.display em{font-style:italic;color:var(--accent)}
+.mark{background:linear-gradient(transparent 58%,var(--highlight) 58%);padding:0 .06em}
+.lede{font-family:var(--serif);font-size:clamp(1.02rem,1.6vw,1.28rem);line-height:1.62;color:var(--ink);max-width:720px;margin:0 0 1.2rem}
+.lede strong{font-weight:640}
+.small{font-size:.86rem;color:var(--ink-soft);line-height:1.55}
+.mono{font-family:var(--mono)}
+
+/* ── Components ── */
+.cards{display:grid;gap:16px;margin-top:1.8rem}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
+.cards.c3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.cards.c4 .card{padding:1rem 1.1rem}
+.cards.c4 .card h3{font-size:1rem}
+.cards.c4 .card p{font-size:.82rem;line-height:1.5}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.3rem 1.4rem;box-shadow:var(--shadow-md)}
+.card h3{font-family:var(--serif);font-size:1.12rem;font-weight:620;margin:0 0 .5rem;letter-spacing:-.01em}
+.card p{margin:0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
+.card p b{color:var(--ink);font-weight:600}
+.card .n{font-family:var(--mono);font-size:.7rem;color:var(--accent);display:block;margin-bottom:.55rem;letter-spacing:.06em}
+.card.blue{background:var(--band-bg);border-color:var(--band-bg)}
+.card.blue h3,.card.blue p b{color:var(--band-ink)}
+.card.blue p{color:#B9C4F2}
+.card.blue .n{color:var(--gold)}
+.card.gold{background:var(--gold);border-color:var(--gold)}
+.card.gold h3{color:var(--isb-state)}
+.card.gold p{color:#5c4a12}
+.card.gold .n{color:#5c4a12}
+.card.gold p b{color:#2E3B42}
+
+table.dmu{width:100%;border-collapse:collapse;margin-top:1.6rem;background:var(--surface);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md);font-size:.88rem}
+table.dmu th{font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;color:var(--band-ink);background:var(--band-bg);padding:.7rem 1rem;font-weight:600}
+table.dmu td{padding:.6rem 1rem;border-top:1px solid var(--rule-soft);vertical-align:top;line-height:1.5}
+table.dmu td:first-child{font-weight:600;color:var(--ink);width:34%}
+table.dmu td a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+table.dmu td a:hover{border-bottom-color:var(--accent)}
+table.dmu td:last-child{color:var(--ink-soft)}
+table.dmu tr:nth-child(even) td{background:var(--paper)}
+table.dmu tr.total td{background:var(--accent-soft);color:var(--ink);font-weight:600}
+table.dmu.tight{font-size:.82rem}
+table.dmu.tight td{padding:.5rem .8rem}
+table.dmu.tight td:first-child{width:26%}
+table.dmu td.you{color:var(--accent);font-weight:600;white-space:nowrap}
+table.dmu td .sub{display:block;font-weight:400;color:var(--ink-soft);font-size:.78rem;margin-top:.15rem}
+
+.kv{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:1.6rem}
+.kv div{min-width:130px}
+.kv .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:.3rem}
+.kv .v{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:-.01em}
+
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3vw,2.3rem);line-height:1.3;letter-spacing:-.015em;margin:0 0 1.2rem;color:var(--ink)}
+.quote cite{display:block;font-style:normal;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);margin-top:.7rem}
+
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:1.6rem}
+.qgrid .q{background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--gold);border-radius:var(--r-sm);padding:1rem 1.2rem;box-shadow:var(--shadow-md)}
+.qgrid .q p{font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.45;margin:0 0 .5rem;color:var(--ink)}
+.qgrid .q span{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
+.rmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:1.8rem}
+.rmap .stage{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.3rem;box-shadow:var(--shadow-md);position:relative}
+.rmap .stage.now{border-color:var(--gold);box-shadow:0 0 0 3px var(--highlight),var(--shadow-md)}
+.rmap .stage .t{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:#fff;background:var(--accent);display:inline-block;padding:.25em .7em;border-radius:999px;margin-bottom:.8rem;font-weight:600}
+.rmap .stage.now .t{background:var(--gold);color:var(--isb-state)}
+.rmap .stage .d{font-family:var(--mono);font-size:.64rem;color:var(--ink-soft);margin:-.4rem 0 .6rem;letter-spacing:.04em}
+.rmap .stage ul{margin:0;padding-left:1.05rem;font-size:.84rem;line-height:1.65;color:var(--ink-soft)}
+.rmap .stage ul b{color:var(--ink)}
+.rmap .stage .gate{margin-top:.7rem;padding-top:.6rem;border-top:1px dashed var(--rule);font-size:.76rem;color:var(--gold-ink)}
+.rmap .stage .you{margin-top:.45rem;font-size:.76rem;color:var(--accent);font-weight:600;line-height:1.45}
+
+.dark-slide{background:var(--band-bg)}
+.dark-slide .eyebrow{color:var(--gold)}
+.dark-slide .eyebrow .num{color:var(--isb-green)}
+.dark-slide h1.display,.dark-slide .lede,.dark-slide .quote{color:var(--band-ink)}
+.dark-slide h1.display em{color:var(--isb-green)}
+.dark-slide .small{color:#93A1DE}
+.dark-slide .mark{background:linear-gradient(transparent 58%,rgba(255,216,102,.35) 58%)}
+.dark-slide .kv .v{color:var(--band-ink)}
+.dark-slide .kv .k{color:var(--gold)}
+.dark-slide .quote cite{color:var(--gold)}
+
+.field-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:1.8rem}
+.pill{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:.22em .65em;border-radius:999px;display:inline-block;margin-bottom:.7rem;font-weight:600}
+.pill.gray{background:var(--paper-2);color:var(--ink-soft)}
+.pill.win{background:var(--gold);color:var(--isb-state)}
+.pill.blue{background:var(--accent-soft);color:var(--accent)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:1.6rem}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:1rem 1.1rem;box-shadow:var(--shadow-md)}
+.stat .v{font-family:var(--serif);font-size:1.9rem;font-weight:620;letter-spacing:-.02em;color:var(--accent);line-height:1.1}
+.stat .k{font-size:.78rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.4}
+
+.person{display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start;margin-top:1.2rem}
+@media(max-width:760px){.person{grid-template-columns:1fr}}
+.person ul{margin:.4rem 0 0;padding-left:1.1rem;font-size:.88rem;line-height:1.7;color:var(--ink-soft)}
+.person ul b{color:var(--ink)}
+.persona{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem}
+.persona img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--surface);box-shadow:var(--shadow-md)}
+.persona .who{font-family:var(--serif);font-weight:640;font-size:1.02rem;line-height:1.2}
+.persona .role{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:.25rem;text-transform:uppercase}
+.clipstack{display:grid;gap:9px}
+.clipstack img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--rule);box-shadow:var(--shadow-md);background:#fff}
+.clipstack .cap{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);margin:.1rem 0 0}
+
+/* structure diagram */
+.struct{display:grid;grid-template-columns:360px 1fr;gap:26px;margin-top:1.4rem;align-items:start}
+@media(max-width:820px){.struct{grid-template-columns:1fr}}
+.orgbox{border-radius:var(--r-md);padding:.9rem 1.1rem;box-shadow:var(--shadow-md);border:1px solid var(--rule);background:var(--surface)}
+.orgbox .t{font-family:var(--serif);font-weight:640;font-size:1.02rem;margin:0 0 .2rem}
+.orgbox .s{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:.35rem}
+.orgbox ul{margin:0;padding-left:1rem;font-size:.8rem;line-height:1.5;color:var(--ink-soft)}
+.orgbox.cap{background:var(--paper-2);border-style:dashed}
+.orgbox.spv{background:var(--band-bg);border-color:var(--band-bg)}
+.orgbox.spv .t{color:var(--band-ink)} .orgbox.spv .s{color:var(--gold)} .orgbox.spv ul{color:#C9D2F5}
+.orgbox.epic{background:var(--surface);border-style:dashed;opacity:.85}
+.orgarrow{text-align:center;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--ink-soft);padding:.35rem 0;line-height:1.4}
+.orgarrow b{display:block;font-size:1.1rem;color:var(--accent);line-height:1}
+.principles{display:grid;gap:10px}
+.principles.two{grid-template-columns:1fr 1fr;margin-top:1.6rem}
+@media(max-width:760px){.principles.two{grid-template-columns:1fr}}
+.principles .p{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:var(--r-sm);padding:.7rem .95rem;font-size:.84rem;line-height:1.5;color:var(--ink-soft)}
+.principles .p b{color:var(--ink);font-family:var(--serif);font-size:.95rem;display:block;margin-bottom:.15rem}
+.principles .p i{color:var(--ink);font-style:normal;font-weight:600}
+.kill{margin-top:1.2rem;background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:var(--r-sm);padding:.85rem 1.1rem;font-size:.86rem;line-height:1.55;color:var(--ink-soft);box-shadow:var(--shadow-md)}
+.kill b{color:var(--ink)} .kill .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);display:block;margin-bottom:.25rem}
+.kill.gold{border-left-color:var(--gold)}
+@media(max-width:900px){.cards.c4,.qgrid,.field-grid,.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards.c2,.cards.c4,.qgrid,.field-grid,.stats{grid-template-columns:1fr}}
+
+/* content pillars */
+.content-slide .wrap{max-width:1140px}
+.content-slide h1.display{font-size:clamp(1.7rem,3.4vw,2.6rem);margin-bottom:.5rem}
+.content-slide .eyebrow{margin-bottom:.6rem}
+.content-slide .cards.c3{grid-template-columns:repeat(3,1fr);gap:12px;margin-top:.6rem}
+@media(max-width:900px){.content-slide .cards.c3{grid-template-columns:repeat(2,1fr)}}
+.content-slide .cards.c3 .card{padding:.8rem 1rem}
+.content-slide .cards.c3 .card h3{font-size:1rem;margin-bottom:.3rem}
+.content-slide .cards.c3 .card p{font-size:.8rem;line-height:1.45}
+.content-slide .cards.c3 .card p.eg{font-size:.78rem;margin-top:.3rem}
+.content-slide .cards.c3 .card .ico{width:20px;height:20px;margin-bottom:.3rem}
+.content-slide .cards.c3 .card .n{margin-bottom:.35rem}
+.content-slide .addons{margin-top:.7rem;padding-top:.6rem}
+.content-slide .addons .card{padding:.65rem .9rem}
+.content-slide .addons .card h3{font-size:.95rem}
+.content-slide .addons .card p{font-size:.78rem;line-height:1.45}
+.content-slide .foot-note{margin-top:.7rem;font-size:.72rem;line-height:1.45}
+.card p.eg{font-family:var(--serif);font-style:italic;font-size:.84rem;color:var(--ink);margin-top:.45rem;line-height:1.45}
+.addons{margin-top:1rem;padding-top:.8rem;border-top:1px dashed var(--rule)}
+.addons .cards{margin-top:.5rem;gap:14px}
+.addons .card{padding:.85rem 1.1rem}
+.addons .card h3{font-size:1.02rem;margin-bottom:.3rem}
+.addons .card p{font-size:.84rem;line-height:1.5}
+.addons + .foot-note{margin-top:.8rem}
+.chartlabel{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:.4rem}
+/* icons */
+.ico{width:26px;height:26px;display:block;color:var(--accent);fill:currentColor;margin-bottom:.55rem}
+.card.gold .ico{color:var(--isb-state)} .card.blue .ico{color:var(--gold)}
+/* full-bleed media slide */
+.mediawrap{width:100%;max-width:min(1180px, calc((100vh - 330px) * 16 / 9));margin:auto}
+.mediaframe{border-radius:12px;overflow:hidden;border:1px solid var(--rule);box-shadow:0 30px 60px -30px rgba(21,24,40,.45);background:#000;line-height:0}
+.mediaframe video,.mediaframe img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.mediacap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.9rem;font-size:.82rem;color:var(--ink-soft)}
+.mediacap b{color:var(--ink)}
+.mediahead{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.3rem);font-weight:560;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.1}
+.mediahead em{font-style:italic;color:var(--accent)}
+/* video */
+.slide{z-index:0}
+.bgvid{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.bgvid video{width:100%;height:100%;object-fit:cover;display:block}
+.bgvid .tint{position:absolute;inset:0}
+.slide .wrap{position:relative;z-index:1}
+footer.deckfoot{margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid var(--rule);font-size:.78rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.foot-note{margin-top:1.4rem;font-size:.76rem;color:var(--ink-soft);line-height:1.55}
+.foot-note b{color:var(--ink)}
+.dark-slide .foot-note{color:#93A1DE} .dark-slide .foot-note b{color:var(--band-ink)}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="brandtag"><b>Gen Z Economics</b> · a working plan for CAF, ISB</div>
+<div id="counter">01 / 23</div>
+<div id="hint">← → to navigate</div>
+<div class="navbtns"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div>
+
+<!-- 1 · TITLE -->
+<section class="slide active">
+  <div class="bgvid"><video muted loop playsinline preload="auto"><source src="../bureau-8fdef2/assets/bg-financial-loop.mp4" type="video/mp4"></video><div class="tint" style="background:linear-gradient(90deg,rgba(244,248,250,.97) 0%,rgba(244,248,250,.92) 55%,rgba(244,248,250,.78) 100%)"></div></div>
+  <div class="wrap">
+    <p class="eyebrow reveal">A working plan for Prof. Prasanna Tantri and the CAF team · September 2026</p>
+    <h1 class="display reveal" style="font-size:clamp(2.3rem,6vw,4.6rem)">India's economy is explained by everyone <em>except economists.</em></h1>
+    <p class="lede reveal"><strong>Gen Z Economics</strong> — a faceless YouTube channel on economics and finance. Weekly explainers and documentaries, written from primary research, checked against the work you already publish. <strong>Built to need your judgement, not your hours.</strong></p>
+    <div class="kv reveal">
+      <div><div class="k">Prepared for</div><div class="v">Prof. Tantri · CAF, ISB</div></div>
+      <div><div class="k">By</div><div class="v">Harsh Arya · PGP '25</div></div>
+      <div><div class="k">The one rule</div><div class="v">Your judgement, not your hours</div></div>
+    </div>
+    <footer class="deckfoot reveal"><span>genz-economics.com</span><span class="mono">private &amp; confidential</span></footer>
+  </div>
+</section>
+
+<!-- 2 · THE TWO-MINUTE VERSION -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal">The two-minute version · read this if you read nothing else</p>
+    <h1 class="display reveal">One channel. Four to five hours of you a month. <em>Everything else is ours.</em></h1>
+    <div class="cards c4 reveal">
+      <div class="card"><span class="n">WHAT IT IS</span><h3>A faceless channel, not a Tantri channel</h3><p>Narrated, motion-led, 12–18 minutes, weekly. Six formats from one topic bank built out of your columns and lectures. <b>You appear when a piece needs it, not because the format does.</b></p></div>
+      <div class="card"><span class="n">WHAT WE NEED</span><h3>About 4–5 hours a month, all at ISB</h3><p>A one-page claims sheet per script (~20 min). One studio slot a fortnight for the podcast. A 20-minute topic steer a month. <b>Capped at six hours — we cut the plan before we cut into your week.</b></p></div>
+      <div class="card"><span class="n">WHAT CAF GETS</span><h3>Cash, a funded RA, and the consent right</h3><p>A royalty on sponsor and licence income, or a grant that funds the RA. ISB never on a cap table. <b>The CAF line goes on nothing that hasn't passed your review — and off everything, the day you say so.</b></p></div>
+      <div class="card gold"><span class="n">WHAT'S NEXT</span><h3>The CAF MoU, before anything else</h3><p>Drafted next week, before anything carrying the ISB name goes near a media partner. <b>One reply from you settles the time budget.</b> The rest is our job.</p></div>
+    </div>
+    <p class="foot-note reveal">Everything after this slide is the same plan in detail. Skim it or don't — the rule on every page is the same: <b>your judgement, not your hours.</b></p>
+  </div>
+</section>
+
+<!-- 3 · WHERE WE LEFT OFF -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">01</span>Where we left off</p>
+    <h1 class="display reveal">This started as your idea. <em>We built the machine around it.</em></h1>
+    <div class="qgrid reveal">
+      <div class="q"><p>"He has this idea of creating, maybe every fortnight, some sort of discussion on some relevant topics."</p><span>CAF, relaying you · 21 July</span></div>
+      <div class="q"><p>"He really liked your name — Gen Z Economics. Use that as some sort of IP."</p><span>CAF, relaying you · on the name</span></div>
+      <div class="q"><p>"Not a podcast sort of thing — graphics. The content will be real, solid content, but in a more presentable way."</p><span>CAF, relaying you · on the format</span></div>
+      <div class="q"><p>"Maybe we can hire some team — graphic designers — and keep this going."</p><span>CAF, relaying you · on the operating rule</span></div>
+    </div>
+    <p class="foot-note reveal">Four lines, as they came back from the centre in July. Since then: the Sunday sessions (50–60 people each week), the Prakhar Gupta episode, the Business Standard series, and a media partner in conversation. <b>Every slide that follows keeps to one rule — your judgement, not your hours.</b></p>
+  </div>
+</section>
+
+<!-- 4 · THE GAP -->
+<section class="slide dark-slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">02</span>The gap</p>
+    <h1 class="display reveal">Foreigners own India's macro story. <em>Indians own the exam prep.</em></h1>
+    <div class="cards c4 reveal">
+      <div class="card"><span class="n">IMPORTED</span><h3>Explained to us, by them</h3><p>Search "India economy explained" and the top results are <b>Economics Explained</b> and <b>Money &amp; Macro</b> — foreign channels explaining India to Indians, and doing it well.</p></div>
+      <div class="card"><span class="n">FACE-LED</span><h3>The domestic giant</h3><p>Think School, 5.3M — business and geopolitics case studies, now drifting into 47–82 minute masterclasses. Excellent. <b>Also unparallelisable</b>, because it is a person — and it stops the day he does.</p></div>
+      <div class="card"><span class="n">EXAM PREP</span><h3>Syllabus, not mechanism</h3><p>StudyIQ, PW OnlyIAS and the UPSC machine own Indian econ search. They teach what will be asked. <b>Nobody teaches how it works.</b></p></div>
+      <div class="card gold"><span class="n">THE SLOT</span><h3>Faceless, weekly, documentary-grade</h3><p>The closest thing is Full Disclosure (466K) — 3–4 week cadence, no recurring series. Finfluencers now carry <b>SEBI risk</b>; brand-safe finance inventory barely exists. <b>Formats lag the US by 3–5 years. That window is the opening.</b></p></div>
+    </div>
+    <p class="foot-note reveal">Demand isn't the question. <b>"Entire Indian Economics in 18 Mins" has 2.2M views.</b> A channel called Explained In Minutes has 122K subscribers and two public videos. The appetite is proven; the supply isn't there. <b>"Nobody teaches how it works" is the classroom — and it is the whole thesis.</b></p>
+  </div>
+</section>
+
+<!-- 5 · WHAT WE MAKE -->
+<section class="slide content-slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">03</span>What we make</p>
+    <h1 class="display reveal">One faceless channel. <em>Six kinds of video.</em></h1>
+    <div class="cards c3 reveal">
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,12.5c-.28,0-.5.22-.5.5v3.65c0,.46-.2.89-.55,1.18-.33.27-.76.38-1.18.3-.59-.12-1.2-.16-1.78-.15-1.86.05-3.31.73-4.21,1.3-.09.05-.18.09-.28.12v-9.8c.14-.05.27-.11.39-.2.7-.5,1.45-.88,2.25-1.12.26-.08.41-.36.33-.62-.08-.26-.36-.42-.62-.33-.91.27-1.76.7-2.55,1.27-.19.13-.43.13-.61,0-.97-.71-2.58-1.56-4.68-1.62-.96-.02-1.94.12-2.87.45-.98.34-1.64,1.28-1.64,2.35v6.88c0,.76.33,1.47.92,1.95.57.47,1.3.65,2.01.51.51-.1,1.03-.15,1.56-.13,1.63.04,2.91.65,3.7,1.14.4.25.86.38,1.31.38s.91-.13,1.31-.38c.79-.5,2.08-1.1,3.7-1.14.52-.02,1.04.03,1.56.13.71.14,1.44-.05,2.01-.51.58-.48.92-1.19.92-1.95v-3.65c0-.28-.22-.5-.5-.5ZM7.01,17.98c-.58,0-1.19.04-1.78.15-.42.08-.85-.03-1.18-.3-.35-.29-.55-.72-.55-1.18v-6.88c0-.64.39-1.2.96-1.4.82-.28,1.66-.42,2.52-.39,1.85.05,3.26.8,4.12,1.43.12.09.26.15.39.2v9.8c-.09-.03-.19-.07-.28-.12-.9-.57-2.36-1.25-4.21-1.3Z"/><path d="M19,7.5c-.81,0-1.5-.46-1.5-1s.69-1,1.5-1,1.5.46,1.5,1c0,.28.22.5.5.5s.5-.22.5-.5c0-.97-.86-1.77-2-1.96v-.54c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.54c-1.14.19-2,.99-2,1.96,0,1.1,1.12,2,2.5,2,.81,0,1.5.46,1.5,1s-.69,1-1.5,1-1.5-.46-1.5-1c0-.28-.22-.5-.5-.5s-.5.22-.5.5c0,.97.86,1.77,2,1.96v.54c0,.28.22.5.5.5s.5-.22.5-.5v-.54c1.14-.19,2-.99,2-1.96,0-1.1-1.12-2-2.5-2Z"/></svg><span class="n">01 · EXPLAINERS</span><h3>Explainers</h3><p>One economic or financial concept per video, built from the mechanism up.</p><p class="eg">"Why the RBI can't just cut rates" · "Why the rupee keeps falling"</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,18.5h-5c-1.93,0-3.5-1.57-3.5-3.5v-6c0-1.76,1.31-3.2,3-3.45v.45c0,.28.22.5.5.5s.5-.22.5-.5v-.5h7v.5c0,.28.22.5.5.5s.5-.22.5-.5v-.45c1.69.25,3,1.69,3,3.45v3c0,.28.22.5.5.5s.5-.22.5-.5v-3c0-2.31-1.76-4.2-4-4.45v-.55c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.5h-7v-.5c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.55c-2.24.25-4,2.14-4,4.45v6c0,2.48,2.02,4.5,4.5,4.5h5c.28,0,.5-.22.5-.5s-.22-.5-.5-.5Z"/><path d="M6,8.5c-.28,0-.5.22-.5.5s.22.5.5.5h10c.28,0,.5-.22.5-.5s-.22-.5-.5-.5H6Z"/><path d="M21,18.5h-6s0,0,0,0l2.05-2.74,1.16,1.16c.21.21.51.31.8.29.3-.03.57-.19.73-.44l1.66-2.49c.15-.23.09-.54-.14-.69-.23-.15-.54-.09-.69.14l-1.66,2.49-1.16-1.16c-.21-.21-.49-.31-.78-.29-.29.02-.56.17-.73.4l-1.75,2.34v-4.5c0-.28-.22-.5-.5-.5s-.5.22-.5.5v5c0,.83.67,1.5,1.5,1.5h6c.28,0,.5-.23.5-.5s-.22-.5-.5-.5Z"/></svg><span class="n">02 · DOCUMENTARIES</span><h3>Historical documentaries</h3><p>A historical economic event, told with the archive and the data.</p><p class="eg">"1991: the 90 days India ran out of dollars" · "13 days to save a bank"</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10,8.5h-2c-.83,0-1.5.67-1.5,1.5v5c0,.83.67,1.5,1.5,1.5h2c.83,0,1.5-.67,1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5ZM10.5,15c0,.28-.22.5-.5.5h-2c-.28,0-.5-.22-.5-.5v-5c0-.28.22-.5.5-.5h2c.28,0,.5.22.5.5v5Z"/><path d="M16,8.5h-2c-.83,0-1.5.67-1.5,1.5v5c0,.83.67,1.5,1.5,1.5h2c.83,0,1.5-.67,1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5ZM16.5,15c0,.28-.22.5-.5.5h-2c-.28,0-.5-.22-.5-.5v-5c0-.28.22-.5.5-.5h2c.28,0,.5.22.5.5v5Z"/><path d="M20,9.5c.83,0,1.5-.67,1.5-1.5v-.35c0-.59-.35-1.13-.89-1.37l-8-3.55c-.39-.17-.83-.17-1.22,0L3.39,6.28c-.54.24-.89.78-.89,1.37v.35c0,.83.67,1.5,1.5,1.5.28,0,.5.22.5.5v5c0,.28-.22.5-.5.5-.83,0-1.5.67-1.5,1.5v1c0,.83.67,1.5,1.5,1.5h16c.83,0,1.5-.67,1.5-1.5v-1c0-.83-.67-1.5-1.5-1.5-.28,0-.5-.22-.5-.5v-5c0-.28.22-.5.5-.5ZM20,16.5c.28,0,.5.22.5.5v1c0,.28-.22.5-.5.5H4c-.28,0-.5-.22-.5-.5v-1c0-.28.22-.5.5-.5.83,0,1.5-.67,1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5-.28,0-.5-.22-.5-.5v-.35c0-.2.12-.38.3-.46l8-3.56c.06-.03.13-.04.2-.04s.14.01.2.04l8,3.56c.18.08.3.26.3.46v.35c0,.28-.22.5-.5.5-.83,0-1.5.67-1.5,1.5v5c0,.83.67,1.5,1.5,1.5Z"/></svg><span class="n">03 · ORIGIN STORIES</span><h3>Origin stories</h3><p>Where money, the exchange, the central bank, the rupee and GST actually came from.</p><p class="eg">"Who made the rupee?" · "A stock exchange under a banyan tree"</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17,13.5c2.48,0,4.5-2.02,4.5-4.5s-2.02-4.5-4.5-4.5-4.5,2.02-4.5,4.5,2.02,4.5,4.5,4.5ZM17,5.5c1.93,0,3.5,1.57,3.5,3.5s-1.57,3.5-3.5,3.5-3.5-1.57-3.5-3.5,1.57-3.5,3.5-3.5Z"/><path d="M17,10.6c-.38,0-.7-.25-.7-.55,0-.28-.22-.5-.5-.5s-.5.22-.5.5c0,.85.76,1.55,1.7,1.55s1.7-.7,1.7-1.55-.76-1.55-1.7-1.55c-.38,0-.7-.25-.7-.55s.32-.55.7-.55.7.25.7.55c0,.28.22.5.5.5s.5-.22.5-.5c0-.85-.76-1.55-1.7-1.55s-1.7.7-1.7,1.55.76,1.55,1.7,1.55c.38,0,.7.25.7.55s-.32.55-.7.55Z"/><path d="M3,7.5h7c.28,0,.5-.22.5-.5s-.22-.5-.5-.5H3c-.28,0-.5.22-.5.5s.22.5.5.5Z"/><path d="M3,10.5h7c.28,0,.5-.22.5-.5s-.22-.5-.5-.5H3c-.28,0-.5.22-.5.5s.22.5.5.5Z"/><path d="M3,13.5h7c.28,0,.5-.22.5-.5s-.22-.5-.5-.5H3c-.28,0-.5.22-.5.5s.22.5.5.5Z"/><path d="M21,15.5H3c-.28,0-.5.22-.5.5s.22.5.5.5h18c.28,0,.5-.22.5-.5s-.22-.5-.5-.5Z"/><path d="M21,18.5H3c-.28,0-.5.22-.5.5s.22.5.5.5h18c.28,0,.5-.22.5-.5s-.22-.5-.5-.5Z"/></svg><span class="n">04 · STORIES &amp; FACTS</span><h3>Stories &amp; facts</h3><p>The good stories economics is full of — told properly, and sourced.</p><p class="eg">"$130bn a year comes home" · "The princely state that printed its own rupee"</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,2.5h-8c-1.93,0-3.5,1.57-3.5,3.5v12c0,1.93,1.57,3.5,3.5,3.5h8c1.93,0,3.5-1.57,3.5-3.5V6c0-1.93-1.57-3.5-3.5-3.5ZM18.5,18c0,1.38-1.12,2.5-2.5,2.5h-8c-1.38,0-2.5-1.12-2.5-2.5V6c0-1.38,1.12-2.5,2.5-2.5h8c1.38,0,2.5,1.12,2.5,2.5v12Z"/><path d="M15,5.5h-6c-.83,0-1.5.67-1.5,1.5v1c0,.83.67,1.5,1.5,1.5h6c.83,0,1.5-.67,1.5-1.5v-1c0-.83-.67-1.5-1.5-1.5ZM15.5,8c0,.28-.22.5-.5.5h-6c-.28,0-.5-.22-.5-.5v-1c0-.28.22-.5.5-.5h6c.28,0,.5.22.5.5v1Z"/><path d="M16,12.5h-1v-1c0-.28-.22-.5-.5-.5s-.5.22-.5.5v1h-1c-.28,0-.5.22-.5.5s.22.5.5.5h1v1c0,.28.22.5.5.5s.5-.22.5-.5v-1h1c.28,0,.5-.22.5-.5s-.22-.5-.5-.5Z"/><path d="M11,12.5h-3c-.28,0-.5.22-.5.5s.22.5.5.5h3c.28,0,.5-.22.5-.5s-.22-.5-.5-.5Z"/><path d="M10.91,15.65c-.2-.2-.51-.2-.71,0l-.71.71-.71-.71c-.2-.2-.51-.2-.71,0s-.2.51,0,.71l.71.71-.71.71c-.2.2-.2.51,0,.71.1.1.23.15.35.15s.26-.05.35-.15l.71-.71.71.71c.1.1.23.15.35.15s.26-.05.35-.15c.2-.2.2-.51,0-.71l-.71-.71.71-.71c.2-.2.2-.51,0-.71Z"/><path d="M15.21,15.65l-2.12,2.12c-.2.2-.2.51,0,.71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.2.2-.51,0-.71s-.51-.2-.71,0Z"/></svg><span class="n">05 · CASE STUDIES</span><h3>Case-study breakdowns</h3><p>One company, one deal, one circular — how it actually works, or why it failed.</p><p class="eg">"₹10 trillion hidden in an RBI circular" · "Why Jet Airways died and IndiGo didn't"</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2.5C6.76,2.5,2.5,6.76,2.5,12s4.26,9.5,9.5,9.5c.71,0,1.42-.08,2.11-.24.27-.06.44-.33.38-.6-.06-.27-.33-.44-.6-.38-.46.1-.92.16-1.39.18v-1.47c0-.28-.22-.5-.5-.5s-.5.22-.5.5v1.47c-4.29-.25-7.72-3.69-7.97-7.97h1.47c.28,0,.5-.22.5-.5s-.22-.5-.5-.5h-1.47c.25-4.29,3.69-7.72,7.97-7.97v1.47c0,.28.22.5.5.5s.5-.22.5-.5v-1.47c4.45.26,8,3.96,8,8.47,0,.28.22.5.5.5s.5-.22.5-.5c0-5.24-4.26-9.5-9.5-9.5Z"/><path d="M18,14.5c.81,0,1.5.46,1.5,1,0,.28.22.5.5.5s.5-.22.5-.5c0-.97-.86-1.77-2-1.96v-.54c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.54c-1.14.19-2,.99-2,1.96,0,1.1,1.12,2,2.5,2,.81,0,1.5.46,1.5,1s-.69,1-1.5,1-1.5-.46-1.5-1c0-.28-.22-.5-.5-.5s-.5.22-.5.5c0,.97.86,1.77,2,1.96v.54c0,.28.22.5.5.5s.5-.22.5-.5v-.54c1.14-.19,2-.99,2-1.96,0-1.1-1.12-2-2.5-2-.81,0-1.5-.46-1.5-1s.69-1,1.5-1Z"/><path d="M12,8.5c-.28,0-.5.22-.5.5v2.73l-2.78,1.85c-.23.15-.29.46-.14.69.1.14.25.22.42.22.1,0,.19-.03.28-.08l3-2c.14-.09.22-.25.22-.42v-3c0-.28-.22-.5-.5-.5Z"/></svg><span class="n">06 · ECONOMY BREAKDOWNS</span><h3>Economy breakdowns</h3><p>A country, a state or a sector in one sitting — what it makes, and where the money goes.</p><p class="eg">"How Vietnam became the factory" · "How Japan ran a $2 trillion carry trade"</p></div>
+    </div>
+    <div class="addons reveal">
+      <div class="chartlabel">Add-ons, not the core — the library works without either</div>
+      <div class="cards c2">
+        <div class="card"><span class="n">ADD-ON A · THE FORTNIGHTLY PODCAST</span><h3>Your original idea, at the cadence you named</h3><p>You and Harsh on what just happened in the Indian economy, and the mechanism behind it. Every two weeks, ISB's studio, the brief in your hands an hour before, <b>45–60 minutes door to door.</b> A missed fortnight costs nothing — a narrated explainer takes the slot.</p></div>
+        <div class="card"><span class="n">ADD-ON B · STALWART SPECIALS</span><h3>An event, not a format</h3><p>A Raghuram Rajan-type conversation, a few times a year at most — and only when the guest is someone you'd want across the table. Guest-led shows don't scale; this is the exception. <b>We handle everything except the chair.</b></p></div>
+      </div>
+    </div>
+    <p class="foot-note reveal">Two registers run across all six: the <b>myth-bust</b> (the consensus check only a research bench can run credibly) and the <b>fast autopsy</b> when a live story deserves one. 12–18 minutes, weekly, then twice weekly. <b>The pillars are a topic map, not six shows</b> — the channel page reads as one library. Parked for later: an IAS-officer series, a decision-maker brief. Neither is in the plan, the budget, <b>or your calendar.</b></p>
+  </div>
+</section>
+
+<!-- 6 · THE SHELF -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">04</span>The shelf</p>
+    <h1 class="display reveal">Globally, the faceless format is <em>a proven asset class.</em></h1>
+    <p class="lede reveal" style="margin-bottom:.2rem">Candle Media, Blackstone-backed, bought <strong>Moonbug for ~$3B</strong> — 34+ faceless YouTube-native channels. The point for this room is simpler than the valuation: <strong>the format works without a face, so it works without your hours.</strong> The shelf below is the same format in our niche.</p>
+    <table class="dmu reveal" style="margin-top:1rem">
+      <tr><th>Channel</th><th>What it runs</th><th>Face</th><th>Cadence</th><th>Scale</th></tr>
+      <tr><td><a href="https://www.youtube.com/@ColdFusion" target="_blank" rel="noopener">ColdFusion</a></td><td>Narrated business &amp; technology documentary</td><td><b>None</b></td><td>~2 long-form / mo</td><td>~5.2M</td></tr>
+      <tr><td><a href="https://www.youtube.com/@Wendoverproductions" target="_blank" rel="noopener">Wendover Productions</a></td><td>Mechanism explainers, motion-graphics led</td><td><b>None</b></td><td>15 days</td><td>~4.9M</td></tr>
+      <tr><td><a href="https://www.youtube.com/@EconomicsExplained" target="_blank" rel="noopener">Economics Explained</a></td><td>Country profiles, rise-and-fall arcs</td><td><b>None</b></td><td><b>7 days</b></td><td>~2.9M</td></tr>
+      <tr><td><a href="https://www.youtube.com/@PolyMatter" target="_blank" rel="noopener">PolyMatter</a></td><td>How-it-works, geopolitics of systems</td><td><b>None</b></td><td>21 days</td><td>~1.9M</td></tr>
+      <tr><td><a href="https://www.youtube.com/@MoneyMacro" target="_blank" rel="noopener">Money &amp; Macro</a></td><td>Explainers + "economist reacts" peer reviews</td><td>Partial</td><td>9 days</td><td>~674K</td></tr>
+      <tr><td><a href="https://www.youtube.com/@wallstreetmillennial" target="_blank" rel="noopener">Wall Street Millennial</a></td><td>Current-event autopsies, document-led</td><td><b>None</b></td><td><b>2 days</b></td><td>~367K</td></tr>
+      <tr class="total"><td><a href="https://www.youtube.com/@ThinkSchool" target="_blank" rel="noopener">Think School · India</a></td><td>Business &amp; geopolitics case studies</td><td>Face-led</td><td>Irregular</td><td>~5.3M</td></tr>
+    </table>
+    <p class="foot-note reveal">Counts and cadences pulled 4 Sep 2026. <b>Six of the seven show no face at all.</b> The face-led one is the biggest — and it stops the day its founder does. That is the trap we are designing out: <b>a channel that stops when you are busy is not a channel.</b></p>
+  </div>
+</section>
+
+<!-- 7 · YOUR MONTH, IN MINUTES -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">05</span>The time budget</p>
+    <h1 class="display reveal">Your month, in minutes. <em>Everything else is ours.</em></h1>
+    <table class="dmu tight reveal">
+      <tr><th>What we bring you</th><th>Cadence</th><th>Your time</th><th>Prepared by</th><th>If you skip it</th></tr>
+      <tr><td>The claims sheet<span class="sub">One page per script: the numbers, the sources, the claims. Tick or strike. Not the script.</span></td><td>Weekly, batched on Friday</td><td class="you">~20 min</td><td>The RA drafts it; Harsh formats it</td><td>The piece goes out <b>without</b> the CAF line. Nothing waits on you.</td></tr>
+      <tr><td>The podcast<span class="sub">What just happened in the Indian economy, and the mechanism behind it.</span></td><td>Fortnightly · ISB's studio</td><td class="you">45–60 min</td><td>The RA writes the brief; questions agreed in advance; in your hands an hour before</td><td>A narrated explainer takes the slot. The slot moves; it never doubles.</td></tr>
+      <tr><td>The topic steer<span class="sub">Add, strike, reorder the bank.</span></td><td>Monthly · 20 min, or on WhatsApp</td><td class="you">~20 min</td><td>Harsh brings the list; you strike</td><td>The bank already runs on your columns and lectures.</td></tr>
+      <tr><td>Credibility pieces<span class="sub">Short on-camera segments for the launch run — "credibility early, then as needed."</span></td><td>3–4 in the first quarter, <b>inside the same studio slots</b></td><td class="you">0 extra</td><td>Harsh scripts from what you already teach</td><td>A narrated version exists for every one.</td></tr>
+      <tr class="total"><td>Total</td><td>All at ISB, in slots CAF's calendar already holds</td><td class="you">~4–5 hrs / month</td><td colspan="2"><b>Cap: six hours.</b> If we cross it, we cut the plan — not your week.</td></tr>
+    </table>
+    <p class="foot-note reveal">No travel — every recording is at ISB, booked through CAF's calendar at the studio's internal rate. <b>One batched message a week; one studio slot a fortnight.</b> That is the whole footprint, and it does not grow when the channel does.</p>
+  </div>
+</section>
+
+<!-- 8 · WHAT WE WILL NEVER ASK -->
+<section class="slide content-slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">06</span>What we will never ask</p>
+    <h1 class="display reveal">Six things we will never ask of you. <em>Written down, so you can hold us to them.</em></h1>
+    <div class="cards c3 reveal" style="margin-top:1.2rem">
+      <div class="card"><span class="n">01 · NO OPERATING</span><h3>Hiring, tools, budgets, vendors</h3><p>Every operating decision is the operator's. You hear about them in the monthly steer, after the fact — if at all.</p></div>
+      <div class="card"><span class="n">02 · NO SELLING</span><h3>Sponsor and partner calls</h3><p>Sponsors never meet you unless you want to meet them. The Bureau's asks land on Harsh, not on you.</p></div>
+      <div class="card"><span class="n">03 · NO PACKAGING</span><h3>Thumbnails, titles, comments, analytics</h3><p>You will never be sent a thumbnail to approve. Retention is our problem. <b>Correctness is the only thing we bring you.</b></p></div>
+      <div class="card"><span class="n">04 · NO REWRITES</span><h3>Prose is ours to fix</h3><p>If a claim fails the sheet, we rewrite and return a fresh sheet. <b>You strike; you never edit.</b></p></div>
+      <div class="card"><span class="n">05 · NO PINGS</span><h3>No evenings, no weekends, no "quick approval"</h3><p>One batched message a week. Silence never blocks a publish — <b>it removes the CAF line, that's all.</b></p></div>
+      <div class="card"><span class="n">06 · NO TRAVEL</span><h3>Nothing outside ISB</h3><p>Every recording is in ISB's studio, in a slot CAF's calendar already holds. If you are travelling, the slot moves.</p></div>
+    </div>
+    <p class="foot-note reveal" style="font-size:.78rem">These go into the CAF MoU as written. <b>If any one of them is broken, you have a reason to step back — no notice, no explanation owed.</b></p>
+  </div>
+</section>
+
+<!-- 9 · WHAT CAF PUTS BEHIND IT -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">07</span>The bench behind the camera</p>
+    <h1 class="display reveal">The moat is the bench behind the camera — <em>and most of it isn't your hours.</em></h1>
+    <div class="person reveal">
+      <div>
+        <div class="persona"><img src="../../assets/img/press/tantri-mug.jpg" alt="Prof. Prasanna Tantri"><div><div class="who">Prof. Prasanna Tantri</div><div class="role">Associate Professor of Finance · ED, CAF</div></div></div>
+        <div class="clipstack">
+          <img src="../../assets/img/press/tantri-clip-02-mint-rupee-depreciation.jpg" alt="Mint Expert View column by Prasanna Tantri">
+          <img src="../../assets/img/press/tantri-clip-03-bs-sme-collateral.jpg" alt="Business Standard column by Prasanna Tantri">
+          <img src="../../assets/img/press/tantri-clip-01-gaps-inflation-targeting.jpg" alt="Column by Prasanna Tantri on inflation targeting">
+          <p class="cap">The topic bank already exists — every column is a script waiting to happen</p>
+        </div>
+      </div>
+      <div>
+        <p class="small" style="margin:0 0 .5rem">What the centre puts behind the channel — and who carries each piece:</p>
+        <ul>
+          <li><b>The RA carries the research:</b> one dedicated PhD associate on the CAF side — sources, data, first drafts, and the first pass on every claims sheet. <b>The critical path runs through the RA, not through you.</b> CAF is opening the funding route; the budget pays for it either way.</li>
+          <li><b>The archive carries the calendar:</b> the topic bank is built from the columns and the classroom — the running 2026 Business Standard series, Mint Expert View, Indian Express, The Hindu, Times of India, and the Sunday sessions. Mohan's folder of papers and articles is the seed.</li>
+          <li><b>You carry the judgement:</b> the claims sheet — tick or strike, twenty minutes, weekly. That is the whole review. <b>Rigour built in, not bolted on — and not bolted onto your calendar.</b></li>
+          <li><b>The studio carries the podcast:</b> ISB's studio at its internal rate, one slot a fortnight. No crew logistics on your side, no travel.</li>
+          <li><b>The line on the art:</b> <i>with the Centre for Analytical Finance, ISB</i> — on pieces that passed review, and only those.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · THE OPERATOR -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">08</span>The operator</p>
+    <h1 class="display reveal">You review. We operate. <em>That's the whole org chart.</em></h1>
+    <div class="cards c2 reveal">
+      <div class="card blue"><span class="n">THE JUDGEMENT · CAF</span><h3>Reviews, steers, hosts. Never operates.</h3><p><b>You</b> hold the accuracy pass and the topic veto. <b>The RA at CAF</b> does the deep research — he has published columns and scripted the ISB series before. <b>Mohan</b> holds the archive and the calendar. <b>ISB's studio</b> records the fortnightly podcast. Nothing else touches the centre.</p></div>
+      <div class="card"><span class="n">THE OPERATOR · HARSH</span><h3>Has run this machine before</h3><p>Founded <b>Ninety-Eight Entertainment at 20</b> and bootstrapped it to 18 people across three cities and <b>57 clients — no outside money.</b> Managed 12 athletes and 500+ influencers, including <b>Ishant Sharma's personal brand</b> and his RuPay × IPL partnership (300M+ impressions). Then PGP '25, and your class. Then built this product solo in five months.</p></div>
+    </div>
+    <p class="lede reveal" style="margin-top:1.6rem">Creator-led ventures fall over when the creator has to run them. Here there is <span class="mark">no creator to misplace</span> — the channel is faceless, you review, and the operator operates. <strong>If you go quiet for a month, the channel doesn't.</strong></p>
+  </div>
+</section>
+
+<!-- 11 · THE CHANNEL -->
+<section class="slide">
+  <div class="mediawrap">
+    <p class="eyebrow reveal"><span class="num">09</span>The channel</p>
+    <h1 class="mediahead reveal">Six formats, <em>one channel page.</em></h1>
+    <div class="mediaframe reveal"><video muted loop playsinline preload="metadata"><source src="../bureau-8fdef2/assets/yt-channel-deck.mp4" type="video/mp4"></video></div>
+    <div class="mediacap reveal"><span><b>A mockup, not a metric.</b> The titles are drawn from the topic bank; there are no view counts because there is nothing to count yet — the channel page goes live 7 September, the weekly line once four videos are banked.</span><span class="mono">faceless · narrated · 12–18 min</span></div>
+  </div>
+</section>
+
+<!-- 12 · WHAT'S PROTECTED -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">10</span>What's protected</p>
+    <h1 class="display reveal">Your name, ISB's name, and the right to walk away — <em>in writing, before anything else.</em></h1>
+    <div class="principles two reveal">
+      <div class="p"><b>The CAF line goes only on reviewed pieces</b>"With the Centre for Analytical Finance, ISB" appears on a video only after its claims sheet came back ticked. Unreviewed pieces publish without it — <i>never with it.</i></div>
+      <div class="p"><b>Corrections in 48 hours, in public</b>A wrong number gets a pinned correction and a fixed re-upload within two days. No quiet edits. <i>Your reputation is not a variable we experiment with.</i></div>
+      <div class="p"><b>No investment advice. Ever.</b>No stock picks, no "buy this", no product recommendations — by rule, for every piece, sponsor and guest. SEBI-safe by design, which is also what brand-safe sponsors are paying for.</div>
+      <div class="p"><b>The podcast is your view, labelled as such</b>Opinion is marked as opinion — yours, not the institution's. The explainers carry the CAF line; the conversation carries your name.</div>
+      <div class="p"><b>You can step back at any time, no reason needed</b>Your name comes off new art the same week. Published pieces stay as published unless you ask otherwise. The library, the formats and the RA's work survive; <i>only the podcast pauses.</i></div>
+      <div class="p"><b>The CAF MoU comes first</b>Content licence, royalty, the RA — drafted and agreed before anything carrying the ISB name is signed with the Bureau. <i>That sequence is not negotiable on our side.</i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · WHERE THE BUREAU STANDS -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">11</span>Where the media partner stands</p>
+    <h1 class="display reveal">The Bureau: what's settled, what's open, <em>and what never reaches you.</em></h1>
+    <div class="cards c3 reveal">
+      <div class="card"><span class="n">SETTLED · CALL OF 4 SEP</span><h3>The shape, in their words</h3><p>Bureau Media Ventures — Ayush Guha, with Angad — met on the ISB creator panel in July. Their synopsis: <b>"Predominantly faceless. Good edits about economics for the newer generation, mixed with conversations with the professor and industry leaders every once in a while."</b> On the fortnightly podcast: "perfectly fine."</p></div>
+      <div class="card gold"><span class="n">THEIR BRIEF ON YOUR TIME</span><h3>Even the partner protects it</h3><p><b>"The channel doesn't just build around him. It's built around Gen Z Economics — and then he's the cherry on top every now and then."</b> Credibility early, then as a piece needs it. That is their ask — and it is exactly the rule on every page of this deck.</p></div>
+      <div class="card"><span class="n">OPEN · MONDAY 8 SEP</span><h3>Investment capacity and guardrails</h3><p>What they'd bring: the production bench (motion, edit, thumbnails), <b>₹1.19 Cr over 18 months — or ~₹85L plus the bench in kind</b> — and a distribution playbook. Monday, with Angad: capacity, guardrails, how we function as partners, and where this sits in their wider Economic Times picture.</p></div>
+    </div>
+    <p class="foot-note reveal">What never reaches you: sponsor calls, packaging, the partner's asks. What they never get: editorial control, the CAF licence, or anything carrying the ISB name before the MoU exists. <b>Nothing is signed with them before it is signed with you.</b></p>
+  </div>
+</section>
+
+<!-- 14 · PAYS ITS OWN WAY -->
+<section class="slide dark-slide">
+  <div class="bgvid"><video muted loop playsinline preload="auto"><source src="../bureau-8fdef2/assets/map-loop.mp4" type="video/mp4"></video><div class="tint" style="background:linear-gradient(90deg,rgba(25,40,144,.94) 0%,rgba(25,40,144,.84) 48%,rgba(25,40,144,.58) 100%)"></div></div>
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">12</span>The audience &amp; the money</p>
+    <h1 class="display reveal" style="font-size:clamp(1.9rem,4vw,3.1rem)">The channel pays its own way. <em>ISB is never asked to fund it.</em></h1>
+    <p class="lede reveal">Indian finance RPM runs roughly <strong>$0.50–$1.60</strong> — five to fifteen per cent of the US. We plan on the low number. The capital is the media partner's problem, not the centre's — <strong>no ISB money, and no fundraising asks to you.</strong></p>
+    <p class="lede reveal">The mechanism that changes the number: <span class="mark">English-language economics pulls tier-1 traffic.</span> Indian creators with 60%+ US/UK/AU audiences report <strong>$4–10 RPM</strong>. An Indian story, in English, for a global audience — the audience that currently gets India explained by people who don't live here.</p>
+    <div class="kv reveal">
+      <div><div class="k">Beachhead</div><div class="v">Finance &amp; policy professionals — your column readers</div></div>
+      <div><div class="k">Then</div><div class="v">Curious Gen Z, at home and abroad</div></div>
+      <div><div class="k">Measured by</div><div class="v">Retention, then geography, then views</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · THE PRODUCTION LINE -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">13</span>The production line</p>
+    <h1 class="display reveal">Forty-five to ninety hours a video. <em>About twenty minutes of them are yours.</em></h1>
+    <table class="dmu reveal">
+      <tr><th>Stage</th><th>What happens</th><th>Hours</th><th>Yours</th></tr>
+      <tr><td>Research &amp; script</td><td>Topic from the bank, primary sources, 2,000–2,700 words. The RA and the editorial lead. <b>The moat.</b></td><td>12–25</td><td class="you">0</td></tr>
+      <tr class="total"><td>Review &amp; fact-check</td><td>Retention structure and hook (ours); the RA's source pass; <b>your claims sheet — tick or strike</b></td><td>3–5</td><td class="you">~0.3</td></tr>
+      <tr><td>Voice-over</td><td>Human narration, on retainer</td><td>3–5</td><td class="you">0</td></tr>
+      <tr><td>Motion &amp; edit</td><td>Charts, data-viz, archival, sound — <b>the bottleneck and the quality signal</b></td><td>25–50</td><td class="you">0</td></tr>
+      <tr><td>Thumbnail &amp; packaging</td><td>3–5 variants, title testing, publish</td><td>3–6</td><td class="you">0</td></tr>
+    </table>
+    <div class="kill reveal"><span class="k">Where AI helps, and where it does not</span><b>It compresses 20–35% of hours</b>, almost all in pre-production — source triage, transcript rough-cuts, thumbnail variants, captioning. <b>It does not do data visualisation</b>, it does not replace the RA, and it never touches the claims sheet. YouTube's July 2025 policy demonetises templated, mass-produced output — <b>original script plus real curation is the compliance line, and it is also the reason the CAF line means something.</b></div>
+  </div>
+</section>
+
+<!-- 16 · STRUCTURE -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">14</span>Structure</p>
+    <h1 class="display reveal" style="font-size:clamp(1.8rem,4vw,3.2rem)">ISB's name, on ISB's terms. <em>CAF is paid in cash and never sits on a cap table.</em></h1>
+    <div class="struct reveal">
+      <div>
+        <div class="orgbox cap"><div class="s">Non-profit · content partner</div><p class="t">CAF · Indian School of Business</p><ul><li>Research bench and a dedicated RA</li><li>Your review and topic steer</li><li>Brand licence — revocable, consent-gated</li></ul></div>
+        <div class="orgarrow">content licence / MoU + royalty on sponsor &amp; licence income · <b>↓</b>no institutional equity</div>
+        <div class="orgbox spv"><div class="s">Pvt Ltd / LLP · the operating entity</div><p class="t">Gen Z Economics — the media SPV</p><ul><li>Owns the channel, the formats, the library, the topic bank and the domains</li><li>Owns the production contracts</li><li>Receives platform, sponsor and licence revenue</li><li>Cap table: Harsh · the Bureau · an ESOP pool</li></ul></div>
+        <div class="orgarrow">Phase 3 · separate entity, later — only if CAF wants it <b>↓</b></div>
+        <div class="orgbox epic"><div class="s">Future · the second rail</div><p class="t">Advisory</p><ul><li>Uses the channel as distribution; CAF's call; funded by its own revenue, not this plan</li></ul></div>
+      </div>
+      <div class="principles">
+        <div class="p"><b>CAF is paid in cash</b>A royalty on sponsor and licence income, or a research grant that funds the RA — whichever the centre prefers. From the first rupee of sponsor income, not after anyone's exit.</div>
+        <div class="p"><b>ISB is never on the cap table</b>Policy, not preference. Institutional equity stays a path only if and when ISB policy allows it.</div>
+        <div class="p"><b>Your personal stake, if any, is for the review role</b>Faculty-founder style, with ISB's consent, sized to the judgement you bring — <i>not to hours, because we are not buying hours.</i></div>
+        <div class="p"><b>The library sits in the SPV</b>Channel, formats, scripts, catalogue, domains — owned by the entity, not by any individual, Harsh included. That is what makes the licence enforceable.</div>
+        <div class="p"><b>The Bureau earns in cash and in kind</b>Capital plus bench, studio and distribution. Light governance, a board seat. <i>No say over editorial, and no say over the CAF licence.</i></div>
+      </div>
+    </div>
+    <p class="foot-note reveal">Percentages deliberately off this page — set together once the pilot and four weeks of publish data are in. <b>Sequence we're holding to: the CAF MoU is drafted first; nothing carrying the ISB name is signed with the Bureau before it exists.</b></p>
+  </div>
+</section>
+
+<!-- 17 · USE OF FUNDS -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">15</span>Use of funds</p>
+    <h1 class="display reveal">Eighteen months, costed per role — <em>so nothing lands on CAF's budget.</em></h1>
+    <table class="dmu tight reveal">
+      <tr><th>Line</th><th>What it buys</th><th>18 mo · ₹L</th></tr>
+      <tr><td>Editorial lead</td><td>Full-time. Turns the archive into shooting scripts — 2,000–2,700 words, weekly. The moat.</td><td>24</td></tr>
+      <tr><td>Operator</td><td>Harsh, full-time — production, packaging, distribution, sponsors</td><td>18</td></tr>
+      <tr><td>Voice-over retainer</td><td>Human narration, ~₹12K per video across ~115 videos</td><td>14</td></tr>
+      <tr><td>Motion designer</td><td>Full-time. Charts and data-viz — the bottleneck row</td><td>12</td></tr>
+      <tr><td>Freelance overflow</td><td>The second lane when we move to 2×/week</td><td>10</td></tr>
+      <tr class="total"><td>Research associate</td><td>The CAF-side RA — sources, data, first drafts, claims sheets. Partly coverable via the ISB Marcom route; <b>paid either way</b></td><td>9</td></tr>
+      <tr><td>Editor</td><td>From month three — assembly, archival, sound</td><td>8</td></tr>
+      <tr><td>Tools, stock, archival, data</td><td>Motion templates, footage licences, macro data feeds, production AI</td><td>7</td></tr>
+      <tr class="total"><td>Podcast &amp; studio days</td><td>Fortnightly studio days at ISB's internal rate — <b>a booking, not a favour</b> — plus guest logistics</td><td>6</td></tr>
+      <tr><td>Thumbnails &amp; packaging</td><td>3–5 variants per video, title testing</td><td>3.5</td></tr>
+      <tr><td>Buffer</td><td>Because relevance comes in waves</td><td>8</td></tr>
+      <tr class="total"><td>Total</td><td>≈ ₹1.02L blended per video · <b>~₹85L if the Bureau bench covers motion, edit and thumbnails</b></td><td>119.5</td></tr>
+    </table>
+    <p class="foot-note reveal">Zero for paid reach, by rule. Built bottom-up from Indian freelance and in-house rates. <b>Your time is not a line item because we are not buying hours</b> — what CAF earns is on the structure slide, and what you hold personally is set with ISB's consent.</p>
+  </div>
+</section>
+
+<!-- 18 · THE SECOND RAIL -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">16</span>The second rail</p>
+    <h1 class="display reveal">Phase 3 exists on paper. <em>Whether it exists at all is CAF's call.</em></h1>
+    <p class="lede reveal">The audience this channel builds is unusually dense in people who commission economic work — corporate-affairs heads, strategy officers, mid-market CFOs, industry associations, funds. That is a B2B rail, not merch — and it looks a lot like research the centre already does.</p>
+    <table class="dmu reveal">
+      <tr><th>Product</th><th>Shape</th><th>Anchor*</th></tr>
+      <tr><td>Macro &amp; policy briefing</td><td>Monthly retainer, standing call + written note</td><td>₹1–3L / mo</td></tr>
+      <tr><td>Regulatory impact study</td><td>6–8 week project, board-ready</td><td>₹8–25L</td></tr>
+      <tr><td>Economic-impact report</td><td>Flagship, for associations and large firms</td><td>₹15–40L</td></tr>
+      <tr><td>Expert engagement</td><td>Competition and arbitration economics, per matter</td><td>Per mandate</td></tr>
+    </table>
+    <p class="foot-note reveal">*Anchors for discussion, nothing more. This is <b>Phase 3, deliberately</b> — it needs the channel's credibility to exist first, it is not in this budget, and <b>it is not on your calendar.</b> If CAF wants any of it, it is CAF's work on CAF's terms. If not, it doesn't happen. It is on this page only so that nothing sits on a page you haven't seen.</p>
+  </div>
+</section>
+
+<!-- 19 · EVERY SCENARIO -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">17</span>Every scenario</p>
+    <h1 class="display reveal">Every scenario, <em>and what it means for the ISB name.</em></h1>
+    <table class="dmu reveal">
+      <tr><th>Horizon</th><th>Path</th><th>The licence, and your name</th></tr>
+      <tr><td>18–36 months</td><td>Sponsors and platform revenue cover the cost base; the back catalogue keeps earning</td><td>CAF's royalty keeps paying; the licence renews on CAF's terms</td></tr>
+      <tr><td>3–5 years</td><td>Channel or network acquisition. Established faceless channels trade at roughly <b>2.5–4× annual revenue</b>; a multi-format library commands a premium</td><td><b>The licence does not transfer without CAF's consent.</b> A buyer gets the library — not the ISB name</td></tr>
+      <tr><td>Strategic</td><td>Sale to a platform that wants trusted Indian finance distribution — a Zerodha/Groww-type fintech, a media house, an ed-tech</td><td>Same consent right — and the no-advice rule survives any buyer as a condition of the licence</td></tr>
+      <tr><td>Downside</td><td>The channel stalls. The library is evergreen and licensable; the format and the topic bank survive</td><td>The licence lapses cleanly; published pieces stay as published; your name comes off everything new</td></tr>
+    </table>
+    <p class="foot-note reveal">The honest version: Indian faceless-channel exits are still emerging. <b>That is the Bureau's risk to price, not the centre's</b> — CAF is paid in cash from the first rupee of sponsor income and holds the consent right throughout.</p>
+  </div>
+</section>
+
+<!-- 20 · THE PLAN -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">18</span>The plan</p>
+    <h1 class="display reveal">Eighteen months. Each phase has a gate — <em>and a line for your hours.</em></h1>
+    <div class="rmap reveal">
+      <div class="stage now"><span class="t">P0 · Foundation</span><div class="d">Sep 2026 · we are here</div><ul><li>Editorial lead and motion designer hired</li><li>Six scripts written from the archive</li><li><b>Four finished videos banked before launch</b></li></ul><div class="gate">GATE: 4 banked videos — else slip the launch</div><div class="you">You: four claims sheets, one studio slot</div></div>
+      <div class="stage"><span class="t">P1 · Cadence</span><div class="d">Months 1–6</div><ul><li>Weekly video, <b>26 weeks unbroken</b></li><li>All six formats tested, 8 episodes each</li><li>Podcast fortnightly, at ISB</li></ul><div class="gate">GATE: ≥80% on-time publish + a clear retention signal</div><div class="you">You: ~4–5 hours a month, capped at six</div></div>
+      <div class="stage"><span class="t">P2 · The vote</span><div class="d">Month 9 checkpoint</div><ul><li>Retention, CTR and audience geography reviewed</li><li>Formats that don't hold get cut</li><li>First sponsor conversations — without you in them</li></ul><div class="gate">GATE: the kill criteria decide continue, restructure or stop</div><div class="you">You: one 30-minute sit-down with the numbers</div></div>
+      <div class="stage"><span class="t">P3 · Scale</span><div class="d">Months 10–18</div><ul><li>2×/week off a template library, not double headcount</li><li>Sponsor desk live; second language or channel reviewed</li><li>Costs covered by platform + sponsors</li></ul><div class="gate">GATE: cost base covered → the library is free to compound</div><div class="you">You: same cadence. Scale never doubles your hours</div></div>
+    </div>
+    <div class="kill reveal"><span class="k">Kill / continue criteria · agreed upfront · thresholds for discussion</span><b>Month 9:</b> if average retention is below <b>~40%</b> and thumbnail CTR below <b>~4%</b> after <b>three</b> format iterations, we restructure or wind down. <b>Month 18:</b> go/no-go on a second channel — judged on retention, watch time and audience geography, <b>never on subscriber velocity.</b> <b>And a third trigger that is yours alone:</b> if this is costing more of your time than the cap, that is a reason to restructure too.</div>
+  </div>
+</section>
+
+<!-- 21 · RISKS -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">19</span>Risks</p>
+    <h1 class="display reveal">What could go wrong for you, <em>and what's already built against it.</em></h1>
+    <div class="field-grid reveal">
+      <div class="card"><span class="pill win">Your time</span><h3>The review becomes a bottleneck</h3><p>The claims sheet, not the script. The RA's first pass. Batched weekly. And the silence default: no reply in 72 hours means the piece goes out <b>without</b> the CAF line — never with it, and never late.</p></div>
+      <div class="card"><span class="pill win">Your name</span><h3>A wrong number under the ISB line</h3><p>Two passes before narration, a pinned public correction within 48 hours, the CAF line only on reviewed pieces. <b>No quiet edits, ever.</b></p></div>
+      <div class="card"><span class="pill gray">Regulation</span><h3>SEBI and the finfluencer problem</h3><p>No investment advice, by rule, for every piece, sponsor and guest. Opinion labelled as yours. <b>Brand-safe by design is the same thing as reputation-safe by design.</b></p></div>
+      <div class="card"><span class="pill gray">Execution</span><h3>Consistency is the killer</h3><p>The operator's problem, not yours. Four videos banked before launch, a three-video buffer at all times, formats judged in 8-episode windows. The rules are written down because the last attempt died of inconsistency.</p></div>
+    </div>
+    <p class="foot-note reveal">Platform risk, for completeness: YouTube's AI-slop crackdown demonetises templated output. Our defence is the product — original scripts, human narration, bespoke charts. <b>The compliance line and the thesis are the same line.</b></p>
+  </div>
+</section>
+
+<!-- 22 · NEXT 30 DAYS -->
+<section class="slide">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="num">20</span>Next 30 days</p>
+    <h1 class="display reveal">What happens <em>after this room.</em></h1>
+    <div class="cards c2 reveal">
+      <div class="card gold"><span class="n">THIS WEEK</span><h3>One reply from you</h3><p>Yes, no, or change — to the time budget (§05) and the six promises (§06). That is the only decision we need from you this month. <b>Everything else on this page is ours to carry.</b></p></div>
+      <div class="card"><span class="n">MONDAY · 8 SEP</span><h3>The Bureau meets Angad</h3><p>Investment capacity, guardrails, how we function as partners. <b>Nothing carrying the ISB name is on that table.</b> We drop one finished script into their bench the same week — one video, no commitment.</p></div>
+      <div class="card"><span class="n">WEEK 2–3</span><h3>The CAF MoU, then the RA starts</h3><p>Content licence, royalty, the associate — drafted by us, reviewed by CAF and ISB's legal desk, before anything with the ISB name reaches the Bureau. Mohan's archive seeds the topic bank; <b>the first four claims sheets reach you, batched.</b></p></div>
+      <div class="card"><span class="n">WEEK 4</span><h3>One studio slot, then weekly</h3><p>Podcast episode one and two short credibility pieces in the same sitting. Four long-forms banked, the first Shorts cut. <b>Weekly from there — on our calendar, not yours.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · CLOSE -->
+<section class="slide dark-slide">
+  <div class="bgvid"><video muted loop playsinline preload="auto"><source src="../bureau-8fdef2/assets/bg-financial-loop.mp4" type="video/mp4"></video><div class="tint" style="background:linear-gradient(180deg,rgba(25,40,144,.86),rgba(25,40,144,.94))"></div></div>
+  <div class="wrap">
+    <p class="eyebrow reveal">The close</p>
+    <p class="quote reveal">"This is a 25-year plan, <span class="mark">not a 12-month one.</span>"<cite>Prof. Tantri · to the cohort</cite></p>
+    <p class="lede reveal">That's the channel. India's economics, explained properly, by nobody in particular — with a research bench nobody else has, a topic bank that already exists in your columns, and an operator who has built the machine before.</p>
+    <p class="lede reveal"><strong>An 18-month machine that runs on your judgement, not your hours — so it is still running in year 25.</strong></p>
+    <footer class="deckfoot reveal" style="border-color:rgba(255,255,255,.18);color:#93A1DE"><span>Gen Z Economics · genz-economics.com</span><span class="mono">Harsh Arya · PGP '25</span></footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length,i=0;
+  var progress=document.getElementById('progress');
+  var counter=document.getElementById('counter');
+  function pad(x){return (x<10?'0':'')+x}
+  function go(k){
+    if(k<0||k>=n)return;
+    slides[i].classList.remove('active');
+    i=k;
+    slides[i].classList.add('active');
+    progress.style.width=((i+1)/n*100)+'%';
+    counter.textContent=pad(i+1)+' / '+pad(n);
+    if(history.replaceState)history.replaceState(null,'','#'+(i+1));
+    playVideos();
+  }
+  function playVideos(){
+    slides.forEach(function(sl,k){
+      [].forEach.call(sl.querySelectorAll('video'),function(v){
+        if(k===i){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}
+      });
+    });
+  }
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(i-1);}
+    else if(e.key==='Home'){go(0);}
+    else if(e.key==='End'){go(n-1);}
+  });
+  var tx=null;
+  document.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(tx===null)return;
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>60){dx<0?go(i+1):go(i-1);}
+    tx=null;
+  },{passive:true});
+  var h=parseInt((location.hash||'').replace('#',''),10);
+  if(h>=1&&h<=n)go(h-1);else go(0);
+})();
+</script>
+</body>
+</html>
