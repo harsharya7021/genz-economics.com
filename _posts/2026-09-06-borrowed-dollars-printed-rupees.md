@@ -203,7 +203,7 @@ Your correspondent asked the obvious follow-up — so this ends in a bubble, and
     <button type="button" data-d="crr" aria-pressed="false">Incremental CRR</button>
     <button type="button" data-d="mss" aria-pressed="false">MSS bonds</button>
   </div>
-  <div class="w-row"><label>Reserves absorbed</label><input type="range" data-abs min="0" max="10" step="0.5" value="0"><output data-abs-l></output></div>
+  <div class="w-row"><label>Reserves absorbed</label><input type="range" data-abs min="0" max="10.3" step="0.1" value="0"><output data-abs-l></output></div>
   <div class="w-bars">
     <div class="w-bar-row"><span class="w-bar-label">Cost to banks</span><div class="w-bar"><div class="w-bar-fill is-warn" data-bar-bank></div></div><output data-bank-l></output></div>
     <div class="w-bar-row"><span class="w-bar-label">Cost to the budget</span><div class="w-bar"><div class="w-bar-fill is-warn" data-bar-gov></div></div><output data-gov-l></output></div>
