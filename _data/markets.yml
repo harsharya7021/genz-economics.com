@@ -6,9 +6,9 @@ as_of: 11 Sep 2026
 tickers:
 - symbol: NIFTY 50
   code: ^NSEI
-  value: 23,318.95
-  change: −158.85
-  pct: −0.68%
+  value: 23,398.10
+  change: −79.70
+  pct: −0.34%
   dir: down
   spark:
   - 23914.449
@@ -18,12 +18,12 @@ tickers:
   - 23635.1
   - 23431.5
   - 23477.801
-  - 23318.949
+  - 23398.1
 - symbol: SENSEX
   code: BSE
-  value: 74,516.24
-  change: −386.35
-  pct: −0.52%
+  value: 74,781.76
+  change: −120.84
+  pct: −0.16%
   dir: down
   spark:
   - 76570.352
@@ -33,7 +33,7 @@ tickers:
   - 75577.578
   - 74764.227
   - 74902.594
-  - 74516.242
+  - 74781.758
 - symbol: USD / INR
   code: FX
   value: '94.49'
