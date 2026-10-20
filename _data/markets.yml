@@ -6,9 +6,9 @@ as_of: 19 Oct 2026
 tickers:
 - symbol: NIFTY 50
   code: ^NSEI
-  value: 22,855.50
-  change: −290.65
-  pct: −1.26%
+  value: 22,888.95
+  change: −257.20
+  pct: −1.11%
   dir: down
   spark:
   - 22231.801
@@ -18,12 +18,12 @@ tickers:
   - 22622.699
   - 22997.35
   - 23146.15
-  - 22855.5
+  - 22888.949
 - symbol: SENSEX
   code: BSE
-  value: 73,753.75
-  change: −975.52
-  pct: −1.31%
+  value: 73,852.90
+  change: −876.38
+  pct: −1.17%
   dir: down
   spark:
   - 71593.242
@@ -33,22 +33,22 @@ tickers:
   - 72781.891
   - 74315.609
   - 74729.273
-  - 73753.75
+  - 73852.898
 - symbol: USD / INR
   code: FX
-  value: '96.73'
-  change: −0.05
-  pct: −0.05%
+  value: '94.96'
+  change: −0.10
+  pct: −0.11%
   dir: down
   spark:
-  - 95.83
-  - 96.32
-  - 96.31
-  - 96.29
   - 96.42
   - 96.76
   - 96.78
   - 96.73
+  - 95.28
+  - 95.15
+  - 95.06
+  - 94.96
 - symbol: 10Y G-Sec
   code: IN10Y
   value: 6.72%
