@@ -36,19 +36,19 @@ tickers:
   - 81106.648
 - symbol: USD / INR
   code: FX
-  value: '94.94'
-  change: −0.32
-  pct: −0.34%
+  value: '93.91'
+  change: −0.57
+  pct: −0.60%
   dir: down
   spark:
-  - 94.46
-  - 94.82
-  - 94.94
-  - 95.19
-  - 95.12
   - 95.22
   - 95.26
   - 94.94
+  - 94.9
+  - 94.74
+  - 94.64
+  - 94.48
+  - 93.91
 - symbol: 10Y G-Sec
   code: IN10Y
   value: 6.72%
